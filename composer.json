@@ -1,0 +1,17 @@
+{
+    "name": "nexxu/sencia",
+    "autoload": {
+        "psr-4": {
+            "Nexxu\\Sencia\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Juan Pablo",
+            "email": "nexxu.mx@gmail.com"
+        }
+    ],
+    "require": {
+        "mercadopago/dx-php": "^3.3"
+    }
+}

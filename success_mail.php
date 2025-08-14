@@ -1,0 +1,57 @@
+<?php
+$subject = "$mail_asunto SenciaStudio";
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+$headers .= 'From: notificaciones@sencia.mx' . "\r\n";
+
+$message = '
+<html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f6f6f6; }
+            .email-container { width: 100%; padding: 20px; background-color: #fff; margin: 20px auto; border-radius: 8px; max-width: 600px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+            .header { background-color: #986C5D; color: white; padding: 10px; text-align: center; }
+            .content { padding: 20px; }
+            h2 { color: #333; }
+            .payment-details { margin-bottom: 20px; }
+            .payment-details th, .payment-details td { text-align: left; padding: 8px; }
+            .payment-details th { background-color: #f2f2f2; }
+            .total { font-size: 18px; font-weight: bold; color: #986C5D; }
+            .footer { text-align: center; font-size: 12px; color: #777; padding: 10px; margin-top: 20px; border-top: 1px solid #ddd; }
+        </style>
+    </head>
+    <body>
+        <div class="email-container">
+            <div class="header">
+                <img src="" alt="">
+            </div>
+            <div class="header">
+                <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                    <img src="" style="width: 60%;" alt="Sencia Studio">
+                </div>
+                <h1>' . $mail_motivo . '</h1>
+            </div>
+            <div class="content" style="text-align: center;">
+                <h2>' . $mail_motivo2 . '</h2>
+                <p>' . $mail_descripcion . '</p>
+                <table class="payment-details" width="100%" border="0" cellspacing="0" cellpadding="0">
+                    ' . $mail_tabla . '
+                </table>
+                
+                
+            </div>
+            
+            <div class="footer">
+                <p>Este correo electrónico fue enviado mediante un servidor automático, favor de no responder. <br> Si usted no reconoce esta operación, haga caso omiso del anterior correo y repórtelo a: <a href="mailto:soporte@nexxu.mx">soporte@nexxu.mx</a></p>
+                <p>© 2025 Template Powered by <a href="https://www.nexxu.mx">nexxu.mx</a>.</p>
+            </div>
+        </div>
+    </body>
+</html>
+';
+
+if (mail($mail_mailing, $subject, $message, $headers)) {
+   $celjk = "ok";
+}
+
+?>
