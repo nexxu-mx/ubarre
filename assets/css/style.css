@@ -501,6 +501,14 @@ body.nav-active {
   transition: 0.5s var(--cubic-out);
 }
 
+
+.adorno-navbar {
+  background-color: #9fa888;
+  width: 100vw;
+  height: 40px;
+  margin-inline: 0px;
+}
+
 .navbar-top {
   position: relative;
   padding-inline: 25px;
@@ -866,7 +874,6 @@ span {
 
 
 .slide p {
-  position: absolute;
   top: 65%;
   left: 10%;
   color: #fff;

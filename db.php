@@ -1,5 +1,5 @@
 <?php
-$devON = false;
+$devON = true;
 if($devON == false){
     $servername = "127.0.0.1";
     $username = "u379047759_sencia";

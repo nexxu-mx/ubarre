@@ -1,5 +1,6 @@
 
 <div class="header-mobile" id="header-mobile">
+<div class="adorno-navbar"></div>
 <a href="index.php" class="hmobile"><ion-icon name="home" aria-hidden="true"></ion-icon></a>
 <a href="reserva.php" class="hmobile"><ion-icon name="calendar-number-outline" aria-hidden="true"></ion-icon></a>
 <a href="login.php" class="hmobile">

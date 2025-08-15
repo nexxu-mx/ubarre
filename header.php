@@ -1,5 +1,6 @@
 
 <header class="header header-desktop" data-header>
+  <div class="adorno-navbar"></div>
 <div class="container">
 
   <a href="index.php" class="logo">

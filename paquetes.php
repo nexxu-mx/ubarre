@@ -15,6 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
   <?php include 'head.php'; ?>
   <style>
     .card {

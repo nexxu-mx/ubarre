@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sencia Studio</title>
+  <title>Ubarre</title>
   <meta name="title" content="Sencia Studio">
   <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
   <link rel="shortcut icon" href="./favicon.png" type="image/svg+xml">
@@ -15,6 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
+  <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
   <?php include 'head.php'; ?>
   <style>
     
@@ -58,26 +59,71 @@
                 alt="Sencia Logo">
             </div>
             <h1>
-              MOVE YOUR BODY,
-              <span class="hero-banner-text-alt">Change your mind</span>
+              The new era 
+              of movement
             </h1>
             <a href="reserva.php" class="reservar-btn-banner">RESERVAR</a>
           </div>
         </div>
       </section>
 
+      <section class="fondo-fundadoras">
+          <div class="fundadoras-section container">
+            <div class="elementos-izquierda-fundadoras">
+              <div class="elemento-top-fundadoras">
+                <button>
+                    <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
+                </button>
+              </div>
+              <div class="elemento-bottom-fundadoras">
+                <h4>Fundadoras</h4>
+              </div>
+            </div>
+            <div class="elemento-central-fundadoras">
+                <div class="button-fundadoras">
+                  <button>
+                    <ion-icon name="menu-outline" style="color: #fdfdfdff;"></ion-icon>
+                  </button>
+                </div>
+                <div class="fundadoras-nombre">
+                  <p>Nuestra misión 
+                    <br>y visión</p>
+                  <img src="./assets/images/svg/logo-blanco.svg" alt="">
+                </div>
+            </div>
+            <div class="elementos-derecha-fundadoras">
+              <div class="elemento-top-fundadoras fila-izquierda">
+                <img src="./assets/images/svg/bolsa.svg" alt="">
+              </div>
+              <div class="elemento-bottom-fundadoras">
+                <p>REVIVING THE 
+                  <br>MINDFUL MOVEMENT</p>
+              </div>
+            </div>
+          </div>
+      </section>
+
         <section class="descripcion-section">
-          <video id="video-index-texto" src="./assets/images/sencia_gradient.mp4" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
+          <video id="video-index-texto" src="" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
           <div class="container section">
-            <img src="assets/images/svg/logo-blanco.svg" alt="logo sencia">
+            <img src="assets/images/svg/logo-negro-sin-tagline.svg" alt="logo sencia">
             <p>
-            SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral. Su nombre proviene de la palabra “sentir”, representando la experiencia auténtica y consciente que cada persona vivirá en el estudio, donde se fomenta la fuerza, la flexibilidad y la armonía. SENCIA es un refugio donde cada persona puede alcanzar su mejor versión, orientada por el amor, la dedicación y la conexión.
-          </p>
-          <p>BARRE | YOGA | SCULPT | BALLET | PILATES</p>
+              Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que 
+              escucha, sostiene y acompaña.
+            </p>
+            <p>
+              Buscamos tu bienestar real: físico, mental y emocional. Porque no se trata solo de moverse, sino de como te 
+              sientes al hacerlo. Muevete con intención. Conectate con el corazón.
+            </p>
+          <div class="wellness-texto">
+            <p>Wellness made for</p>
+            <img src="./assets/images/svg/down.svg" alt="">
+          </div>
+          <a href="">Conocer más</a>
         </div>
       </section>
 
-      <section class="desciplinas-section">
+      <!--<section class="desciplinas-section">
         <div class="nombres-disciplinas">
           <div class="nombres-disciplinas-container">
             <h2>NUESTRAS DISCIPLINAS</h2>
@@ -108,10 +154,9 @@
           </div>
         </div>
       </section>
-
-      <section class="section coaches-section">
-        <div class="container">
-          <h2>CONOCE A NUESTRAS <span>Coaches</span></h2>
+    -->
+      <section class="coaches-section">
+        <div class="">
           <div class="slider-container-global">
             <p class="flecha-slider fi" id="prev">
               <</p>
@@ -120,61 +165,115 @@
               <div class="slider" id="slider">
               <div class="slide" data-disciplina="PILATES">
                   <div class="sli1"> <img src="assets/images/coaches/pro/6.png" alt="imagen slider"></div>
-                  <a href="coaches.php#connie"><p>CONNIE</p></a>
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>CONNIE</p>
+                      <a href="coaches.php#connie">Conocer</a>
+                    </div>
+                 </div>
                   
                 </div>
                
                 <div class="slide" data-disciplina="SCULPT">
                   <div class="sli1"><img src="assets/images/coaches/pro/1.png" alt="imagen slider"></div>
-                  <a href="coaches.php#dulce"><p>DULCE</p></a>
-                
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>DULCE</p>
+                      <a href="coaches.php#dulce">Conocer</a>
+                    </div>
+                 </div>
+
                 </div>
                 <div class="slide" data-disciplina="BARRE">
                  <div class="sli1" >
                   <img src="assets/images/coaches/pro/2.png" alt="imagen slider">
                  </div>
-                  <a href="coaches.php#katia"><p>KATYA</p></a>
-                  
+                 <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>KATIA</p>
+                      <a href="coaches.php#katia">Conocer</a>
+                    </div>
+                 </div>
+
                 </div>
                 <div class="slide" data-disciplina="YOGA">
                   <div class="sli1"><img src="assets/images/coaches/pro/4.png" alt="imagen slider"></div>
-                  <a href="coaches.php#regina"><p>REGINA</p></a>
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>REGINA</p>
+                      <a href="coaches.php#regina">Conocer</a>
+                    </div>
+                  </div>
                   
                 </div>
                 <div class="slide" data-disciplina="YOGA">
                   <div class="sli1"><img src="assets/images/coaches/pro/10.png" alt="imagen slider"></div>
-                  <a href="coaches.php#maria"><p>MARÍA</p></a>
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>MARIA</p>
+                      <a href="coaches.php#maria">Conocer</a>
+                    </div>
+                 </div>
                
                 </div>
                 <div class="slide" data-disciplina="BARRE">
                   <div class="sli1"><img src="assets/images/coaches/pro/5.png" alt="imagen slider"></div>
-                  <a href="coaches.php#danyfer"><p>DANYFER</p></a>
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>DANYFER</p>
+                      <a href="coaches.php#danyfer">Conocer</a>
+                    </div>
+                 </div>
                
                 </div>
                 <div class="slide" data-disciplina="SCULPT">
                   <div class="sli1"><img src="assets/images/coaches/pro/8.png" alt="imagen slider"></div>
-                  <a href="coaches.php#beto"><p>BETO</p></a>
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>BETO</p>
+                      <a href="coaches.php#beto">Conocer</a>
+                    </div>
+                 </div>
                  
                 </div>
                 <div class="slide" data-disciplina="BARRE">
                   <div class="sli1"><img src="assets/images/coaches/pro/9.png" alt="imagen slider"></div>
-                  <a href="coaches.php#karina"><p>KARINA</p></a>
-                  
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>KARINA</p>
+                      <a href="coaches.php#karina">Conocer</a>
+                    </div>
+                 </div>
+
                 </div>
                 <div class="slide" data-disciplina="BARRE">
                   <div class="sli1"><img src="assets/images/coaches/pro/3.png" alt="imagen slider"></div>
-                  <a href="coaches.php#gali"><p>GALI</p></a>
-               
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>GALI</p>
+                      <a href="coaches.php#gali">Conocer</a>
+                    </div>
+                 </div>
+
                 </div>
                 <div class="slide" data-disciplina="BALLET">
                   <div class="sli1"><img src="assets/images/coaches/pro/13.png" alt="imagen slider"></div>
-                  <a href="coaches.php#reginas"><p>REGINA</p></a>
-                  <p></p>
+                  <div class="contenido-slider">
+                    <div class="texto-slider">
+                      <p>REGINA</p>
+                      <a href="coaches.php#regina">Conocer</a>
+                    </div>
+                 </div>
                 </div>
               </div>
             </div>
 
             <p class="flecha-slider fd" id="next">></p>
+
+            <div class="texto-slider-final">
+              <p>Nuestras Coaches</p>
+              <a href="">RESERVA CON ELLAS</a>
+            </div>
           </div>
          <a href="disciplinas.php"> <p class="coaches-slider-discipline">SENCIA</p></a> 
         </div>
@@ -182,7 +281,7 @@
 
       <section class="section membresias-section">
         <div class="container">
-          <h2>CONOCE A NUESTRAS <span>Membresías</span></h2>
+          <h2>Conoce nuestras membresías</h2>
           <div class="cards-container">
             <div class="card">
               <p class="tipo-card">FLOW</p>
@@ -214,94 +313,117 @@
       </section>
 
       <section class="section preguntas-section">
-        <div class="container">
-          <h2>PREGUNTAS FRECUENTES</h2>
+        <div class="fundadoras-section container">
+            <div class="elementos-izquierda-fundadoras">
+              <div class="elemento-top-fundadoras">
+                <button>
+                    <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
+                </button>
+              </div>
+              <div class="elemento-bottom-fundadoras">
+                <h4>Preguntas</h4>
+              </div>
+            </div>
+            <div class="elemento-central-preguntas">
+                <h2>PREGUNTAS FRECUENTES</h2>
 
-          <div class="preguntas-container">
-            <button class="accordion">
-              <p>¿Puedo hacer ejercicio si tengo alguna lesión?</p>
-            </button>
-            <div class="panel">
-              <p>Sí. Es importante que nos informes con anticipación. Nuestras instructoras están capacitadas para adaptar los ejercicios según tus necesidades. Siempre consulta previamente con tu médico antes de iniciar cualquier actividad física.</p>
-            </div>
+                <div class="preguntas-container">
+                  <button class="accordion">
+                    <p>¿Puedo hacer ejercicio si tengo alguna lesión?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Sí. Es importante que nos informes con anticipación. Nuestras instructoras están capacitadas para adaptar los ejercicios según tus necesidades. Siempre consulta previamente con tu médico antes de iniciar cualquier actividad física.</p>
+                  </div>
 
-            <button class="accordion">
-              <p>¿Puedo practicar estas disciplinas si estoy embarazada o en etapa de posparto?</p>
-            </button>
-            <div class="panel">
-              <p>Sí, ofrecemos clases adaptadas para mujeres embarazadas o en proceso de recuperación postparto, siempre con autorización médica. Es importante contar con autorización médica antes de comenzar.</p>
-            </div>
+                  <button class="accordion">
+                    <p>¿Puedo practicar estas disciplinas si estoy embarazada o en etapa de posparto?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Sí, ofrecemos clases adaptadas para mujeres embarazadas o en proceso de recuperación postparto, siempre con autorización médica. Es importante contar con autorización médica antes de comenzar.</p>
+                  </div>
 
-            
+                  
 
-            <button class="accordion">
-              <p>¿Necesito experiencia previa para empezar?</p>
-            </button>
-            <div class="panel">
-              <p>No. Nuestras clases están diseñadas para todos los niveles. Las instructoras te guiarán y ajustarán los movimientos según tus capacidades. No necesitas experiencia previa para comenzar.</p>
+                  <button class="accordion">
+                    <p>¿Necesito experiencia previa para empezar?</p>
+                  </button>
+                  <div class="panel">
+                    <p>No. Nuestras clases están diseñadas para todos los niveles. Las instructoras te guiarán y ajustarán los movimientos según tus capacidades. No necesitas experiencia previa para comenzar.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Qué debo llevar a clase?</p>
+                  </button>
+                  <div class="panel">
+                    <p> Ropa cómoda que te permita moverte con libertad. Recomendamos el uso de calcetines antideslizantes para mayor seguridad.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Cuántas veces a la semana debería tomar clases?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Para obtener resultados visibles y sentir los beneficios físicos y mentales, recomendamos practicar al menos 2 veces por semana.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Cuánto duran las clases?</p>
+                  </button>
+                  <div class="panel">
+                    <p>La mayoría de nuestras clases tienen una duración de entre 50 y 60 minutos.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Se requiere reservar o puedo llegar directamente?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Es necesario reservar tu lugar con anticipación, ya que los espacios son limitados para garantizar una atención personalizada.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Puedo cancelar o reprogramar una clase?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Sí. Aceptamos cancelaciones con al menos 6 horas de anticipación (ajustable según política). De lo contrario, la clase se considerará como tomada.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Cuál es la edad mínima para asistir a clases?</p>
+                  </button>
+                  <div class="panel">
+                    <p>A partir de los 13 años, con autorización de un adulto o tutor.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Cómo reservo una clase?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Puedes reservar a través de nuestra página web, app, o directamente por WhatsApp o teléfono.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Cuáles son los métodos de pago aceptados?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Aceptamos tarjeta de crédito/débito, pagos en efectivo y transferencias bancarias.</p>
+                  </div>
+                  <button class="accordion">
+                    <p>¿Qué tipo de clases ofrece Sencia?</p>
+                  </button>
+                  <div class="panel">
+                    <p>Todas nuestras clases son de bajo impacto y están diseñadas para fortalecer cuerpo y mente. Ofrecemos: <br>
+                      • Pilates Mat <br>
+                      • Barre <br>
+                      • Sculpt <br>
+                      • Yoga <br>
+                      Puedes consultar la descripción de cada clase para saber cuál se adapta mejor a tus objetivos.
+                    </p>
+                  </div>
+                </div>
             </div>
-            <button class="accordion">
-              <p>¿Qué debo llevar a clase?</p>
-            </button>
-            <div class="panel">
-              <p> Ropa cómoda que te permita moverte con libertad. Recomendamos el uso de calcetines antideslizantes para mayor seguridad.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Cuántas veces a la semana debería tomar clases?</p>
-            </button>
-            <div class="panel">
-              <p>Para obtener resultados visibles y sentir los beneficios físicos y mentales, recomendamos practicar al menos 2 veces por semana.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Cuánto duran las clases?</p>
-            </button>
-            <div class="panel">
-              <p>La mayoría de nuestras clases tienen una duración de entre 50 y 60 minutos.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Se requiere reservar o puedo llegar directamente?</p>
-            </button>
-            <div class="panel">
-              <p>Es necesario reservar tu lugar con anticipación, ya que los espacios son limitados para garantizar una atención personalizada.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Puedo cancelar o reprogramar una clase?</p>
-            </button>
-            <div class="panel">
-              <p>Sí. Aceptamos cancelaciones con al menos 6 horas de anticipación (ajustable según política). De lo contrario, la clase se considerará como tomada.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Cuál es la edad mínima para asistir a clases?</p>
-            </button>
-            <div class="panel">
-              <p>A partir de los 13 años, con autorización de un adulto o tutor.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Cómo reservo una clase?</p>
-            </button>
-            <div class="panel">
-              <p>Puedes reservar a través de nuestra página web, app, o directamente por WhatsApp o teléfono.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Cuáles son los métodos de pago aceptados?</p>
-            </button>
-            <div class="panel">
-              <p>Aceptamos tarjeta de crédito/débito, pagos en efectivo y transferencias bancarias.</p>
-            </div>
-            <button class="accordion">
-              <p>¿Qué tipo de clases ofrece Sencia?</p>
-            </button>
-            <div class="panel">
-              <p>Todas nuestras clases son de bajo impacto y están diseñadas para fortalecer cuerpo y mente. Ofrecemos: <br>
-                • Pilates Mat <br>
-                • Barre <br>
-                • Sculpt <br>
-                • Yoga <br>
-                Puedes consultar la descripción de cada clase para saber cuál se adapta mejor a tus objetivos.
-              </p>
+            <div class="elementos-derecha-fundadoras">
+              <div class="elemento-top-fundadoras fila-izquierda">
+                <img src="./assets/images/svg/bolsa.svg" alt="">
+              </div>
+              <div class="elemento-bottom-fundadoras">
+                <p>REVIVING THE 
+                  <br>MINDFUL MOVEMENT</p>
+              </div>
             </div>
           </div>
-          <a class="ayuda-btn" href="contacto.php">AYUDA</a>
+        <div class="container">
+          
         </div>
       </section>
 
