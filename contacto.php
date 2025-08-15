@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
     <?php include 'head.php'; ?>
 </head>
 
@@ -28,7 +29,7 @@
 
     <main>
         <article>
-            <section class="main-section-contacto" style="background: var(--danyfer-karina-color);">
+            <section class="main-section-contacto">
                 <div class="container">
                     <div class="general-form-container" style="box-shadow: 0 15px 12px 1px #0000004d;">
                         <div class="logo-form-container">

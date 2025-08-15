@@ -417,3 +417,148 @@
     line-height: 1.3;
     font-size: 1.6rem;
 }
+
+.footer {
+    background-color: #9fa888;
+    height: 400px;
+    color: #383737;
+}
+
+#video-footer {
+    display: none;
+}
+
+.terminos-container {
+    color: #383737;
+}
+
+.terminos-container a {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.icons-container img {
+    filter: invert(0);
+}
+
+.encuentra-container {
+    background-color: #f8f8f8;
+    padding-inline: 2%;
+    padding-block: 3%;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.encuentra-container-calendario {
+    margin-block: 40px;
+    background-color: #f8f8f8;
+    padding-inline: 2%;
+    padding-block: 2%;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.slider-calendar-container {
+    margin-top: 0px;
+}
+
+.first-flex {
+    margin-top: 0px;
+}
+
+.second-flex {
+    justify-content: start;
+}
+
+.second-flex p {
+    font-size: 1.2rem;
+}
+
+
+.icono-reserva {
+    width: 25px;
+}
+
+.aforo-icono {
+    width: 15px;
+}
+
+.inputs-reserva-container {
+    justify-content: end;
+    gap: 3rem;
+    margin-top: -20px;
+}
+
+.inputs-reserva-container select {
+    font-size: 10px;
+    text-align: left;
+    height: auto;
+    padding-block: 5px;
+    padding-inline: 5px;
+    width: 105px;
+    background-size: 10px;
+}
+
+.elemento-clase {
+    width: 90%;
+    height: 150px;
+    margin-inline: auto;
+    border-bottom: none;
+    margin-block: 20px;
+    background-color: #e7dfd5;
+    padding-right: 20px;
+    border-radius: 100px;
+    overflow: hidden;
+    padding-block: 0px;
+}
+
+
+.fecha-clase-container {
+    width: 95%;
+    margin-inline: auto;
+}
+
+.img-clase-container {
+    height: 100%;
+    border-radius: 0px;
+}
+
+.map-section-bottom {
+    background-color: #9fa888;
+}
+
+.main-section-contacto {
+    background-image: url(../images/contacto.png);
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+.general-form-container {
+    width: 450px;
+}
+
+.logo-form-container {
+    position: relative;
+    background-color: #9fa888;
+    height: 80px;
+    
+}
+
+.logo-form-container img {
+    width: 150px;
+    position: absolute;
+    top: -40%;
+    margin-inline: auto;
+    left: 0%;
+    right: 0%;
+}
+
+form .submit-btn {
+    background-color: #9fa888;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 70vh;
+  max-height: 600px;
+}
