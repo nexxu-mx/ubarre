@@ -1311,9 +1311,6 @@ span {
   color: #fff;
 }
 
-.membresias-paquetes .card:hover a {
-  outline: 1px solid #fff;
-}
 
 .active-tab {
   color: var(--light-brown);

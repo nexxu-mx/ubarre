@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
     <?php include 'head.php'; ?>
 </head>
 
@@ -26,7 +27,20 @@
 
     <?php include 'header.php'; ?>
 
-    <main>
+    <main style="background-color: #e7dfd5;">
+        <article class="titulo-coaches">
+            <div class="elementos-top-coaches">
+                <div class="elemento-coaches-izquierda">
+                    <img src="./assets/images/svg/down.svg" alt="">
+                </div>
+                <div class="elemento-coaches-derecha">
+                    <img src="./assets/images/svg/bolsa.svg" alt="">
+                </div>
+            </div>
+            <div class="elemento-titulo-coaches">
+                <h3>Nuestras Coaches</h3>
+            </div>
+        </article>
         <article>
 
             <?php 
@@ -74,18 +88,18 @@
 
                 if ($intercalador == 1) { 
                     echo '
-                        <section class="training-for-life-section coach coach1">
+                        <section class="training-for-life-section coach">
                             <div class="image-side">
                                 ' . $imgC . '
                             </div>
-                            <div class="text-side color-coach">
+                            <div class="text-side ">
                                 <div>
-                                    <h3><span>'. $fila['nombre_coach'] .'</span></h3>
+                                    <h3>Coach '. $fila['nombre_coach'] .'</h3>
                                     <p>
                                         '. $fila['descripcion_coach'] .'
                                     </p>
-                                    <a href="reserva.php">Reserva con nuestra coach</a>
-                                    <a href="reserva.php" class="discipline-coach">'. $disciplina .'</a>
+                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/svg/down.svg" alt=""></div>
+                                    <a href="reserva.php">Reserva con '. $fila['nombre_coach'] .'</a>
                                 </div>
                             </div>
                         </section>
@@ -93,15 +107,15 @@
                     $intercalador = 0;
                 } else {
                     echo '
-                        <section class="training-for-life-section coach coach2">
-                            <div class="text-side color-coach">
+                        <section class="training-for-life-section coach">
+                            <div class="text-side ">
                                 <div>
-                                    <h3><span>'. $fila['nombre_coach'] .'</span></h3>
+                                    <h3>Coach '. $fila['nombre_coach'] .'</h3>
                                     <p>
                                         '. $fila['descripcion_coach'] .'
                                     </p>
-                                    <a href="reserva.php">Reserva con nuestra coach</a>
-                                    <a href="reserva.php" class="discipline-coach">'. $disciplina .'</a>
+                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/svg/down.svg" alt=""></div>
+                                    <a href="reserva.php">Reserva con '. $fila['nombre_coach'] .'</a>
                                 </div>
                             </div>
                             <div class="image-side">
@@ -117,6 +131,16 @@
         ?>
 
         </article>
+
+        <div class="aboutus-bottom">
+            <div class="elemento-bottom-fundadoras aboutus-elemento-izquierda">
+                <h4>Coaches</h4>
+            </div>
+            <div class="elemento-bottom-fundadoras elemento-reviving aboutus-elemento-derecha">
+                <p>REVIVING THE 
+                <br>MINDFUL MOVEMENT</p>
+            </div>
+        </div>
     </main>
     <?php include 'footer.php'; ?>
     <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>

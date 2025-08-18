@@ -19,8 +19,9 @@
   <?php include 'head.php'; ?>
   <style>
     .card {
-      height: 400px;
-      padding: 50px 70px;
+      width: 340px;
+      height: 420px;
+      padding: 30px 60px;
       position: relative;
     }
     .dsco{
@@ -49,7 +50,7 @@
     <article>
       <section class="main-section-paquetes section">
         <div class="container">
-          <h1>NUESTROS <span>Paquetes</span></h1>
+          <h1>Conoce nuestras Membresías.</h1>
           <div class="inputs-container">
             <div class="buscar-input-container">
               <input type="text" placeholder="BUSCAR">
@@ -170,7 +171,7 @@
                                 <p class="clases-card">CLASES</p>
                                 ${descuento}
                                 ${precio}
-                                <p style="font-size: 1.5rem;line-height: 1;color: #7a7a7a;">${descripcionPersona(p)}</p>
+                                
                                 <p class="vigencia-card" style="margin-top: 0">Vigencia ${
                                   p.vigencia === 365 
                                     ? 'Anual' 

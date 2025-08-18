@@ -253,10 +253,6 @@
     font-size: 10px;
 }
 
-.membresias-section {
-    background-color: #e7dfd5;
-}
-
 .membresias-section h2 {
     color: #545252;
     font-style: italic;
@@ -272,7 +268,7 @@
 .card {
     justify-content: center;
     align-items: center;
-    width: 350px;
+    width: 380px;
     padding: 40px 75px;
 }
 
@@ -561,4 +557,286 @@ form .submit-btn {
   width: 100%;
   height: 70vh;
   max-height: 600px;
+}
+
+.elementos-top-coaches {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin-inline: auto;
+    padding-top: 20px;
+}
+
+.elemento-titulo-coaches {
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+    color: #383737;
+    margin-bottom: 100px;
+    font-size: 3rem;
+}
+
+.elemento-coaches-derecha {
+    margin-left: auto;
+}
+.elementos-top-coaches img{
+    width: 40px;
+}
+
+.training-for-life-section {
+    margin-block: 50px;
+    width: 90%;
+    max-width: 1200px;
+    margin-inline: auto;
+    border-radius: 50px;
+}
+
+.coach {
+    background-color: #f8f8f8;
+    height: 450px;
+}
+
+.text-side {
+    width: 70%;
+    color: #383737;
+    background-color: #38373700;
+}
+
+.coach .image-side {
+    border-radius: 50px;
+    width: 30%;
+}
+
+.coach .image-side img{
+    object-fit: cover;
+}
+
+.coach .text-side h3{
+    text-align: center;
+    color: #a0a98c;
+    font-size: 6rem;
+    margin-bottom: 30px;
+}
+
+.coach .text-side p {
+    margin-inline: auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.coach .text-side a:first-of-type {
+    margin-inline: auto;
+    text-align: center;
+    color: #111111;
+}
+
+.subtitulo-coach {
+    padding-block: 20px;
+    width: 210px;
+    display: flex;
+    flex-direction: row;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.subtitulo-coach p {
+    font-size: 1.8rem !important;
+    margin-inline: 0px;
+    font-weight: 600;
+    margin-inline: 0px !important;
+    color: #111111;
+}
+
+.subtitulo-coach img{
+    width: 20px;
+}
+
+.inputs-container {
+    display: none;
+}
+
+.membresias-paquetes .cards-container {
+    gap: 80px;
+}
+
+.membresias-paquetes .card:hover {
+    background-color: #b3b3b3;
+}
+
+.membresias-paquetes .card:hover a {
+    border: 0px;
+}
+
+.membresias-paquetes .card a:hover {
+    background-color: #38373700;
+}
+
+.tipo-card {
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section-paquetes h1 {
+    color: #545252;
+}
+
+.elemento-top-beneficios img {
+    width: 30px;
+}
+
+.beneficios-section-texto {
+    padding-block: 30px;
+    background-color: #ebe9e6;
+}
+
+.texto-central-beneficios {
+    width: 90%;
+    margin-inline: auto;
+    text-align: center;
+    padding-block: 30px;
+}
+
+.texto-central-beneficios h3 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.texto-central-beneficios p {
+    width: 550px;
+    margin-inline: auto;
+    line-height: 1.4;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-block: 20px 50px;
+
+}
+
+
+.wellness-beneficios img{
+    margin-right: 40px;
+}
+
+.wellness-beneficios p{
+    font-size: 1.6rem;
+    width: 150px;
+    margin-block: 0px;
+    font-weight: 600;
+}
+
+.elemento-bottom-beneficios {
+    width: 95%;
+    margin-inline: auto;
+    text-align: right;
+}
+
+.elemento-top-beneficios {
+    width: 95%;
+    margin-inline: auto;
+}
+
+.elemento-bottom-beneficios p {
+    line-height: 1.2;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.beneficios-barre {
+    background-image: url(../images/aboutus.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+.beneficios-barre img {
+    width: 200px;
+    margin-inline: auto;
+    margin-bottom: 50px;
+}
+
+.beneficios-del-barre{
+    width: 80%;
+    margin-inline: auto;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    color: #f8f8f8;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo-beneficios {
+    align-items: center;
+    width: 55%;
+    text-align: center;
+}
+
+.titulo-beneficios h3 {
+    margin-inline: auto;
+    margin-bottom: 125px;
+    font-size: 5rem;
+    width: 200px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.listado-beneficios {
+    width: 40%;
+    display: flex;
+}
+
+.linea-beneficios {
+    margin-top: 20px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: space-between; 
+    margin-right: 20px;
+    position: relative;
+}
+
+.linea-beneficios::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #f8f8f8;
+}
+
+
+.linea-beneficios .punto {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #f8f8f8;
+  z-index: 1; 
+}
+
+.beneficio-container {
+    border: 1px solid #f8f8f8;
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+    text-align: center;
+}
+
+.beneficio-container h4{
+    font-size: 2.3rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.texto-beneficios p {
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 200px;
+    line-height: 1.2;
+}
+
+.texto-beneficios {
+    margin-bottom: 100px;
 }
