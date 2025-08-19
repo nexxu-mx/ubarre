@@ -23,6 +23,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
     <?php include 'head.php'; ?>
     <style>
         .btn-code {
@@ -45,22 +46,27 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <main>
         <article>
             <section class="login-main-section">
-                <div class="container" id="loginForm" >
+                <div class="container container-login-shadow" id="loginForm" >
+                    
                     <form action="loger.php" method="post" class="login-form" style="padding-top: 20px">
+                        <div class="logo-form-container form-login-logo">
+                            <img src="assets/images/svg/logo-blanco-con-tagline.svg" alt="Logo Sencia">
+                        </div>
                         <h2>INICIA SESIÓN</h2>
                         <p class="registro-mensaje">¿Es tu primera vez? <span><button type="button" onclick="openRegistro()">Regístrate</button></span></p>
-        
-                        <label for="number">Número*</label>
-                        <input type="text" name="number" id="number" placeholder="477 123 4567" maxlength="10" minlength="9" required>
-                        <label for="contras" id="labelNum" style="display: none">Contraseña</label>
-                        <div style="display: none" id="contentNum">
-                            <input type="password" name="contras" id="contras" placeholder="********" maxlength="30" minlength="5" required>
-                            
+                        <div class="container-login-form">
+                            <label for="text">Email*</label>
+                            <input type="text" name="text" id="text" placeholder="Email Address" maxlength="10" minlength="9" required>
+                            <br>
+                            <label for="contras" id="labelNum">Contraseña</label>
+                            <div id="contentNum">
+                                <input type="password" name="contras" id="contras" placeholder="********" maxlength="30" minlength="5" required>
+                            </div>
+            
+                            <button type="button" class="olv-contra" onclick="openCo()">¿Olvidaste la contraseña?</button>
+            
+                            <input class="login-submit-btn" type="submit" id="log" value="INICIAR SESIÓN">
                         </div>
-        
-                        <button type="button" class="olv-contra" onclick="openCo()">Olvide mi contraseña.</button>
-        
-                        <input class="login-submit-btn" type="submit" id="log" value="INICIAR SESIÓN">
                     </form> 
                 </div>
                 <div class="container" id="registro" style="margin-block: 20px; display: none">

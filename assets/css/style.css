@@ -3024,16 +3024,13 @@ form textarea {
   }
 
   .modal-detalles-coach {
-    width: 100%;
-    height: 80vh;
-    margin-block: auto;
+   width: 300px;              
     background-color: #fff;
-    position: fixed;
-    left: 0;
-    border-radius: 20px 20px 0 0;
-    display: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: absolute;       
+    display: none;  
     z-index: 999;
-    bottom: -100%;
   }
 
   .modal-detalles-disciplina {

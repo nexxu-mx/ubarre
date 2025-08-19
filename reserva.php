@@ -37,14 +37,14 @@
             <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
             -->
                 <div class="aboutus-top">
-                        <div class="aboutus-elemento-izquierda">
-                            <button>
-                                <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
-                            </button>
-                        </div>
-                        <div class="aboutus-elemento-derecha">
-                            <img src="./assets/images/svg/bolsa.svg" alt="">
-                        </div>
+                    <div class="aboutus-elemento-izquierda">
+                        <button>
+                            <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
+                        </button>
+                    </div>
+                    <div class="aboutus-elemento-derecha">
+                        <img src="./assets/images/svg/bolsa.svg" alt="">
+                    </div>
                 </div>
 
                     <h1 style="color: var(--light-brown); margin-top: 60px">Reserva tu clase</h1>
@@ -233,14 +233,13 @@
     </main>
 
     <section class="modal-detalles-coach">
-        <div class="header-details-container">
-            <h2>About</h2>
-            <p class="close-coach-modal-btn">X</p>
-        </div>
         <div class="contenido-modal-coach-container">
             <img class="foto-coach-details-modal" src="" id="coach-info-img" alt="Foto Coach">
-            <h3 class="nombre-coach-details-modal" id="coach-info-nombre"></h3>
-            <p class="texto-coach-details-modal" id="coach-info-descripcion"></p>
+            <div class="contenido-texto-modal">
+                <h3 class="nombre-coach-details-modal" id="coach-info-nombre"></h3>
+                <p class="texto-coach-details-modal" id="coach-info-descripcion"></p>
+                <a href="#">Reserva con nuestra coach</a>
+            </div>
         </div>
     </section>
 

@@ -840,3 +840,176 @@ form .submit-btn {
 .texto-beneficios {
     margin-bottom: 100px;
 }
+
+.nombre-coach {
+    margin-block: auto;
+}
+
+.nombre-coach>p {
+    color: #9fa888;
+}
+
+.detalles-clase-container>p {
+    color: #383737;
+}
+
+.nombrecoach-horarioclase {
+    justify-content: center;
+    margin-left: 20px;
+    gap: 80px;
+}
+
+.btn-reservar-clase-container a {
+    background-color: #38373700;
+    border: 1px solid #383737;
+    color: #545252;
+    font-size: 1.8rem;
+    padding: 0px 20px;
+    margin-right: 50px;
+}
+
+.btn-reservar-clase-container a:hover {
+    background-color: #38373700;
+}
+
+.iconos-container {
+    align-items: normal;
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    gap: 5px;
+}
+
+.iconos-container img{
+    width: 30px;
+}
+
+.status-clase-icono {
+    display: flex;
+    flex-direction: row;
+}
+
+.status-clase-icono p {
+    margin-left: 5px;
+    font-size: 1rem;
+    margin-block: auto;
+}
+
+.aforo-container img{
+    width: 20px;
+    margin-left: 5px;
+}
+
+.contenido-modal-coach-container {
+    padding: 0px;
+    overflow: hidden;
+}
+
+.foto-coach-details-modal {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.contenido-texto-modal {
+    width: 80%;
+    margin-inline: auto;
+    margin-block: 20px 50px;
+}
+
+.nombre-coach-details-modal {
+    color: #a0a98c;
+    font-size: 5rem;
+}
+
+.contenido-texto-modal a{
+    margin-top: 20px;
+    text-align: center;
+    margin-inline: auto;
+    color: #b3b3b3;
+    text-decoration: underline;
+}
+
+.modal-detalles-coach {
+  width: 400px;
+  height: 500px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 999;
+}
+
+.modal-detalles-coach.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.boton-reserva p{
+    width: 130px;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #38373700;
+    border: 1px solid #383737;
+    color: #545252;
+    font-size: 1.8rem;
+    padding: 0px 20px;
+    margin-right: 50px;   
+    text-align: center;
+}
+
+.login-form {
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 0px;
+}
+
+.form-login-logo {
+    margin-top: -20px;
+}
+
+.container-login-form {
+    width: 90%;
+    margin-inline: auto;
+}
+
+.container-login-form a {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.login-form label {
+    margin-left: 0px;
+    width: 90%;
+    display: block;
+    margin-bottom: 0px;
+}
+
+.olv-contra {
+    margin-inline: auto;
+    text-decoration: none;
+}
+
+.login-form>h2 {
+    color: #9fa888;
+}
+
+.login-submit-btn {
+    background-color: #9fa888;
+}
+
+.login-submit-btn:hover {
+    background-color: #9fa888;
+}
+
+.registro-mensaje>span {
+    text-decoration: none;
+}
+
+.registro-mensaje {
+    color: #b3b3b3;
+}

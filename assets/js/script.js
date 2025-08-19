@@ -233,7 +233,7 @@ function cargarClases(day) {
 
       data.forEach(clase => {
         const btn = document.createElement('div');
-        var reservable = '<a class="btn-rcoloresCoaches[index]eservar" style="background: #b5b5b5;">RESERVAR</a>';;
+        var reservable = '<a class="btn-rcoloresCoaches[index]eservar" style="color: #747373;">RESERVAR</a>';;
         if (clase.abierta == "1") {
           reservable = `<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`;
         }
@@ -248,22 +248,14 @@ function cargarClases(day) {
                               <div class="nombre-coach">
                                   <p>${clase.nombre_coach}</p>
                                   <div class="detalles-clase-container">
-                                      <p class="detalles-coach" onclick="mostrarModal(detallesCoachModal, ${clase.id_coach}, 1)">Detalles</p>
+                                      <p class="detalles-coach" onclick="mostrarModal(detallesCoachModal, ${clase.id_coach}, 1, event)">Detalles</p>
                                       <img src="assets/images/svg/flecha-abajo.svg" alt="Flecha abajo Ícono">
                                   </div>
                               </div>
                               <div class="horario-clase">
+                                  <h3>POWER ${clase.disciplina}</h3>
                                   <h3>${clase.horario}</h3>
                                   <h4>${clase.duracion}</h4>
-                                  <div class="iconos-container">
-                                      <div class="aforo-container">
-                                          <img src="assets/images/svg/people-sharp.svg" alt="Aforo Ícono">
-                                          <p>${clase.aforo}</p>
-                                      </div>
-                                      <div class="status-clase-icono">
-                                          ${clase.estatus}
-                                      </div>
-                                  </div>
                               </div>
                           </div>
 
@@ -271,11 +263,14 @@ function cargarClases(day) {
                       <div class="second-flex-clase">
 
                           <div class="disciplina-clase-container">
-                              <p>Disciplina:</p>
-                              <h3>${clase.disciplina}</h3>
-                              <div class="detalles-clase-disciplina-container">
-                                  <p class="detalles-disciplina" onclick="mostrarModal(detallesDisciplinaModal, ${clase.id_disciplina}, 2)">Detalles</p>
-                                  <img src="assets/images/svg/flecha-abajo.svg" alt="Flecha abajo Ícono">
+                              <div class="iconos-container">
+                                <div class="aforo-container">
+                                  <img src="assets/images/svg/people-sharp.svg" alt="Aforo Ícono">
+                                  <p>${clase.aforo}</p>
+                                </div>
+                                <div class="status-clase-icono">
+                                  ${clase.estatus}
+                                </div>
                               </div>
                           </div>
                           <div class="btn-reservar-clase-container">
@@ -549,7 +544,9 @@ if (closeDisciplinaModalBtn != 0) {
   });
 }
 
-function mostrarModal(modal, id, tipo) {
+const modalCoach = document.querySelector(".modal-detalles-coach");
+
+function mostrarModal(modal, id, tipo, event) {
   if (tipo == 1) {
     fetch("info_detalles_coach.php", {
       method: "POST",
@@ -564,9 +561,7 @@ function mostrarModal(modal, id, tipo) {
         document.getElementById("coach-info-nombre").innerHTML = data.nombre;
         document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
       })
-      .catch(error => {
-        console.error("Error:", error);
-      });
+      .catch(error => console.error("Error:", error));
   } else {
     fetch("info_detalles_disciplina.php", {
       method: "POST",
@@ -580,51 +575,43 @@ function mostrarModal(modal, id, tipo) {
         document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
         document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
       })
-      .catch(error => {
-        console.error("Error:", error);
-      });
+      .catch(error => console.error("Error:", error));
   }
 
-  if (window.screen.width >= 768) {
-    setTimeout(function () {
-      modal.style.display = "block"
-    }, 50);
-    modal.style.transition = "all 300ms ease-in";
-    bgModals.style.display = "block";
-    bgModals.style.transition = "all 500ms ease-in";
-  }
-  if ((screen.width >= 300 && screen.width <= 399) || (screen.width >= 400 && screen.width <= 767)) {
+  const boton = event.currentTarget;
+  const rect = boton.getBoundingClientRect();
 
-    setTimeout(function () {
-      modal.style.bottom = "0%";
-    }, 50);
-    modal.style.display = "block"
-    modal.style.transition = "all 300ms ease-in";
-    bgModals.style.display = "block";
-    bgModals.style.transition = "all 500ms ease-in";
-  }
+  modal.style.position = "absolute";
+  modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
+  modal.style.left = `${rect.left + window.scrollX}px`;
+
+  modal.style.display = "block";
+  modal.classList.add("show");
 }
 
 
-const ocultarModal = (modal, tipo) => {
-  if (screen.width >= 768) {
-    modal.style.display = "none";
-    modal.style.transition = "all 300ms ease-in";
-    bgModals.style.display = "none";
-  } else {
-    modal.style.bottom = "-100%";
-    modal.style.transition = "all 300ms ease-in";
-    bgModals.style.display = "none";
-  }
+function ocultarModal(modal, tipo) {
+  modal.classList.remove("show");
+  setTimeout(() => modal.style.display = "none", 200);
+
   if (tipo == 1) {
-    document.getElementById("coach-info-img").src = "assets/images/coaches/pro/";
-    document.getElementById("coach-info-nombre").innerHTML = " ";
-    document.getElementById("coach-info-descripcion").innerHTML = " ";
+    document.getElementById("coach-info-img").src = "";
+    document.getElementById("coach-info-nombre").innerHTML = "";
+    document.getElementById("coach-info-descripcion").innerHTML = "";
   } else {
-    document.getElementById("disciplina-info-nombre").innerHTML = " ";
-    document.getElementById("disciplina-info-descripcion").innerHTML = " ";
+    document.getElementById("disciplina-info-nombre").innerHTML = "";
+    document.getElementById("disciplina-info-descripcion").innerHTML = "";
   }
 }
+
+document.addEventListener("click", (e) => {
+  if (modalCoach.style.display === "block") {
+    const isClickInside = modalCoach.contains(e.target) || e.target.classList.contains("detalles-coach");
+    if (!isClickInside) {
+      ocultarModal(modalCoach, 1);
+    }
+  }
+});
 
 
 /**
