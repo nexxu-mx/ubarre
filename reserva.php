@@ -31,12 +31,12 @@
 
     <main>
         <article>
-            <section class="reserva-main-section" id="reserv" style="background: var(--danyfer-karina-color);">
+            <section class="reserva-main-section">
           
                 <div class="container">
             <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
             -->
-                <div class="aboutus-top">
+                <div class="aboutus-top" id="reserv">
                     <div class="aboutus-elemento-izquierda">
                         <button>
                             <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
@@ -47,19 +47,19 @@
                     </div>
                 </div>
 
-                    <h1 style="color: var(--light-brown); margin-top: 60px">Reserva tu clase</h1>
+                    <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
                     
-                    <div class="confirmation-section"  id="confirm-class">
+                    <div class="confirmation-section"  id="confirm-class" >
                         <h2>Confirmación de Reserva</h2>
-                        <div class="fecha-clase-container elemento-clase">
+                        <div class="fecha-clase-container">
                             <p><span id="texto-dia-din-conf" class="texto-fecha-din">Hoy</span>, <span id="mes-din-conf" class="texto-fecha-din">Marzo</span> <span id="numero-dia-din-conf" class="texto-fecha-din">27</span></p>
                         </div>
-                        <div class="clase-container elemento-clase">
+                        <div class="clase-container elemento-clase-confirmacion">
                             <div class="first-flex-clase">
                                 <div class="img-clase-container">
                                     <img src="assets/images/coaches/unknnow.png" alt="Foto Coach" id="confirm-coach-img">
                                 </div>
-                                <div class="nombrecoach-horarioclase">
+                                <div class="nombrecoach-horarioclase version-confirmacion">
                                     <div class="nombre-coach">
                                         <p id="confirm-coach"></p>
                                     </div>
@@ -67,10 +67,16 @@
                                         <h3 id="confirm-horario"></h3>
                                         <h4 id="confirm-duracion"></h4>
                                     </div>
+                                    <div class="nombre-bebida">
+                                        <p>Bebida:</p>
+                                        <h3 id="confirm-bebida"></h3>
+                                        <h4 id="confirm-momento"></h4>
+                                    </div>
                                     <div class="disciplina-clase-container">
                                         <p>Disciplina:</p>
                                         <h3 id="confirm-disciplina"></h3>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -82,7 +88,7 @@
                     </div>
                     
                     <!-- Inicio Cards -->
-                    <div>
+                    <div class="contenido-selección-clase">
                         <div class="encuentra-container">
                             <p class="my-account-link"><a href="login.php" id="my-account">MY ACCOUNT</a></p>
                             <div class="first-flex">
@@ -243,6 +249,97 @@
         </div>
     </section>
 
+    <div class="modal-detalles-bebida">
+        <div class="modal-content">
+            <div class="container-slider-bebidas">
+                <div class="flecha-slider-izquierda">
+                    <button>
+                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                    </button>
+                </div>
+                <div class="flecha-slider-derecha">
+                    <button>
+                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                    </button>
+                </div>
+                <div class="slides-wrapper">
+                    <div class="slide-bebida" data-bebida="Proteina Cacao">
+                        <div>
+                            <img src="./assets/images/aboutus.png" alt="">
+                        </div>
+                        <div>
+                            <h3>Agregar Smoothie</h3>
+                            <p>Proteina Cacao</p>
+                            <div class="dropdown">
+                                <div class="dropdown-toggle">Al final de la clase</div>
+                                <ul class="dropdown-menu menu-bebidas">
+                                    <li>Al final de la clase</li>
+                                    <li>Al inicio de la clase</li>
+                                    <li>Sin smoothie</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="botones-bebida">
+                            <button class="close-bebida-modal-btn">CANCELAR</button>
+                            <div class="btn-confirmar-bebida">
+                                <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-bebida" data-bebida="Proteina Vainilla">
+                        <div>
+                            <img src="./assets/images/aboutus.png" alt="">
+                        </div>
+                        <div>
+                            <h3>Agregar Smoothie</h3>
+                            <p>Proteina Vainilla</p>
+                            <div class="dropdown">
+                                <div class="dropdown-toggle">Al final de la clase</div>
+                                <ul class="dropdown-menu menu-bebidas">
+                                    <li>Al final de la clase</li>
+                                    <li>Al inicio de la clase</li>
+                                    <li>Sin smoothie</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="botones-bebida">
+                            <button class="close-bebida-modal-btn">CANCELAR</button>
+                            <div class="btn-confirmar-bebida">
+                                <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide-bebida" data-bebida="Proteina Fresa">
+                        <div>
+                            <img src="./assets/images/aboutus.png" alt="">
+                        </div>
+                        <div>
+                            <h3>Agregar Smoothie</h3>
+                            <p>Proteina Fresa</p>
+                            <div class="dropdown">
+                                <div class="dropdown-toggle">Al final de la clase</div>
+                                <ul class="dropdown-menu menu-bebidas">
+                                    <li>Al final de la clase</li>
+                                    <li>Al inicio de la clase</li>
+                                    <li>Sin smoothie</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="botones-bebida">
+                            <button class="close-bebida-modal-btn">CANCELAR</button>
+                            <div class="btn-confirmar-bebida">
+                                <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     <section class="modal-detalles-disciplina">
         <div class="header-details-container">
             <h2>About</h2>
@@ -315,6 +412,8 @@
         </div>
     </dialog>
 
+
+
     <?php include 'footer.php'; ?>
     <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
         <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
@@ -323,6 +422,89 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <?php include 'script.php'; ?>
+
+    <script>
+        document.querySelectorAll('.modal-detalles-bebida .dropdown').forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            const menu = dropdown.querySelector('.dropdown-menu');
+
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('open');
+            });
+
+            menu.querySelectorAll('li').forEach(item => {
+                item.addEventListener('click', () => {
+                    toggle.textContent = item.textContent;
+                    dropdown.classList.remove('open');
+
+                    const modal = dropdown.closest('.modal-detalles-bebida');
+                    const btnAgregar = modal.querySelector('.btn-confirmar-bebida a');
+
+                    btnAgregar.dataset.momento = item.textContent.trim();
+
+                    if (item.textContent.trim() === "Sin smoothie") {
+                        btnAgregar.textContent = "CONFIRMAR";
+                    } else {
+                        btnAgregar.textContent = "AGREGAR";
+                    }
+                });
+            });
+        });
+
+
+        document.addEventListener('click', (e) => {
+            document.querySelectorAll('.modal-detalles-bebida .dropdown').forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+
+        function setBebidaSeleccionada(nombreBebida) {
+            const modal = document.querySelector(".modal-detalles-bebida");
+            const btnAgregar = modal.querySelector(".btn-confirmar-bebida a");
+            btnAgregar.dataset.bebida = nombreBebida;
+        }
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.container-slider-bebidas');
+
+            sliders.forEach(slider => {
+                const slides = slider.querySelectorAll('.slide-bebida');
+                const prevBtn = slider.querySelector('.flecha-slider-izquierda button');
+                const nextBtn = slider.querySelector('.flecha-slider-derecha button');
+
+                let currentIndex = 0;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.style.display = i === index ? 'block' : 'none';
+                    });
+                }
+
+                showSlide(currentIndex);
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex--;
+                    if (currentIndex < 0) currentIndex = slides.length - 1;
+                    showSlide(currentIndex);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex++;
+                    if (currentIndex >= slides.length) currentIndex = 0;
+                    showSlide(currentIndex);
+                });
+            });
+        });
+
+    </script>
 </body>
+
+
 
 </html>

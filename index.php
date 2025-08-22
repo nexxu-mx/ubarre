@@ -46,7 +46,7 @@
       <section class="hero-banner" style="position: relative">
       <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: flex; justify-content: center; align-items: center;">
           <video autoplay loop muted playsinline style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%);z-index: 2"
-          poster="./assets/images/hero.png">
+          poster="./assets/images/ubarre/2x/hero@2x.png">
             <source src="./assets/images/banner-hero3.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -55,7 +55,7 @@
         <div class="container">
           <div class="hero-banner-elements">
             <div class="img-banner-container">
-              <img src="./assets/images/svg/logo-blanco.svg"
+              <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg"
                 alt="Sencia Logo">
             </div>
             <h1>
@@ -71,29 +71,22 @@
           <div class="fundadoras-section container">
             <div class="elementos-izquierda-fundadoras">
               <div class="elemento-top-fundadoras">
-                <button>
-                    <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
-                </button>
+                <img src="./assets/images/ubarre/svg/dots.svg" alt="">
               </div>
               <div class="elemento-bottom-fundadoras">
                 <h4>Fundadoras</h4>
               </div>
             </div>
             <div class="elemento-central-fundadoras">
-                <div class="button-fundadoras">
-                  <button>
-                    <ion-icon name="menu-outline" style="color: #fdfdfdff;"></ion-icon>
-                  </button>
-                </div>
                 <div class="fundadoras-nombre">
                   <p>Nuestra misión 
                     <br>y visión</p>
-                  <img src="./assets/images/svg/logo-blanco.svg" alt="">
+                  <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="">
                 </div>
             </div>
             <div class="elementos-derecha-fundadoras">
               <div class="elemento-top-fundadoras fila-izquierda">
-                <img src="./assets/images/svg/bolsa.svg" alt="">
+                <img src="./assets/images/ubarre/svg/icon.svg" alt="">
               </div>
               <div class="elemento-bottom-fundadoras">
                 <p>REVIVING THE 
@@ -106,7 +99,7 @@
         <section class="descripcion-section">
           <video id="video-index-texto" src="" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
           <div class="container section">
-            <img src="assets/images/svg/logo-negro-sin-tagline.svg" alt="logo sencia">
+            <img src="assets/images/ubarre/svg/icon.svg" alt="logo sencia">
             <p>
               Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que 
               escucha, sostiene y acompaña.
@@ -117,7 +110,7 @@
             </p>
           <div class="wellness-texto">
             <p>Wellness made for</p>
-            <img src="./assets/images/svg/down.svg" alt="">
+            <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
           </div>
           <a href="">Conocer más</a>
         </div>
@@ -164,7 +157,7 @@
             <div class="slider-container">
               <div class="slider" id="slider">
               <div class="slide" data-disciplina="PILATES">
-                  <div class="sli1"> <img src="assets/images/coaches/pro/6.png" alt="imagen slider"></div>
+                  <div class="sli1"> <img src="assets/images/ubarre/2x/w3@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>CONNIE</p>
@@ -175,7 +168,7 @@
                 </div>
                
                 <div class="slide" data-disciplina="SCULPT">
-                  <div class="sli1"><img src="assets/images/coaches/pro/1.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>DULCE</p>
@@ -186,7 +179,7 @@
                 </div>
                 <div class="slide" data-disciplina="BARRE">
                  <div class="sli1" >
-                  <img src="assets/images/coaches/pro/2.png" alt="imagen slider">
+                  <img src="assets/images/ubarre/2x/w1@2x.png" alt="imagen slider">
                  </div>
                  <div class="contenido-slider">
                     <div class="texto-slider">
@@ -197,7 +190,7 @@
 
                 </div>
                 <div class="slide" data-disciplina="YOGA">
-                  <div class="sli1"><img src="assets/images/coaches/pro/4.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w3@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>REGINA</p>
@@ -207,7 +200,7 @@
                   
                 </div>
                 <div class="slide" data-disciplina="YOGA">
-                  <div class="sli1"><img src="assets/images/coaches/pro/10.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>MARIA</p>
@@ -217,7 +210,7 @@
                
                 </div>
                 <div class="slide" data-disciplina="BARRE">
-                  <div class="sli1"><img src="assets/images/coaches/pro/5.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w1@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>DANYFER</p>
@@ -227,7 +220,7 @@
                
                 </div>
                 <div class="slide" data-disciplina="SCULPT">
-                  <div class="sli1"><img src="assets/images/coaches/pro/8.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>BETO</p>
@@ -237,7 +230,7 @@
                  
                 </div>
                 <div class="slide" data-disciplina="BARRE">
-                  <div class="sli1"><img src="assets/images/coaches/pro/9.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w3@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>KARINA</p>
@@ -247,7 +240,7 @@
 
                 </div>
                 <div class="slide" data-disciplina="BARRE">
-                  <div class="sli1"><img src="assets/images/coaches/pro/3.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w1@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>GALI</p>
@@ -257,7 +250,7 @@
 
                 </div>
                 <div class="slide" data-disciplina="BALLET">
-                  <div class="sli1"><img src="assets/images/coaches/pro/13.png" alt="imagen slider"></div>
+                  <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
                   <div class="contenido-slider">
                     <div class="texto-slider">
                       <p>REGINA</p>
@@ -316,9 +309,7 @@
         <div class="fundadoras-section container">
             <div class="elementos-izquierda-fundadoras">
               <div class="elemento-top-fundadoras">
-                <button>
-                    <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
-                </button>
+                <img src="./assets/images/ubarre/svg/dots.svg" alt="">
               </div>
               <div class="elemento-bottom-fundadoras">
                 <h4>Preguntas</h4>
@@ -414,7 +405,7 @@
             </div>
             <div class="elementos-derecha-fundadoras">
               <div class="elemento-top-fundadoras fila-izquierda">
-                <img src="./assets/images/svg/bolsa.svg" alt="">
+                <img src="./assets/images/ubarre/svg/icon.svg" alt="">
               </div>
               <div class="elemento-bottom-fundadoras">
                 <p>REVIVING THE 

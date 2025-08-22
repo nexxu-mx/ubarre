@@ -27,14 +27,14 @@
 
     <?php include 'header.php'; ?>
 
-    <main style="background-color: #e7dfd5;">
-        <article class="titulo-coaches">
+    <main class="fondo-coaches">
+        <article class="titulo-coaches container">
             <div class="elementos-top-coaches">
                 <div class="elemento-coaches-izquierda">
-                    <img src="./assets/images/svg/down.svg" alt="">
+                    <img src="./assets/images/ubarre/svg/dots.svg" alt="">
                 </div>
                 <div class="elemento-coaches-derecha">
-                    <img src="./assets/images/svg/bolsa.svg" alt="">
+                    <img src="./assets/images/ubarre/svg/icon.svg" alt="">
                 </div>
             </div>
             <div class="elemento-titulo-coaches">
@@ -98,7 +98,7 @@
                                     <p>
                                         '. $fila['descripcion_coach'] .'
                                     </p>
-                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/svg/down.svg" alt=""></div>
+                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/ubarre/svg/u-sola.svg" alt=""></div>
                                     <a href="reserva.php">Reserva con '. $fila['nombre_coach'] .'</a>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                     <p>
                                         '. $fila['descripcion_coach'] .'
                                     </p>
-                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/svg/down.svg" alt=""></div>
+                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/ubarre/svg/u-sola.svg" alt=""></div>
                                     <a href="reserva.php">Reserva con '. $fila['nombre_coach'] .'</a>
                                 </div>
                             </div>

@@ -112,12 +112,13 @@ if ($day) {
         $esPasado = $start < $now;
         if ($now >= $start && $now <= $end) {
             //estatus clase en curso
-            $estatus = '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto" viewBox="0 0 512 512"><defs></defs> <title>Ellipse</title> <path style="fill: #986C5D" d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z" /> </svg>';
+            $estatus = '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto" viewBox="0 0 512 512"><defs></defs> <title>Ellipse</title> <path style="fill: #986C5D" d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z" /> </svg>
+            <p>Clase en curso</p>';
         } elseif ($now < $start) {
             if($abierta == 1){
                 //estatus clase en abierta para reserva
                     $estatus = '<img src="./assets/images/svg/waiting_list.svg">
-                        <p>Clase en curos</p>';
+                        <p>Clase disponible</p>';
             }
         }elseif ($start < $now){
             $estatus = '<img src="./assets/images/svg/full_class.svg">

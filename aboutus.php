@@ -32,7 +32,7 @@
             <section class="banner-about-us-section">
                 <div class="container">
                     <div class="logo-banner-about-us-container">
-                        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia">
+                        <img src="assets/images/ubarre/ubarre-blanco.svg" alt="Logo Sencia">
                     </div>
                 </div>
             </section>
@@ -40,7 +40,7 @@
             <section class="descripcion-section">
                 <div class="container section">
                     <div>
-                        <img src="assets/images/svg/logo-negro-sin-tagline.svg" alt="logo sencia">
+                        <img src="assets/images/ubarre/svg/icon.svg" alt="logo sencia">
                         <p>
                         Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que 
                         escucha, sostiene y acompaña.
@@ -51,7 +51,7 @@
                         </p>
                         <div class="wellness-texto">
                             <p>Wellness made for</p>
-                            <img src="./assets/images/svg/down.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
                         </div>
                         <a href="">Conocer más</a>
                     </div>
@@ -62,25 +62,18 @@
                 <div class="aboutus-fundadoras container ">
                     <div class="aboutus-top">
                         <div class="aboutus-elemento-izquierda">
-                            <button>
-                                <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
-                            </button>
+                            <img src="./assets/images/ubarre/svg/dots.svg" alt="">
                         </div>
                         <div class="aboutus-elemento-derecha">
-                            <img src="./assets/images/svg/bolsa.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/icon.svg" alt="">
                         </div>
                     </div>
                     <div class="aboutus-middle">
                         <div class="elemento-central-fundadoras">
-                            <div class="button-fundadoras">
-                            <button>
-                                <ion-icon name="menu-outline" style="color: #fdfdfdff;"></ion-icon>
-                            </button>
-                            </div>
                             <div class="fundadoras-nombre">
                             <p>Nuestra misión 
                                 <br>y visión</p>
-                            <img src="./assets/images/svg/logo-blanco.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="">
                             </div>
                         </div>
                         <div class="texto-aboutus-middle">

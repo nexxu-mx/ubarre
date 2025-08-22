@@ -4,7 +4,7 @@
 <div class="container">
 
   <a href="index.php" class="logo">
-    <img src="./assets/images/svg/logo-negro.svg" width="136" height="46"
+    <img src="./assets/images/ubarre/svg/ubarre-negro.svg" width="136" height="46"
       alt>
   </a>
   <nav class="navbar">
@@ -27,10 +27,6 @@
 
         <li class="navbar-item">
           <a href="aboutus.php" class="navbar-link title-md">ABOUT US</a>
-        </li>
-
-        <li class="navbar-item">
-          <a href="clases.php" class="navbar-link title-md">CLASES</a>
         </li>
 
         <li class="navbar-item">
@@ -104,7 +100,7 @@
             <a href="#" style="display: flex;align-items: baseline;gap: 3px; margin-left: 40px; margin-right:5px;">
               <img src="assets/images/svg/bolsa.svg" alt="bolsa icon"> 
             </a>
-            <p> 0 </p>
+            <p style="font-family: sans-serif;"> 0 </p>
           </div> 
           ';
         
@@ -120,7 +116,7 @@
             <a href="#" style="display: flex;align-items: baseline;gap: 3px; margin-left: 40px; margin-right:5px;">
               <img src="assets/images/svg/bolsa.svg" alt="bolsa icon"> 
             </a>
-            <p> 0 </p>
+            <p style="font-family: sans-serif;> 0 </p>
           </div> ';
     }
     

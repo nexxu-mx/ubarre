@@ -43,7 +43,7 @@
 
 <main style="overflow: hidden;">
     <article class="beneficios-barre">
-        <img src="./assets/images/svg/logo-blanco-con-tagline.svg" alt="">
+        <img src="./assets/images/ubarre/ubarre-blanco.svg" alt="">
         <div class="beneficios-del-barre">
             <div class="titulo-beneficios">
                 <h3>Beneficios del barre</h3>
@@ -79,7 +79,7 @@
     </article>
     <article class="beneficios-section-texto">
         <div class="elemento-top-beneficios">
-            <img src="./assets/images/svg/down.svg" alt="">
+            <img src="./assets/images/ubarre/svg/dots.svg" alt="">
         </div>
         <div class="texto-central-beneficios">
             <h3>BARRE</h3>
@@ -90,7 +90,7 @@
             </p>
             <div class="wellness-texto wellness-beneficios">
                 <p>Wellness made for</p>
-                <img src="./assets/images/svg/down.svg" alt="">
+                <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
             </div>
         </div>
         <div class="elemento-bottom-beneficios">

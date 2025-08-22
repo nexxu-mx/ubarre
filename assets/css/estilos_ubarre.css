@@ -1,5 +1,59 @@
+@font-face {
+  font-family: "RegulatorNova";
+  src: url("../fonts/regulator-nova-bold.otf");
+}
+
+@font-face {
+    font-family: "RegulatorNova";
+    src: url("../fonts/regulator-nova-bold-italic.otf");
+}
+
+@font-face {
+    font-family: "RegulatorNova";
+    src: url("../fonts/regulator-nova-demibold-italic.otf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "AllRoundGothic";
+    src: url("../fonts/all-round-gothic-demi.otf");
+}
+
+@font-face {
+    font-family: "Jumper";
+    src: url("../fonts/JumperPERSONALUSEONLY-Bold.ttf");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Jumper";
+    src: url("../fonts/JumperPERSONALUSEONLY-BoldItalic.ttf");
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Jumper";
+    src: url("../fonts/JumperPERSONALUSEONLY-Regular.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Jumper";
+    src: url("../fonts/JumperPERSONALUSEONLY-Regular.ttf");
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: "Jumper";
+    src: url("../fonts/JumperPERSONALUSEONLY-Thin.ttf");
+    font-weight: 300;
+}
+
+
+
 .fondo-fundadoras {
-    background-color: #e7dfd5;
+    background-color: #DFD5BE;
 }
 
 .fundadoras-section {
@@ -10,14 +64,26 @@
 }
 
 .elemento-central-fundadoras img{
-    width: 60px;
+    margin-block: 10px;
+    width: 80px;
     height: auto;
     margin-inline: auto;
 }
 
+
+.hero-banner h1{
+    margin-top: -30px;
+    font-family: 'Jumper', sans-serif;
+    font-weight: 500;
+}
+
+.reservar-btn-banner {
+    font-family: 'Jumper',sans-serif;
+}
+
 .elemento-central-fundadoras {
     position: relative;
-    background-image: url(../images/aboutus.png);
+    background-image: url(../images/ubarre/2x/index@2x.png);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
@@ -38,7 +104,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.15);
   pointer-events: none;
   z-index: 0;
 }
@@ -53,9 +118,11 @@
 }
 
 .fundadoras-nombre p{
+    font-family: 'Jumper';
     line-height: 1;
-    font-size: 3.5rem;
-    color: #e7dfd5;
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: #F2EEEA;
 }
 
 .button-fundadoras {
@@ -77,18 +144,25 @@
     top: 0%;
 }
 
+.elemento-top-fundadoras img{
+    width: 20px;
+}
+
 .elemento-bottom-fundadoras{
     margin-top: auto;
 }
 
 .elemento-bottom-fundadoras p{
+    font-family: 'AllRoundGothic';
     line-height: 1;
     font-size: 1rem;
     text-align: right;
 }
 
 .elemento-bottom-fundadoras h4 {
-    font-size: 2rem;
+    font-family: 'RegulatorNova', sans-serif;
+    font-size: 2.5rem;
+    color: #0C0D0F;
 }
 
 .elementos-derecha-fundadoras {
@@ -105,13 +179,17 @@
 }
 
 .descripcion-section {
-    background-color: #f8f8f8;
+    background-image: url(../images/ubarre/2x/fondo2@2x.png);
+    width: 100%;
+    background-repeat: no-repeat;
     height: auto;
     min-height: 550px;
     color: black;
 }
 
 .descripcion-section p {
+    font-family: 'Jumper', sans-serif;
+    font-weight: 500;
     color: black;
     font-style: normal;
     font-size: 2rem;
@@ -119,14 +197,20 @@
 }
 
 .descripcion-section a {
-    width: 100px;
+    font-weight: 'Jumper', sans-serif;
+    width: 120px;
     text-align: center;
     margin-inline: auto;
     text-decoration: underline;
 }
 
+.descripcion-section img {
+    width: 30px;
+    padding-block: 20px 50px;
+}
+
 .wellness-texto {
-    max-width: 200px;
+    max-width: 240px;
     margin-block: 20px;
     justify-content: center;
     align-items: center;
@@ -137,15 +221,23 @@
 
 .wellness-texto p {
     margin-top: 0px !important;
-    font-weight: 600;
+    font-family: 'Jumper', sans-serif;
+    font-weight: 800 !important;
     font-size: 15px;
 
 }
 
 .wellness-texto img {
-    width: 20px;
+    width: 15px;
+    margin-top: 25px;
     height: auto;
     margin-inline: 5px;
+}
+
+.fondo-coaches {
+    background-image: url(../images/ubarre/2x/fondo2@2x.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .coaches-section {
@@ -176,6 +268,12 @@
     border-radius: 0px;
 }
 
+
+.sli1 img{
+    min-height: 650px;
+    object-fit: cover;
+}
+
 .coaches-slider-discipline {
     display: none;
 }
@@ -189,6 +287,31 @@
 .slide.center {
     transform: scale(1);
 }
+
+.container-slider-bebidas {
+    position: relative;
+}
+
+.container-slider-bebidas img {
+    width: 30px;
+}
+
+.flecha-slider-izquierda{
+    transform: rotate(90deg);
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    transform: all 0.8s ease-in-out;
+}
+
+.flecha-slider-derecha{
+    transform: rotate(-90deg);
+    position: absolute;
+    right: 5%;
+    top: 20%;
+    transform: all 0.8s ease-in-out;
+}
+
 
 .slider-container-global {
     position: relative;
@@ -221,18 +344,26 @@
 }
 
 .texto-slider p{
+    font-family: 'Jumper', sans-serif;
+    font-weight: 400;
     text-align: left;
     margin-left: 30px;
-    color: #f8f8f8;
-    font-size: 50px;
+    color: #F2EEEA;
+    font-size: 40px;
+    font-style: normal;
 }
 
 .texto-slider a {
+    font-family: 'RegulatorNova', sans-serif;
+    padding-bottom: 5px;
+    font-weight: 300;
     margin-inline: auto;
     width: 150px;
     text-align: center;
-    color: #f8f8f8;
-    border: 1px solid #f8f8f8;
+    justify-content: center;
+    align-items: center;
+    color: #F2EEEA;
+    border: 1px solid #F2EEEA;
     border-radius: 10px;
     font-size: 20px;
 }
@@ -240,12 +371,14 @@
 .texto-slider-final {
     position: absolute;
     text-align: center;
-    color: #f8f8f8;
+    color: #F2EEEA;
     bottom: 5%;
 }
 
 
 .texto-slider-final p {
+    font-family: 'Jumper', sans-serif;
+    font-weight: 300;
     font-size: 25px;
 }
 .texto-slider-final a{
@@ -253,8 +386,12 @@
     font-size: 10px;
 }
 
+.membresias-section {
+    background-color: #DFD5BE;
+}
+
 .membresias-section h2 {
-    color: #545252;
+    color: #56514F;
     font-style: italic;
     font-size: 4rem;
 }
@@ -270,49 +407,63 @@
     align-items: center;
     width: 380px;
     padding: 40px 75px;
+    border-bottom-left-radius: 10px;
 }
 
 .tipo-card {
-    color: #383737;
+    color: #0C0D0F;
+    font-family: 'Jumper', sans-serif;
 }
 
 .numero-clases-card {
-    color: #a0a98c;
+    color: #8B976A;
     margin-top: -30px;
     margin-bottom: -50px;
 }
 
 .precio-card {
-    color: #383737;
+    color: #56514F;
+    font-family: 'AllroundGothic', sans-serif;
 }
 
 .vigencia-card {
-    color: #383737;
+    color: #56514F;
 }
 
 .card a {
     background-color: #38373700;
-    color: #383737;
+    color: #0C0D0F;
     text-decoration: underline;
     font-weight: 600;
     margin-top: 40px;
 }
 
+.main-section-paquetes {
+    background-image: url(../images/ubarre/2x/fondo2@2x.png);
+}
+
+
 .ver-mas-paquetes-btn {
     background-color: #38373700;
-    color: #383737;
+    color: #0C0D0F;
+    font-family: 'RegulatorNova', sans-serif;
     text-decoration: underline;
 }
 
 .ver-mas-paquetes-btn:hover {
     background-color: #38373700;
-    color: #383737;
+    color: #0C0D0F;
     text-decoration: underline;
+}
+.preguntas-section {
+    background-image: url(../images/ubarre/2x/fondo2@2x.png);
+    object-fit: cover;
 }
 
 .preguntas-section h2 {
-    color: #383737;
-    font-style: italic;
+    font-family: 'RegulatorNova', sans-serif;
+    font-weight: 400;
+    color: #56514F;
 }
 
 
@@ -321,22 +472,26 @@
     margin-bottom: 20px;
     width: 100%;
     margin-inline: auto;
-    border: 1px solid #383737;
+    border: 1px solid #56514F;
     border-radius: 10px;
 }
 .panel {
     margin-inline: auto;
     border-bottom: none;
-    color: #545252;
+    color: #56514F;
 }
 
 .accordion > p {
-    color: #383737;
+    color: #56514F;
     text-decoration: underline;
 }
 
 .aboutus-fundadoras-fondo {
-    background-color: #e7dfd5;
+    background-color: #DFD5BE;
+}
+
+.aboutus-elemento-izquierda img{
+    width: 20px;
 }
 
 .aboutus-fundadoras {
@@ -401,12 +556,15 @@
 }
 
 .texto-aboutus-middle h3 {
-    color: #383737;
-    font-size: 2.5rem;
+    font-family: 'RegulatorNova',sans-serif;
+    color: #56514F;
+    font-size: 2.8rem;
     margin-bottom: 3rem;
 }
 
 .texto-aboutus-middle p{
+    font-family: 'Jumper', sans-serif;
+
     width: 80%;
     margin-inline: auto;
     font-weight: 400;
@@ -415,9 +573,9 @@
 }
 
 .footer {
-    background-color: #9fa888;
+    background-color: #8B976A;
     height: 400px;
-    color: #383737;
+    color: #56514F;
 }
 
 #video-footer {
@@ -425,10 +583,11 @@
 }
 
 .terminos-container {
-    color: #383737;
+    color: #56514F;
 }
 
 .terminos-container a {
+    font-family: 'Jumper',sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
 }
@@ -438,7 +597,7 @@
 }
 
 .encuentra-container {
-    background-color: #f8f8f8;
+    background-color: #FFFFFF;
     padding-inline: 2%;
     padding-block: 3%;
     border-radius: 20px;
@@ -447,7 +606,7 @@
 
 .encuentra-container-calendario {
     margin-block: 40px;
-    background-color: #f8f8f8;
+    background-color: #FFFFFF;
     padding-inline: 2%;
     padding-block: 2%;
     border-radius: 20px;
@@ -501,12 +660,30 @@
     margin-inline: auto;
     border-bottom: none;
     margin-block: 20px;
-    background-color: #e7dfd5;
+    background-color: #F2EEEA;
     padding-right: 20px;
     border-radius: 100px;
     overflow: hidden;
     padding-block: 0px;
 }
+
+.elemento-clase-confirmacion {
+    width: 98%;
+    margin-block: 40px;
+    height: 150px;
+    margin-inline: auto;
+    border-bottom: none;
+    margin-block: 20px;
+    background-color: #F2EEEA;
+    padding-right: 20px;
+    border-radius: 100px;
+    overflow: hidden;
+    padding-block: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 
 .fecha-clase-container {
@@ -520,7 +697,7 @@
 }
 
 .map-section-bottom {
-    background-color: #9fa888;
+    background-color: #8B976A;
 }
 
 .main-section-contacto {
@@ -533,9 +710,14 @@
     width: 450px;
 }
 
+.logo-container {
+    padding-top: 200px;
+    padding-bottom: 80px;
+}
+
 .logo-form-container {
     position: relative;
-    background-color: #9fa888;
+    background-color: #8B976A;
     height: 80px;
     
 }
@@ -550,7 +732,7 @@
 }
 
 form .submit-btn {
-    background-color: #9fa888;
+    background-color: #8B976A;
 }
 
 .map-section iframe {
@@ -564,14 +746,14 @@ form .submit-btn {
     flex-direction: row;
     width: 95%;
     margin-inline: auto;
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 .elemento-titulo-coaches {
-    width: 100%;
+    width: 95%;
     margin-inline: auto;
     text-align: center;
-    color: #383737;
+    color: #56514F;
     margin-bottom: 100px;
     font-size: 3rem;
 }
@@ -580,7 +762,7 @@ form .submit-btn {
     margin-left: auto;
 }
 .elementos-top-coaches img{
-    width: 40px;
+    width: 30px;
 }
 
 .training-for-life-section {
@@ -592,19 +774,20 @@ form .submit-btn {
 }
 
 .coach {
-    background-color: #f8f8f8;
+    background-color: #FFFFFF;
     height: 450px;
 }
 
 .text-side {
     width: 70%;
-    color: #383737;
+    color: #56514F;
     background-color: #38373700;
 }
 
 .coach .image-side {
     border-radius: 50px;
     width: 30%;
+    min-width: 350px
 }
 
 .coach .image-side img{
@@ -613,7 +796,7 @@ form .submit-btn {
 
 .coach .text-side h3{
     text-align: center;
-    color: #a0a98c;
+    color: #8B976A;
     font-size: 6rem;
     margin-bottom: 30px;
 }
@@ -627,7 +810,7 @@ form .submit-btn {
 .coach .text-side a:first-of-type {
     margin-inline: auto;
     text-align: center;
-    color: #111111;
+    color: #0C0D0F;
 }
 
 .subtitulo-coach {
@@ -645,11 +828,11 @@ form .submit-btn {
     margin-inline: 0px;
     font-weight: 600;
     margin-inline: 0px !important;
-    color: #111111;
+    color: #0C0D0F;
 }
 
 .subtitulo-coach img{
-    width: 20px;
+    width: 15px;
 }
 
 .inputs-container {
@@ -657,11 +840,11 @@ form .submit-btn {
 }
 
 .membresias-paquetes .cards-container {
-    gap: 80px;
+    gap: 50px;
 }
 
 .membresias-paquetes .card:hover {
-    background-color: #b3b3b3;
+    background-color: #DFD5BE;
 }
 
 .membresias-paquetes .card:hover a {
@@ -680,7 +863,7 @@ form .submit-btn {
 }
 
 .main-section-paquetes h1 {
-    color: #545252;
+    color: #56514F;
 }
 
 .elemento-top-beneficios img {
@@ -689,7 +872,7 @@ form .submit-btn {
 
 .beneficios-section-texto {
     padding-block: 30px;
-    background-color: #ebe9e6;
+    background-image: url(../images/ubarre/2x/fondo2@2x.png);
 }
 
 .texto-central-beneficios {
@@ -702,6 +885,7 @@ form .submit-btn {
 .texto-central-beneficios h3 {
     font-size: 4rem;
     font-weight: 600;
+    color: #56514F;
 }
 
 .texto-central-beneficios p {
@@ -711,17 +895,21 @@ form .submit-btn {
     font-size: 1.8rem;
     font-weight: 500;
     margin-block: 20px 50px;
+    color: #56514F;
 
 }
 
 
 .wellness-beneficios img{
+    margin-top: -5px;
     margin-right: 40px;
 }
 
 .wellness-beneficios p{
-    font-size: 1.6rem;
-    width: 150px;
+    font-weight: 700;
+    color: #0C0D0F;
+    font-size: 1.7rem;
+    width: 200px;
     margin-block: 0px;
     font-weight: 600;
 }
@@ -745,15 +933,16 @@ form .submit-btn {
 
 
 .beneficios-barre {
-    background-image: url(../images/aboutus.png);
+    background-image: url(../images/ubarre/2x/hero_us@2x.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
 }
 .beneficios-barre img {
-    width: 200px;
+    width: 300px;
     margin-inline: auto;
-    margin-bottom: 50px;
+    padding-top: 80px;
+    margin-bottom: 80px;
 }
 
 .beneficios-del-barre{
@@ -762,7 +951,7 @@ form .submit-btn {
     padding-bottom: 50px;
     display: flex;
     flex-direction: row;
-    color: #f8f8f8;
+    color: #FFFFFF;
     justify-content: center;
     align-items: center;
 }
@@ -777,7 +966,7 @@ form .submit-btn {
     margin-inline: auto;
     margin-bottom: 125px;
     font-size: 5rem;
-    width: 200px;
+    width: 350px;
     font-weight: 500;
     line-height: 1;
 }
@@ -804,7 +993,7 @@ form .submit-btn {
   top: 0;
   bottom: 0;
   width: 1px;
-  background: #f8f8f8;
+  background: #FFFFFF;
 }
 
 
@@ -812,25 +1001,26 @@ form .submit-btn {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #f8f8f8;
+  background: #FFFFFF;
   z-index: 1; 
 }
 
 .beneficio-container {
-    border: 1px solid #f8f8f8;
+    border: 1px solid #FFFFFF;
     border-radius: 10px;
     padding: 5px;
-    width: 150px;
+    width: 170px;
     text-align: center;
 }
 
 .beneficio-container h4{
     font-size: 2.3rem;
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
 }
 
 .texto-beneficios p {
+    font-weight: 300;
     margin-top: 10px;
     margin-left: 5px;
     width: 200px;
@@ -846,11 +1036,11 @@ form .submit-btn {
 }
 
 .nombre-coach>p {
-    color: #9fa888;
+    color: #8B976A;
 }
 
 .detalles-clase-container>p {
-    color: #383737;
+    color: #0C0D0F;
 }
 
 .nombrecoach-horarioclase {
@@ -859,10 +1049,15 @@ form .submit-btn {
     gap: 80px;
 }
 
+.version-confirmacion {
+    margin-left: 0px;
+    gap: 50px;
+}
+
 .btn-reservar-clase-container a {
     background-color: #38373700;
-    border: 1px solid #383737;
-    color: #545252;
+    border: 1px solid #0C0D0F;
+    color: #0C0D0F;
     font-size: 1.8rem;
     padding: 0px 20px;
     margin-right: 50px;
@@ -876,7 +1071,7 @@ form .submit-btn {
     align-items: normal;
     display: flex;
     flex-direction: column;
-    width: 100px;
+    width: 120px;
     gap: 5px;
 }
 
@@ -913,35 +1108,47 @@ form .submit-btn {
 }
 
 .contenido-texto-modal {
+    font-size: 1.2rem;
     width: 80%;
     margin-inline: auto;
     margin-block: 20px 50px;
 }
 
+
+.texto-coach-details-modal {
+    font-size: 12px;
+}
+
 .nombre-coach-details-modal {
-    color: #a0a98c;
-    font-size: 5rem;
+    color: #8B976A;
+    font-size: 3rem;
+}
+
+
+.my-acount-link {
+    color: #8B976A;
+    font-family: 'AllRoundGothic', sans-serif;
 }
 
 .contenido-texto-modal a{
     margin-top: 20px;
     text-align: center;
     margin-inline: auto;
-    color: #b3b3b3;
+    color: #56514F;
     text-decoration: underline;
 }
 
 .modal-detalles-coach {
-  width: 400px;
-  height: 500px;
-  background: #fff;
+  width: 300px;
+  height: 450px;
+  background: #FFFFFF;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   display: none;
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity .2s ease, transform .2s ease;
-  z-index: 999;
+  z-index: 500;
 }
 
 .modal-detalles-coach.show {
@@ -954,8 +1161,8 @@ form .submit-btn {
     text-decoration: none;
     border-radius: 10px;
     background-color: #38373700;
-    border: 1px solid #383737;
-    color: #545252;
+    border: 1px solid #56514F;
+    color: #56514F;
     font-size: 1.8rem;
     padding: 0px 20px;
     margin-right: 50px;   
@@ -995,15 +1202,15 @@ form .submit-btn {
 }
 
 .login-form>h2 {
-    color: #9fa888;
+    color: #8B976A;
 }
 
 .login-submit-btn {
-    background-color: #9fa888;
+    background-color: #8B976A;
 }
 
 .login-submit-btn:hover {
-    background-color: #9fa888;
+    background-color: #8B976A;
 }
 
 .registro-mensaje>span {
@@ -1011,5 +1218,250 @@ form .submit-btn {
 }
 
 .registro-mensaje {
-    color: #b3b3b3;
+    color: #DFD5BE;
+}
+
+.btn-reservar-clase-container p {
+    border-radius: 10px;
+    background-color: #38373700;
+    border: 1px solid #56514F;
+    color: #56514F;
+    font-size: 1.8rem;
+    padding: 0px 20px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+
+.modal-detalles-bebida {
+  width: 350px;
+  height: 450px;
+  background: #FFFFFF;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 500;
+}
+
+.modal-detalles-bebida.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.calendar-slider-number {
+    color: #56514F;
+}
+.active-day {
+    background-color: #38373700;
+    color: #56514F;
+}
+
+.slide-bebida {
+    text-align: center;
+}
+
+.slide-bebida img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.slide-bebida h3{
+    font-size: 3rem;
+    color: #8B976A;
+    margin-top: 15px;
+    font-weight: 400;
+}
+
+.slide-bebida p {
+    margin-block: 5px;
+    text-decoration: underline;
+    color: #0C0D0F;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.botones-bebida{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-inline: auto;
+}
+
+.botones-bebida button {
+    width: 120px;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #8B976A;
+    color: #8B976A;
+    font-size: 600;
+}
+
+.btn-confirmar-bebida button{
+    color: #FFFFFF;
+    background-color: #8B976A;
+}
+
+.botones-bebida a {
+    width: 120px;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #8B976A;
+    color: #8B976A;
+    font-size: 600;
+}
+
+.btn-confirmar-bebida a{
+    color: #FFFFFF;
+    background-color: #8B976A;
+}
+
+.dropdown {
+    margin-block: 30px 30px;
+    color: #56514F;
+    border-radius: 5px;
+    margin-inline: auto;
+    position: relative;
+    width: 200px;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+.dropdown-toggle {
+    padding: 5px 10px;
+    border: 1px solid #DFD5BE;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.dropdown-toggle::after {
+    content: "▼";
+    color: #DFD5BE;
+    float: right;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.open .dropdown-toggle::after {
+    transform: rotate(-180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    border: 1px solid #DFD5BE;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #FFFFFF;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 10;
+}
+
+.dropdown.open .dropdown-menu {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.dropdown-menu li {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-menu li:hover {
+    background-color: #FFFFFF;
+}
+
+.container-slider-bebidas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.4s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-bebida {
+  min-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.reserva-main-section {
+    background-image: url(../images/ubarre/2x/fondo2@2x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -20px;
+}
+
+.confirmar-reserva-btn {
+    background-color: #8B976A;
+    color: #F2EEEA;
+}
+
+.confirmar-reserva-btn:hover {
+    background-color: #8B976A;
+    color: #F2EEEA;
+}
+
+.cancelar-confirmacion-reserva-btn{
+    border: 1px solid #8B976A;
+    color: #8B976A;
+}
+
+.cancelar-confirmacion-reserva-btn:hover {
+    background-color: #8B976A;
+}
+
+.disciplina-clase-container>p {
+    color: #8B976A;
+}
+
+
+.nombre-bebida {
+    line-height: 1.2;
+}
+.nombre-bebida p{
+    font-size: 2.2rem;
+    color: #8B976A;
+}
+
+.nombre-bebida h4 {
+    color: #56514F;
+    font-size: 1.6rem;
+    margin-block: 0px;
+
+}
+
+.confirmation-section {
+    width: 80%;
+}
+
+.horario-clase {
+    margin-block: auto;
+}
+
+.disciplina-clase-container{
+    margin-block: auto;
 }

@@ -2,7 +2,7 @@
   <video  id="video-footer" src="./assets/images/sencia_gradient.mp4" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
   <div class="container">
     <div class="logo-container">
-      <img src="assets/images/svg/logo-blanco-con-tagline.svg" alt="Logo Sencia">
+      <img src="assets/images/ubarre/ubarre.svg" alt="Logo Sencia">
     </div>
     <div class="texto-footer-container">
       <div class="terminos-container">

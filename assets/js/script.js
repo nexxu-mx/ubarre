@@ -235,7 +235,11 @@ function cargarClases(day) {
         const btn = document.createElement('div');
         var reservable = '<a class="btn-rcoloresCoaches[index]eservar" style="color: #747373;">RESERVAR</a>';;
         if (clase.abierta == "1") {
-          reservable = `<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`;
+          reservable = /*`<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`*/
+          `<p class="btn-bebida" href=""
+                onclick="mostrarModalBebida(event)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">
+                RESERVAR
+             </p>`;
         }
 
         btn.innerHTML = `
@@ -613,13 +617,73 @@ document.addEventListener("click", (e) => {
   }
 });
 
+const detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
+let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
+if (closeBebidaModalBtn == null) { closeBebidaModalBtn = 0; }
+
+function mostrarModalBebida(event) {
+  event.preventDefault();
+
+  const boton = event.currentTarget;
+  const rect = boton.getBoundingClientRect();
+
+  detallesBebidaModal.style.position = "absolute";
+  detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+  detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+
+  detallesBebidaModal.style.display = "block";
+  detallesBebidaModal.classList.add("show");
+
+  const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
+
+  btnsAgregar.forEach(btn => {
+    btn.dataset.nombre = boton.dataset.nombre;
+    btn.dataset.horario = boton.dataset.horario;
+    btn.dataset.duracion = boton.dataset.duracion;
+    btn.dataset.disciplina = boton.dataset.disciplina;
+    btn.dataset.id = boton.dataset.id;
+    btn.dataset.idcoach = boton.dataset.idcoach;
+
+    btn.dataset.bebida = "Sin bebida";   
+    btn.dataset.momento = "Al final de la clase";
+  });
+}
+
+function ocultarModalBebida() {
+  detallesBebidaModal.classList.remove("show");
+  setTimeout(() => detallesBebidaModal.style.display = "none", 200);
+}
+
+if (closeBebidaModalBtn != 0) {
+  closeBebidaModalBtn.addEventListener("click", () => {
+    ocultarModalBebida();
+  });
+}
+
+
+document.addEventListener("click", (e) => {
+  if (detallesBebidaModal.style.display === "block") {
+    const isClickInside = detallesBebidaModal.contains(e.target) || e.target.classList.contains("btn-bebida");
+    if (!isClickInside) {
+      ocultarModalBebida();
+    }
+  }
+});
+
+
 
 /**
  * CONFIRMATION MESSAGE
  */
 function reservaClase(el) {
   const confirmationSection = document.querySelector(".confirmation-section");
-  const classesContainer = document.querySelector(".white-container");
+  const classesContainer = document.querySelector(".contenido-selección-clase");
+  const modalVisible = document.querySelector(".modal-detalles-bebida");
+  
+  const slide = el.closest(".slide-bebida");
+  const bebida = slide.dataset.bebida;
+  const momento = slide.querySelector(".dropdown-toggle").textContent.trim() || "Al final de la clase";
+
   const nombre = el.dataset.nombre;
   const horario = el.dataset.horario;
   const duracion = el.dataset.duracion;
@@ -627,28 +691,43 @@ function reservaClase(el) {
   const iden = el.dataset.id;
   const idCoach = el.dataset.idcoach;
   const imag = "assets/images/coaches/pro/" + idCoach + ".png";
+
   document.getElementById("confirm-coach").innerHTML = nombre;
   document.getElementById("confirm-horario").innerHTML = horario;
   document.getElementById("confirm-duracion").innerHTML = duracion;
   document.getElementById("confirm-disciplina").innerHTML = disciplina;
   document.getElementById("confirm-coach-img").src = imag;
 
+  if (momento === "Sin smoothie") {
+      document.getElementById("confirm-bebida").textContent = "";
+      document.getElementById("confirm-momento").textContent = "Sin Smoothie";
+  } else {
+      document.getElementById("confirm-bebida").textContent = bebida;
+      document.getElementById("confirm-momento").textContent = `${momento}`;
+  }
+
   document.getElementById("confirm-agendar").dataset.id = iden;
   document.getElementById("confirm-agendar").dataset.coach = nombre;
   document.getElementById("confirm-agendar").dataset.disciplina = disciplina;
   document.getElementById("confirm-agendar").dataset.duracion = duracion;
   document.getElementById("confirm-agendar").dataset.id_inst = idCoach;
-
+  document.getElementById("confirm-agendar").dataset.bebida = (momento === "Sin smoothie" ? "" : bebida);
+  document.getElementById("confirm-agendar").dataset.momento = momento;
 
   confirmationSection.style.display = 'block';
   classesContainer.style.display = 'none';
+  modalVisible.style.display = 'none'; 
 }
+
+
 function confirmacion(el) {
   const idClas = el.dataset.id;
   const ncoach = el.dataset.coach;
   const ndisciplina = el.dataset.disciplina;
   const durac = el.dataset.duracion;
   const idcoach = el.dataset.id_inst;
+  const bebida = el.dataset.bebida;
+  const momento = el.dataset.momento;
 
   fetch('registrar_reservacion.php', {
     method: 'POST',
@@ -660,7 +739,9 @@ function confirmacion(el) {
       ncoach: ncoach,
       ndisciplina: ndisciplina,
       durac: durac,
-      idcoach: idcoach
+      idcoach: idcoach,
+      bebida: bebida,
+      momento: momento
     })
   })
     .then(response => response.json())
@@ -691,7 +772,7 @@ function confirmacion(el) {
 
 function cancelConfirmacion() {
   document.querySelector(".confirmation-section").style.display = 'none';
-  document.querySelector(".white-container").style.display = 'block';
+  document.querySelector(".contenido-selección-clase").style.display = 'block';
   document.getElementById("confirm-coach").innerHTML = " ";
   document.getElementById("confirm-horario").innerHTML = " ";
   document.getElementById("confirm-duracion").innerHTML = " ";

@@ -49,6 +49,7 @@
   <main class="main-paquetes">
     <article>
       <section class="main-section-paquetes section">
+        </div>
         <div class="container">
           <h1>Conoce nuestras Membresías.</h1>
           <div class="inputs-container">
@@ -80,7 +81,7 @@
               <?php echo $nombr; ?>
             </select>
           </div>
-          <section class="section membresias-section membresias-paquetes">
+          <section class="section  membresias-paquetes">
             <div class="container">
               <div class="cards-container">
 
