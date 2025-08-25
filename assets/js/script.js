@@ -586,8 +586,15 @@ function mostrarModal(modal, id, tipo, event) {
   const rect = boton.getBoundingClientRect();
 
   modal.style.position = "absolute";
-  modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
-  modal.style.left = `${rect.left + window.scrollX}px`;
+
+  if(window.innerWidth <= 768) {
+    modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
+    modal.style.left = `${rect.left}px`;
+  }else {
+    modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
+    modal.style.left = `${rect.left + window.scrollX}px`;
+  }
+  
 
   modal.style.display = "block";
   modal.classList.add("show");
@@ -628,8 +635,15 @@ function mostrarModalBebida(event) {
   const rect = boton.getBoundingClientRect();
 
   detallesBebidaModal.style.position = "absolute";
-  detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-  detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+
+  if(window.innerWidth <= 768) {
+    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+    detallesBebidaModal.style.left = `${rect.left - 70}px`;
+  }else {
+    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+    detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+  }
+
 
   detallesBebidaModal.style.display = "block";
   detallesBebidaModal.classList.add("show");
@@ -677,7 +691,7 @@ document.addEventListener("click", (e) => {
  */
 function reservaClase(el) {
   const confirmationSection = document.querySelector(".confirmation-section");
-  const classesContainer = document.querySelector(".contenido-selección-clase");
+  const classesContainer = document.querySelector(".contenido-seleccion-clase");
   const modalVisible = document.querySelector(".modal-detalles-bebida");
   
   const slide = el.closest(".slide-bebida");
@@ -772,7 +786,7 @@ function confirmacion(el) {
 
 function cancelConfirmacion() {
   document.querySelector(".confirmation-section").style.display = 'none';
-  document.querySelector(".contenido-selección-clase").style.display = 'block';
+  document.querySelector(".contenido-seleccion-clase").style.display = 'block';
   document.getElementById("confirm-coach").innerHTML = " ";
   document.getElementById("confirm-horario").innerHTML = " ";
   document.getElementById("confirm-duracion").innerHTML = " ";

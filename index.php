@@ -306,7 +306,7 @@
       </section>
 
       <section class="section preguntas-section">
-        <div class="fundadoras-section container">
+        <div class="fundadoras-section container preguntas-version">
             <div class="elementos-izquierda-fundadoras">
               <div class="elemento-top-fundadoras">
                 <img src="./assets/images/ubarre/svg/dots.svg" alt="">
@@ -319,87 +319,118 @@
                 <h2>PREGUNTAS FRECUENTES</h2>
 
                 <div class="preguntas-container">
-                  <button class="accordion">
-                    <p>¿Puedo hacer ejercicio si tengo alguna lesión?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Sí. Es importante que nos informes con anticipación. Nuestras instructoras están capacitadas para adaptar los ejercicios según tus necesidades. Siempre consulta previamente con tu médico antes de iniciar cualquier actividad física.</p>
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Puedo hacer ejercicio si tengo alguna lesión?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Sí. Es importante que nos informes con anticipación. Nuestras instructoras están capacitadas para adaptar los ejercicios según tus necesidades. Siempre consulta previamente con tu médico antes de iniciar cualquier actividad física.</p>
+                    </div>
                   </div>
-
-                  <button class="accordion">
-                    <p>¿Puedo practicar estas disciplinas si estoy embarazada o en etapa de posparto?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Sí, ofrecemos clases adaptadas para mujeres embarazadas o en proceso de recuperación postparto, siempre con autorización médica. Es importante contar con autorización médica antes de comenzar.</p>
-                  </div>
-
                   
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Puedo practicar estas disciplinas si estoy embarazada o en etapa de posparto?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Sí, ofrecemos clases adaptadas para mujeres embarazadas o en proceso de recuperación postparto, siempre con autorización médica. Es importante contar con autorización médica antes de comenzar.</p>
+                    </div>
+                  </div>
 
-                  <button class="accordion">
-                    <p>¿Necesito experiencia previa para empezar?</p>
-                  </button>
-                  <div class="panel">
-                    <p>No. Nuestras clases están diseñadas para todos los niveles. Las instructoras te guiarán y ajustarán los movimientos según tus capacidades. No necesitas experiencia previa para comenzar.</p>
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Necesito experiencia previa para empezar?</p>
+                    </button>
+                    <div class="panel">
+                      <p>No. Nuestras clases están diseñadas para todos los niveles. Las instructoras te guiarán y ajustarán los movimientos según tus capacidades. No necesitas experiencia previa para comenzar.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Qué debo llevar a clase?</p>
-                  </button>
-                  <div class="panel">
-                    <p> Ropa cómoda que te permita moverte con libertad. Recomendamos el uso de calcetines antideslizantes para mayor seguridad.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Qué debo llevar a clase?</p>
+                    </button>
+                    <div class="panel">
+                      <p> Ropa cómoda que te permita moverte con libertad. Recomendamos el uso de calcetines antideslizantes para mayor seguridad.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Cuántas veces a la semana debería tomar clases?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Para obtener resultados visibles y sentir los beneficios físicos y mentales, recomendamos practicar al menos 2 veces por semana.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Cuántas veces a la semana debería tomar clases?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Para obtener resultados visibles y sentir los beneficios físicos y mentales, recomendamos practicar al menos 2 veces por semana.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Cuánto duran las clases?</p>
-                  </button>
-                  <div class="panel">
-                    <p>La mayoría de nuestras clases tienen una duración de entre 50 y 60 minutos.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Cuánto duran las clases?</p>
+                    </button>
+                    <div class="panel">
+                      <p>La mayoría de nuestras clases tienen una duración de entre 50 y 60 minutos.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Se requiere reservar o puedo llegar directamente?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Es necesario reservar tu lugar con anticipación, ya que los espacios son limitados para garantizar una atención personalizada.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Se requiere reservar o puedo llegar directamente?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Es necesario reservar tu lugar con anticipación, ya que los espacios son limitados para garantizar una atención personalizada.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Puedo cancelar o reprogramar una clase?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Sí. Aceptamos cancelaciones con al menos 6 horas de anticipación (ajustable según política). De lo contrario, la clase se considerará como tomada.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Puedo cancelar o reprogramar una clase?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Sí. Aceptamos cancelaciones con al menos 6 horas de anticipación (ajustable según política). De lo contrario, la clase se considerará como tomada.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Cuál es la edad mínima para asistir a clases?</p>
-                  </button>
-                  <div class="panel">
-                    <p>A partir de los 13 años, con autorización de un adulto o tutor.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Cuál es la edad mínima para asistir a clases?</p>
+                    </button>
+                    <div class="panel">
+                      <p>A partir de los 13 años, con autorización de un adulto o tutor.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Cómo reservo una clase?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Puedes reservar a través de nuestra página web, app, o directamente por WhatsApp o teléfono.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Cómo reservo una clase?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Puedes reservar a través de nuestra página web, app, o directamente por WhatsApp o teléfono.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Cuáles son los métodos de pago aceptados?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Aceptamos tarjeta de crédito/débito, pagos en efectivo y transferencias bancarias.</p>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Cuáles son los métodos de pago aceptados?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Aceptamos tarjeta de crédito/débito, pagos en efectivo y transferencias bancarias.</p>
+                    </div>
                   </div>
-                  <button class="accordion">
-                    <p>¿Qué tipo de clases ofrece Sencia?</p>
-                  </button>
-                  <div class="panel">
-                    <p>Todas nuestras clases son de bajo impacto y están diseñadas para fortalecer cuerpo y mente. Ofrecemos: <br>
+
+                  <div class="container-accordion">
+                    <button class="accordion">
+                      <p>¿Qué tipo de clases ofrece Sencia?</p>
+                    </button>
+                    <div class="panel">
+                      <p>Todas nuestras clases son de bajo impacto y están diseñadas para fortalecer cuerpo y mente. Ofrecemos: <br>
                       • Pilates Mat <br>
                       • Barre <br>
                       • Sculpt <br>
                       • Yoga <br>
                       Puedes consultar la descripción de cada clase para saber cuál se adapta mejor a tus objetivos.
                     </p>
+                    </div>
                   </div>
                 </div>
             </div>

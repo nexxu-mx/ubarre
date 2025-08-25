@@ -88,7 +88,7 @@
                     </div>
                     
                     <!-- Inicio Cards -->
-                    <div class="contenido-selección-clase">
+                    <div class="contenido-seleccion-clase">
                         <div class="encuentra-container">
                             <p class="my-account-link"><a href="login.php" id="my-account">MY ACCOUNT</a></p>
                             <div class="first-flex">

@@ -467,18 +467,23 @@
 }
 
 
-
-.accordion {
-    margin-bottom: 20px;
-    width: 100%;
-    margin-inline: auto;
+.container-accordion {
     border: 1px solid #56514F;
     border-radius: 10px;
+    height: auto;
+    margin-block: 10px;
 }
+
+.accordion {
+    width: 100%;
+    margin-inline: auto;
+}
+
 .panel {
     margin-inline: auto;
-    border-bottom: none;
+    margin-bottom: 10px;
     color: #56514F;
+    border: none;
 }
 
 .accordion > p {
@@ -518,7 +523,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-block: 20px;
+    padding-block: 20px 50px;
+    margin-bottom: -20px;
 }
 
 .aboutus-elemento-izquierda {
@@ -899,10 +905,20 @@ form .submit-btn {
 
 }
 
+.wellness-beneficios {
+    width: 210px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .wellness-beneficios img{
     margin-top: -5px;
     margin-right: 40px;
+    width: 15px;
 }
 
 .wellness-beneficios p{
@@ -1464,4 +1480,787 @@ form .submit-btn {
 
 .disciplina-clase-container{
     margin-block: auto;
+}
+
+@media(min-width: 300px) and (max-width: 399px){
+    .fundadoras-section {
+        position: relative;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .elemento-central-fundadoras {
+        margin-top: 40px;
+        width: 95%;
+        margin-inline: auto;
+        height: 400px;
+    }
+
+    .elementos-izquierda-fundadoras {
+        position: absolute;
+        height: 90%;
+    }
+
+    .elementos-derecha-fundadoras {
+        position: absolute;
+        height: 90%;
+        right: 0%;
+    }
+
+    .fila-izquierda {
+        top: -2%;
+    }
+
+    .fundadoras-nombre p {
+        font-size: 2.8rem;
+    }
+
+    .elemento-bottom-fundadoras h4 {
+        font-size: 2rem;
+    }
+    
+    .descripcion-section img {
+        padding-bottom: 80px;
+    }
+    
+    .descripcion-section p {
+        width: 95%;
+        margin-inline: auto;
+        font-size: 1.5rem;
+    }
+
+    .descripcion-section p:last-of-type {
+        font-size: 1.5rem;
+    }
+
+    .wellness-texto {
+        width: 190px;
+    }
+
+    .wellness-texto p {
+        margin-bottom: 0px !important;
+    }
+
+    .wellness-texto img  {
+        width: 13px;
+        margin-top: -5px;
+        padding-block: 0px;
+        margin-left: -10px;
+    }
+
+    .slide {
+        flex: 0 0 100%;
+        width: 100vw;
+    }
+    
+    .slider img {
+        width: 100%;
+    }
+
+    .texto-slider {
+        margin-top: 70%;
+    }
+
+    .texto-slider p {
+        font-size: 3.5rem;
+    }
+
+    .texto-slider a {
+        width: 130px;
+
+    }
+
+    .card {
+        width: 95%;
+    }
+
+    .elemento-central-preguntas {
+        margin-block: 80px;
+    }
+
+    .preguntas-version {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: auto;
+    }
+
+    .accordion {
+        width: 95%;
+        margin-inline: auto;
+    }
+
+    .logo-container {
+        padding-top: 150px;
+    }
+
+    .logo-container img {
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .terminos-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 20px;
+    }
+
+    .footer {
+        height: 400px;
+    }
+
+    /** ABOUT US **/
+    .banner-about-us-section {
+        height: 100vh;
+    }
+
+    .logo-banner-about-us-container {
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .aboutus-middle {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .texto-aboutus-middle {
+        width: 95%;
+    }
+
+    .texto-aboutus-middle p {
+        width: 100%;
+        text-align: justify;
+    }
+
+    .texto-aboutus-middle h3 {
+        line-height: 1.2;
+    }
+
+    /** BENEFICIOS **/
+
+    .beneficios-del-barre {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .titulo-beneficios {
+        width: 100%;
+    }
+
+    .titulo-beneficios h3 {
+        width: 90%;
+        margin-inline: auto;
+        margin-bottom: 50px;
+    }
+
+    .listado-beneficios {
+        width: 70%;
+        margin-inline: auto;
+    }
+
+    .elemento-top-beneficios img {
+        width: 25px;
+    }
+
+    .texto-central-beneficios p {
+        width: 90%;
+    }
+
+    .elemento-top-beneficios {
+        width: 90%;
+    }
+
+    .elemento-bottom-beneficios {
+        width: 90%;
+    }
+
+    /** PAQUETES **/
+    .main-section-paquetes h1{
+        font-size: 4rem;
+    }
+
+    /** COACHES **/
+    .coach {
+        height: auto;
+        overflow: hidden;
+    }
+
+    .coach .image-side {
+        width: 90%;
+        height: 400px;
+    }
+
+    .text-side {
+        width: 100%;
+    }
+
+    .coach .text-side {
+        padding-top: 10px;
+        padding-inline: 25px;
+    }
+
+    .coach .text-side h3 {
+        line-height: 1;
+        font-size: 5rem;
+    }
+
+    .subtitulo-coach {
+        width: 180px;
+    }
+
+    .elementos-top-coaches img {
+        width: 20px;
+    }
+
+    .elemento-titulo-coaches {
+        margin-bottom: 20px;
+    }
+
+    /** CONTACT & LOGIN **/
+    .general-form-container {
+        width: 95%;
+    }
+
+    /** RESERVA **/
+    .contenido-seleccion-clase {
+        width: 95%;
+        margin-inline: auto;
+    }
+
+    .first-flex h2{
+        font-size: 3rem;
+        margin-block: 20px 30px;
+    }
+
+    .my-account-link{
+        font-size: 2rem;
+    }
+
+    .elemento-clase {
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-right: 0px;
+        border-radius: 20px;
+    }
+
+    .first-flex-clase {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img-clase-container {
+        width: 100%;
+        height: 250px;
+    }
+
+    .nombrecoach-horarioclase {
+        width: 95%;
+    }
+
+    .second-flex-clase {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .iconos-container {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
+
+    .btn-reservar-clase-container {
+        width: 200px;
+        margin-inline: auto;
+        margin-bottom: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-reservar-clase-container a {
+        width: 90%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .btn-reservar-clase-container p {
+        width: 90%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .modal-detalles-bebida {
+        width: 280px;
+    }
+
+    .botones-bebida {
+        gap: 10px;
+    }
+
+    .confirmation-section {
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .elemento-clase-confirmacion {
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-right: 0px;
+        border-radius: 20px;
+    }
+
+    #confirm-disciplina {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+@media(min-width: 400px) and (max-width: 767px){
+    .fundadoras-section {
+        position: relative;
+        height: 650px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .elemento-central-fundadoras {
+        margin-top: 40px;
+        width: 98%;
+        margin-inline: auto;
+        height: 500px;
+    }
+
+    .elementos-izquierda-fundadoras {
+        position: absolute;
+        height: 90%;
+    }
+
+    .elementos-derecha-fundadoras {
+        position: absolute;
+        height: 90%;
+        right: 0%;
+    }
+
+    .fila-izquierda {
+        top: -2%;
+    }
+
+    .fundadoras-nombre p {
+        font-size: 2.8rem;
+    }
+
+    .elemento-bottom-fundadoras h4 {
+        font-size: 2rem;
+    }
+    
+    .descripcion-section img {
+        padding-bottom: 80px;
+    }
+    
+    .descripcion-section p {
+        width: 95%;
+        margin-inline: auto;
+        font-size: 1.5rem;
+    }
+
+    .descripcion-section p:last-of-type {
+        font-size: 1.5rem;
+    }
+
+    .wellness-texto {
+        width: 190px;
+    }
+
+    .wellness-texto p {
+        margin-bottom: 0px !important;
+    }
+
+    .wellness-texto img  {
+        width: 13px;
+        margin-top: -5px;
+        padding-block: 0px;
+        margin-left: -10px;
+    }
+
+    .slide {
+        flex: 0 0 100%;
+        width: 100vw;
+    }
+    
+    .slider img {
+        width: 100%;
+    }
+
+    .texto-slider {
+        margin-top: 70%;
+    }
+
+    .texto-slider p {
+        font-size: 3.5rem;
+    }
+
+    .texto-slider a {
+        width: 130px;
+
+    }
+
+    .card {
+        width: 95%;
+    }
+
+    .elemento-central-preguntas {
+        margin-block: 80px;
+    }
+
+    .preguntas-version {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: auto;
+    }
+
+    .accordion {
+        width: 95%;
+        margin-inline: auto;
+    }
+
+    .logo-container {
+        padding-top: 150px;
+    }
+
+    .logo-container img {
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .terminos-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-bottom: 20px;
+    }
+
+    .footer {
+        height: 400px;
+    }  
+
+    /** ABOUT US **/
+    .banner-about-us-section {
+        height: 100vh;
+    }
+
+    .logo-banner-about-us-container {
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .aboutus-middle {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .texto-aboutus-middle {
+        width: 95%;
+    }
+
+    .texto-aboutus-middle p {
+        width: 100%;
+        text-align: justify;
+    }
+
+    .texto-aboutus-middle h3 {
+        line-height: 1.2;
+    }
+
+        /** BENEFICIOS **/
+
+    .beneficios-del-barre {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .titulo-beneficios {
+        width: 100%;
+    }
+
+    .titulo-beneficios h3 {
+        width: 90%;
+        margin-inline: auto;
+        margin-bottom: 50px;
+    }
+
+    .listado-beneficios {
+        width: 100%;
+        margin-inline: auto;
+        justify-content: center;
+
+    }
+
+    .elemento-top-beneficios img {
+        width: 25px;
+    }
+
+    .texto-central-beneficios p {
+        width: 90%;
+    }
+
+    .elemento-top-beneficios {
+        width: 90%;
+    }
+
+    .elemento-bottom-beneficios {
+        width: 90%;
+    }
+
+    /** COACHES **/
+    .coach {
+        height: auto;
+        overflow: hidden;
+    }
+
+    .coach .image-side {
+        width: 100%;
+        height: 400px;
+    }
+
+    .text-side {
+        width: 100%;
+    }
+
+    .coach .text-side {
+        padding-top: 10px;
+        padding-inline: 25px;
+    }
+
+    .coach .text-side h3 {
+        line-height: 1;
+        font-size: 5rem;
+    }
+
+    .subtitulo-coach {
+        width: 180px;
+    }
+
+    .elementos-top-coaches img {
+        width: 20px;
+    }
+
+    .elemento-titulo-coaches {
+        margin-bottom: 20px;
+    }
+
+    /** CONTACT & LOGIN **/
+    .general-form-container {
+        width: 95%;
+    }
+
+    /** RESERVA **/
+    .contenido-seleccion-clase {
+        width: 95%;
+        margin-inline: auto;
+    }
+
+    .first-flex h2{
+        font-size: 3rem;
+        margin-block: 20px 30px;
+    }
+
+    .my-account-link{
+        font-size: 2rem;
+    }
+
+    .elemento-clase {
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-right: 0px;
+        border-radius: 20px;
+    }
+
+    .first-flex-clase {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img-clase-container {
+        width: 100%;
+        height: 250px;
+    }
+
+    .nombrecoach-horarioclase {
+        width: 95%;
+    }
+
+    .second-flex-clase {
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .iconos-container {
+        display: flex;
+        flex-direction: row;
+        width: auto;
+    }
+
+    .btn-reservar-clase-container {
+        width: 200px;
+        margin-inline: auto;
+        margin-bottom: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-reservar-clase-container a {
+        width: 90%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .btn-reservar-clase-container p {
+        width: 90%;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+        .confirmation-section {
+        width: 90%;
+        margin-inline: auto;
+    }
+
+    .elemento-clase-confirmacion {
+        width: 95%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-right: 0px;
+        border-radius: 20px;
+    }
+
+    #confirm-disciplina {
+        margin-bottom: 20px;
+    }
+}
+
+@media(min-width: 767px) and (max-width: 1199px){
+    .slider img{
+        width: 100%;
+    }
+
+    .slide {
+        flex: 0 0 50%;
+    }
+
+    .texto-slider {
+        margin-top: 55%;
+    }
+
+    .cards-container {
+        gap: 2rem;
+        width: 95%;
+        overflow: hidden;
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        width: 350px;
+        height: 400px;
+        margin-inline: auto;
+        margin-bottom: 50px;
+    }
+
+    .preguntas-section {
+        overflow: 100%;
+        overflow: hidden;
+    }
+
+    .elemento-central-preguntas {
+        margin-block: 80px;
+    }
+
+    .fundadoras-section {
+        position: relative;
+        height: 650px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .elemento-central-fundadoras {
+        margin-top: 40px;
+        width: 400px;
+        margin-inline: auto;
+        height: 500px;
+    }
+
+    .preguntas-version {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: auto;
+    }
+
+    .elementos-izquierda-fundadoras {
+        position: absolute;
+        height: 90%;
+    }
+
+    .elementos-derecha-fundadoras {
+        position: absolute;
+        height: 90%;
+        right: 0%;
+    }
+
+    .accordion {
+        width: 80%;
+    }
+
+    .elemento-central-preguntas {
+        margin-block: 100px 150px;
+    }
+
+    /** PAQUETES **/
+    .membresias-paquetes .cards-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4rem;
+    }
+
+    .cards-container {
+        overflow: visible;
+    }
+
+    /** COACHES **/
+    .coach .text-side h3 {
+        line-height: 1;
+        font-size: 4rem;
+    }
+
+    .coach .text-side p {
+        line-height: 1.1;
+    }
+
+    .subtitulo-coach {
+        width: 180px;
+    }
+
+
 }

@@ -88,7 +88,7 @@
                 postura y aumentar la flexibilidad. Es de bajo impacto y muy
                 efectivo para esculpir el cuerpo.
             </p>
-            <div class="wellness-texto wellness-beneficios">
+            <div class="wellness-beneficios">
                 <p>Wellness made for</p>
                 <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
             </div>
