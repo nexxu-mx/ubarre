@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>"> 
+    <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
     <?php include 'head.php'; ?>
 </head>
@@ -40,18 +40,18 @@
             <section class="descripcion-section">
                 <div class="container section">
                     <div>
-                        <img src="assets/images/ubarre/svg/icon.svg" alt="logo sencia">
+                        <img src="assets/images/ubarre/SVG/icon.svg" alt="logo sencia">
                         <p>
-                        Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que 
-                        escucha, sostiene y acompaña.
+                            Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que
+                            escucha, sostiene y acompaña.
                         </p>
                         <p>
-                        Buscamos tu bienestar real: físico, mental y emocional. Porque no se trata solo de moverse, sino de como te 
-                        sientes al hacerlo. Muevete con intención. Conectate con el corazón.
+                            Buscamos tu bienestar real: físico, mental y emocional. Porque no se trata solo de moverse, sino de como te
+                            sientes al hacerlo. Muevete con intención. Conectate con el corazón.
                         </p>
                         <div class="wellness-texto">
                             <p>Wellness made for</p>
-                            <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
+                            <img src="./assets/images/ubarre/SVG/u-sola.svg" alt="">
                         </div>
                         <a href="">Conocer más</a>
                     </div>
@@ -62,42 +62,44 @@
                 <div class="aboutus-fundadoras container ">
                     <div class="aboutus-top">
                         <div class="aboutus-elemento-izquierda">
-                            <img src="./assets/images/ubarre/svg/dots.svg" alt="">
+                            <img src="./assets/images/ubarre/SVG/dots.svg" alt="">
                         </div>
                         <div class="aboutus-elemento-derecha">
-                            <img src="./assets/images/ubarre/svg/icon.svg" alt="">
+                            <img src="./assets/images/ubarre/SVG/icon.svg" alt="">
                         </div>
                     </div>
                     <div class="aboutus-middle">
                         <div class="elemento-central-fundadoras">
                             <div class="fundadoras-nombre">
-                            <p>Nuestra misión 
-                                <br>y visión</p>
-                            <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="">
+                                <p>Nuestra misión
+                                    <br>y visión
+                                </p>
+                                <img src="./assets/images/ubarre/SVG/ubarre-sin-tagline.svg" alt="">
                             </div>
                         </div>
                         <div class="texto-aboutus-middle">
                             <h3>Nuestras Fundadoras</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis
-                            nostrud exercitation ullamco laboris nisi
-                            ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in
-                            voluptate velit esse cillum dolore eu</p>
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna
+                                aliqua. Ut enim ad minim veniam, quis
+                                nostrud exercitation ullamco laboris nisi
+                                ut aliquip ex ea commodo consequat.
+                                Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu</p>
                         </div>
                     </div>
                     <div class="aboutus-bottom">
                         <div class="elemento-bottom-fundadoras aboutus-elemento-izquierda">
                             <h4>Fundadoras</h4>
                         </div>
-                         <div class="elemento-bottom-fundadoras elemento-reviving aboutus-elemento-derecha">
-                            <p>REVIVING THE 
-                            <br>MINDFUL MOVEMENT</p>
+                        <div class="elemento-bottom-fundadoras elemento-reviving aboutus-elemento-derecha">
+                            <p>REVIVING THE
+                                <br>MINDFUL MOVEMENT
+                            </p>
                         </div>
                     </div>
-                    </div>
+                </div>
             </section>
         </article>
     </main>

@@ -24,7 +24,8 @@
       padding: 30px 60px;
       position: relative;
     }
-    .dsco{
+
+    .dsco {
       position: absolute;
       top: -10px;
       right: -14px;
@@ -70,7 +71,6 @@
                   $clases .= '<option value="' . $row['clases'] . '" >' . $row['clases'] . '</option>';
                   $nombr .= '<option value="' . $row['nombre'] . '" >' . $row['nombre'] . '</option>';
                 }
-                
               }
               echo $clases;
               $conn->close();
@@ -140,34 +140,35 @@
               card.className = "card";
 
               const token = generarToken();
-            function descripcionPersona(p) {
-                  if (p.persona == 1) {
-                      return 'Individual';
-                  } else if (p.persona == 2) {
-                    return '2 Personas';
-                  } else if (p.persona == 4) {
-                    return '4 Personas';
-                  }
-                  return '';
+
+              function descripcionPersona(p) {
+                if (p.persona == 1) {
+                  return 'Individual';
+                } else if (p.persona == 2) {
+                  return '2 Personas';
+                } else if (p.persona == 4) {
+                  return '4 Personas';
                 }
-                let descuento = "";
-                let precio = `<p class="precio-card">MX $${p.costo}</p>`;
-                
-                if (typeof p.descuento !== 'undefined' && p.descuento !== null) {
-                    descuento =  '<p class="dsco">' + p.descuento + '%</p>';
-                    dell = '<del style="color: #a0a0a0;">$' + p.costo + '</del>';
-                    
-                   const costodesc = (p.costo / 100) * p.descuento;
-                   const costonvo = (p.costo - costodesc).toFixed(2);
-                   precio = dell + '<p class="precio-card" style="margin-top: -20px;">MX $' + costonvo + '</p>';
-                    
-                }
-                
+                return '';
+              }
+              let descuento = "";
+              let precio = `<p class="precio-card">MX $${p.costo}</p>`;
+
+              if (typeof p.descuento !== 'undefined' && p.descuento !== null) {
+                descuento = '<p class="dsco">' + p.descuento + '%</p>';
+                dell = '<del style="color: #a0a0a0;">$' + p.costo + '</del>';
+
+                const costodesc = (p.costo / 100) * p.descuento;
+                const costonvo = (p.costo - costodesc).toFixed(2);
+                precio = dell + '<p class="precio-card" style="margin-top: -20px;">MX $' + costonvo + '</p>';
+
+              }
+
 
               card.innerHTML = `
                                 <p class="tipo-card">${p.nombre}</p>
                                 <p class="numero-clases-card" style="
-                                  ${(p.clases == 'ILIMITADO') ? 'font-size: 4rem; margin-block: 10px' : ''}
+                                  ${(p.clases == 'ILIMITADO' || p.clases == 'ANUALIDAD') ? 'font-size: 4rem; margin-block: 10px' : ''}
                                 ">${p.clases}</p>
                                 <p class="clases-card">CLASES</p>
                                 ${descuento}

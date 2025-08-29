@@ -31,10 +31,10 @@
         <article class="titulo-coaches container">
             <div class="elementos-top-coaches">
                 <div class="elemento-coaches-izquierda">
-                    <img src="./assets/images/ubarre/svg/dots.svg" alt="">
+                    <img src="./assets/images/ubarre/SVG/dots.svg" alt="">
                 </div>
                 <div class="elemento-coaches-derecha">
-                    <img src="./assets/images/ubarre/svg/icon.svg" alt="">
+                    <img src="./assets/images/ubarre/SVG/icon.svg" alt="">
                 </div>
             </div>
             <div class="elemento-titulo-coaches">
@@ -43,7 +43,7 @@
         </article>
         <article>
 
-            <?php 
+            <?php
             include 'db.php';
 
             ini_set('display_errors', 1);
@@ -69,16 +69,15 @@
 
             while ($fila = mysqli_fetch_assoc($resultado)) {
                 // Validación de disciplina
-                $disciplina = isset($idDisciplinas[$fila['id_disciplina']]) 
-                                ? $idDisciplinas[$fila['id_disciplina']] 
-                                : 'Disciplina desconocida';
+                $disciplina = isset($idDisciplinas[$fila['id_disciplina']])
+                    ? $idDisciplinas[$fila['id_disciplina']]
+                    : 'Disciplina desconocida';
                 $coachPath = "./assets/images/coaches/" . $fila['id'] . ".mp4";
                 $defaultPath = "./assets/images/coaches/pro/" . $fila['id'] . ".png";
-        
-                if (!file_exists($coachPath)) {
-                    $imgC = '<img src="'. $defaultPath .'" alt="Foto Coach" style="width: 100%; height: 100%; object-fit: cover;">';
 
-                }else{
+                if (!file_exists($coachPath)) {
+                    $imgC = '<img src="' . $defaultPath . '" alt="Foto Coach" style="width: 100%; height: 100%; object-fit: cover;">';
+                } else {
                     $imgC = '<video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"
                                 poster="./assets/images/hero.png">
                                 <source src="' . $coachPath . '" type="video/mp4">
@@ -86,7 +85,7 @@
                             </video>';
                 }
 
-                if ($intercalador == 1) { 
+                if ($intercalador == 1) {
                     echo '
                         <section class="training-for-life-section coach">
                             <div class="image-side">
@@ -94,12 +93,12 @@
                             </div>
                             <div class="text-side ">
                                 <div>
-                                    <h3>Coach '. $fila['nombre_coach'] .'</h3>
+                                    <h3>Coach ' . $fila['nombre_coach'] . '</h3>
                                     <p>
-                                        '. $fila['descripcion_coach'] .'
+                                        ' . $fila['descripcion_coach'] . '
                                     </p>
-                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/ubarre/svg/u-sola.svg" alt=""></div>
-                                    <a href="reserva.php">Reserva con '. $fila['nombre_coach'] .'</a>
+                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/ubarre/SVG/u-sola.svg" alt=""></div>
+                                    <a href="reserva.php">Reserva con ' . $fila['nombre_coach'] . '</a>
                                 </div>
                             </div>
                         </section>
@@ -110,12 +109,12 @@
                         <section class="training-for-life-section coach">
                             <div class="text-side ">
                                 <div>
-                                    <h3>Coach '. $fila['nombre_coach'] .'</h3>
+                                    <h3>Coach ' . $fila['nombre_coach'] . '</h3>
                                     <p>
-                                        '. $fila['descripcion_coach'] .'
+                                        ' . $fila['descripcion_coach'] . '
                                     </p>
-                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/ubarre/svg/u-sola.svg" alt=""></div>
-                                    <a href="reserva.php">Reserva con '. $fila['nombre_coach'] .'</a>
+                                    <div class="subtitulo-coach"><p>Wellness made for </p><img src="./assets/images/ubarre/SVG/u-sola.svg" alt=""></div>
+                                    <a href="reserva.php">Reserva con ' . $fila['nombre_coach'] . '</a>
                                 </div>
                             </div>
                             <div class="image-side">
@@ -128,7 +127,7 @@
             }
 
             $conn->close();
-        ?>
+            ?>
 
         </article>
 
@@ -137,8 +136,9 @@
                 <h4>Coaches</h4>
             </div>
             <div class="elemento-bottom-fundadoras elemento-reviving aboutus-elemento-derecha">
-                <p>REVIVING THE 
-                <br>MINDFUL MOVEMENT</p>
+                <p>REVIVING THE
+                    <br>MINDFUL MOVEMENT
+                </p>
             </div>
         </div>
     </main>
@@ -146,7 +146,7 @@
     <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
         <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
     </a>
-    <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script> 
+    <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <?php include 'script.php'; ?>
