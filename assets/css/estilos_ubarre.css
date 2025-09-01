@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "RegulatorNova";
-  src: url("../fonts/regulator-nova-bold.otf");
+    font-family: "RegulatorNova";
+    src: url("../fonts/regulator-nova-bold.otf");
 }
 
 @font-face {
@@ -63,7 +63,7 @@
     padding-block: 30px;
 }
 
-.elemento-central-fundadoras img{
+.elemento-central-fundadoras img {
     margin-block: 10px;
     width: 80px;
     height: auto;
@@ -71,14 +71,14 @@
 }
 
 
-.hero-banner h1{
+.hero-banner h1 {
     margin-top: -30px;
     font-family: 'Jumper', sans-serif;
     font-weight: 500;
 }
 
 .reservar-btn-banner {
-    font-family: 'Jumper',sans-serif;
+    font-family: 'Jumper', sans-serif;
 }
 
 .elemento-central-fundadoras {
@@ -98,26 +98,26 @@
 }
 
 .elemento-central-fundadoras::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.elemento-central-fundadoras > * {
-  position: relative;
-  z-index: 1;
+.elemento-central-fundadoras>* {
+    position: relative;
+    z-index: 1;
 }
 
 .fundadoras-nombre {
     margin-inline: auto;
 }
 
-.fundadoras-nombre p{
+.fundadoras-nombre p {
     font-family: 'Jumper';
     line-height: 1;
     font-size: 3.2rem;
@@ -144,15 +144,15 @@
     top: 0%;
 }
 
-.elemento-top-fundadoras img{
+.elemento-top-fundadoras img {
     width: 20px;
 }
 
-.elemento-bottom-fundadoras{
+.elemento-bottom-fundadoras {
     margin-top: auto;
 }
 
-.elemento-bottom-fundadoras p{
+.elemento-bottom-fundadoras p {
     font-family: 'AllRoundGothic';
     line-height: 1;
     font-size: 1rem;
@@ -251,7 +251,7 @@
 }
 
 .slide {
-    height:100%;
+    height: 100%;
     border-radius: 0px;
 }
 
@@ -269,7 +269,7 @@
 }
 
 
-.sli1 img{
+.sli1 img {
     min-height: 650px;
     object-fit: cover;
 }
@@ -296,7 +296,7 @@
     width: 30px;
 }
 
-.flecha-slider-izquierda{
+.flecha-slider-izquierda {
     transform: rotate(90deg);
     position: absolute;
     left: 5%;
@@ -304,7 +304,7 @@
     transform: all 0.8s ease-in-out;
 }
 
-.flecha-slider-derecha{
+.flecha-slider-derecha {
     transform: rotate(-90deg);
     position: absolute;
     right: 5%;
@@ -319,19 +319,20 @@
     height: auto;
 }
 
-.flecha-slider{
+.flecha-slider {
     position: absolute;
     z-index: 5;
 }
 
-.fi{
+.fi {
     left: 2%;
 }
 
-.fd{
+.fd {
     right: 2%;
 }
-.contenido-slider{
+
+.contenido-slider {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -343,7 +344,7 @@
     margin-top: 50%;
 }
 
-.texto-slider p{
+.texto-slider p {
     font-family: 'Jumper', sans-serif;
     font-weight: 400;
     text-align: left;
@@ -381,7 +382,8 @@
     font-weight: 300;
     font-size: 25px;
 }
-.texto-slider-final a{
+
+.texto-slider-final a {
     text-decoration: underline;
     font-size: 10px;
 }
@@ -455,6 +457,7 @@
     color: #0C0D0F;
     text-decoration: underline;
 }
+
 .preguntas-section {
     background-image: url(../images/ubarre/2x/fondo2@2x.png);
     object-fit: cover;
@@ -486,7 +489,7 @@
     border: none;
 }
 
-.accordion > p {
+.accordion>p {
     color: #56514F;
     text-decoration: underline;
 }
@@ -495,7 +498,7 @@
     background-color: #DFD5BE;
 }
 
-.aboutus-elemento-izquierda img{
+.aboutus-elemento-izquierda img {
     width: 20px;
 }
 
@@ -562,13 +565,13 @@
 }
 
 .texto-aboutus-middle h3 {
-    font-family: 'RegulatorNova',sans-serif;
+    font-family: 'RegulatorNova', sans-serif;
     color: #56514F;
     font-size: 2.8rem;
     margin-bottom: 3rem;
 }
 
-.texto-aboutus-middle p{
+.texto-aboutus-middle p {
     font-family: 'Jumper', sans-serif;
 
     width: 80%;
@@ -593,7 +596,7 @@
 }
 
 .terminos-container a {
-    font-family: 'Jumper',sans-serif;
+    font-family: 'Jumper', sans-serif;
     font-size: 1.6rem;
     font-weight: 400;
 }
@@ -725,13 +728,13 @@
     position: relative;
     background-color: #8B976A;
     height: 80px;
-    
+
 }
 
 .logo-form-container img {
     width: 150px;
     position: absolute;
-    top: -40%;
+    top: 30%;
     margin-inline: auto;
     left: 0%;
     right: 0%;
@@ -742,9 +745,9 @@ form .submit-btn {
 }
 
 .map-section iframe {
-  width: 100%;
-  height: 70vh;
-  max-height: 600px;
+    width: 100%;
+    height: 70vh;
+    max-height: 600px;
 }
 
 .elementos-top-coaches {
@@ -767,7 +770,8 @@ form .submit-btn {
 .elemento-coaches-derecha {
     margin-left: auto;
 }
-.elementos-top-coaches img{
+
+.elementos-top-coaches img {
     width: 30px;
 }
 
@@ -796,11 +800,11 @@ form .submit-btn {
     min-width: 350px
 }
 
-.coach .image-side img{
+.coach .image-side img {
     object-fit: cover;
 }
 
-.coach .text-side h3{
+.coach .text-side h3 {
     text-align: center;
     color: #8B976A;
     font-size: 6rem;
@@ -837,7 +841,7 @@ form .submit-btn {
     color: #0C0D0F;
 }
 
-.subtitulo-coach img{
+.subtitulo-coach img {
     width: 15px;
 }
 
@@ -915,13 +919,13 @@ form .submit-btn {
 }
 
 
-.wellness-beneficios img{
+.wellness-beneficios img {
     margin-top: -5px;
     margin-right: 40px;
     width: 15px;
 }
 
-.wellness-beneficios p{
+.wellness-beneficios p {
     font-weight: 700;
     color: #0C0D0F;
     font-size: 1.7rem;
@@ -954,6 +958,7 @@ form .submit-btn {
     background-size: cover;
     width: 100%;
 }
+
 .beneficios-barre img {
     width: 300px;
     margin-inline: auto;
@@ -961,7 +966,7 @@ form .submit-btn {
     margin-bottom: 80px;
 }
 
-.beneficios-del-barre{
+.beneficios-del-barre {
     width: 80%;
     margin-inline: auto;
     padding-bottom: 50px;
@@ -997,28 +1002,28 @@ form .submit-btn {
     height: 420px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: space-between; 
+    align-items: center;
+    justify-content: space-between;
     margin-right: 20px;
     position: relative;
 }
 
 .linea-beneficios::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: #FFFFFF;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #FFFFFF;
 }
 
 
 .linea-beneficios .punto {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  z-index: 1; 
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    z-index: 1;
 }
 
 .beneficio-container {
@@ -1029,7 +1034,7 @@ form .submit-btn {
     text-align: center;
 }
 
-.beneficio-container h4{
+.beneficio-container h4 {
     font-size: 2.3rem;
     text-align: center;
     font-weight: 300;
@@ -1091,7 +1096,7 @@ form .submit-btn {
     gap: 5px;
 }
 
-.iconos-container img{
+.iconos-container img {
     width: 30px;
 }
 
@@ -1106,7 +1111,7 @@ form .submit-btn {
     margin-block: auto;
 }
 
-.aforo-container img{
+.aforo-container img {
     width: 20px;
     margin-left: 5px;
 }
@@ -1146,7 +1151,7 @@ form .submit-btn {
     font-family: 'AllRoundGothic', sans-serif;
 }
 
-.contenido-texto-modal a{
+.contenido-texto-modal a {
     margin-top: 20px;
     text-align: center;
     margin-inline: auto;
@@ -1155,24 +1160,24 @@ form .submit-btn {
 }
 
 .modal-detalles-coach {
-  width: 300px;
-  height: 450px;
-  background: #FFFFFF;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  display: none;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity .2s ease, transform .2s ease;
-  z-index: 500;
+    width: 300px;
+    height: 450px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: 500;
 }
 
 .modal-detalles-coach.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.boton-reserva p{
+.boton-reserva p {
     width: 130px;
     text-decoration: none;
     border-radius: 10px;
@@ -1181,7 +1186,7 @@ form .submit-btn {
     color: #56514F;
     font-size: 1.8rem;
     padding: 0px 20px;
-    margin-right: 50px;   
+    margin-right: 50px;
     text-align: center;
 }
 
@@ -1250,26 +1255,27 @@ form .submit-btn {
 
 
 .modal-detalles-bebida {
-  width: 350px;
-  height: 450px;
-  background: #FFFFFF;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  display: none;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity .2s ease, transform .2s ease;
-  z-index: 500;
+    width: 350px;
+    height: 450px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: 500;
 }
 
 .modal-detalles-bebida.show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .calendar-slider-number {
     color: #56514F;
 }
+
 .active-day {
     background-color: #38373700;
     color: #56514F;
@@ -1279,7 +1285,7 @@ form .submit-btn {
     text-align: center;
 }
 
-.slide-bebida img{
+.slide-bebida img {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -1287,7 +1293,7 @@ form .submit-btn {
     border-top-right-radius: 15px;
 }
 
-.slide-bebida h3{
+.slide-bebida h3 {
     font-size: 3rem;
     color: #8B976A;
     margin-top: 15px;
@@ -1302,7 +1308,7 @@ form .submit-btn {
     font-weight: 500;
 }
 
-.botones-bebida{
+.botones-bebida {
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -1322,7 +1328,7 @@ form .submit-btn {
     font-size: 600;
 }
 
-.btn-confirmar-bebida button{
+.btn-confirmar-bebida button {
     color: #FFFFFF;
     background-color: #8B976A;
 }
@@ -1337,7 +1343,7 @@ form .submit-btn {
     font-size: 600;
 }
 
-.btn-confirmar-bebida a{
+.btn-confirmar-bebida a {
     color: #FFFFFF;
     background-color: #8B976A;
 }
@@ -1406,22 +1412,22 @@ form .submit-btn {
 }
 
 .container-slider-bebidas {
-  position: relative;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .slides-wrapper {
-  display: flex;
-  transition: transform 0.4s ease;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    transition: transform 0.4s ease;
+    width: 100%;
+    height: 100%;
 }
 
 .slide-bebida {
-  min-width: 100%;
-  box-sizing: border-box;
-  text-align: center;
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .reserva-main-section {
@@ -1441,7 +1447,7 @@ form .submit-btn {
     color: #F2EEEA;
 }
 
-.cancelar-confirmacion-reserva-btn{
+.cancelar-confirmacion-reserva-btn {
     border: 1px solid #8B976A;
     color: #8B976A;
 }
@@ -1458,7 +1464,8 @@ form .submit-btn {
 .nombre-bebida {
     line-height: 1.2;
 }
-.nombre-bebida p{
+
+.nombre-bebida p {
     font-size: 2.2rem;
     color: #8B976A;
 }
@@ -1478,11 +1485,11 @@ form .submit-btn {
     margin-block: auto;
 }
 
-.disciplina-clase-container{
+.disciplina-clase-container {
     margin-block: auto;
 }
 
-@media(min-width: 300px) and (max-width: 399px){
+@media(min-width: 300px) and (max-width: 399px) {
     .fundadoras-section {
         position: relative;
         height: 550px;
@@ -1519,11 +1526,11 @@ form .submit-btn {
     .elemento-bottom-fundadoras h4 {
         font-size: 2rem;
     }
-    
+
     .descripcion-section img {
         padding-bottom: 80px;
     }
-    
+
     .descripcion-section p {
         width: 95%;
         margin-inline: auto;
@@ -1542,7 +1549,7 @@ form .submit-btn {
         margin-bottom: 0px !important;
     }
 
-    .wellness-texto img  {
+    .wellness-texto img {
         width: 13px;
         margin-top: -5px;
         padding-block: 0px;
@@ -1553,7 +1560,7 @@ form .submit-btn {
         flex: 0 0 100%;
         width: 100vw;
     }
-    
+
     .slider img {
         width: 100%;
     }
@@ -1647,7 +1654,7 @@ form .submit-btn {
         display: flex;
         flex-direction: column;
     }
-    
+
     .titulo-beneficios {
         width: 100%;
     }
@@ -1680,7 +1687,7 @@ form .submit-btn {
     }
 
     /** PAQUETES **/
-    .main-section-paquetes h1{
+    .main-section-paquetes h1 {
         font-size: 4rem;
     }
 
@@ -1732,12 +1739,12 @@ form .submit-btn {
         margin-inline: auto;
     }
 
-    .first-flex h2{
+    .first-flex h2 {
         font-size: 3rem;
         margin-block: 20px 30px;
     }
 
-    .my-account-link{
+    .my-account-link {
         font-size: 2rem;
     }
 
@@ -1826,7 +1833,7 @@ form .submit-btn {
 
 
 
-@media(min-width: 400px) and (max-width: 767px){
+@media(min-width: 400px) and (max-width: 767px) {
     .fundadoras-section {
         position: relative;
         height: 650px;
@@ -1863,11 +1870,11 @@ form .submit-btn {
     .elemento-bottom-fundadoras h4 {
         font-size: 2rem;
     }
-    
+
     .descripcion-section img {
         padding-bottom: 80px;
     }
-    
+
     .descripcion-section p {
         width: 95%;
         margin-inline: auto;
@@ -1886,7 +1893,7 @@ form .submit-btn {
         margin-bottom: 0px !important;
     }
 
-    .wellness-texto img  {
+    .wellness-texto img {
         width: 13px;
         margin-top: -5px;
         padding-block: 0px;
@@ -1897,7 +1904,7 @@ form .submit-btn {
         flex: 0 0 100%;
         width: 100vw;
     }
-    
+
     .slider img {
         width: 100%;
     }
@@ -1953,7 +1960,7 @@ form .submit-btn {
 
     .footer {
         height: 400px;
-    }  
+    }
 
     /** ABOUT US **/
     .banner-about-us-section {
@@ -1984,14 +1991,14 @@ form .submit-btn {
         line-height: 1.2;
     }
 
-        /** BENEFICIOS **/
+    /** BENEFICIOS **/
 
     .beneficios-del-barre {
         width: 95%;
         display: flex;
         flex-direction: column;
     }
-    
+
     .titulo-beneficios {
         width: 100%;
     }
@@ -2073,12 +2080,12 @@ form .submit-btn {
         margin-inline: auto;
     }
 
-    .first-flex h2{
+    .first-flex h2 {
         font-size: 3rem;
         margin-block: 20px 30px;
     }
 
-    .my-account-link{
+    .my-account-link {
         font-size: 2rem;
     }
 
@@ -2138,7 +2145,7 @@ form .submit-btn {
         text-align: center;
     }
 
-        .confirmation-section {
+    .confirmation-section {
         width: 90%;
         margin-inline: auto;
     }
@@ -2157,8 +2164,8 @@ form .submit-btn {
     }
 }
 
-@media(min-width: 767px) and (max-width: 1199px){
-    .slider img{
+@media(min-width: 767px) and (max-width: 1199px) {
+    .slider img {
         width: 100%;
     }
 
