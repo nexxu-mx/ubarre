@@ -81,6 +81,14 @@
 							  <p>Paquetes</p>
 							</a>
 						</li>
+
+						<li class="nav-item">
+							<a href="smoothies.php">
+							  <i class="icon-copy fa fa-beer"></i>
+							  <p>Smoothies</p>
+							</a>
+						</li>
+
 						<li class="nav-item">
 							<a href="../profile.php">
 							  <i class="fas fa-power-off"></i>

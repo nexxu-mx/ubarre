@@ -9,6 +9,7 @@ if (
     isset($_POST['vigencia_paquete']) &&
     isset($_POST['invitados_paquete']) &&
     isset($_POST['personas_paquete'])
+   
 ) {
     $nombrePaquete = trim(strtoupper($_POST['nombre_paquete']));
     $numeroClases = trim($_POST['numero_clases']);
@@ -16,6 +17,9 @@ if (
     $vigenciaPaquete = trim($_POST['vigencia_paquete']);
     $invitadosPaquete = trim($_POST['invitados_paquete']);
     $personasPaquete = trim($_POST['personas_paquete']);
+
+    $smoothieCheck = isset($_POST['smoothie_check']) ? 1 : 0;
+
     $descuento = trim($_POST['dsc']);
     $descuento = $descuento === '' ? null : $descuento;
     if(empty($descuento)){
@@ -28,16 +32,16 @@ if (
     if (isset($_POST['id_paquete_edit'])) {
         $idPaqueteEdit = $_POST['id_paquete_edit'];
 
-        $updatePaquete = $conn->prepare("UPDATE paquetes SET clases = ?, costo = ?, nombre = ?, vigencia = ?, invitados = ?, persona = ?, descuento = ?, finalizadsc = ? WHERE id = ?");
-        $updatePaquete->bind_param("ssssssssi", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $descuento, $finalizadsc, $idPaqueteEdit); 
+        $updatePaquete = $conn->prepare("UPDATE paquetes SET clases = ?, costo = ?, nombre = ?, vigencia = ?, invitados = ?, persona = ?, descuento = ?, finalizadsc = ?, smoothies = ? WHERE id = ?");
+        $updatePaquete->bind_param("ssssssssii", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $descuento, $finalizadsc, $smoothieCheck, $idPaqueteEdit); 
 
         $resultadoUpdatePaquete = $updatePaquete->execute();
         
         header('location: paquetes.php');
         exit;
     } else {
-        $insertPaquete = $conn->prepare("INSERT INTO paquetes (clases, costo, nombre, vigencia, invitados, persona) VALUES (?, ?, ?, ?, ?, ?)");
-        $insertPaquete->bind_param("ssssss", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete);
+        $insertPaquete = $conn->prepare("INSERT INTO paquetes (clases, costo, nombre, vigencia, invitados, persona, smoothies) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $insertPaquete->bind_param("ssssssi", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $smoothieCheck);
 
         $resultadoInsert = $insertPaquete->execute();
 

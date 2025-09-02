@@ -111,7 +111,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                             if (isset($_GET['id'])) {
                                 $idPaqueteEdit = $_GET['id'];
 
-                                $selectPaquete = "SELECT id, clases, costo, nombre, vigencia, invitados, persona, descuento, finalizadsc FROM paquetes WHERE id = '$idPaqueteEdit'";
+                                $selectPaquete = "SELECT id, clases, costo, nombre, vigencia, invitados, persona, descuento, finalizadsc, smoothies FROM paquetes WHERE id = '$idPaqueteEdit'";
 
                                 $resultadoSelectPaquete = $conn->query($selectPaquete);
 
@@ -129,12 +129,22 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['invitados'] .'">
                                     <label for="personas_paquete">Personas en el Paquete:</label>
                                     <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['persona'] .'">
+                                    
+                                    <label for="smoothie_check">¿El Paquete Incluirá Smoothie?</label>
+                                    <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="form-check form-switch m-0">
+                                        <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);" '. ($filaPaquete['smoothies'] == 1 ? 'checked' : '') .'>
+                                    </div>
+                                    <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                    </div>
+
                                     <label for="personas_paquete">Descuento:</label>
                                     <div style="display: flex; justify-content: center; align-items: center; gap: 20px;border: 1px solid #efefef;padding: 10px;">
                                     <input type="text" id="dsc" name="dsc" placeholder="10" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" value="'. $filaPaquete['descuento'] .'">
                                     <input type="date" id="vigen" name="vigen" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" value="'. $filaPaquete['finalizadsc'] .'">
                                     </div>
                                     <input type="hidden" id="id_paquete_edit" name="id_paquete_edit" value="'. $idPaqueteEdit .'">
+
                                     ';
                                 }
                             } else {
@@ -151,6 +161,17 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="personas_paquete">Personas en el Paquete:</label>
                                     <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                    
+                                    
+                                    <label for="smoothie_check">¿El Paquete Incluirá Smoothie?</label>
+                                    <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="form-check form-switch m-0">
+                                        <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);">
+                                    </div>
+                                    <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                    </div>
+                                    
+
                                 ';
                             }
                             ?>
