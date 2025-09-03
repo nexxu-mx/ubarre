@@ -29,7 +29,7 @@
         </li>
 
         <li class="navbar-item">
-          <a href="clases.php" class="navbar-link title-md">CLASES</a>
+          <a href="beneficios.php" class="navbar-link title-md">CLASES</a>
         </li>
 
         <li class="navbar-item">

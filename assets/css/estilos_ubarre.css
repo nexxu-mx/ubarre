@@ -322,6 +322,12 @@
 .flecha-slider {
     position: absolute;
     z-index: 5;
+    transition: all 200ms ease;
+    height: fit-content;
+}
+
+.flecha-slider:hover {
+    transform: scale(1.1);
 }
 
 .fi {
@@ -367,6 +373,12 @@
     border: 1px solid #F2EEEA;
     border-radius: 10px;
     font-size: 20px;
+    transition: all 500ms ease;
+}
+
+.texto-slider a:hover {
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .texto-slider-final {
@@ -953,10 +965,11 @@ form .submit-btn {
 
 
 .beneficios-barre {
-    background-image: url(../images/ubarre/2x/hero_us@2x.png);
+    background-image: url(../images/ubarre/2x/befeficios@2x.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: 130rem;
 }
 
 .beneficios-barre img {
@@ -967,7 +980,6 @@ form .submit-btn {
 }
 
 .beneficios-del-barre {
-    width: 80%;
     margin-inline: auto;
     padding-bottom: 50px;
     display: flex;
@@ -975,6 +987,7 @@ form .submit-btn {
     color: #FFFFFF;
     justify-content: center;
     align-items: center;
+    margin-top: 20rem;
 }
 
 .titulo-beneficios {
@@ -986,7 +999,7 @@ form .submit-btn {
 .titulo-beneficios h3 {
     margin-inline: auto;
     margin-bottom: 125px;
-    font-size: 5rem;
+    font-size: 7rem;
     width: 350px;
     font-weight: 500;
     line-height: 1;
@@ -1029,19 +1042,19 @@ form .submit-btn {
 .beneficio-container {
     border: 1px solid #FFFFFF;
     border-radius: 10px;
-    padding: 5px;
     width: 170px;
     text-align: center;
 }
 
 .beneficio-container h4 {
-    font-size: 2.3rem;
+    font-size: 3rem;
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .texto-beneficios p {
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 10px;
     margin-left: 5px;
     width: 200px;
