@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sencia Studio</title>
+    <title>Sencia Studio | Reserva</title>
     <meta name="title" content="Sencia Studio">
     <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
-    <link rel="shortcut icon" href="./favicon.png" type="image/svg+xml">
+    <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
@@ -47,24 +47,24 @@
     <main>
         <article>
             <section class="reserva-main-section">
-          
+
                 <div class="container">
-            <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
+                    <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
             -->
-                <div class="aboutus-top" id="reserv">
-                    <div class="aboutus-elemento-izquierda">
-                        <button>
-                            <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
-                        </button>
+                    <div class="aboutus-top" id="reserv">
+                        <div class="aboutus-elemento-izquierda">
+                            <button>
+                                <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
+                            </button>
+                        </div>
+                        <div class="aboutus-elemento-derecha">
+                            <img src="./assets/images/svg/bolsa.svg" alt="">
+                        </div>
                     </div>
-                    <div class="aboutus-elemento-derecha">
-                        <img src="./assets/images/svg/bolsa.svg" alt="">
-                    </div>
-                </div>
 
                     <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
-                    
-                    <div class="confirmation-section"  id="confirm-class" >
+
+                    <div class="confirmation-section" id="confirm-class">
                         <h2>Confirmación de Reserva</h2>
                         <div class="fecha-clase-container">
                             <p><span id="texto-dia-din-conf" class="texto-fecha-din">Hoy</span>, <span id="mes-din-conf" class="texto-fecha-din">Marzo</span> <span id="numero-dia-din-conf" class="texto-fecha-din">27</span></p>
@@ -91,7 +91,7 @@
                                         <p>Disciplina:</p>
                                         <h3 id="confirm-disciplina"></h3>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                         </div>
                         <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
                     </div>
-                    
+
                     <!-- Inicio Cards -->
                     <div class="contenido-seleccion-clase">
                         <div class="encuentra-container">
@@ -109,7 +109,10 @@
                             <div class="first-flex">
                                 <div class="hint-flex">
                                     <h2>Encuentra tu clase</h2>
-                                    <svg id="hint-icon" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Help Circle</title><path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64zm-6 304a20 20 0 1120-20 20 20 0 01-20 20zm33.44-102C267.23 276.88 265 286.85 265 296a14 14 0 01-28 0c0-21.91 10.08-39.33 30.82-53.26C287.1 229.8 298 221.6 298 203.57c0-12.26-7-21.57-21.49-28.46-3.41-1.62-11-3.2-20.34-3.09-11.72.15-20.82 2.95-27.83 8.59C215.12 191.25 214 202.83 214 203a14 14 0 11-28-1.35c.11-2.43 1.8-24.32 24.77-42.8 11.91-9.58 27.06-14.56 45-14.78 12.7-.15 24.63 2 32.72 5.82C312.7 161.34 326 180.43 326 203.57c0 33.83-22.61 49.02-42.56 62.43z"/></svg>
+                                    <svg id="hint-icon" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                                        <title>Help Circle</title>
+                                        <path d="M256 64C150 64 64 150 64 256s86 192 192 192 192-86 192-192S362 64 256 64zm-6 304a20 20 0 1120-20 20 20 0 01-20 20zm33.44-102C267.23 276.88 265 286.85 265 296a14 14 0 01-28 0c0-21.91 10.08-39.33 30.82-53.26C287.1 229.8 298 221.6 298 203.57c0-12.26-7-21.57-21.49-28.46-3.41-1.62-11-3.2-20.34-3.09-11.72.15-20.82 2.95-27.83 8.59C215.12 191.25 214 202.83 214 203a14 14 0 11-28-1.35c.11-2.43 1.8-24.32 24.77-42.8 11.91-9.58 27.06-14.56 45-14.78 12.7-.15 24.63 2 32.72 5.82C312.7 161.34 326 180.43 326 203.57c0 33.83-22.61 49.02-42.56 62.43z" />
+                                    </svg>
                                 </div>
                             </div>
                             <div class="second-flex">
@@ -237,17 +240,18 @@
                                 <div id="clazx"></div>
                             </div>
                         </div>
-                </div>
+                    </div>
 
-                <div class="aboutus-bottom">
+                    <div class="aboutus-bottom">
                         <div class="elemento-bottom-fundadoras aboutus-elemento-izquierda">
                             <h4>Fundadoras</h4>
                         </div>
-                         <div class="elemento-bottom-fundadoras elemento-reviving aboutus-elemento-derecha">
-                            <p>REVIVING THE 
-                            <br>MINDFUL MOVEMENT</p>
+                        <div class="elemento-bottom-fundadoras elemento-reviving aboutus-elemento-derecha">
+                            <p>REVIVING THE
+                                <br>MINDFUL MOVEMENT
+                            </p>
                         </div>
-                </div>
+                    </div>
                 </div>
             </section>
         </article>
@@ -357,6 +361,10 @@
                     </div> -->
 
                 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
             </div>
         </div>
 
@@ -399,7 +407,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto"
                     viewBox="0 0 512 512">
                     <defs>
-                        
+
                     </defs>
                     <title>Ellipse</title>
                     <path style="fill: #986C5D;"
@@ -411,7 +419,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto"
                     viewBox="0 0 512 512">
                     <defs>
-                        
+
                     </defs>
                     <title>Ellipse</title>
                     <path style="fill: #00D52B;"
@@ -423,7 +431,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto"
                     viewBox="0 0 512 512">
                     <defs>
-                        
+
                     </defs>
                     <title>Ellipse</title>
                     <path style="fill: #ACACAC;"
@@ -488,7 +496,6 @@
             const btnAgregar = modal.querySelector(".btn-confirmar-bebida a");
             btnAgregar.dataset.bebida = nombreBebida;
         }
-
     </script>
 
     <!-- <script>
@@ -523,8 +530,12 @@
                 });
             });
         });
+<<<<<<< HEAD
 
     </script> -->
+=======
+    </script>
+>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
 </body>
 
 

@@ -322,8 +322,17 @@
 .flecha-slider {
     position: absolute;
     z-index: 5;
+    transition: all 200ms ease;
+    height: fit-content;
 }
 
+<<<<<<< HEAD
+=======
+.flecha-slider:hover {
+    transform: scale(1.1);
+}
+
+>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
 .fi {
     left: 2%;
 }
@@ -367,6 +376,12 @@
     border: 1px solid #F2EEEA;
     border-radius: 10px;
     font-size: 20px;
+    transition: all 500ms ease;
+}
+
+.texto-slider a:hover {
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .texto-slider-final {
@@ -734,7 +749,7 @@
 .logo-form-container img {
     width: 150px;
     position: absolute;
-    top: -40%;
+    top: 30%;
     margin-inline: auto;
     left: 0%;
     right: 0%;
@@ -953,10 +968,11 @@ form .submit-btn {
 
 
 .beneficios-barre {
-    background-image: url(../images/ubarre/2x/hero_us@2x.png);
+    background-image: url(../images/ubarre/2x/befeficios@2x.png);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
+    height: 130rem;
 }
 
 .beneficios-barre img {
@@ -967,7 +983,10 @@ form .submit-btn {
 }
 
 .beneficios-del-barre {
+<<<<<<< HEAD
     width: 80%;
+=======
+>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
     margin-inline: auto;
     padding-bottom: 50px;
     display: flex;
@@ -975,6 +994,7 @@ form .submit-btn {
     color: #FFFFFF;
     justify-content: center;
     align-items: center;
+    margin-top: 20rem;
 }
 
 .titulo-beneficios {
@@ -986,7 +1006,7 @@ form .submit-btn {
 .titulo-beneficios h3 {
     margin-inline: auto;
     margin-bottom: 125px;
-    font-size: 5rem;
+    font-size: 7rem;
     width: 350px;
     font-weight: 500;
     line-height: 1;
@@ -1029,19 +1049,23 @@ form .submit-btn {
 .beneficio-container {
     border: 1px solid #FFFFFF;
     border-radius: 10px;
-    padding: 5px;
     width: 170px;
     text-align: center;
 }
 
 .beneficio-container h4 {
+<<<<<<< HEAD
     font-size: 2.3rem;
+=======
+    font-size: 3rem;
+>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
     text-align: center;
-    font-weight: 300;
+    font-weight: 400;
+    font-style: italic;
 }
 
 .texto-beneficios p {
-    font-weight: 300;
+    font-weight: 400;
     margin-top: 10px;
     margin-left: 5px;
     width: 200px;

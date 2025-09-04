@@ -29,6 +29,10 @@
         </li>
 
         <li class="navbar-item">
+          <a href="beneficios.php" class="navbar-link title-md">CLASES</a>
+        </li>
+
+        <li class="navbar-item">
           <a href="reserva.php" class="navbar-link title-md">RESERVA</a>
         </li>
 

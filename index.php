@@ -8,7 +8,7 @@
   <title>Ubarre</title>
   <meta name="title" content="Sencia Studio">
   <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
-  <link rel="shortcut icon" href="./favicon.png" type="image/svg+xml">
+  <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

@@ -589,7 +589,7 @@ body.nav-active {
 }
 
 .navbar-link:hover {
-  color: var(--regina-ivanna-color);
+  color: #8B976A;
 }
 
 .container-profile-menu {
@@ -885,7 +885,7 @@ span {
 
 .coaches-section {
   margin-top: -1px;
-  background-color: var(--light-brown-3);
+  background-color: #8B976A;
 }
 
 .coaches-section h2 {
@@ -1024,7 +1024,8 @@ span {
 }
 
 .card a:hover {
-  background-color: var(--light-browm-2);
+  background-color: #8B976A;
+  color: var(--white);
 }
 
 .cards-container {
@@ -5255,7 +5256,7 @@ form textarea {
     /* margin-block: auto; */
   }
 
-  .login-bolsa-navbar p {
+  .login-bolsa-navbar:last-of-type p {
     display: none;
   }
 
@@ -5391,7 +5392,7 @@ form textarea {
   }
 
   .calendar-slider-number:hover {
-    background-color: var(--danyfer-karina-color);
+    background-color: #bdc2b1;
   }
 
   .modal-detalles-coach {
