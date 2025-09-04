@@ -236,7 +236,7 @@ function cargarClases(day) {
         var reservable = '<a class="btn-rcoloresCoaches[index]eservar" style="color: #747373;">RESERVAR</a>';;
         if (clase.abierta == "1") {
           reservable = /*`<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`*/
-          `<p class="btn-bebida" href=""
+            `<p class="btn-bebida" href=""
                 onclick="mostrarModalBebida(event)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">
                 RESERVAR
              </p>`;
@@ -587,14 +587,14 @@ function mostrarModal(modal, id, tipo, event) {
 
   modal.style.position = "absolute";
 
-  if(window.innerWidth <= 768) {
+  if (window.innerWidth <= 768) {
     modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
     modal.style.left = `${rect.left}px`;
-  }else {
+  } else {
     modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
     modal.style.left = `${rect.left + window.scrollX}px`;
   }
-  
+
 
   modal.style.display = "block";
   modal.classList.add("show");
@@ -636,10 +636,10 @@ function mostrarModalBebida(event) {
 
   detallesBebidaModal.style.position = "absolute";
 
-  if(window.innerWidth <= 768) {
+  if (window.innerWidth <= 768) {
     detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
     detallesBebidaModal.style.left = `${rect.left - 70}px`;
-  }else {
+  } else {
     detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
     detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
   }
@@ -658,7 +658,7 @@ function mostrarModalBebida(event) {
     btn.dataset.id = boton.dataset.id;
     btn.dataset.idcoach = boton.dataset.idcoach;
 
-    btn.dataset.bebida = "Sin bebida";   
+    btn.dataset.bebida = "Sin bebida";
     btn.dataset.momento = "Al final de la clase";
   });
 }
@@ -693,7 +693,7 @@ function reservaClase(el) {
   const confirmationSection = document.querySelector(".confirmation-section");
   const classesContainer = document.querySelector(".contenido-seleccion-clase");
   const modalVisible = document.querySelector(".modal-detalles-bebida");
-  
+
   const slide = el.closest(".slide-bebida");
   const bebida = slide.dataset.bebida;
   const momento = slide.querySelector(".dropdown-toggle").textContent.trim() || "Al final de la clase";
@@ -713,11 +713,11 @@ function reservaClase(el) {
   document.getElementById("confirm-coach-img").src = imag;
 
   if (momento === "Sin smoothie") {
-      document.getElementById("confirm-bebida").textContent = "";
-      document.getElementById("confirm-momento").textContent = "Sin Smoothie";
+    document.getElementById("confirm-bebida").textContent = "";
+    document.getElementById("confirm-momento").textContent = "Sin Smoothie";
   } else {
-      document.getElementById("confirm-bebida").textContent = bebida;
-      document.getElementById("confirm-momento").textContent = `${momento}`;
+    document.getElementById("confirm-bebida").textContent = bebida;
+    document.getElementById("confirm-momento").textContent = `${momento}`;
   }
 
   document.getElementById("confirm-agendar").dataset.id = iden;
@@ -730,7 +730,7 @@ function reservaClase(el) {
 
   confirmationSection.style.display = 'block';
   classesContainer.style.display = 'none';
-  modalVisible.style.display = 'none'; 
+  modalVisible.style.display = 'none';
 }
 
 
@@ -920,3 +920,91 @@ if (slider != 0) {
   window.addEventListener('resize', () => scrollToIndex(currentIndex));
 }
 
+//Función para mostrar los smoothies
+
+//Inicializar slider de smoothies
+
+function initSlider() {
+  const slider = document.querySelector('.container-slider-bebidas');
+  if (!slider) return; // seguridad por si no existe
+
+  const slides = slider.querySelectorAll('.slide-bebida');
+  const prevBtn = slider.querySelector('.flecha-slider-izquierda button');
+  const nextBtn = slider.querySelector('.flecha-slider-derecha button');
+
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
+
+  showSlide(currentIndex);
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+}
+
+//Cargar smoothies dinámicamente
+
+function cargarSmoothies() {
+  fetch("get_smoothies.php")
+    .then(response => response.json())
+    .then(data => {
+      const slidesWrapper = document.getElementById("smoothie-slides");
+      slidesWrapper.innerHTML = "";
+
+      data.forEach(smoothie => {
+        const slide = document.createElement("div");
+        slide.classList.add("slide-bebida");
+        slide.dataset.bebida = smoothie.sabor;
+
+        slide.innerHTML = `
+          <div>
+            <img src="${smoothie.ruta}" alt="${smoothie.sabor}">
+          </div>
+          <div>
+            <h3>Agregar Smoothie</h3>
+            <p>Proteína ${smoothie.sabor}</p>
+            
+          <div class="dropdown">
+            <div class="dropdown-toggle">Al final de la clase
+            </div>
+            <ul class="dropdown-menu menu-bebidas">
+              <li>Al final de la clase</li>
+              <li>Al inicio de la clase</li>
+              <li>Sin smoothie</li>
+            </ul>
+            </div>
+          </div>
+
+          <div class="smoothies-disponibles">
+            <small>12 smoothies disponibles aún</small>
+          </div>
+
+          <div class="botones-bebida">
+            <button class="close-bebida-modal-btn">CANCELAR</button>
+            <div class="btn-confirmar-bebida">
+              <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+            </div>
+          </div>
+        `;
+        slidesWrapper.appendChild(slide);
+      });
+
+      //Ahora que ya están creados los slides, inicializamos el slider
+      initSlider();
+    })
+    .catch(error => console.error("Error cargando smoothies:", error));
+}
+
+// Ejecutar cuando cargue la página
+document.addEventListener("DOMContentLoaded", cargarSmoothies);

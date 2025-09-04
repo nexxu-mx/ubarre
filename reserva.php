@@ -17,6 +17,21 @@
     <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
     <?php include 'head.php'; ?>
 
+    <!-- <style>
+    .smoothies-disponibles {
+      text-align: center;
+      margin: 10px 0;
+      font-size: 12px;
+      color: #888;
+    }
+    
+    .smoothies-disponibles p {
+      margin: 0;
+      font-style: italic;
+      line-height: 1.3;
+    }
+    </style> -->
+
 </head>
 
 <body id="top">
@@ -249,97 +264,103 @@
         </div>
     </section>
 
-    <div class="modal-detalles-bebida">
-        <div class="modal-content">
-            <div class="container-slider-bebidas">
-                <div class="flecha-slider-izquierda">
-                    <button>
-                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
-                    </button>
-                </div>
-                <div class="flecha-slider-derecha">
-                    <button>
-                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
-                    </button>
-                </div>
-                
-                <div class="slides-wrapper">
-                    <div class="slide-bebida" data-bebida="Proteina Cacao">
-                        <div>
-                            <img src="./assets/images/aboutus.png" alt="">
-                        </div>
-                        <div>
-                            <h3>Agregar Smoothie</h3>
-                            <p>Proteina Cacao</p>
-                            <div class="dropdown">
-                                <div class="dropdown-toggle">Al final de la clase</div>
-                                <ul class="dropdown-menu menu-bebidas">
-                                    <li>Al final de la clase</li>
-                                    <li>Al inicio de la clase</li>
-                                    <li>Sin smoothie</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="botones-bebida">
-                            <button class="close-bebida-modal-btn">CANCELAR</button>
-                            <div class="btn-confirmar-bebida">
-                                <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
-                            </div>
-                        </div>
+    <!-- Contenededor para Agregar Smoothie -->
+
+        <div class="modal-detalles-bebida">
+            <div class="modal-content">
+                <div class="container-slider-bebidas">
+                    <div class="flecha-slider-izquierda">
+                        <button>
+                            <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="flecha-slider-derecha">
+                        <button>
+                            <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                        </button>
+                    </div>
+                    
+                    <div class="slides-wrapper" id="smoothie-slides">
                     </div>
 
-                    <div class="slide-bebida" data-bebida="Proteina Vainilla">
-                        <div>
-                            <img src="./assets/images/aboutus.png" alt="">
-                        </div>
-                        <div>
-                            <h3>Agregar Smoothie</h3>
-                            <p>Proteina Vainilla</p>
-                            <div class="dropdown">
-                                <div class="dropdown-toggle">Al final de la clase</div>
-                                <ul class="dropdown-menu menu-bebidas">
-                                    <li>Al final de la clase</li>
-                                    <li>Al inicio de la clase</li>
-                                    <li>Sin smoothie</li>
-                                </ul>
+                        <!-- <div class="slide-bebida" data-bebida="Proteina Cacao">
+                            <div>
+                                <img src="./assets/images/aboutus.png" alt="">
+                            </div>
+                            <div>
+                                <h3>Agregar Smoothie</h3>
+                                <p>Proteina Cacao</p>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">Al final de la clase</div>
+                                    <ul class="dropdown-menu menu-bebidas">
+                                        <li>Al final de la clase</li>
+                                        <li>Al inicio de la clase</li>
+                                        <li>Sin smoothie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="botones-bebida">
+                                <button class="close-bebida-modal-btn">CANCELAR</button>
+                                <div class="btn-confirmar-bebida">
+                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="botones-bebida">
-                            <button class="close-bebida-modal-btn">CANCELAR</button>
-                            <div class="btn-confirmar-bebida">
-                                <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="slide-bebida" data-bebida="Proteina Fresa">
-                        <div>
-                            <img src="./assets/images/aboutus.png" alt="">
-                        </div>
-                        <div>
-                            <h3>Agregar Smoothie</h3>
-                            <p>Proteina Fresa</p>
-                            <div class="dropdown">
-                                <div class="dropdown-toggle">Al final de la clase</div>
-                                <ul class="dropdown-menu menu-bebidas">
-                                    <li>Al final de la clase</li>
-                                    <li>Al inicio de la clase</li>
-                                    <li>Sin smoothie</li>
-                                </ul>
+                        <div class="slide-bebida" data-bebida="Proteina Vainilla">
+                            <div>
+                                <img src="./assets/images/aboutus.png" alt="">
+                            </div>
+                            <div>
+                                <h3>Agregar Smoothie</h3>
+                                <p>Proteina Vainilla</p>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">Al final de la clase</div>
+                                    <ul class="dropdown-menu menu-bebidas">
+                                        <li>Al final de la clase</li>
+                                        <li>Al inicio de la clase</li>
+                                        <li>Sin smoothie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="botones-bebida">
+                                <button class="close-bebida-modal-btn">CANCELAR</button>
+                                <div class="btn-confirmar-bebida">
+                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                                </div>
                             </div>
                         </div>
-                        <div class="botones-bebida">
-                            <button class="close-bebida-modal-btn">CANCELAR</button>
-                            <div class="btn-confirmar-bebida">
-                                <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+
+                        <div class="slide-bebida" data-bebida="Proteina Fresa">
+                            <div>
+                                <img src="./assets/images/aboutus.png" alt="">
+                            </div>
+                            <div>
+                                <h3>Agregar Smoothie</h3>
+                                <p>Proteina Fresa</p>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">Al final de la clase</div>
+                                    <ul class="dropdown-menu menu-bebidas">
+                                        <li>Al final de la clase</li>
+                                        <li>Al inicio de la clase</li>
+                                        <li>Sin smoothie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="botones-bebida">
+                                <button class="close-bebida-modal-btn">CANCELAR</button>
+                                <div class="btn-confirmar-bebida">
+                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
+
                 </div>
-                
             </div>
         </div>
-    </div>
+
+    <!--  Hasta aqui -->
 
     <section class="modal-detalles-disciplina">
         <div class="header-details-container">
@@ -470,7 +491,7 @@
 
     </script>
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const sliders = document.querySelectorAll('.container-slider-bebidas');
 
@@ -503,7 +524,7 @@
             });
         });
 
-    </script>
+    </script> -->
 </body>
 
 

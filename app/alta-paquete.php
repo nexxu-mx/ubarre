@@ -111,7 +111,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                             if (isset($_GET['id'])) {
                                 $idPaqueteEdit = $_GET['id'];
 
-                                $selectPaquete = "SELECT id, clases, costo, nombre, vigencia, invitados, persona, descuento, finalizadsc, smoothies FROM paquetes WHERE id = '$idPaqueteEdit'";
+                                $selectPaquete = "SELECT id, clases, costo, nombre, vigencia, invitados, persona, descuento, finalizadsc, smoothies, total_smoothies FROM paquetes WHERE id = '$idPaqueteEdit'";
 
                                 $resultadoSelectPaquete = $conn->query($selectPaquete);
 
@@ -130,13 +130,23 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <label for="personas_paquete">Personas en el Paquete:</label>
                                     <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['persona'] .'">
                                     
-                                    <label for="smoothie_check">¿El Paquete Incluirá Smoothie?</label>
-                                    <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="form-check form-switch m-0">
-                                        <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);" '. ($filaPaquete['smoothies'] == 1 ? 'checked' : '') .'>
+                                     <label for="smoothie_check" class="form-label">¿El Paquete Incluirá Smoothie?</label>
+                                    <div class="row align-items-center mb-3">
+                                        
+                                        <div class="col-6 d-flex align-items-center gap-3">
+                                            <div class="form-check form-switch m-0">
+                                                <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);" '. ($filaPaquete['smoothies'] == 1 ? 'checked' : '') .'>
+                                            </div>
+                                            <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                        </div>
+
+                                        <div class="col-6" id="smoothieInput" style="display: none;">
+                                            <input type="number" id="smoothies_paquete" name="smoothies_paquete" placeholder="Número de Smoothies" class="form-control input-group input-group-lg p-3 bg-body-secondary" min="1" max="12" required value="'. $filaPaquete['total_smoothies'] .'">
+                                        </div>
                                     </div>
-                                    <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
-                                    </div>
+
+
+
 
                                     <label for="personas_paquete">Descuento:</label>
                                     <div style="display: flex; justify-content: center; align-items: center; gap: 20px;border: 1px solid #efefef;padding: 10px;">
@@ -152,7 +162,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <label for="nombre_paquete">Nombre del Paquete:</label>
                                     <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="numero_clases">Número de Clases:</label>
-                                    <input type="text" id="numero_clases" name="numero_clases" placeholder="Agrega el número de clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                    <input type="text" id="numero_clases" name="numero_clases" placeholder="Agrega el número de Clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="costo_paquete">Costo del Paquete:</label>
                                     <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="vigencia_paquete">Vigencia del Paquete:</label>
@@ -160,15 +170,22 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <label for="invitados_paquete">Número de Posibles Invitados Paquete:</label>
                                     <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="personas_paquete">Personas en el Paquete:</label>
-                                    <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                    <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" min="0" max="100" required>
                                     
                                     
-                                    <label for="smoothie_check">¿El Paquete Incluirá Smoothie?</label>
-                                    <div class="d-flex align-items-center gap-3 mb-3">
-                                    <div class="form-check form-switch m-0">
-                                        <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);">
-                                    </div>
-                                    <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                    <label for="smoothie_check" class="form-label">¿El Paquete Incluirá Smoothie?</label>
+                                    <div class="row align-items-center mb-3">
+                                        
+                                        <div class="col-6 d-flex align-items-center gap-3">
+                                            <div class="form-check form-switch m-0">
+                                                <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);">
+                                            </div>
+                                            <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                        </div>
+
+                                        <div class="col-6" id="smoothieInput" style="display: none;">
+                                            <input type="number" id="smoothies_paquete" name="smoothies_paquete" placeholder="Número de Smoothies" class="form-control input-group input-group-lg p-3 bg-body-secondary" min="1" max="12">
+                                        </div>
                                     </div>
                                     
 
@@ -246,6 +263,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const checkSmoothie = document.getElementById("smoothie_check");
+  const smoothieInput = document.getElementById("smoothieInput");
+  const smoothies_paquete = document.getElementById("smoothies_paquete");
+
+  if (checkSmoothie.checked) {
+    smoothieInput.style.display = "block";
+  }
+
+  checkSmoothie.addEventListener("change", function () {
+    if (this.checked) {
+      smoothieInput.style.display = "block";
+    } else {
+      smoothieInput.style.display = "none";
+    }
+  });
+
+smoothieInput.addEventListener("change", function () {
+    console.log (smoothies_paquete)
+    console.log (smoothies_paquete.value)
+    if (smoothies_paquete.value > 12) {
+        smoothies_paquete.style.border = "1px solid red"
+    } else {
+        smoothies_paquete.style.border = "none"
+    }
+})
+
+});
+
+</script>
 
 </body>
 
