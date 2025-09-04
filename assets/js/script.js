@@ -761,7 +761,7 @@ function confirmacion(el) {
     .then(response => response.json())
     .then(data => {
       if (data.status === 'success') {
-        window.location.href = 'profile.php?set=reservaciones';
+        window.location.href = 'profile.php';
       } else if (data.status === 'nocredit') {
         document.getElementById('confirm-class').innerHTML = `
           <h2>Se acabaron tus créditos</h2>
@@ -1008,3 +1008,36 @@ function cargarSmoothies() {
 
 // Ejecutar cuando cargue la página
 document.addEventListener("DOMContentLoaded", cargarSmoothies);
+
+//Evento para desplegar las opciones del momento 
+
+document.addEventListener('click', function (e) {
+  const toggle = e.target.closest('.dropdown-toggle');
+  const option = e.target.closest('.menu-bebidas li');
+
+  // Cierra todos los dropdowns si haces clic fuera
+  document.querySelectorAll('.dropdown').forEach(d => {
+    d.classList.remove('open');
+  });
+
+  // Abrir el dropdown si se hace clic en el toggle
+  if (toggle) {
+    const dropdown = toggle.closest('.dropdown');
+    dropdown.classList.toggle('open');
+    return; // Salimos para evitar que se cierre inmediatamente
+  }
+
+  // Seleccionar opción si se hace clic en un <li>
+  if (option) {
+    const dropdown = option.closest('.dropdown');
+    const toggle = dropdown.querySelector('.dropdown-toggle');
+    toggle.textContent = option.textContent;
+    dropdown.classList.remove('open');
+
+    // (Opcional) Guardar el valor en un input hidden
+    const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+    if (hiddenInput) {
+      hiddenInput.value = option.textContent;
+    }
+  }
+});

@@ -22,6 +22,8 @@ $instructor = $data['ncoach'];
 $clase = $data['ndisciplina'];
 $dura = $data['durac'];
 $idInstructor = $data['idcoach'];
+$sabor = isset($data['bebida']) ? $data['bebida'] : "";
+$momento = isset($data['momento']) ? $data['momento'] : "";
 $invitado = 0;
 $activo = "1";
 date_default_timezone_set('America/Mexico_City');
@@ -79,8 +81,8 @@ if ($resultCredit->num_rows === 0) {
 }
 
 // CUARTO: Insertar la reserva (si pasó todas las validaciones)
-$stmt = $conn->prepare("INSERT INTO reservaciones (clase, idClase, alumno, dura, instructor, idInstructor, invitado, activo, inicio, fin, fechaReserva) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("sssssssssss", $clase, $idClase, $alumno, $dura, $instructor, $idInstructor, $invitado, $activo, $inicio, $fin, $fechaReserva);
+$stmt = $conn->prepare("INSERT INTO reservaciones (clase, idClase, alumno, dura, instructor, idInstructor, invitado, activo, sabor, momento, inicio, fin, fechaReserva) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssssssssss", $clase, $idClase, $alumno, $dura, $instructor, $idInstructor, $invitado, $activo, $sabor, $momento, $inicio, $fin, $fechaReserva);
 
 if ($stmt->execute()) {
     $stmtR = $conn->prepare("UPDATE clases SET reservados = reservados + 1 WHERE id = ?");

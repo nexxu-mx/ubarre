@@ -41,7 +41,7 @@ MercadoPagoConfig::setAccessToken("APP_USR-5884940483219894-043014-2fc1d8a754811
 
 
 // Obtener información del paquete
-$sqlP = "SELECT clases, costo, vigencia, invitados, descuento FROM paquetes WHERE id = ?";
+$sqlP = "SELECT clases, costo, vigencia, invitados, descuento, total_smoothies FROM paquetes WHERE id = ?";
 $stmtP = $conn->prepare($sqlP);
 $stmtP->bind_param("i", $paquete);
 $stmtP->execute();
@@ -57,6 +57,7 @@ $rowP = $resultP->fetch_assoc();
 $credits = $rowP['clases'];
 $vigencia = $rowP['vigencia'];
 $invitados = $rowP['invitados'];
+$totalSmoothies = $rowP['total_smoothies'];
 
 
     if(!empty($rowP['descuento'])){
@@ -184,7 +185,8 @@ try {
                        claseBienvenida = ?, 
                        statu = ?, 
                        idpago = ?, 
-                       montoPagado = ? 
+                       montoPagado = ?
+                       total_smoothies = ?
                    WHERE id = ?";
 
     $stmt_update = $conn->prepare($sql_update);
@@ -193,7 +195,7 @@ try {
     }
 
     $stmt_update->bind_param(
-        "issiissdi",
+        "issiissdsi",
         $new_credit,
         $dias,      // venceCredit
         $vence, // fechaCredit
@@ -202,6 +204,7 @@ try {
         $payment_status,
         $payment->id,
         $cargo1,
+        $totalSmoothies,
         $idusrv
     );
 
