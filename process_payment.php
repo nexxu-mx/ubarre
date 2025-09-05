@@ -10,7 +10,7 @@ header('Content-Type: application/json');
 // Obtener datos del request
 $data = json_decode(file_get_contents('php://input'), true);
 include './db.php';
-include './error_log.php';
+
 
 if ($conn->connect_error) {
     ob_end_clean();
