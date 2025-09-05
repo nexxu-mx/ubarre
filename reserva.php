@@ -64,6 +64,8 @@
 
                     <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
 
+                    <!-- Contenedor de resumen y confirmación de reserva -->
+
                     <div class="confirmation-section" id="confirm-class">
                         <h2>Confirmación de Reserva</h2>
                         <div class="fecha-clase-container">
@@ -101,6 +103,8 @@
                         </div>
                         <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
                     </div>
+
+                    <!-- Hasta aqui --> 
 
                     <!-- Inicio Cards -->
                     <div class="contenido-seleccion-clase">
@@ -287,84 +291,9 @@
                     <div class="slides-wrapper" id="smoothie-slides">
                     </div>
 
-                        <!-- <div class="slide-bebida" data-bebida="Proteina Cacao">
-                            <div>
-                                <img src="./assets/images/aboutus.png" alt="">
-                            </div>
-                            <div>
-                                <h3>Agregar Smoothie</h3>
-                                <p>Proteina Cacao</p>
-                                <div class="dropdown">
-                                    <div class="dropdown-toggle">Al final de la clase</div>
-                                    <ul class="dropdown-menu menu-bebidas">
-                                        <li>Al final de la clase</li>
-                                        <li>Al inicio de la clase</li>
-                                        <li>Sin smoothie</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="botones-bebida">
-                                <button class="close-bebida-modal-btn">CANCELAR</button>
-                                <div class="btn-confirmar-bebida">
-                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide-bebida" data-bebida="Proteina Vainilla">
-                            <div>
-                                <img src="./assets/images/aboutus.png" alt="">
-                            </div>
-                            <div>
-                                <h3>Agregar Smoothie</h3>
-                                <p>Proteina Vainilla</p>
-                                <div class="dropdown">
-                                    <div class="dropdown-toggle">Al final de la clase</div>
-                                    <ul class="dropdown-menu menu-bebidas">
-                                        <li>Al final de la clase</li>
-                                        <li>Al inicio de la clase</li>
-                                        <li>Sin smoothie</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="botones-bebida">
-                                <button class="close-bebida-modal-btn">CANCELAR</button>
-                                <div class="btn-confirmar-bebida">
-                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide-bebida" data-bebida="Proteina Fresa">
-                            <div>
-                                <img src="./assets/images/aboutus.png" alt="">
-                            </div>
-                            <div>
-                                <h3>Agregar Smoothie</h3>
-                                <p>Proteina Fresa</p>
-                                <div class="dropdown">
-                                    <div class="dropdown-toggle">Al final de la clase</div>
-                                    <ul class="dropdown-menu menu-bebidas">
-                                        <li>Al final de la clase</li>
-                                        <li>Al inicio de la clase</li>
-                                        <li>Sin smoothie</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="botones-bebida">
-                                <button class="close-bebida-modal-btn">CANCELAR</button>
-                                <div class="btn-confirmar-bebida">
-                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+            <!-- Se carga en script.js  en cargarSmoothies -->
 
                 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
             </div>
         </div>
 

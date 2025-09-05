@@ -326,13 +326,6 @@
     height: fit-content;
 }
 
-<<<<<<< HEAD
-=======
-.flecha-slider:hover {
-    transform: scale(1.1);
-}
-
->>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
 .fi {
     left: 2%;
 }
@@ -983,10 +976,7 @@ form .submit-btn {
 }
 
 .beneficios-del-barre {
-<<<<<<< HEAD
     width: 80%;
-=======
->>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
     margin-inline: auto;
     padding-bottom: 50px;
     display: flex;
@@ -1054,11 +1044,7 @@ form .submit-btn {
 }
 
 .beneficio-container h4 {
-<<<<<<< HEAD
     font-size: 2.3rem;
-=======
-    font-size: 3rem;
->>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
     text-align: center;
     font-weight: 400;
     font-style: italic;
