@@ -136,7 +136,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
-        document.getElementById("number").addEventListener("input", async function() {
+        document.getElementById("text").addEventListener("input", async function() {
             let input = this.value.replace(/\D/g, '');
             input = input.substring(0, 10);
             this.value = input;
@@ -168,7 +168,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             }
         });
         //olvide mi contraseña
-        document.getElementById("numberCon").addEventListener("input", async function() {
+        document.getElementById("text").addEventListener("input", async function() {
             let input = this.value.replace(/\D/g, '');
             input = input.substring(0, 10);
             this.value = input;
@@ -304,7 +304,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             this.value = code;
 
             if (code.length === 6) {
-                const number = document.getElementById("numberCon").value;
+                const number = document.getElementById("text").value;
 
                 const response = await fetch("validate_code.php", {
                     method: "POST",
@@ -331,7 +331,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             const code = this.value;
 
             if (code) {
-                const number = document.getElementById("number").value;
+                const number = document.getElementById("text").value;
 
                 const response = await fetch("validate_contra.php", {
                     method: "POST",

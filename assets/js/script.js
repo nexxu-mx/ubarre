@@ -547,143 +547,145 @@ if (closeDisciplinaModalBtn != 0) {
     ocultarModal(detallesDisciplinaModal, 2);
   });
 }
+if (document.querySelector(".modal-detalles-coach")) {
+  const modalCoach = document.querySelector(".modal-detalles-coach");
 
-const modalCoach = document.querySelector(".modal-detalles-coach");
-
-function mostrarModal(modal, id, tipo, event) {
-  if (tipo == 1) {
-    fetch("info_detalles_coach.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-    })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("coach-info-img").src = data.image;
-        document.getElementById("coach-info-nombre").innerHTML = data.nombre;
-        document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
+  function mostrarModal(modal, id, tipo, event) {
+    if (tipo == 1) {
+      fetch("info_detalles_coach.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
       })
-      .catch(error => console.error("Error:", error));
-  } else {
-    fetch("info_detalles_disciplina.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-    })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
-        document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("coach-info-img").src = data.image;
+          document.getElementById("coach-info-nombre").innerHTML = data.nombre;
+          document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
+        })
+        .catch(error => console.error("Error:", error));
+    } else {
+      fetch("info_detalles_disciplina.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
       })
-      .catch(error => console.error("Error:", error));
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
+          document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
+        })
+        .catch(error => console.error("Error:", error));
+    }
+
+    const boton = event.currentTarget;
+    const rect = boton.getBoundingClientRect();
+
+    modal.style.position = "absolute";
+
+    if (window.innerWidth <= 768) {
+      modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
+      modal.style.left = `${rect.left}px`;
+    } else {
+      modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
+      modal.style.left = `${rect.left + window.scrollX}px`;
+    }
+
+
+    modal.style.display = "block";
+    modal.classList.add("show");
   }
 
-  const boton = event.currentTarget;
-  const rect = boton.getBoundingClientRect();
 
-  modal.style.position = "absolute";
+  function ocultarModal(modal, tipo) {
+    modal.classList.remove("show");
+    setTimeout(() => modal.style.display = "none", 200);
 
-  if (window.innerWidth <= 768) {
-    modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
-    modal.style.left = `${rect.left}px`;
-  } else {
-    modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
-    modal.style.left = `${rect.left + window.scrollX}px`;
-  }
-
-
-  modal.style.display = "block";
-  modal.classList.add("show");
-}
-
-
-function ocultarModal(modal, tipo) {
-  modal.classList.remove("show");
-  setTimeout(() => modal.style.display = "none", 200);
-
-  if (tipo == 1) {
-    document.getElementById("coach-info-img").src = "";
-    document.getElementById("coach-info-nombre").innerHTML = "";
-    document.getElementById("coach-info-descripcion").innerHTML = "";
-  } else {
-    document.getElementById("disciplina-info-nombre").innerHTML = "";
-    document.getElementById("disciplina-info-descripcion").innerHTML = "";
-  }
-}
-
-document.addEventListener("click", (e) => {
-  if (modalCoach.style.display === "block") {
-    const isClickInside = modalCoach.contains(e.target) || e.target.classList.contains("detalles-coach");
-    if (!isClickInside) {
-      ocultarModal(modalCoach, 1);
+    if (tipo == 1) {
+      document.getElementById("coach-info-img").src = "";
+      document.getElementById("coach-info-nombre").innerHTML = "";
+      document.getElementById("coach-info-descripcion").innerHTML = "";
+    } else {
+      document.getElementById("disciplina-info-nombre").innerHTML = "";
+      document.getElementById("disciplina-info-descripcion").innerHTML = "";
     }
   }
-});
 
-const detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
-let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
-if (closeBebidaModalBtn == null) { closeBebidaModalBtn = 0; }
+  document.addEventListener("click", (e) => {
+    if (modalCoach.style.display === "block") {
+      const isClickInside = modalCoach.contains(e.target) || e.target.classList.contains("detalles-coach");
+      if (!isClickInside) {
+        ocultarModal(modalCoach, 1);
+      }
+    }
+  });
 
-function mostrarModalBebida(event) {
-  event.preventDefault();
+  const detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
+  let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
+  if (closeBebidaModalBtn == null) { closeBebidaModalBtn = 0; }
 
-  const boton = event.currentTarget;
-  const rect = boton.getBoundingClientRect();
+  function mostrarModalBebida(event) {
+    event.preventDefault();
 
-  detallesBebidaModal.style.position = "absolute";
+    const boton = event.currentTarget;
+    const rect = boton.getBoundingClientRect();
 
-  if (window.innerWidth <= 768) {
-    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-    detallesBebidaModal.style.left = `${rect.left - 70}px`;
-  } else {
-    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-    detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+    detallesBebidaModal.style.position = "absolute";
+
+    if (window.innerWidth <= 768) {
+      detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+      detallesBebidaModal.style.left = `${rect.left - 70}px`;
+    } else {
+      detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+      detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+    }
+
+
+    detallesBebidaModal.style.display = "block";
+    detallesBebidaModal.classList.add("show");
+
+    const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
+
+    btnsAgregar.forEach(btn => {
+      btn.dataset.nombre = boton.dataset.nombre;
+      btn.dataset.horario = boton.dataset.horario;
+      btn.dataset.duracion = boton.dataset.duracion;
+      btn.dataset.disciplina = boton.dataset.disciplina;
+      btn.dataset.id = boton.dataset.id;
+      btn.dataset.idcoach = boton.dataset.idcoach;
+
+      btn.dataset.bebida = "Sin bebida";
+      btn.dataset.momento = "Al final de la clase";
+    });
   }
 
+  function ocultarModalBebida() {
+    detallesBebidaModal.classList.remove("show");
+    setTimeout(() => detallesBebidaModal.style.display = "none", 200);
+  }
 
-  detallesBebidaModal.style.display = "block";
-  detallesBebidaModal.classList.add("show");
-
-  const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
-
-  btnsAgregar.forEach(btn => {
-    btn.dataset.nombre = boton.dataset.nombre;
-    btn.dataset.horario = boton.dataset.horario;
-    btn.dataset.duracion = boton.dataset.duracion;
-    btn.dataset.disciplina = boton.dataset.disciplina;
-    btn.dataset.id = boton.dataset.id;
-    btn.dataset.idcoach = boton.dataset.idcoach;
-
-    btn.dataset.bebida = "Sin bebida";
-    btn.dataset.momento = "Al final de la clase";
-  });
-}
-
-function ocultarModalBebida() {
-  detallesBebidaModal.classList.remove("show");
-  setTimeout(() => detallesBebidaModal.style.display = "none", 200);
-}
-
-if (closeBebidaModalBtn != 0) {
-  closeBebidaModalBtn.addEventListener("click", () => {
-    ocultarModalBebida();
-  });
-}
-
-
-document.addEventListener("click", (e) => {
-  if (detallesBebidaModal.style.display === "block") {
-    const isClickInside = detallesBebidaModal.contains(e.target) || e.target.classList.contains("btn-bebida");
-    if (!isClickInside) {
+  if (closeBebidaModalBtn != 0) {
+    closeBebidaModalBtn.addEventListener("click", () => {
       ocultarModalBebida();
-    }
+    });
   }
-});
 
+
+  document.addEventListener("click", (e) => {
+    if (detallesBebidaModal.style.display === "block") {
+      const isClickInside = detallesBebidaModal.contains(e.target) || e.target.classList.contains("btn-bebida");
+      if (!isClickInside) {
+        ocultarModalBebida();
+      }
+    }
+  });
+
+
+}
 
 
 /**
@@ -1006,5 +1008,7 @@ function cargarSmoothies() {
     .catch(error => console.error("Error cargando smoothies:", error));
 }
 
-// Ejecutar cuando cargue la página
-document.addEventListener("DOMContentLoaded", cargarSmoothies);
+if (document.getElementById("smoothie-slides")) {
+  // Ejecutar cuando cargue la página
+  document.addEventListener("DOMContentLoaded", cargarSmoothies);
+}

@@ -11,7 +11,7 @@ session_set_cookie_params([
 ]);
 
 session_start();
-include 'db.php'; 
+include 'db.php';
 
 //Cabeceras HTTP de seguridad Activar en producción
 //header('X-Frame-Options: DENY'); 
@@ -30,7 +30,7 @@ if ($_SESSION['attempts'] >= $maxAttempts && (time() - $_SESSION['last_attempt_t
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $number = trim($_POST['number'] ?? '');
+    $number = trim($_POST['text'] ?? '');
     $code = $_POST['contras'] ?? '';
     if (!preg_match('/^\d{9,10}$/', $number)) {
         die('Datos inválidos.');
@@ -57,4 +57,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 }
-?>
