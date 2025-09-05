@@ -11,6 +11,7 @@ header('Content-Type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 include './db.php';
 
+
 if ($conn->connect_error) {
     ob_end_clean();
     die(json_encode(['error' => "Conexión fallida: " . $conn->connect_error]));
@@ -186,7 +187,7 @@ try {
                        claseBienvenida = ?, 
                        statu = ?, 
                        idpago = ?, 
-                       montoPagado = ?
+                       montoPagado = ?,
                        total_smoothies = ?
                    WHERE id = ?";
 

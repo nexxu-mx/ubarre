@@ -64,47 +64,74 @@
 
                     <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
 
-                    <!-- Contenedor de resumen y confirmación de reserva -->
+            <!-- Contenededor para Agregar Smoothie -->
 
-                    <div class="confirmation-section" id="confirm-class">
-                        <h2>Confirmación de Reserva</h2>
-                        <div class="fecha-clase-container">
-                            <p><span id="texto-dia-din-conf" class="texto-fecha-din">Hoy</span>, <span id="mes-din-conf" class="texto-fecha-din">Marzo</span> <span id="numero-dia-din-conf" class="texto-fecha-din">27</span></p>
-                        </div>
-                        <div class="clase-container elemento-clase-confirmacion">
-                            <div class="first-flex-clase">
-                                <div class="img-clase-container">
-                                    <img src="assets/images/coaches/unknnow.png" alt="Foto Coach" id="confirm-coach-img">
-                                </div>
-                                <div class="nombrecoach-horarioclase version-confirmacion">
-                                    <div class="nombre-coach">
-                                        <p id="confirm-coach"></p>
-                                    </div>
-                                    <div class="horario-clase">
-                                        <h3 id="confirm-horario"></h3>
-                                        <h4 id="confirm-duracion"></h4>
-                                    </div>
-                                    <div class="nombre-bebida">
-                                        <p>Bebida:</p>
-                                        <h3 id="confirm-bebida"></h3>
-                                        <h4 id="confirm-momento"></h4>
-                                    </div>
-                                    <div class="disciplina-clase-container">
-                                        <p>Disciplina:</p>
-                                        <h3 id="confirm-disciplina"></h3>
-                                    </div>
-
-                                </div>
+                <div class="modal-detalles-bebida">
+                    <div class="modal-content">
+                        <div class="container-slider-bebidas">
+                            <div class="flecha-slider-izquierda">
+                                <button>
+                                    <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                                </button>
                             </div>
-                        </div>
-                        <div class="confirmation-btns">
-                            <p class="cancelar-confirmacion-reserva-btn" onclick="cancelConfirmacion()">Cancelar</p>
-                            <p class="confirmar-reserva-btn" id="confirm-agendar" onclick="confirmacion(this)">Confirmar Reserva</p>
-                        </div>
-                        <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
-                    </div>
+                            <div class="flecha-slider-derecha">
+                                <button>
+                                    <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                                </button>
+                            </div>
+                            
+                            <div class="slides-wrapper" id="smoothie-slides">
+                            </div>
 
-                    <!-- Hasta aqui --> 
+                    <!-- Se carga en script.js  en cargarSmoothies -->
+
+                        </div>
+                    </div>
+                </div>
+
+            <!--  Hasta aqui -->
+
+            <!-- Contenedor de resumen y confirmación de reserva -->
+
+            <div class="confirmation-section" id="confirm-class">
+                <h2>Confirmación de Reserva</h2>
+                <div class="fecha-clase-container">
+                    <p><span id="texto-dia-din-conf" class="texto-fecha-din">Hoy</span>, <span id="mes-din-conf" class="texto-fecha-din">Marzo</span> <span id="numero-dia-din-conf" class="texto-fecha-din">27</span></p>
+                </div>
+                <div class="clase-container elemento-clase-confirmacion">
+                    <div class="first-flex-clase">
+                        <div class="img-clase-container">
+                            <img src="assets/images/coaches/unknnow.png" alt="Foto Coach" id="confirm-coach-img">
+                        </div>
+                        <div class="nombrecoach-horarioclase version-confirmacion">
+                            <div class="nombre-coach">
+                                <p id="confirm-coach"></p>
+                            </div>
+                            <div class="horario-clase">
+                                <h3 id="confirm-horario"></h3>
+                                <h4 id="confirm-duracion"></h4>
+                            </div>
+                            <div class="nombre-bebida">
+                                <p>Bebida:</p>
+                                <h3 id="confirm-bebida"></h3>
+                                <h4 id="confirm-momento"></h4>
+                            </div>
+                            <div class="disciplina-clase-container">
+                                <p>Disciplina:</p>
+                                <h3 id="confirm-disciplina"></h3>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="confirmation-btns">
+                    <p class="cancelar-confirmacion-reserva-btn" onclick="cancelConfirmacion()">Cancelar</p>
+                    <p class="confirmar-reserva-btn" id="confirm-agendar" onclick="confirmacion(this)">Confirmar Reserva</p>
+                </div>
+                <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
+            </div>
+
+            <!-- Hasta aqui --> 
 
                     <!-- Inicio Cards -->
                     <div class="contenido-seleccion-clase">
@@ -272,32 +299,7 @@
         </div>
     </section>
 
-    <!-- Contenededor para Agregar Smoothie -->
-
-        <div class="modal-detalles-bebida">
-            <div class="modal-content">
-                <div class="container-slider-bebidas">
-                    <div class="flecha-slider-izquierda">
-                        <button>
-                            <img src="./assets/images/svg/flecha-blanca.svg" alt="">
-                        </button>
-                    </div>
-                    <div class="flecha-slider-derecha">
-                        <button>
-                            <img src="./assets/images/svg/flecha-blanca.svg" alt="">
-                        </button>
-                    </div>
-                    
-                    <div class="slides-wrapper" id="smoothie-slides">
-                    </div>
-
-            <!-- Se carga en script.js  en cargarSmoothies -->
-
-                </div>
-            </div>
-        </div>
-
-    <!--  Hasta aqui -->
+    
 
     <section class="modal-detalles-disciplina">
         <div class="header-details-container">
