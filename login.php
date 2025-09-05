@@ -71,7 +71,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                 </div>
                 <div class="container" id="registro" style="margin-block: 20px; display: none">
                     <form action="registro.php" method="post" class="login-form">
-                        <img src="assets/images/svg/logo-negro.svg" alt="Logo übarre">
+                        <img src="assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="Logo übarre">
                         <h2>VAMOS A REGISTRARTE</h2>
                         <p class="registro-mensaje">¿Ya tienes cuenta? <span><button type="button" onclick="closeRegistro()">Iniciar Sesión</button></span></p>
                         <label for="nombreR">Nombre*</label>

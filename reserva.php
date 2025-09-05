@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<?php include 'error_log.php'; ?>
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>übarre | Reserva</title>
-    <meta name="title" content="übarre">
-    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>Sencia Studio | Reserva</title>
+    <meta name="title" content="Sencia Studio">
+    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +49,8 @@
             <section class="reserva-main-section">
 
                 <div class="container">
+                    <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
+            -->
                     <div class="aboutus-top" id="reserv">
                         <div class="aboutus-elemento-izquierda">
                             <button>
@@ -71,8 +71,6 @@
                         header("Location: login.php");
                         exit();
                     }
-
-                    echo "idUser: " . $_SESSION['idUser'];
 
                     include 'db.php'; // conexión a tu base de datos
                     include 'error_log.php'; // manejo de errores
@@ -161,12 +159,8 @@
                             <p class="cancelar-confirmacion-reserva-btn" onclick="cancelConfirmacion()">Cancelar</p>
                             <p class="confirmar-reserva-btn" id="confirm-agendar" onclick="confirmacion(this)">Confirmar Reserva</p>
                         </div>
-                        <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 8 horas de anticipación desde "Mis Reservas"</p>
+                        <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
                     </div>
-                    <!-- Hasta aqui -->
-
-
-
 
                     <!-- Inicio Cards -->
                     <div class="contenido-seleccion-clase">
@@ -334,7 +328,104 @@
         </div>
     </section>
 
+    <!-- Contenededor para Agregar Smoothie -->
 
+    <div class="modal-detalles-bebida">
+        <div class="modal-content">
+            <div class="container-slider-bebidas">
+                <div class="flecha-slider-izquierda">
+                    <button>
+                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                    </button>
+                </div>
+                <div class="flecha-slider-derecha">
+                    <button>
+                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                    </button>
+                </div>
+
+                <div class="slides-wrapper" id="smoothie-slides">
+                </div>
+
+                <!-- <div class="slide-bebida" data-bebida="Proteina Cacao">
+                            <div>
+                                <img src="./assets/images/aboutus.png" alt="">
+                            </div>
+                            <div>
+                                <h3>Agregar Smoothie</h3>
+                                <p>Proteina Cacao</p>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">Al final de la clase</div>
+                                    <ul class="dropdown-menu menu-bebidas">
+                                        <li>Al final de la clase</li>
+                                        <li>Al inicio de la clase</li>
+                                        <li>Sin smoothie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="botones-bebida">
+                                <button class="close-bebida-modal-btn">CANCELAR</button>
+                                <div class="btn-confirmar-bebida">
+                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-bebida" data-bebida="Proteina Vainilla">
+                            <div>
+                                <img src="./assets/images/aboutus.png" alt="">
+                            </div>
+                            <div>
+                                <h3>Agregar Smoothie</h3>
+                                <p>Proteina Vainilla</p>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">Al final de la clase</div>
+                                    <ul class="dropdown-menu menu-bebidas">
+                                        <li>Al final de la clase</li>
+                                        <li>Al inicio de la clase</li>
+                                        <li>Sin smoothie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="botones-bebida">
+                                <button class="close-bebida-modal-btn">CANCELAR</button>
+                                <div class="btn-confirmar-bebida">
+                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="slide-bebida" data-bebida="Proteina Fresa">
+                            <div>
+                                <img src="./assets/images/aboutus.png" alt="">
+                            </div>
+                            <div>
+                                <h3>Agregar Smoothie</h3>
+                                <p>Proteina Fresa</p>
+                                <div class="dropdown">
+                                    <div class="dropdown-toggle">Al final de la clase</div>
+                                    <ul class="dropdown-menu menu-bebidas">
+                                        <li>Al final de la clase</li>
+                                        <li>Al inicio de la clase</li>
+                                        <li>Sin smoothie</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="botones-bebida">
+                                <button class="close-bebida-modal-btn">CANCELAR</button>
+                                <div class="btn-confirmar-bebida">
+                                    <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+            </div>
+            <<<<<<< HEAD=======>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
+        </div>
+    </div>
+
+    <!--  Hasta aqui -->
 
     <section class="modal-detalles-disciplina">
         <div class="header-details-container">
@@ -411,11 +502,9 @@
 
 
     <?php include 'footer.php'; ?>
-
-    <script>
-        window.userTotalSmoothies = <?php echo json_encode($total_smoothies); ?>
-    </script>
-
+    <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
+        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
+    </a>
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -498,8 +587,14 @@
                 });
             });
         });
+<<<<<<< HEAD
 
     </script> -->
+    =======
+    </script>
+    >>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
 </body>
+
+
 
 </html>

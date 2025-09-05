@@ -36,7 +36,11 @@ while ($row = $result->fetch_assoc()) {
         // Actualizar tabla users de forma segura
         $stmtUpdate = $mysqli->prepare("
             UPDATE users 
-            SET fechaCredit = NULL, venceCredit = NULL, credit = 0, maxInvitados = NULL
+            SET fechaCredit = NULL, 
+            venceCredit = NULL, 
+            credit = 0, 
+            total_smoothies = 0,
+            maxInvitados = NULL
             WHERE id = ?
         ");
         $stmtUpdate->bind_param("i", $id);
