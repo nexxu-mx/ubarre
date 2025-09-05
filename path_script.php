@@ -49,21 +49,23 @@ if ($result->num_rows > 0) {
 }
 // Incluir el autoload.php de Composer para cargar las clases del SDK
 require __DIR__ . '/vendor/autoload.php';
+
 use MercadoPago\MercadoPagoConfig;
 use MercadoPago\Client\Preference\PreferenceClient;
 use MercadoPago\Exceptions\MPApiException;
 // Agregar las credenciales del ambiente de producción usando MercadoPagoConfig. PR::: APP_USR-5884940483219894-043014-2fc1d8a754811f35c443238d8031c469-21071102 TEST::: TEST-7009180377754289-091823-3aea4b50c4898192e8bd32dac3b11d7c-1940582280
-MercadoPagoConfig::setAccessToken('APP_USR-5884940483219894-043014-2fc1d8a754811f35c443238d8031c469-21071102');
-function createPaymentPreference($product, $payer) {
+MercadoPagoConfig::setAccessToken('TEST-7009180377754289-091823-3aea4b50c4898192e8bd32dac3b11d7c-1940582280');
+function createPaymentPreference($product, $payer, $idusrv)
+{
     // Crear la preferencia de pago
     $preferenceClient = new PreferenceClient();
     $preferenceRequest = [
         'items' => [$product],
         'payer' => $payer,
         'back_urls' => [
-            "success" => "https://studiosencia.com/pago.php?f9489989srfg482j389fd98f8=" . $idusrv . "&",
-            "failure" => "https://studiosencia.com/pago.php?8237fuhiasfh749849h0f8h=" . $idusrv . "&",
-            "pending" => "https://studiosencia.com/pago.php?000vsjds99040vi0ri=" . $idusrv . "&"
+            "success" => "https://ubarre.com.mx/pago.php?f9489989srfg482j389fd98f8=" . $idusrv . "&",
+            "failure" => "https://ubarre.com.mx/pago.php?8237fuhiasfh749849h0f8h=" . $idusrv . "&",
+            "pending" => "https://ubarre.com.mx/pago.php?000vsjds99040vi0ri=" . $idusrv . "&"
         ],
         'auto_return' => "approved"
     ];
@@ -83,7 +85,7 @@ function createPaymentPreference($product, $payer) {
 // Definir los datos del producto
 $product = [
     "id" => $id,
-    "title" => "SENCIA Studio",
+    "title" => "Ubarre",
     "description" => $descrition,
     "currency_id" => "MXN",
     "quantity" => 1,
@@ -95,10 +97,9 @@ $payer = [
     "surname" => $apellido,
     "email" => $mail
 ];
-$preference = createPaymentPreference($product, $payer);
+$preference = createPaymentPreference($product, $payer, $idusrv);
 if ($preference) {
     echo json_encode(['id' => $preference->id]);
 } else {
     echo json_encode(['error' => 'No se pudo crear la preferencia']);
 }
-?>

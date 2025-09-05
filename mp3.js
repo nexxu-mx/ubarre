@@ -1,6 +1,6 @@
 console.log('inicia SDK.');
 //PR::: APP_USR-8464223c-ec51-46dd-9711-8b52d9600578 TEST::: TEST-df88f0fd-9bd4-4762-8e08-9814912fc5a2
-const mp = new MercadoPago("APP_USR-8464223c-ec51-46dd-9711-8b52d9600578", {
+const mp = new MercadoPago("TEST-df88f0fd-9bd4-4762-8e08-9814912fc5a2", {
     locale: "es-MX"
 });
 
@@ -27,7 +27,7 @@ const renderPaymentBrick = async () => {
         },
         body: JSON.stringify({ idusrv })
     });
-    
+
     const userData = await userResponse.json();
     const hasCustomerId = userData.customer_id !== null && userData.customer_id !== '';
 
@@ -43,7 +43,7 @@ const renderPaymentBrick = async () => {
         });
         cardData = await cardResponse.json();
     }
-    
+
     console.log("Card Data:", cardData);
 
     // Configuración del Brick con opción para guardar tarjeta
@@ -76,7 +76,7 @@ const renderPaymentBrick = async () => {
                 formData.idusrv = idusrv;
                 formData.amount = amount;
                 formData.customer_id = userData.customer_id;
-                
+
                 // Determinar si es tarjeta y mostrar confirmación
                 if (['credit_card', 'debit_card'].includes(selectedPaymentMethod)) {
                     formData.save_card = confirm('¿Deseas guardar esta tarjeta para futuras compras?');
@@ -90,15 +90,15 @@ const renderPaymentBrick = async () => {
                         },
                         body: JSON.stringify(formData),
                     });
-                    
+
                     const result = await response.json();
-                   // console.log('Payment Response:', result);
-                    
+                    // console.log('Payment Response:', result);
+
                     if (result.card_id) {
                         // Actualizar la UI para mostrar la nueva tarjeta
                         await updateSavedCardsUI(idusrv, result.card_id, result.customer_id);
                     }
-                    
+
                     mostrarResultadoPago(result);
                     return result;
                 } catch (error) {
@@ -139,9 +139,9 @@ const renderPaymentBrick = async () => {
             "linear-gradient(135deg, #e65c00 40%, #f9d423 60%)",
             "linear-gradient(135deg, #614385 40%, #516395 60%)"
         ];
-    
+
         const cards = document.querySelectorAll(".use-card-btn");
-    
+
         if (cards.length > 0) {
             cards.forEach((card, index) => {
                 if (index < gradients.length) {
@@ -172,7 +172,7 @@ const renderPaymentBrick = async () => {
                 </div>
                 
             `;
-            
+
 
             cardElement.querySelector('.use-card-btn').addEventListener('click', async () => {
                 const cvv = prompt("Ingresa el CVV de la tarjeta:");
@@ -195,7 +195,7 @@ const renderPaymentBrick = async () => {
                             customer_id: card.customer_id
                         }),
                     });
-                    
+
                     const result = await response.json();
                     mostrarResultadoPago(result);
                 } catch (error) {
@@ -226,7 +226,7 @@ const renderPaymentBrick = async () => {
             },
             body: JSON.stringify({ idusrv: userId })
         });
-        
+
         const updatedCards = await response.json();
         if (updatedCards.cards && updatedCards.cards.length > 0) {
             // Volver a renderizar la lista de tarjetas
@@ -237,10 +237,10 @@ const renderPaymentBrick = async () => {
     function mostrarResultadoPago(resultado) {
         // Ocultar formulario de pago
         document.getElementById('data-pago').style.display = 'none';
-        
+
         // Elemento donde mostraremos el resultado
         const resqueElement = document.getElementById("resque");
-        
+
         // Plantillas para cada estado
         const templates = {
             approved: `
@@ -298,7 +298,7 @@ const renderPaymentBrick = async () => {
                 </div>
             `
         };
-    
+
         // Manejar el estado del pago
         if (resultado.payment_status === "approved") {
             resqueElement.innerHTML = templates.approved;
@@ -315,7 +315,7 @@ const renderPaymentBrick = async () => {
         } else {
             resqueElement.innerHTML = templates.error;
         }
-        
+
         // Mostrar el contenedor de resultados si estaba oculto
         resqueElement.style.display = 'flex';
     }
@@ -357,8 +357,8 @@ async function fetchUserData(userId) {
     return await response.json();
 }
 
-function payTarjet(){
-    
+function payTarjet() {
+
     renderPaymentBrick();
     document.getElementById('eleccion_pago').style.display = "none";
     document.getElementById('metodo_pago').style.display = "flex";
