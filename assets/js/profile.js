@@ -57,6 +57,12 @@ eventClick: function(info) {
     document.getElementById('modalDuracion').textContent = info.event.extendedProps.dura || "No especificado";
     document.getElementById("clastatus").innerHTML = info.event.extendedProps.estatus;
     document.getElementById("qrcode").innerHTML = "";
+    document.getElementById("modalSmoothie").textContent = info.event.extendedProps.sabor || "";
+    if(info.event.extendedProps.momento == "" || info.event.extendedProps.momento == "Sin smoothie"){
+        document.getElementById("modalSmoothie").textContent = "No se selecciono ninguno Smoothie";
+    }else{
+        document.getElementById("modalSmoothie").textContent += "("+info.event.extendedProps.momento+")";
+    }
     var data = info.event.extendedProps.qr;
     new QRCode(document.getElementById("qrcode"), {
         text: data,

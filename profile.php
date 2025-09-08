@@ -300,6 +300,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                             <small style="display: flex; align-items: first baseline; gap: 2px" id="modalInvitado"><ion-icon name="person" aria-hidden="true"></ion-icon> x1</small><br>
                             <small>Inicio</small>
                             <p id="modalInicio"></p>
+                            <br>
+                            <small>Smoothie</small>
+                            <p id="modalSmoothie"></p>
                         </div>
                         <div class="iconos-container">
                             <div class="aforo-container">

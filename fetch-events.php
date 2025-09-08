@@ -29,7 +29,7 @@ function generarToken16Digitos() {
 }
 
 // CONSULTA CON FILTRO DE FECHAS  
-$sql = "SELECT id, alumno, clase, idClase, instructor, invitado, activo, dura, inicio, fin, fechaReserva 
+$sql = "SELECT id, alumno, clase, idClase, instructor, invitado, activo, dura, inicio, fin, fechaReserva, sabor, momento
         FROM reservaciones 
         WHERE alumno = ? AND inicio BETWEEN ? AND ?";
 $stmt = $conn->prepare($sql);
@@ -115,7 +115,9 @@ while ($row = $result->fetch_assoc()) {
     "classID" => $row["idClase"],
     "invitable" => $invitable,
     "start" => $row["inicio"],
-    "end" => $row["fin"]
+    "end" => $row["fin"],
+    "sabor"=> $row["sabor"],
+    "momento"=> $row["momento"]
   ];
 }
 $stmtC->close();
