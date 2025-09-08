@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -49,8 +51,7 @@
             <section class="reserva-main-section">
 
                 <div class="container">
-                    <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
-            -->
+                    <!-- <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia">  -->
                     <div class="aboutus-top" id="reserv">
                         <div class="aboutus-elemento-izquierda">
                             <button>
@@ -64,8 +65,41 @@
 
                     <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
 
-            <!-- Contenededor para Agregar Smoothie -->
+            <?php 
 
+            //Verificar si el usuario esta autenticado
+            if (!isset($_SESSION['idUser'])) {
+                header("Location: login.php");
+                exit();
+            }
+
+            include 'db.php'; // conexión a tu base de datos
+            include 'error_log.php'; // manejo de errores
+
+            //Preparar consulta para obtener total_smoothies de users
+            $id_usuario = $_SESSION['idUser'];
+            $sql = "SELECT total_smoothies FROM users WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+
+            if (!$stmt) {
+                die("Error en la preparación de la consulta: " . $conn->error);
+            }
+
+            $stmt->bind_param("i", $id_usuario);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows === 0) {
+                die("Usuario no encontrado");
+            }
+
+            $row = $result->fetch_assoc();
+            $total_smoothies = (int)$row['total_smoothies'];
+            $stmt->close();
+            ?>
+
+            
+            <!-- Contenededor para Agregar Smoothie -->
                 <div class="modal-detalles-bebida">
                     <div class="modal-content">
                         <div class="container-slider-bebidas">
@@ -88,11 +122,9 @@
                         </div>
                     </div>
                 </div>
-
             <!--  Hasta aqui -->
-
+            
             <!-- Contenedor de resumen y confirmación de reserva -->
-
             <div class="confirmation-section" id="confirm-class">
                 <h2>Confirmación de Reserva</h2>
                 <div class="fecha-clase-container">
@@ -130,8 +162,10 @@
                 </div>
                 <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
             </div>
-
             <!-- Hasta aqui --> 
+            
+            
+            
 
                     <!-- Inicio Cards -->
                     <div class="contenido-seleccion-clase">
@@ -379,6 +413,11 @@
     <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
         <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
     </a>
+
+    <script>
+        window.userTotalSmoothies = <?php echo json_encode($total_smoothies); ?>
+    </script> 
+
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -461,14 +500,8 @@
                 });
             });
         });
-<<<<<<< HEAD
 
     </script> -->
-=======
-    </script>
->>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
 </body>
-
-
 
 </html>
