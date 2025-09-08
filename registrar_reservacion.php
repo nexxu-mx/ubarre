@@ -24,6 +24,10 @@ $dura = $data['durac'];
 $idInstructor = $data['idcoach'];
 $sabor = isset($data['bebida']) ? $data['bebida'] : "";
 $momento = isset($data['momento']) ? $data['momento'] : "";
+
+$restarSmoothie = (!empty($sabor) && $momento !== "Sin smoothie");
+echo $restarSmoothie;
+
 $invitado = 0;
 $activo = "1";
 date_default_timezone_set('America/Mexico_City');
@@ -93,6 +97,16 @@ if ($stmt->execute()) {
         $stmtUR->bind_param("i", $alumno);
         
         if ($stmtUR->execute()) {
+            //Descontar Smoothie si correponse
+            if ($restarSmoothie) {
+                $stmtSmoothie = $conn->prepare("UPDATE users SET total_smoothies = total_smoothies - 1 WHERE id = ?");
+                $stmtSmoothie->bind_param("i", $alumno);
+
+                if (!$stmtSmoothie->execute()) {
+                    error_log("Error al restar Smoothie: " . $stmtSmoothie->error);
+                }
+                $stmtSmoothie->close();
+            }
             $mail_mailing = $_SESSION['email'];
             $mail_asunto = "Reservaste $clase";
             $mail_motivo = "$clase";

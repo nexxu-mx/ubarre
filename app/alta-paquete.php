@@ -120,7 +120,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <label for="nombre_paquete">Nombre del Paquete:</label>
                                     <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['nombre'] .'">
                                     <label for="numero_clases">Número de Clases:</label>
-                                    <input type="text" id="numero_clases" name="numero_clases" placeholder="Agrega el número de clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['clases'] .'">
+                                    <input type="text" style="text-transform: capitalize;" id="numero_clases" name="numero_clases" placeholder="Agrega el número de clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['clases'] .'">
                                     <label for="costo_paquete">Costo del Paquete:</label>
                                     <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['costo'] .'">
                                     <label for="vigencia_paquete">Vigencia del Paquete:</label>
@@ -162,7 +162,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     <label for="nombre_paquete">Nombre del Paquete:</label>
                                     <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="numero_clases">Número de Clases:</label>
-                                    <input type="text" id="numero_clases" name="numero_clases" placeholder="Agrega el número de Clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                    <input type="text" style="text-transform: capitalize;" id="numero_clases" name="numero_clases" placeholder="Agrega el número de Clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="costo_paquete">Costo del Paquete:</label>
                                     <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="vigencia_paquete">Vigencia del Paquete:</label>

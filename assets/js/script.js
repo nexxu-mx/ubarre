@@ -635,63 +635,13 @@ if (document.querySelector(".modal-detalles-coach")) {
 
 }
 
+let detallesBebidaModal
+
 if (document.querySelector(".modal-detalles-bebida")) {
-  const detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
+  detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
   let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
   if (closeBebidaModalBtn == null) { closeBebidaModalBtn = 0; }
 
-  function mostrarModalBebida(event) {
-    event.preventDefault();
-
-    const boton = event.currentTarget;
-    const rect = boton.getBoundingClientRect();
-
-    detallesBebidaModal.style.position = "absolute";
-
-    if (window.innerWidth <= 768) {
-      detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-      detallesBebidaModal.style.left = `${rect.left - 70}px`;
-    } else {
-      detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-      detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
-    }
-
-    /* Aqui se hará la validación */
-    detallesBebidaModal.style.display = "block";
-
-    detallesBebidaModal.classList.add("show");
-
-    const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
-
-    btnsAgregar.forEach(btn => {
-      btn.dataset.nombre = boton.dataset.nombre;
-      btn.dataset.horario = boton.dataset.horario;
-      btn.dataset.duracion = boton.dataset.duracion;
-      btn.dataset.disciplina = boton.dataset.disciplina;
-      btn.dataset.id = boton.dataset.id;
-      btn.dataset.idcoach = boton.dataset.idcoach;
-
-      btn.dataset.bebida = "Sin bebida";
-      btn.dataset.momento = "Al final de la clase";
-    });
-  }
-
-  //Nueva función que determina si se usa mostrarModalBebida o se pasa directo a reservaClase
-  function handleReserva(event) {
-    event.preventDefault();
-    const boton = event.currentTarget || event.target;
-
-    const total = (typeof userTotalSmoothies !== 'undefined') ? Number(userTotalSmoothies) : 0;
-    console.log("handleReserva total_smoothies:", total);
-
-    if (total > 0) {
-      //Usuario con smoothieS: sigue flujo normal
-      mostrarModalBebida(event);
-    } else {
-      //Usuario con 0 smoothies: salta directo al contenedor resumen
-      reservaClase(boton);
-    }
-  }
 
   function ocultarModalBebida() {
     detallesBebidaModal.classList.remove("show");
@@ -714,6 +664,59 @@ if (document.querySelector(".modal-detalles-bebida")) {
     }
   });
 
+}
+
+function mostrarModalBebida(event) {
+  event.preventDefault();
+
+  const boton = event.currentTarget;
+  const rect = boton.getBoundingClientRect();
+
+  detallesBebidaModal.style.position = "absolute";
+
+  if (window.innerWidth <= 768) {
+    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+    detallesBebidaModal.style.left = `${rect.left - 70}px`;
+  } else {
+    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+    detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+  }
+
+  /* Aqui se hará la validación */
+  detallesBebidaModal.style.display = "block";
+
+  detallesBebidaModal.classList.add("show");
+
+  const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
+
+  btnsAgregar.forEach(btn => {
+    btn.dataset.nombre = boton.dataset.nombre;
+    btn.dataset.horario = boton.dataset.horario;
+    btn.dataset.duracion = boton.dataset.duracion;
+    btn.dataset.disciplina = boton.dataset.disciplina;
+    btn.dataset.id = boton.dataset.id;
+    btn.dataset.idcoach = boton.dataset.idcoach;
+
+    btn.dataset.bebida = "Sin bebida";
+    btn.dataset.momento = "Al final de la clase";
+  });
+}
+
+//Nueva función que determina si se usa mostrarModalBebida o se pasa directo a reservaClase
+function handleReserva(event) {
+  event.preventDefault();
+  const boton = event.currentTarget || event.target;
+
+  const total = (typeof userTotalSmoothies !== 'undefined') ? Number(userTotalSmoothies) : 0;
+  /*  console.log("handleReserva total_smoothies:", total); */
+
+  if (total > 0) {
+    //Usuario con smoothieS: sigue flujo normal
+    mostrarModalBebida(event);
+  } else {
+    //Usuario con 0 smoothies: salta directo al contenedor resumen
+    reservaClase(boton);
+  }
 }
 
 
@@ -822,7 +825,8 @@ function confirmacion(el) {
     })
     .catch(error => {
       console.error('Error:', error);
-      alert('Hubo un problema al registrar.');
+      /* alert('Hubo un problema al registrar.'); */
+      window.location.href = 'profile.php';
     });
 }
 
@@ -869,7 +873,7 @@ if (document.getElementById("my-account")) {
   usrInf();
 }
 
-console.log(userTotalSmoothies)
+/* console.log(userTotalSmoothies) */
 
 /**
  * LOGIN
