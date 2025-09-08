@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ubarre</title>
+  <title>übarre</title>
   <meta name="title" content="Sencia Studio">
   <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
   <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
@@ -158,108 +158,28 @@
 
                 <div class="slider-container">
                   <div class="slider" id="slider">
-                    <div class="slide" data-disciplina="PILATES">
-                      <div class="sli1"> <img src="assets/images/ubarre/2x/w3@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>CONNIE</p>
-                          <a href="coaches.php#connie">Conocer</a>
-                        </div>
-                      </div>
 
-                    </div>
+                    <?php
+                    include 'db.php';
+                    $selectCoachesStmt = $conn->prepare("SELECT id, nombre_coach FROM coaches");
+                    $selectCoachesStmt->execute();
+                    $resultadoSelectCoaches = $selectCoachesStmt->get_result();
 
-                    <div class="slide" data-disciplina="SCULPT">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>DULCE</p>
-                          <a href="coaches.php#dulce">Conocer</a>
+                    while ($filaCoach = $resultadoSelectCoaches->fetch_assoc()) {
+                      echo '
+                      <div class="slide" data-disciplina="PILATES">
+                        <div class="sli1"> <img src="assets/images/coaches/pro/' . $filaCoach['id'] . '.png" alt="imagen slider"></div>
+                        <div class="contenido-slider">
+                          <div class="texto-slider">
+                            <p>' . $filaCoach['nombre_coach'] . '</p>
+                            <a href="coaches.php#' . strtolower($filaCoach['nombre_coach']) . '">Conocer</a>
+                          </div>
                         </div>
-                      </div>
 
-                    </div>
-                    <div class="slide" data-disciplina="BARRE">
-                      <div class="sli1">
-                        <img src="assets/images/ubarre/2x/w1@2x.png" alt="imagen slider">
                       </div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>KATIA</p>
-                          <a href="coaches.php#katia">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="YOGA">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w3@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>REGINA</p>
-                          <a href="coaches.php#regina">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="YOGA">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>MARIA</p>
-                          <a href="coaches.php#maria">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="BARRE">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w1@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>DANYFER</p>
-                          <a href="coaches.php#danyfer">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="SCULPT">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>BETO</p>
-                          <a href="coaches.php#beto">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="BARRE">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w3@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>KARINA</p>
-                          <a href="coaches.php#karina">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="BARRE">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w1@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>GALI</p>
-                          <a href="coaches.php#gali">Conocer</a>
-                        </div>
-                      </div>
-
-                    </div>
-                    <div class="slide" data-disciplina="BALLET">
-                      <div class="sli1"><img src="assets/images/ubarre/2x/w2@2x.png" alt="imagen slider"></div>
-                      <div class="contenido-slider">
-                        <div class="texto-slider">
-                          <p>REGINA</p>
-                          <a href="coaches.php#regina">Conocer</a>
-                        </div>
-                      </div>
-                    </div>
+                      ';
+                    }
+                    ?>
                   </div>
                 </div>
 

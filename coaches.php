@@ -87,7 +87,7 @@
 
                 if ($intercalador == 1) {
                     echo '
-                        <section class="training-for-life-section coach">
+                        <section class="training-for-life-section coach" id="' . strtolower($fila['nombre_coach']) . '">
                             <div class="image-side">
                                 ' . $imgC . '
                             </div>
@@ -106,7 +106,7 @@
                     $intercalador = 0;
                 } else {
                     echo '
-                        <section class="training-for-life-section coach">
+                        <section class="training-for-life-section coach" id="' . strtolower($fila['nombre_coach']) . '">
                             <div class="text-side ">
                                 <div>
                                     <h3>Coach ' . $fila['nombre_coach'] . '</h3>
