@@ -10,7 +10,9 @@ $sqlA = "SELECT
             users.nombre, 
             reservaciones.id AS reservacion_id, 
             reservaciones.alumno, 
-            reservaciones.invitado
+            reservaciones.invitado,
+            reservaciones.sabor,
+            reservaciones.momento
          FROM reservaciones 
          INNER JOIN users ON reservaciones.alumno = users.id 
          WHERE reservaciones.idClase = ?";
@@ -66,6 +68,12 @@ while ($row = $result->fetch_assoc()) {
    
     while ($rowA = $resultA->fetch_assoc()) {
         $name = htmlspecialchars($rowA['nombre']);
+        
+        $sabor = htmlspecialchars($rowA['sabor']);
+        $sabor = $sabor==""?"No se incluyo un smoothie":$sabor;
+        $momento = htmlspecialchars($rowA['momento']);
+        $momento = $momento== "" || $momento=="Sin smoothie" ? "" : "(".$momento.")";
+
         $idEvent = $row['id'];
         $Ndisciplina = "'$disciplina'";
         $a1 = $rowA['reservacion_id'];
@@ -75,7 +83,14 @@ while ($row = $result->fetch_assoc()) {
         $onclick = "cancelReserv($a1,$a2,$idEvent,$a3,'$disciplina')";
         $onclick2 = "addInvitado($a1,$a2,$idEvent)";
         $asistencia = 1 + $rowA['invitado'];
-        $alumnos.= '<li style="display: flex;justify-content: space-between;"><p>' . $name . ' (x' . $asistencia . ')</p><div style="display: flex;gap: 10px;"><i class="fas fa-trash-alt trash" onclick="' . $onclick . '"></i> <i class="fas fa-user-plus add" onclick="' . $onclick2 . '"></i></div></li>';
+        $alumnos.= '<li style="display: flex;justify-content: space-between;">
+        <p>' . $name . ' (x' . $asistencia . ')</p>
+        <p style="border-left: 1px solid #c5c5c5;">&nbsp; &nbsp;'.$sabor.$momento.'</p>
+        <div style="display: flex;gap: 10px;">
+        <i class="fas fa-trash-alt trash" onclick="' . $onclick . '"></i> 
+        <i class="fas fa-user-plus add" onclick="' . $onclick2 . '"></i>
+        </div>
+        </li>';
     }
     $alumnos .= "</ul>";
 
