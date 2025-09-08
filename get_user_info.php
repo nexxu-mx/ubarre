@@ -4,7 +4,7 @@ include 'db.php';
 session_start();
 $id = $_SESSION['idUser'];
 
-$sql = "SELECT nombre, credit, fechaCredit FROM users WHERE id = ?";
+$sql = "SELECT nombre, credit, fechaCredit, total_smoothies FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -19,6 +19,7 @@ $row = $result->fetch_assoc();
 echo json_encode([
     "nombre" => $row["nombre"],
     "credit" => $row["credit"],
-    "fechaCredit" => $row["fechaCredit"]
+    "fechaCredit" => $row["fechaCredit"],
+    "total_smoothies" => $row["total_smoothies"]
 ]);
 ?>

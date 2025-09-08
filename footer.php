@@ -1,5 +1,5 @@
 <footer class="footer section">
-  <video  id="video-footer" src="./assets/images/sencia_gradient.mp4" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
+  <video id="video-footer" src="./assets/images/sencia_gradient.mp4" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
   <div class="container">
     <div class="logo-container">
       <img src="assets/images/ubarre/ubarre.svg" alt="Logo Sencia">

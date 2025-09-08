@@ -235,11 +235,19 @@ function cargarClases(day) {
         const btn = document.createElement('div');
         var reservable = '<a class="btn-rcoloresCoaches[index]eservar" style="color: #747373;">RESERVAR</a>';;
         if (clase.abierta == "1") {
-          reservable = /*`<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`*/
-            `<p class="btn-bebida" href=""
-                onclick="mostrarModalBebida(event)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-iddisciplina="${clase.id_disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">
+
+          reservable = `<p class="btn-bebida" href=""
+                onclick="handleReserva(event)"
+                data-nombre="${clase.nombre_coach}" 
+                data-horario="${clase.horario}" 
+                data-duracion="${clase.duracion}" 
+                data-disciplina="${clase.disciplina}" 
+                data-iddisciplina="${clase.id_disciplina}" 
+                data-id="${clase.id}" 
+                data-idcoach="${clase.id_coach}">
                 RESERVAR
              </p>`;
+
         }
 
         btn.innerHTML = `
@@ -548,142 +556,165 @@ if (closeDisciplinaModalBtn != 0) {
   });
 }
 
-const modalCoach = document.querySelector(".modal-detalles-coach");
+if (document.querySelector(".modal-detalles-coach")) {
+  const modalCoach = document.querySelector(".modal-detalles-coach");
 
-function mostrarModal(modal, id, tipo, event) {
-  if (tipo == 1) {
-    fetch("info_detalles_coach.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-    })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("coach-info-img").src = data.image;
-        document.getElementById("coach-info-nombre").innerHTML = data.nombre;
-        document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
+  function mostrarModal(modal, id, tipo, event) {
+    if (tipo == 1) {
+      fetch("info_detalles_coach.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
       })
-      .catch(error => console.error("Error:", error));
-  } else {
-    fetch("info_detalles_disciplina.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-    })
-      .then(response => response.json())
-      .then(data => {
-        document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
-        document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("coach-info-img").src = data.image;
+          document.getElementById("coach-info-nombre").innerHTML = data.nombre;
+          document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
+        })
+        .catch(error => console.error("Error:", error));
+    } else {
+      fetch("info_detalles_disciplina.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
       })
-      .catch(error => console.error("Error:", error));
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
+          document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
+        })
+        .catch(error => console.error("Error:", error));
+    }
+
+    const boton = event.currentTarget;
+    const rect = boton.getBoundingClientRect();
+
+    modal.style.position = "absolute";
+
+    if (window.innerWidth <= 768) {
+      modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
+      modal.style.left = `${rect.left}px`;
+    } else {
+      modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
+      modal.style.left = `${rect.left + window.scrollX}px`;
+    }
+
+
+    modal.style.display = "block";
+    modal.classList.add("show");
   }
 
-  const boton = event.currentTarget;
-  const rect = boton.getBoundingClientRect();
 
-  modal.style.position = "absolute";
+  function ocultarModal(modal, tipo) {
+    modal.classList.remove("show");
+    setTimeout(() => modal.style.display = "none", 200);
 
-  if (window.innerWidth <= 768) {
-    modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
-    modal.style.left = `${rect.left}px`;
-  } else {
-    modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
-    modal.style.left = `${rect.left + window.scrollX}px`;
-  }
-
-
-  modal.style.display = "block";
-  modal.classList.add("show");
-}
-
-
-function ocultarModal(modal, tipo) {
-  modal.classList.remove("show");
-  setTimeout(() => modal.style.display = "none", 200);
-
-  if (tipo == 1) {
-    document.getElementById("coach-info-img").src = "";
-    document.getElementById("coach-info-nombre").innerHTML = "";
-    document.getElementById("coach-info-descripcion").innerHTML = "";
-  } else {
-    document.getElementById("disciplina-info-nombre").innerHTML = "";
-    document.getElementById("disciplina-info-descripcion").innerHTML = "";
-  }
-}
-
-document.addEventListener("click", (e) => {
-  if (modalCoach.style.display === "block") {
-    const isClickInside = modalCoach.contains(e.target) || e.target.classList.contains("detalles-coach");
-    if (!isClickInside) {
-      ocultarModal(modalCoach, 1);
+    if (tipo == 1) {
+      document.getElementById("coach-info-img").src = "";
+      document.getElementById("coach-info-nombre").innerHTML = "";
+      document.getElementById("coach-info-descripcion").innerHTML = "";
+    } else {
+      document.getElementById("disciplina-info-nombre").innerHTML = "";
+      document.getElementById("disciplina-info-descripcion").innerHTML = "";
     }
   }
-});
 
-const detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
-let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
-if (closeBebidaModalBtn == null) { closeBebidaModalBtn = 0; }
+  document.addEventListener("click", (e) => {
+    if (modalCoach.style.display === "block") {
+      const isClickInside = modalCoach.contains(e.target) || e.target.classList.contains("detalles-coach");
+      if (!isClickInside) {
+        ocultarModal(modalCoach, 1);
+      }
+    }
+  });
 
-function mostrarModalBebida(event) {
-  event.preventDefault();
+}
 
-  const boton = event.currentTarget;
-  const rect = boton.getBoundingClientRect();
+if (document.querySelector(".modal-detalles-bebida")) {
+  const detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
+  let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
+  if (closeBebidaModalBtn == null) { closeBebidaModalBtn = 0; }
 
-  detallesBebidaModal.style.position = "absolute";
+  function mostrarModalBebida(event) {
+    event.preventDefault();
 
-  if (window.innerWidth <= 768) {
-    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-    detallesBebidaModal.style.left = `${rect.left - 70}px`;
-  } else {
-    detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
-    detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+    const boton = event.currentTarget;
+    const rect = boton.getBoundingClientRect();
+
+    detallesBebidaModal.style.position = "absolute";
+
+    if (window.innerWidth <= 768) {
+      detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+      detallesBebidaModal.style.left = `${rect.left - 70}px`;
+    } else {
+      detallesBebidaModal.style.top = `${rect.bottom + window.scrollY - 200}px`;
+      detallesBebidaModal.style.left = `${rect.left + window.scrollX - 250}px`;
+    }
+
+    /* Aqui se hará la validación */
+    detallesBebidaModal.style.display = "block";
+
+    detallesBebidaModal.classList.add("show");
+
+    const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
+
+    btnsAgregar.forEach(btn => {
+      btn.dataset.nombre = boton.dataset.nombre;
+      btn.dataset.horario = boton.dataset.horario;
+      btn.dataset.duracion = boton.dataset.duracion;
+      btn.dataset.disciplina = boton.dataset.disciplina;
+      btn.dataset.id = boton.dataset.id;
+      btn.dataset.idcoach = boton.dataset.idcoach;
+
+      btn.dataset.bebida = "Sin bebida";
+      btn.dataset.momento = "Al final de la clase";
+    });
   }
 
+  //Nueva función que determina si se usa mostrarModalBebida o se pasa directo a reservaClase
+  function handleReserva(event) {
+    event.preventDefault();
+    const boton = event.currentTarget || event.target;
 
-  detallesBebidaModal.style.display = "block";
-  detallesBebidaModal.classList.add("show");
+    const total = (typeof userTotalSmoothies !== 'undefined') ? Number(userTotalSmoothies) : 0;
+    console.log("handleReserva total_smoothies:", total);
 
-  const btnsAgregar = detallesBebidaModal.querySelectorAll(".btn-confirmar-bebida a");
+    if (total > 0) {
+      //Usuario con smoothieS: sigue flujo normal
+      mostrarModalBebida(event);
+    } else {
+      //Usuario con 0 smoothies: salta directo al contenedor resumen
+      reservaClase(boton);
+    }
+  }
 
-  btnsAgregar.forEach(btn => {
-    btn.dataset.nombre = boton.dataset.nombre;
-    btn.dataset.horario = boton.dataset.horario;
-    btn.dataset.duracion = boton.dataset.duracion;
-    btn.dataset.disciplina = boton.dataset.disciplina;
-    btn.dataset.id = boton.dataset.id;
-    btn.dataset.idcoach = boton.dataset.idcoach;
+  function ocultarModalBebida() {
+    detallesBebidaModal.classList.remove("show");
+    setTimeout(() => detallesBebidaModal.style.display = "none", 200);
+  }
 
-    btn.dataset.bebida = "Sin bebida";
-    btn.dataset.momento = "Al final de la clase";
-  });
-}
-
-function ocultarModalBebida() {
-  detallesBebidaModal.classList.remove("show");
-  setTimeout(() => detallesBebidaModal.style.display = "none", 200);
-}
-
-if (closeBebidaModalBtn != 0) {
-  closeBebidaModalBtn.addEventListener("click", () => {
-    ocultarModalBebida();
-  });
-}
-
-
-document.addEventListener("click", (e) => {
-  if (detallesBebidaModal.style.display === "block") {
-    const isClickInside = detallesBebidaModal.contains(e.target) || e.target.classList.contains("btn-bebida");
-    if (!isClickInside) {
+  if (closeBebidaModalBtn != 0) {
+    closeBebidaModalBtn.addEventListener("click", () => {
       ocultarModalBebida();
-    }
+    });
   }
-});
 
+
+  document.addEventListener("click", (e) => {
+    if (detallesBebidaModal.style.display === "block") {
+      const isClickInside = detallesBebidaModal.contains(e.target) || e.target.classList.contains("btn-bebida");
+      if (!isClickInside) {
+        ocultarModalBebida();
+      }
+    }
+  });
+
+}
 
 
 /**
@@ -694,9 +725,20 @@ function reservaClase(el) {
   const classesContainer = document.querySelector(".contenido-seleccion-clase");
   const modalVisible = document.querySelector(".modal-detalles-bebida");
 
-  const slide = el.closest(".slide-bebida");
-  const bebida = slide.dataset.bebida;
-  const momento = slide.querySelector(".dropdown-toggle").textContent.trim() || "Al final de la clase";
+  const slide = el ? el.closest(".slide-bebida") : null;
+  let bebida = "";
+  let momento = "Al final de la clase";
+
+  if (slide) {
+    bebida = slide.dataset.bebida || "";
+    const toggle = slide.querySelector(".dropdown-toggle");
+    momento = (toggle && toggle.textContent.trim()) || "Al final de la clase";
+    if (momento === "Sin smoothie") bebida = "";
+  } else {
+    // Viene directo del botón RESERVAR (flujo con 0 smoothies)
+    bebida = el.dataset.bebida || "";
+    momento = el.dataset.momento || "Sin Smoothie";
+  }
 
   const nombre = el.dataset.nombre;
   const horario = el.dataset.horario;
@@ -712,12 +754,12 @@ function reservaClase(el) {
   document.getElementById("confirm-disciplina").innerHTML = disciplina;
   document.getElementById("confirm-coach-img").src = imag;
 
-  if (momento === "Sin smoothie") {
+  if (!bebida || momento === "Sin Smoothie") {
     document.getElementById("confirm-bebida").textContent = "";
     document.getElementById("confirm-momento").textContent = "Sin Smoothie";
   } else {
     document.getElementById("confirm-bebida").textContent = bebida;
-    document.getElementById("confirm-momento").textContent = `${momento}`;
+    document.getElementById("confirm-momento").textContent = momento;
   }
 
   document.getElementById("confirm-agendar").dataset.id = iden;
@@ -725,14 +767,14 @@ function reservaClase(el) {
   document.getElementById("confirm-agendar").dataset.disciplina = disciplina;
   document.getElementById("confirm-agendar").dataset.duracion = duracion;
   document.getElementById("confirm-agendar").dataset.id_inst = idCoach;
-  document.getElementById("confirm-agendar").dataset.bebida = (momento === "Sin smoothie" ? "" : bebida);
-  document.getElementById("confirm-agendar").dataset.momento = momento;
+  document.getElementById("confirm-agendar").dataset.bebida = bebida || "";
+  document.getElementById("confirm-agendar").dataset.momento = (momento === "Sin Smoothie") ? "Sin Smoothie" : momento;
 
+  // Mostrar confirmación y ocultar lo demás
   confirmationSection.style.display = 'block';
   classesContainer.style.display = 'none';
-  modalVisible.style.display = 'none';
+  if (modalVisible) modalVisible.style.display = 'none';
 }
-
 
 function confirmacion(el) {
   const idClas = el.dataset.id;
@@ -794,6 +836,10 @@ function cancelConfirmacion() {
   document.getElementById("confirm-coach-img").src = "assets/images/coaches/pro/unknnow.png";
   document.getElementById("confirm-agendar").dataset.id = " ";
 }
+
+//Variable global para almacenar total_smoothies (Usamos el valor que viene de reserva.php)
+let userTotalSmoothies = (typeof window.userTotalSmoothies !== 'undefined') ? Number(window.userTotalSmoothies) : 0;
+
 function usrInf() {
   fetch("get_user_info.php")
     .then(response => response.json())
@@ -802,14 +848,28 @@ function usrInf() {
         console.error(data.error);
         return;
       }
+
+      //Actualizar la variables global con total_smoothies
+      userTotalSmoothies = data.total_smoothies || 0;
       var datosUsuario = data.nombre + " | " + data.credit + " Créditos"
-      document.getElementById("my-account").innerHTML = datosUsuario;
+
+      if (document.getElementById("my-account")) {
+        document.getElementById("my-account").innerHTML = datosUsuario;
+      }
+
+      if (typeof cargarSmoothies === 'function') {
+        cargarSmoothies();
+      }
     })
     .catch(error => console.error("Error al obtener los datos:", error));
 }
+
+
 if (document.getElementById("my-account")) {
   usrInf();
 }
+
+console.log(userTotalSmoothies)
 
 /**
  * LOGIN
@@ -960,6 +1020,13 @@ function cargarSmoothies() {
     .then(response => response.json())
     .then(data => {
       const slidesWrapper = document.getElementById("smoothie-slides");
+
+      /* //Verificar si el contenedor existe, estos es si total_smoothies > 0
+      if (!slidesWrapper) {
+        console.log("Usuario no tiene Smoothies disponibles");
+        return;
+      } */
+
       slidesWrapper.innerHTML = "";
 
       data.forEach(smoothie => {
@@ -987,7 +1054,7 @@ function cargarSmoothies() {
           </div>
 
           <div class="smoothies-disponibles">
-            <small>12 smoothies disponibles aún</small>
+            <small>${userTotalSmoothies} smoothies disponibles aún</small>
           </div>
 
           <div class="botones-bebida">
