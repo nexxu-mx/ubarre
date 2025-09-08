@@ -72,7 +72,7 @@ while ($row = $result->fetch_assoc()) {
         $sabor = htmlspecialchars($rowA['sabor']);
         $sabor = $sabor==""?"No se incluyo un smoothie":$sabor;
         $momento = htmlspecialchars($rowA['momento']);
-        $momento = $momento== "" ? "": "(".$momento.")";
+        $momento = $momento== "" || $momento=="Sin smoothie" ? "" : "(".$momento.")";
 
         $idEvent = $row['id'];
         $Ndisciplina = "'$disciplina'";
