@@ -14,10 +14,13 @@ if (
 ) {
     $nombrePaquete = trim(strtoupper($_POST['nombre_paquete']));
     $numeroClases = trim($_POST['numero_clases']);
-    $costoPaquete = trim($_POST['costo_paquete']);
+    $costoPaqueteSinComa = str_replace(",", "", $_POST['costo_paquete']);
+    $costoPaquete = $costoPaqueteSinComa;
     $vigenciaPaquete = trim($_POST['vigencia_paquete']);
     $invitadosPaquete = trim($_POST['invitados_paquete']);
     $personasPaquete = trim($_POST['personas_paquete']);
+
+
 
     $smoothieCheck = isset($_POST['smoothie_check']) ? 1 : 0;
     $smoothiesPaquete = trim($_POST['smoothies_paquete']);
