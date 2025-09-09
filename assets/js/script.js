@@ -938,22 +938,23 @@ function cargarSmoothies() {
   fetch("get_smoothies.php")
     .then(response => response.json())
     .then(data => {
-      const slidesWrapper = document.getElementById("smoothie-slides");
+      if (document.getElementById("smoothie-slides")) {
+        const slidesWrapper = document.getElementById("smoothie-slides");
 
-      /* //Verificar si el contenedor existe, estos es si total_smoothies > 0
-      if (!slidesWrapper) {
-        console.log("Usuario no tiene Smoothies disponibles");
-        return;
-      } */
+        /* //Verificar si el contenedor existe, estos es si total_smoothies > 0
+        if (!slidesWrapper) {
+          console.log("Usuario no tiene Smoothies disponibles");
+          return;
+        } */
 
-      slidesWrapper.innerHTML = "";
+        slidesWrapper.innerHTML = "";
 
-      data.forEach(smoothie => {
-        const slide = document.createElement("div");
-        slide.classList.add("slide-bebida");
-        slide.dataset.bebida = smoothie.sabor;
+        data.forEach(smoothie => {
+          const slide = document.createElement("div");
+          slide.classList.add("slide-bebida");
+          slide.dataset.bebida = smoothie.sabor;
 
-        slide.innerHTML = `
+          slide.innerHTML = `
           <div>
             <img src="${smoothie.ruta}" alt="${smoothie.sabor}">
           </div>
@@ -983,11 +984,12 @@ function cargarSmoothies() {
             </div>
           </div>
         `;
-        slidesWrapper.appendChild(slide);
-      });
+          slidesWrapper.appendChild(slide);
+        });
 
-      //Ahora que ya están creados los slides, inicializamos el slider
-      initSlider();
+        //Ahora que ya están creados los slides, inicializamos el slider
+        initSlider();
+      }
     })
     .catch(error => console.error("Error cargando smoothies:", error));
 }
