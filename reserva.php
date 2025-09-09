@@ -1,15 +1,15 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
+
+<?php include 'error_log.php'; ?>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sencia Studio | Reserva</title>
-    <meta name="title" content="Sencia Studio">
-    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>übarre | Reserva</title>
+    <meta name="title" content="übarre">
+    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,6 @@
             <section class="reserva-main-section">
 
                 <div class="container">
-                    <!-- <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia">  -->
                     <div class="aboutus-top" id="reserv">
                         <div class="aboutus-elemento-izquierda">
                             <button>
@@ -65,107 +64,107 @@
 
                     <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
 
-            <?php 
+                    <?php
 
-            //Verificar si el usuario esta autenticado
-            if (!isset($_SESSION['idUser'])) {
-                header("Location: login.php");
-                exit();
-            }
+                    //Verificar si el usuario esta autenticado
+                    if (!isset($_SESSION['idUser'])) {
+                        header("Location: login.php");
+                        exit();
+                    }
 
-            include 'db.php'; // conexión a tu base de datos
-            include 'error_log.php'; // manejo de errores
+                    include 'db.php'; // conexión a tu base de datos
+                    include 'error_log.php'; // manejo de errores
 
-            //Preparar consulta para obtener total_smoothies de users
-            $id_usuario = $_SESSION['idUser'];
-            $sql = "SELECT total_smoothies FROM users WHERE id = ?";
-            $stmt = $conn->prepare($sql);
+                    //Preparar consulta para obtener total_smoothies de users
+                    $id_usuario = $_SESSION['idUser'];
+                    $sql = "SELECT total_smoothies FROM users WHERE id = ?";
+                    $stmt = $conn->prepare($sql);
 
-            if (!$stmt) {
-                die("Error en la preparación de la consulta: " . $conn->error);
-            }
+                    if (!$stmt) {
+                        die("Error en la preparación de la consulta: " . $conn->error);
+                    }
 
-            $stmt->bind_param("i", $id_usuario);
-            $stmt->execute();
-            $result = $stmt->get_result();
+                    $stmt->bind_param("i", $id_usuario);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
-            if ($result->num_rows === 0) {
-                die("Usuario no encontrado");
-            }
+                    if ($result->num_rows === 0) {
+                        die("Usuario no encontrado");
+                    }
 
-            $row = $result->fetch_assoc();
-            $total_smoothies = (int)$row['total_smoothies'];
-            $stmt->close();
-            ?>
+                    $row = $result->fetch_assoc();
+                    $total_smoothies = (int)$row['total_smoothies'];
+                    $stmt->close();
+                    ?>
 
-            
-            <!-- Contenededor para Agregar Smoothie -->
-                <div class="modal-detalles-bebida">
-                    <div class="modal-content">
-                        <div class="container-slider-bebidas">
-                            <div class="flecha-slider-izquierda">
-                                <button>
-                                    <img src="./assets/images/svg/flecha-blanca.svg" alt="">
-                                </button>
+
+                    <!-- Contenededor para Agregar Smoothie -->
+                    <div class="modal-detalles-bebida">
+                        <div class="modal-content">
+                            <div class="container-slider-bebidas">
+                                <div class="flecha-slider-izquierda">
+                                    <button>
+                                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="flecha-slider-derecha">
+                                    <button>
+                                        <img src="./assets/images/svg/flecha-blanca.svg" alt="">
+                                    </button>
+                                </div>
+
+                                <div class="slides-wrapper" id="smoothie-slides">
+                                </div>
+
+                                <!-- Se carga en script.js  en cargarSmoothies -->
+
                             </div>
-                            <div class="flecha-slider-derecha">
-                                <button>
-                                    <img src="./assets/images/svg/flecha-blanca.svg" alt="">
-                                </button>
-                            </div>
-                            
-                            <div class="slides-wrapper" id="smoothie-slides">
-                            </div>
-
-                    <!-- Se carga en script.js  en cargarSmoothies -->
-
                         </div>
                     </div>
-                </div>
-            <!--  Hasta aqui -->
-            
-            <!-- Contenedor de resumen y confirmación de reserva -->
-            <div class="confirmation-section" id="confirm-class">
-                <h2>Confirmación de Reserva</h2>
-                <div class="fecha-clase-container">
-                    <p><span id="texto-dia-din-conf" class="texto-fecha-din">Hoy</span>, <span id="mes-din-conf" class="texto-fecha-din">Marzo</span> <span id="numero-dia-din-conf" class="texto-fecha-din">27</span></p>
-                </div>
-                <div class="clase-container elemento-clase-confirmacion">
-                    <div class="first-flex-clase">
-                        <div class="img-clase-container">
-                            <img src="assets/images/coaches/unknnow.png" alt="Foto Coach" id="confirm-coach-img">
-                        </div>
-                        <div class="nombrecoach-horarioclase version-confirmacion">
-                            <div class="nombre-coach">
-                                <p id="confirm-coach"></p>
-                            </div>
-                            <div class="horario-clase">
-                                <h3 id="confirm-horario"></h3>
-                                <h4 id="confirm-duracion"></h4>
-                            </div>
-                            <div class="nombre-bebida">
-                                <p>Bebida:</p>
-                                <h3 id="confirm-bebida"></h3>
-                                <h4 id="confirm-momento"></h4>
-                            </div>
-                            <div class="disciplina-clase-container">
-                                <p>Disciplina:</p>
-                                <h3 id="confirm-disciplina"></h3>
-                            </div>
+                    <!--  Hasta aqui -->
 
+                    <!-- Contenedor de resumen y confirmación de reserva -->
+                    <div class="confirmation-section" id="confirm-class">
+                        <h2>Confirmación de Reserva</h2>
+                        <div class="fecha-clase-container">
+                            <p><span id="texto-dia-din-conf" class="texto-fecha-din">Hoy</span>, <span id="mes-din-conf" class="texto-fecha-din">Marzo</span> <span id="numero-dia-din-conf" class="texto-fecha-din">27</span></p>
                         </div>
+                        <div class="clase-container elemento-clase-confirmacion">
+                            <div class="first-flex-clase">
+                                <div class="img-clase-container">
+                                    <img src="assets/images/coaches/unknnow.png" alt="Foto Coach" id="confirm-coach-img">
+                                </div>
+                                <div class="nombrecoach-horarioclase version-confirmacion">
+                                    <div class="nombre-coach">
+                                        <p id="confirm-coach"></p>
+                                    </div>
+                                    <div class="horario-clase">
+                                        <h3 id="confirm-horario"></h3>
+                                        <h4 id="confirm-duracion"></h4>
+                                    </div>
+                                    <div class="nombre-bebida">
+                                        <p>Bebida:</p>
+                                        <h3 id="confirm-bebida"></h3>
+                                        <h4 id="confirm-momento"></h4>
+                                    </div>
+                                    <div class="disciplina-clase-container">
+                                        <p>Disciplina:</p>
+                                        <h3 id="confirm-disciplina"></h3>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="confirmation-btns">
+                            <p class="cancelar-confirmacion-reserva-btn" onclick="cancelConfirmacion()">Cancelar</p>
+                            <p class="confirmar-reserva-btn" id="confirm-agendar" onclick="confirmacion(this)">Confirmar Reserva</p>
+                        </div>
+                        <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
                     </div>
-                </div>
-                <div class="confirmation-btns">
-                    <p class="cancelar-confirmacion-reserva-btn" onclick="cancelConfirmacion()">Cancelar</p>
-                    <p class="confirmar-reserva-btn" id="confirm-agendar" onclick="confirmacion(this)">Confirmar Reserva</p>
-                </div>
-                <p class="nota-cancelar-clase"><span>Nota</span>: Puedes cancelar tu reservación, con hasta 6 horas de anticipación desde "Mis Reservas"</p>
-            </div>
-            <!-- Hasta aqui --> 
-            
-            
-            
+                    <!-- Hasta aqui -->
+
+
+
 
                     <!-- Inicio Cards -->
                     <div class="contenido-seleccion-clase">
@@ -333,7 +332,7 @@
         </div>
     </section>
 
-    
+
 
     <section class="modal-detalles-disciplina">
         <div class="header-details-container">
@@ -410,13 +409,10 @@
 
 
     <?php include 'footer.php'; ?>
-    <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
-    </a>
 
     <script>
         window.userTotalSmoothies = <?php echo json_encode($total_smoothies); ?>
-    </script> 
+    </script>
 
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

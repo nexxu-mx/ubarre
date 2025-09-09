@@ -14,9 +14,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubarre | Login</title>
-    <meta name="title" content="Sencia Studio">
-    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>übarre | Login</title>
+    <meta name="title" content="übarre">
+    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,7 +50,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
 
                     <form action="loger.php" method="post" class="login-form" style="padding-top: 20px">
                         <div class="logo-form-container form-login-logo">
-                            <img src="assets/images/ubarre/SVG/ubarre-sin-tagline.svg" alt="Logo Sencia">
+                            <img src="assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="Logo übarre">
                         </div>
                         <h2>INICIA SESIÓN</h2>
                         <p class="registro-mensaje">¿Es tu primera vez? <span><button type="button" onclick="openRegistro()">Regístrate</button></span></p>
@@ -71,7 +71,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                 </div>
                 <div class="container" id="registro" style="margin-block: 20px; display: none">
                     <form action="registro.php" method="post" class="login-form">
-                        <img src="assets/images/svg/logo-negro.svg" alt="Logo Sencia">
+                        <img src="assets/images/svg/logo-negro.svg" alt="Logo übarre">
                         <h2>VAMOS A REGISTRARTE</h2>
                         <p class="registro-mensaje">¿Ya tienes cuenta? <span><button type="button" onclick="closeRegistro()">Iniciar Sesión</button></span></p>
                         <label for="nombreR">Nombre*</label>
@@ -128,9 +128,6 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     </main>
 
     <?php include 'footer.php'; ?>
-    <a href="https://wa.me/524792179429?text=Hola,%Quiero%20más%20información%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
-    </a>
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

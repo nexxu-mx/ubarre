@@ -30,9 +30,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ubarre | Perfil</title>
-    <meta name="title" content="Sencia Studio">
-    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>übarre | Perfil</title>
+    <meta name="title" content="übarre">
+    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -130,11 +130,6 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <?php //include 'ofer.php'; 
     ?>
     <?php include 'header.php'; ?>
-
-
-    <div style="position: fixed; z-index: -1; top: 0; left: 0; width: 100%; height: 100%">
-        <!-- <video style="height: 200%;" src="./assets/images/sencia_gradient.mp4" autoplay loop muted></video> -->
-    </div>
     <!-- MAIN SECTION -->
     <main>
         <article>

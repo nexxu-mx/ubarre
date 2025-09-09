@@ -717,7 +717,7 @@
 }
 
 .main-section-contacto {
-    background-image: url(../images/contacto.png);
+    background-image: url(../images/ubarre/2x/fondo_ubarre@2x.png);
     object-fit: cover;
     background-repeat: no-repeat;
 }
@@ -1240,7 +1240,7 @@ form .submit-btn {
 }
 
 .login-submit-btn:hover {
-    background-color: #8B976A;
+    background-color: #657046;
 }
 
 .registro-mensaje>span {
@@ -1248,7 +1248,8 @@ form .submit-btn {
 }
 
 .registro-mensaje {
-    color: #DFD5BE;
+    color: #000;
+    font-weight: 500;
 }
 
 .btn-reservar-clase-container p {

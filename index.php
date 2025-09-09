@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>übarre</title>
-  <meta name="title" content="Sencia Studio">
-  <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+  <meta name="title" content=¨"übarre">
+  <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
   <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,8 +55,8 @@
         <div class="container">
           <div class="hero-banner-elements">
             <div class="img-banner-container">
-              <img src="./assets/images/ubarre/SVG/ubarre-sin-tagline.svg"
-                alt="Sencia Logo">
+              <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg"
+                alt="übarre Logo">
             </div>
             <h1>
               The new era
@@ -71,7 +71,7 @@
         <div class="fundadoras-section container">
           <div class="elementos-izquierda-fundadoras">
             <div class="elemento-top-fundadoras">
-              <img src="./assets/images/ubarre/SVG/dots.svg" alt="">
+              <img src="./assets/images/ubarre/svg/dots.svg" alt="">
             </div>
             <div class="elemento-bottom-fundadoras">
               <h4>Fundadoras</h4>
@@ -82,12 +82,12 @@
               <p>Nuestra misión
                 <br>y visión
               </p>
-              <img src="./assets/images/ubarre/SVG/ubarre-sin-tagline.svg" alt="">
+              <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="">
             </div>
           </div>
           <div class="elementos-derecha-fundadoras">
             <div class="elemento-top-fundadoras fila-izquierda">
-              <img src="./assets/images/ubarre/SVG/icon.svg" alt="">
+              <img src="./assets/images/ubarre/svg/icon.svg" alt="">
             </div>
             <div class="elemento-bottom-fundadoras">
               <p>REVIVING THE
@@ -101,7 +101,7 @@
       <section class="descripcion-section">
         <video id="video-index-texto" src="" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
         <div class="container section">
-          <img src="assets/images/ubarre/SVG/icon.svg" alt="logo sencia">
+          <img src="assets/images/ubarre/svg/icon.svg" alt="logo übarre">
           <p>
             Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que
             escucha, sostiene y acompaña.
@@ -112,7 +112,7 @@
           </p>
           <div class="wellness-texto">
             <p>Wellness made for</p>
-            <img src="./assets/images/ubarre/SVG/u-sola.svg" alt="">
+            <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
           </div>
           <a href="">Conocer más</a>
         </div>
@@ -190,9 +190,6 @@
                   <a href="">RESERVA CON ELLAS</a>
                 </div>
           </div>
-          <a href="disciplinas.php">
-            <p class="coaches-slider-discipline">SENCIA</p>
-          </a>
         </div>
       </section>
 
@@ -233,7 +230,7 @@
         <div class="fundadoras-section container preguntas-version">
           <div class="elementos-izquierda-fundadoras">
             <div class="elemento-top-fundadoras">
-              <img src="./assets/images/ubarre/SVG/dots.svg" alt="">
+              <img src="./assets/images/ubarre/svg/dots.svg" alt="">
             </div>
             <div class="elemento-bottom-fundadoras">
               <h4>Preguntas</h4>
@@ -344,7 +341,7 @@
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Qué tipo de clases ofrece Sencia?</p>
+                  <p>¿Qué tipo de clases ofrece übarre?</p>
                 </button>
                 <div class="panel">
                   <p>Todas nuestras clases son de bajo impacto y están diseñadas para fortalecer cuerpo y mente. Ofrecemos: <br>
@@ -360,7 +357,7 @@
           </div>
           <div class="elementos-derecha-fundadoras">
             <div class="elemento-top-fundadoras fila-izquierda">
-              <img src="./assets/images/ubarre/SVG/icon.svg" alt="">
+              <img src="./assets/images/ubarre/svg/icon.svg" alt="">
             </div>
             <div class="elemento-bottom-fundadoras">
               <p>REVIVING THE
@@ -377,10 +374,7 @@
     </article>
   </main>
   <?php include 'footer.php'; ?>
-  <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top"
-    data-back-top-btn>
-    <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp ">
-  </a>
+
   <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
   <script type="module"
     src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
