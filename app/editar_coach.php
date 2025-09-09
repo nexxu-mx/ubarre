@@ -19,11 +19,11 @@ if (
     $nombreDisc = trim(strtoupper($_POST['nombre_disc']));
     $activo = $_POST['activo'];
     $imagen = $_FILES['imagen'];
-    $idDisciplina;
+    $idDisciplina = $_POST['nombre_disc'];
     $idCoachImage;
 
     // Primer select para obtener el id y el nombre de la disciplina donde el nombre sea igual al que recibimos en el form
-    $select = "SELECT id, nombre_disciplina FROM disciplinas WHERE nombre_disciplina = '$nombreDisc'";
+    $select = "SELECT id, nombre_disciplina FROM disciplinas WHERE id = '$idDisciplina'";
 
     $resultadoSelect = $conn->query($select);
 
@@ -33,9 +33,9 @@ if (
     }
 
     // Consulta del insert para agregar al coach en la base de datos
-    $insert = "INSERT INTO coaches (nombre_coach, descripcion_coach, id_disciplina, activo) VALUES ('$nombreCoach', '$descCoach', '$idDisciplina', '$activo')";
+    /* $insert = "INSERT INTO coaches (nombre_coach, descripcion_coach, id_disciplina, activo) VALUES ('$nombreCoach', '$descCoach', '$idDisciplina', '$activo')";
 
-    $resultadoInsert = $conn->query($insert);
+    $resultadoInsert = $conn->query($insert); */
 
     $insert = $conn->prepare("UPDATE coaches SET nombre_coach = ?, descripcion_coach = ?, id_disciplina = ?, activo = ? WHERE id = ?");
     if(!$insert){

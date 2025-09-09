@@ -91,7 +91,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                
                                 $idDisciplinaEdit = $_GET['id'];
 
-                                $selectDisciplina = $conn->prepare("SELECT id, nombre_disciplina, descripcion_disciplina, subdescripcion_texto1, subdescripcion_texto2, subdescripcion_texto3, id_coach, activo FROM disciplinas WHERE id = ?");
+                                $selectDisciplina = $conn->prepare("SELECT id, nombre_disciplina, descripcion_disciplina, subdescripcion_texto1, subdescripcion_texto2, subdescripcion_texto3, activo FROM disciplinas WHERE id = ?");
                                 $selectDisciplina->bind_param("i", $idDisciplinaEdit);
                                 $selectDisciplina->execute();
                                 $resultadoSelectDisciplina = $selectDisciplina->get_result();
@@ -125,20 +125,20 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                             }
                             ?>
                             <input type="text" id="nombre_disc" name="nombre_disc" placeholder="Nombre de la Disciplina..." class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" value="<?php echo $nombreDisciplina;?>" required>
-                                    <textarea name="desc_disc" id="desc_disc" class="form-control no-resize mb-3 p-3 bg-body-secondary" required><?php echo $descDisc;?></textarea>
+                                    <textarea name="desc_disc" id="desc_disc" class="form-control no-resize mb-3 p-3 bg-body-secondary" required placeholder="Breve descripción..."><?php echo $descDisc;?></textarea>
 
                                     <div class="d-flex justify-content-lg-center gap-3 mb-3">
                                         <input type="text" id="palabra-desc-1" name="palabra-desc-1" class="p-3 flex-fill form-control bg-body-secondary" placeholder="Palabra Descriptiva 1..." required>
                                         <input type="text" id="palabra-desc-2" name="palabra-desc-2" class="p-3 flex-fill form-control bg-body-secondary" placeholder="Palabra Descriptiva 2..." required>
                                         <input type="text" id="palabra-desc-3" name="palabra-desc-3" class="p-3 flex-fill form-control bg-body-secondary" placeholder="Palabra Descriptiva 3..." required>
                                     </div>
-                                    <input type="text" id="nombre_coach" name="nombre_coach" class="form-control p-3 bg-body-secondary" placeholder="Coach que la Imparte (Solo primer nombre)..." required>
+                                    <!-- <input type="text" id="nombre_coach" name="nombre_coach" class="form-control p-3 bg-body-secondary" placeholder="Coach que la Imparte (Solo primer nombre)..." required> -->
                                     <label for="imagen" class="my-3">SUBE UN VIDEO DE LA DISCIPLINA</label>
                                     <input type="file" id="imagen-disciplina" name="imagen-disciplina" class="form-control mt-0 p-3 bg-body-secondary" accept=".mp4,.mov,.avi,.wmv" onchange="mostrarVistaPrevia(event)" >
                                     <div class="d-flex justify-content-center">
                                         <video id="vistaPrevia" style="max-width: 50%; margin-top: 20px;" autoplay muted></video>
                                     </div>
-                                    <input type="hidden" value="0" id="id_disciplina_edit" name="id_disciplina_edit"/>
+                                    <input type="hidden" value="<?php echo isset($idDisciplinaEdit) ? $idDisciplinaEdit : 0; ?>" id="id_disciplina_edit" name="id_disciplina_edit"/>
                             <div class="d-flex justify-content-center mt-3">
                             <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
                             </div>

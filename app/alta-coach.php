@@ -86,11 +86,30 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                     </div>
                     <div id="form-disc" class="container-sm w-50 form-control p-5 mt-5">
                         <form action="procesar_coach.php" method="POST" class="needs-validation" enctype="multipart/form-data">
-                            <input type="text" id="nombre_coach" name="nombre_coach" placeholder="Nombre del Coach (Solo primer Nombre)..." class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+
+                            <select id="nombre_coach" name="nombre_coach" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                <option value="" Selected>Seleccione el Coach...</option>
+                                <?php
+                                $idcoach = $idcoach ?? "";
+
+                                $queryUsers = $conn->query("SELECT nombre, apellido FROM users WHERE tipoUser = 2");
+                                if ($queryUsers) {
+                                    while ($users = $queryUsers->fetch_assoc()) {
+                                        $selected = ($users['id'] == $idcoach) ? 'selected' : '';
+                                        echo "<option value='{$users['nombre']}' >{$users['nombre']} {$users['apellido']}</option>";
+                                    }
+                                } else {
+                                    echo "<option value=''>Error al cargar Coaches</option>";
+                                }
+                                ?>
+                            </select>
+                            
+                            
                             <textarea name="desc_coach" id="desc_coach" class="form-control no-resize mb-3 p-3 bg-body-secondary" placeholder="Ingresa la Descripción del Coach..." ></textarea>
                              <select name="nombre_disc" id="nombre_disc" class="form-control mt-3 bg-body-secondary p-3" required>
+                                <option value="" Selected>Seleccione la Disciplina...</option>
                                 <?php
-                                $queryD = "SELECT id, nombre_disciplina FROM disciplinas";
+                                $queryD = "SELECT id, nombre_disciplina FROM disciplinas GROUP BY nombre_disciplina";
                                 $resultD = $conn->query($queryD);
                                 
                                 if ($resultD->num_rows > 0) {

@@ -136,7 +136,27 @@ $coachez = $_GET['id'];
                                 ?> style="max-width: 50%; margin-top: 20px; border-radius: 15px; box-shadow: 1px 5px 12px #00000054;">
                             </div>
                             <input type="hidden" id="iden" name="iden" value="<?php echo $coachez; ?>">
-                            <input type="text" id="nombre_coach" name="nombre_coach" placeholder="Nombre del Coach (Solo primer Nombre)..." value="<?php echo $nombre; ?>" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+
+                            <select id="nombre_coach" name="nombre_coach" 
+                                class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" 
+                                required> <option value="" disabled selected><?php echo $nombre; ?></option> 
+                                
+                                <?php
+                                $idcoach = $idcoach ?? ""; // aquí debería estar el valor guardado de la disciplina
+                                $queryUsers = $conn->query("SELECT nombre, apellido FROM users WHERE tipoUser = 2");
+                                if ($queryUsers) {
+                                    while ($users = $queryUsers->fetch_assoc()) {
+                                        $nombreCompleto = $users['nombre'] . " " . $users['apellido'];
+                                        $selected = ($nombreCompleto == $idcoach) ? 'selected' : '';
+                                        echo "<option value='{$nombreCompleto}' {$selected}>{$nombreCompleto}</option>";
+                                    }
+                                } else {
+                                    echo "<option value=''>Error al cargar Coaches</option>";
+                                }
+                                ?>
+                            </select>
+                            
+
                             <textarea name="desc_coach" id="desc_coach" class="form-control no-resize mb-3 p-3 bg-body-secondary" placeholder="Ingresa la Descripción del Coach..." ><?php echo $descripcion; ?></textarea>
                            
                             <select name="nombre_disc" id="nombre_disc" class="form-control mt-3 bg-body-secondary p-3" required>

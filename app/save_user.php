@@ -23,9 +23,9 @@ if (empty($id)) {
     $stmt = $conn->prepare("UPDATE users SET tipoUser = ?, nombre = ?, apellido = ?, mail = ?, numero = ?, pass = ?, fecha_nacimiento = ?, credit = ?, fechaCredit = ? WHERE id = ?");
     $stmt->bind_param("sssssssssi", $tipouser, $nombre, $apellido, $mail, $numero, $pass, $fecha, $credit, $vencecreditos, $id);
 }
-if (!$stmt->execute()) {
+/* if (!$stmt->execute()) {
     die("Error al ejecutar la consulta: " . $stmt->error);
-}
+} */
 if ($stmt->execute()) {
     header("Location: clientes.php?success=1&usr=$id");
     exit();
