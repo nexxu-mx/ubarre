@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sencia Studio | About Us</title>
-    <meta name="title" content="Sencia Studio">
-    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>übarre | About Us</title>
+    <meta name="title" content="übarre">
+    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,7 @@
             <section class="banner-about-us-section">
                 <div class="container">
                     <div class="logo-banner-about-us-container">
-                        <img src="assets/images/ubarre/ubarre-blanco.svg" alt="Logo Sencia">
+                        <img src="assets/images/ubarre/ubarre-blanco.svg" alt="Logo übarre">
                     </div>
                 </div>
             </section>
@@ -40,7 +40,7 @@
             <section class="descripcion-section">
                 <div class="container section">
                     <div>
-                        <img src="assets/images/ubarre/SVG/icon.svg" alt="logo sencia">
+                        <img src="assets/images/ubarre/svg/icon.svg" alt="logo übarre">
                         <p>
                             Transformamos el movimiento en un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que
                             escucha, sostiene y acompaña.
@@ -51,7 +51,7 @@
                         </p>
                         <div class="wellness-texto">
                             <p>Wellness made for</p>
-                            <img src="./assets/images/ubarre/SVG/u-sola.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
                         </div>
                         <a href="">Conocer más</a>
                     </div>
@@ -62,10 +62,10 @@
                 <div class="aboutus-fundadoras container ">
                     <div class="aboutus-top">
                         <div class="aboutus-elemento-izquierda">
-                            <img src="./assets/images/ubarre/SVG/dots.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/dots.svg" alt="">
                         </div>
                         <div class="aboutus-elemento-derecha">
-                            <img src="./assets/images/ubarre/SVG/icon.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/icon.svg" alt="">
                         </div>
                     </div>
                     <div class="aboutus-middle">
@@ -74,7 +74,7 @@
                                 <p>Nuestra misión
                                     <br>y visión
                                 </p>
-                                <img src="./assets/images/ubarre/SVG/ubarre-sin-tagline.svg" alt="">
+                                <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="">
                             </div>
                         </div>
                         <div class="texto-aboutus-middle">
@@ -104,9 +104,6 @@
         </article>
     </main>
     <?php include 'footer.php'; ?>
-    <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
-    </a>
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
