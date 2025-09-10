@@ -1254,13 +1254,17 @@ form .submit-btn {
 
 .btn-reservar-clase-container p {
     border-radius: 10px;
-    background-color: #38373700;
-    border: 1px solid #56514F;
-    color: #56514F;
+    background-color: #8B976A;
+    color: #fff;
     font-size: 1.8rem;
     padding: 0px 20px;
     margin-right: 50px;
     cursor: pointer;
+    transition: all 500ms ease;
+}
+
+.btn-reservar-clase-container p:hover {
+    background-color: #647042;
 }
 
 
