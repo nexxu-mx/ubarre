@@ -114,7 +114,7 @@
             <p>Wellness made for</p>
             <img src="./assets/images/ubarre/svg/u-sola.svg" alt="">
           </div>
-          <a href="">Conocer más</a>
+          <a href="aboutus.php">Conocer más</a>
         </div>
       </section>
 
@@ -187,7 +187,7 @@
 
                 <div class="texto-slider-final">
                   <p>Nuestras Coaches</p>
-                  <a href="">RESERVA CON ELLAS</a>
+                  <a href="reserva.php">RESERVA CON ELLAS</a>
                 </div>
           </div>
         </div>

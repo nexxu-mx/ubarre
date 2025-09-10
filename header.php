@@ -3,7 +3,7 @@
   <div class="container">
 
     <a href="index.php" class="logo">
-      <img src="./assets/images/ubarre/SVG/ubarre-negro.svg" width="136" height="46"
+      <img src="./assets/images/ubarre/svg/ubarre-negro.svg" width="136" height="46"
         alt>
     </a>
     <nav class="navbar">
@@ -11,7 +11,7 @@
       <div class="navbar-top">
 
         <a href="index.php" class="logo">
-          <img src="./assets/images/ubarre/SVG/ubarre-negro.svg" width="136"
+          <img src="./assets/images/ubarre/svg/ubarre-negro.svg" width="136"
             height="46" alt>
         </a>
 

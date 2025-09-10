@@ -18,7 +18,7 @@
         <a href="https://www.instagram.com/laud.____/"><p>POWERED BY <img src="assets/images/svg/logo-laud.png" alt="Logo LAUD"></p></a>
       </div>-->
       <div class="icons-container">
-        <a href="https://www.instagram.com/senciastudio_mx/"><img src="assets/images/svg/logo_instagram.svg" alt="Ícono Instagram"></a>
+        <a href="https://www.instagram.com/u.barre/"><img src="assets/images/svg/logo_instagram.svg" alt="Ícono Instagram"></a>
         <a href="mailto:contacto@studiosencia.com"><img src="assets/images/svg/mail.svg" alt="Ícono Mail"></a>
       </div>
     </div>
