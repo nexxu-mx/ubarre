@@ -143,12 +143,12 @@ $coachez = $_GET['id'];
                                 
                                 <?php
                                 $idcoach = $idcoach ?? ""; // aquí debería estar el valor guardado de la disciplina
-                                $queryUsers = $conn->query("SELECT nombre, apellido FROM users WHERE tipoUser = 2");
+
+                                $queryUsers = $conn->query("SELECT nombre FROM users WHERE tipoUser = 2");
                                 if ($queryUsers) {
                                     while ($users = $queryUsers->fetch_assoc()) {
-                                        $nombreCompleto = $users['nombre'] . " " . $users['apellido'];
-                                        $selected = ($nombreCompleto == $idcoach) ? 'selected' : '';
-                                        echo "<option value='{$nombreCompleto}' {$selected}>{$nombreCompleto}</option>";
+                                        $selected = ($users['id'] == $idcoach) ? 'selected' : '';
+                                        echo "<option value='{$users['nombre']}' >{$users['nombre']}</option>";
                                     }
                                 } else {
                                     echo "<option value=''>Error al cargar Coaches</option>";
@@ -191,10 +191,10 @@ $coachez = $_GET['id'];
                             <input type="file" id="imagen" name="imagen" class="form-control mt-0 p-3 bg-body-secondary" accept=".png" onchange="mostrarVistaPrevia(event)" >
                            
                             <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
-                                
                                 <button type="button" class="btn btn-danger" onclick="deleteCoach(<?php echo $coachez; ?>)">Eliminar</button>
                                 <input type="submit" value="Actualizar" class="btn btn-primary">
                             </div>
+                            
                         </form>
                     </div>
                 </div>

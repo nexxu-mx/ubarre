@@ -92,11 +92,11 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 <?php
                                 $idcoach = $idcoach ?? "";
 
-                                $queryUsers = $conn->query("SELECT nombre, apellido FROM users WHERE tipoUser = 2");
+                                $queryUsers = $conn->query("SELECT nombre FROM users WHERE tipoUser = 2");
                                 if ($queryUsers) {
                                     while ($users = $queryUsers->fetch_assoc()) {
                                         $selected = ($users['id'] == $idcoach) ? 'selected' : '';
-                                        echo "<option value='{$users['nombre']}' >{$users['nombre']} {$users['apellido']}</option>";
+                                        echo "<option value='{$users['nombre']}' >{$users['nombre']}</option>";
                                     }
                                 } else {
                                     echo "<option value=''>Error al cargar Coaches</option>";

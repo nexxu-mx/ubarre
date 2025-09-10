@@ -139,9 +139,12 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                         <video id="vistaPrevia" style="max-width: 50%; margin-top: 20px;" autoplay muted></video>
                                     </div>
                                     <input type="hidden" value="<?php echo isset($idDisciplinaEdit) ? $idDisciplinaEdit : 0; ?>" id="id_disciplina_edit" name="id_disciplina_edit"/>
-                            <div class="d-flex justify-content-center mt-3">
-                            <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
+                            
+                            <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                                <button type="button" class="btn btn-danger" onclick="deleteCurso(<?php echo isset($idDisciplinaEdit) ? $idDisciplinaEdit : 'null'; ?>)">Eliminar</button> 
+                                <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -188,6 +191,31 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
             video.src = URL.createObjectURL(event.target.files[0]);
         }
     </script>
+
+    <script>
+        function deleteCurso(id) {
+            fetch('delete-curso.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id=' + encodeURIComponent(id)
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === 'success') {
+                    window.location.href = 'diciplinas.php';
+                } else {
+                    alert('Error al eliminar la disciplina: ' + data);
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+                alert('Ocurrió un error al enviar la solicitud.');
+            });
+        }
+    </script>
+
 
 </body>
 
