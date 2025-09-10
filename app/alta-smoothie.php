@@ -126,9 +126,12 @@ $idSmoothieEdit = 0;
                                         <video id="vistaPrevia" style="max-width: 50%; margin-top: 20px;" autoplay muted></video>
                                     </div>
                                     <input type="hidden" value="<?php echo $idSmoothieEdit; ?>" id="id_smoothie_edit" name="id_smoothie_edit"/>
-                            <div class="d-flex justify-content-center mt-3">
-                            <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
+                            
+                           <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                                <button type="button" class="btn btn-danger" onclick="deleteSmoothie(<?php echo isset($idSmoothieEdit) ? $idSmoothieEdit : 'null'; ?>)">Eliminar</button>
+                                <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
                             </div>
+
                         </form>
                     </div>
                 </div>
@@ -173,6 +176,30 @@ $idSmoothieEdit = 0;
         function mostrarVistaPrevia(event) {
             const video = document.getElementById('vistaPrevia');
             video.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+
+    <script>
+        function deleteSmoothie(id) {
+            fetch('delete-smoothie.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'id=' + encodeURIComponent(id)
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (data.trim() === 'success') {
+                    window.location.href = 'smoothies.php';
+                } else {
+                    alert('Error al eliminar el smoothie: ' + data);
+                }
+            })
+            .catch(error => {
+                console.error('Error en la solicitud:', error);
+                alert('Ocurrió un error al enviar la solicitud.');
+            });
         }
     </script>
 

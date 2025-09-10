@@ -33,7 +33,6 @@ $(document).ready(function () {
                                 </h3>
                                 <div class="d-flex justify-content-center mt-3">
                                     <a href="./alta-smoothie.php?id=${smoothie.id}" class="btn btn-primary btn-rounded btn-sm me-2"><i class="far fa-edit"></i> Editar</a>
-                                    <button class="btn btn-danger btn-rounded btn-sm delete-smoothie" data-id="${smoothie.id}"><i class="fas fa-trash"></i> Eliminar</button>
                                 </div>
                             </div>
                         </div>
