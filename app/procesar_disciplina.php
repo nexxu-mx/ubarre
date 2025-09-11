@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateDisciplina->bind_param("sssssi", $nombreDisc, $descDisc, $palabraDesc1, $palabraDesc2, $palabraDesc3, $idDisciplinaEdit);
         $updateDisciplina->execute();
 
-        /* header("location: diciplinas.php"); */
+        /* header("location: disciplinas.php"); */
   
     
     }
@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
 
-     header('location: diciplinas.php'); 
+     header('location: disciplinas.php'); 
     exit;
 } else {
     echo 'Error';

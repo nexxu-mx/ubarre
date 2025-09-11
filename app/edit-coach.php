@@ -233,7 +233,7 @@ $coachez = $_GET['id'];
     <script src="./assets/js/plugin/sweetalert/sweetalert.min.js"></script>
     <script src="./assets/js/next.min.js"></script>
 
-    <script src="./assets/js/diciplinas.js?v=<?php echo time(); ?>"></script>
+    <script src="./assets/js/disciplinas.js?v=<?php echo time(); ?>"></script>
 
     <script>
         function deleteCoach(id) {

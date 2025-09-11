@@ -1,28 +1,28 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $.ajax({
-        url: 'get-diciplinas.php',
+        url: 'get-disciplinas.php',
         type: 'GET',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             if (response.error) {
                 console.error(response.message);
                 $('#cursos').html('<div class="col-12"><div class="alert alert-danger">Error al cargar disiplinas</div></div>');
                 return;
             }
-            
+
             if (response.cursos.length === 0) {
                 $('#cursos').html('<div class="col-12"><div class="alert alert-info">No hay disiplinas disponibles</div></div>');
                 return;
             }
-            
+
             // Generar las tarjetas de cursos
             var cursosHTML = '';
-            
-            response.cursos.forEach(function(curso) {
+
+            response.cursos.forEach(function (curso) {
                 var imgAutor = "unknnow";
-                if(curso.autor == "Diana González"){
+                if (curso.autor == "Diana González") {
                     imgAutor = "diana";
-                } else if(curso.autor == "Michel Gómez"){
+                } else if (curso.autor == "Michel Gómez") {
                     imgAutor = "michel";
                 }
                 cursosHTML += `
@@ -45,10 +45,10 @@ $(document).ready(function() {
                     </div>
                 `;
             });
-            
+
             $('#cursos').html(cursosHTML);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("Error al cargar disiplinas:", error);
             $('#cursos').html('<div class="col-12"><div class="alert alert-danger">Error al cargar disiplinas</div></div>');
         }
