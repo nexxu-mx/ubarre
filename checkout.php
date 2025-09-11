@@ -33,6 +33,14 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="./assets/css/profile.css?v=<?php echo time(); ?>">
     <style>
+        html {
+            background-color: #8B976A;
+        }
+
+        body {
+            background-color: #8B976A;
+        }
+
         .dsco {
             position: absolute;
             top: -10px;
