@@ -248,9 +248,9 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/checkmark.svg" alt="Checkmark" style="width: 100px;">
                     </div>
-                    <h2 style="color: var(--light-brown-3);">¡Compra Aprobada!</h2>
+                    <h2 style="color: #8B976A;">¡Compra Aprobada!</h2>
                     <p>Tu compra ha sido exitosa.</p>
-                    <h3 style="color: var(--light-browm-2);">ID de pago: ${resultado.payment_id}</h3>
+                    <h3 style="color: #8B976A;">ID de pago: ${resultado.payment_id}</h3>
                     <h4 style="font-weight: 300; font-size: 1.5rem; line-height: 1;">
                         ¡Gracias por tu compra! En breve recibirás un mensaje de confirmación con tu recibo de pago.
                     </h4>
@@ -262,7 +262,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/revoque.svg" alt="Pago rechazado" style="width: 100px;">
                     </div>
-                    <h2 style="color: var(--light-brown-3);">¡Compra Rechazada!</h2>
+                    <h2 style="color: #8B976A;">¡Compra Rechazada!</h2>
                     <p>Vuelve a intentar el pago nuevamente.</p>
                     <a href="checkout.php" style="margin-top: 25px" class="c3">Reintentar</a>
                 </div>
@@ -272,7 +272,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/wait.svg" alt="Pago en proceso" style="width: 100px;">
                     </div>
-                    <h2 style="color: var(--light-brown-3);">Procesando el pago...</h2>
+                    <h2 style="color: #8B976A;">Procesando el pago...</h2>
                     <p>Recibirás una notificación cuando tu compra se haya procesado correctamente.</p>
                     <a href="profile.php" style="margin-top: 25px" class="c3">Ir a Perfil</a>
                 </div>
@@ -282,7 +282,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/wait.svg" alt="Pago pendiente" style="width: 100px;">
                     </div>
-                    <h2 style="color: var(--light-brown-3);">Pago Pendiente...</h2>
+                    <h2 style="color: #8B976A;">Pago Pendiente...</h2>
                     <p>Recibirás una notificación cuando tu compra se haya procesado correctamente.</p>
                     <a href="profile.php" style="margin-top: 25px" class="c3">Ir a Perfil</a>
                 </div>
@@ -292,7 +292,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/revoque.svg" alt="Error en pago" style="width: 100px;">
                     </div>
-                    <h2 style="color: var(--light-brown-3);">¡Ocurrió un Error!</h2>
+                    <h2 style="color: #8B976A;">¡Ocurrió un Error!</h2>
                     <p>Vuelve a intentar el pago nuevamente.</p>
                     <a href="checkout.php" style="margin-top: 25px" class="c3">Reintentar</a>
                 </div>

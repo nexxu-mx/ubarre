@@ -980,13 +980,13 @@ span {
 .tipo-card {
   font-family: var(--ff-higuen);
   font-size: 35px;
-  color: var(--light-brown-3);
+  color: #8B976A;
   line-height: 1;
 }
 
 .numero-clases-card {
   font-size: 10rem;
-  color: var(--light-brown-3);
+  color: #8B976A;
   font-weight: 500;
   margin-top: -60px;
   margin-bottom: -50px;
@@ -1576,6 +1576,10 @@ form textarea {
   padding: 5px 10px;
   border-radius: 5px;
   height: 140px;
+}
+
+form textarea:focus {
+  outline: none;
 }
 
 .map-section {

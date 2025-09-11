@@ -33,6 +33,14 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <script src="https://sdk.mercadopago.com/js/v2"></script>
     <link rel="stylesheet" href="./assets/css/profile.css?v=<?php echo time(); ?>">
     <style>
+        html {
+            background-color: #8B976A;
+        }
+
+        body {
+            background-color: #8B976A;
+        }
+
         .dsco {
             position: absolute;
             top: -10px;
@@ -59,7 +67,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             align-content: center;
             justify-content: center;
             align-items: center;
-            border: 2px solid #BFA187;
+            border: 2px solid #8B976A;
             padding: 15px;
             border-radius: 23px;
             margin: 20px;
@@ -68,7 +76,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
 
         .elect:hover,
         .elect:focus {
-            background: #BFA1872E;
+            background: #8B976A3D;
         }
 
         .card {
