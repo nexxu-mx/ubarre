@@ -71,7 +71,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 <i class="icon-arrow-right"></i>
                             </li>
                             <li class="nav-item">
-                                <a href="diciplinas.php">Disciplinas</a>
+                                <a href="disciplinas.php">Disciplinas</a>
                             </li>
                             <li class="separator">
                                 <i class="icon-arrow-right"></i>
@@ -204,7 +204,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
             .then(response => response.text())
             .then(data => {
                 if (data.trim() === 'success') {
-                    window.location.href = 'diciplinas.php';
+                    window.location.href = 'disciplinas.php';
                 } else {
                     alert('Error al eliminar la disciplina: ' + data);
                 }

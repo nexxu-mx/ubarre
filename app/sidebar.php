@@ -76,7 +76,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="diciplinas.php">
+					<a href="disciplinas.php">
 						<i class="fas fa-graduation-cap"></i>
 						<p>Disciplinas</p>
 					</a>

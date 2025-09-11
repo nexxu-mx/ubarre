@@ -123,7 +123,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 	<script src="./assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 	<script src="./assets/js/next.min.js"></script>
 
-	<script src="./assets/js/diciplinas.js?v=<?php echo time(); ?>"></script>
+	<script src="./assets/js/disciplinas.js?v=<?php echo time(); ?>"></script>
 	
 </body>
 </html>
