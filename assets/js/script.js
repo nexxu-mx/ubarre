@@ -581,6 +581,12 @@ if (document.querySelector(".modal-detalles-bebida")) {
 
 }
 
+if (true) {
+  window.miFuncionGlobal = function () {
+    console.log("funcion global");
+  };
+}
+
 function mostrarModalBebida(event) {
   event.preventDefault();
 
@@ -932,6 +938,8 @@ function initSlider() {
   });
 }
 
+
+
 //Cargar smoothies dinámicamente
 
 function cargarSmoothies() {
@@ -978,9 +986,9 @@ function cargarSmoothies() {
           </div>
 
           <div class="botones-bebida">
-            <button class="close-bebida-modal-btn">CANCELAR</button>
+            <button class="close-bebida-modal-btn" onclick="ocultarModalBebida()">Cancelar</button>
             <div class="btn-confirmar-bebida">
-              <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+              <a href="#reserv" onclick="reservaClase(this)">Agregar</a>
             </div>
           </div>
         `;
