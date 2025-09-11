@@ -1410,6 +1410,10 @@ form .submit-btn {
     z-index: 10;
 }
 
+.smoothies-disponibles {
+    margin-top: -3rem;
+}
+
 .dropdown.open .dropdown-menu {
     max-height: 300px;
     opacity: 1;
