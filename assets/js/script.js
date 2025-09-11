@@ -974,7 +974,14 @@ function cargarSmoothies() {
           <div>
             <h3>Agregar Smoothie</h3>
             <p>Proteína ${smoothie.sabor}</p>
+          
+          <div class= "Smoothies-descripcion">
+
+          <p style=" font-size: 12px; line-height: 16px; width: 80%; text-decoration: none; margin-inline: auto">${smoothie.descrip}</p>
+
+          </div>
             
+
           <div class="dropdown">
             <div class="dropdown-toggle">Al final de la clase
             </div>

@@ -124,7 +124,8 @@ $idSmoothieEdit = 0;
                             <input type="text" id="sabor_smoothie" name="sabor_smoothie" placeholder="Sabor del Smoothie..." class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" value="<?php echo htmlspecialchars($sabor); ?>" required>
 
                             <label for="descrip_smoothie" class="my-3">Descripción del smoothie</label>
-                            <textarea name="descrip_smoothie" id="descrip_smoothie" placeholder="Este smoothie contiene los siguientes ingredientes..." rows="4" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary"><?php echo htmlspecialchars($descrip)?></textarea>
+                            <textarea name="descrip_smoothie" id="descrip_smoothie" placeholder="Ejemplo: Leche entera + Moka + Plátano + Proteína de chocolate + Nibs de cacao" 
+                                rows="4" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary"><?php echo htmlspecialchars($descrip)?></textarea>
 
                             <label for="imagen-smoothie" class="my-3">Sube la foto del Smoothie</label>
                             <input type="file" id="imagen-smoothie" name="imagen-smoothie" class="form-control mt-0 p-3 bg-body-secondary" accept="image/*" onchange="mostrarVistaPrevia(event)">

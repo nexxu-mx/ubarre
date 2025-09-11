@@ -1,7 +1,7 @@
 <?php 
 include 'db.php';
 
-$sql = "SELECT id, sabor FROM smoothies";
+$sql = "SELECT id, sabor, descrip FROM smoothies";
 $result = $conn->query($sql);
 
 $smoothies = [];

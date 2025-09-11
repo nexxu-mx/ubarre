@@ -1272,7 +1272,7 @@ form .submit-btn {
 
 .modal-detalles-bebida {
     width: 350px;
-    height: 450px;
+    height: fit-content;
     background: #FFFFFF;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -1332,6 +1332,7 @@ form .submit-btn {
     flex-direction: row;
     gap: 30px;
     margin-inline: auto;
+    margin-bottom: 20px;
 }
 
 .botones-bebida button {
