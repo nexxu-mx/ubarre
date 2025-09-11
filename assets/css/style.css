@@ -1578,6 +1578,10 @@ form textarea {
   height: 140px;
 }
 
+form textarea:focus {
+  outline: none;
+}
+
 .map-section {
   position: relative;
 }
