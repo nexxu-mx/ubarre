@@ -67,7 +67,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             align-content: center;
             justify-content: center;
             align-items: center;
-            border: 2px solid #BFA187;
+            border: 2px solid #8B976A;
             padding: 15px;
             border-radius: 23px;
             margin: 20px;
@@ -76,7 +76,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
 
         .elect:hover,
         .elect:focus {
-            background: #BFA1872E;
+            background: #8B976A3D;
         }
 
         .card {
