@@ -552,6 +552,11 @@ if (document.querySelector(".modal-detalles-coach")) {
 
 let detallesBebidaModal
 
+function ocultarModalBebida() {
+  detallesBebidaModal.classList.remove("show");
+  setTimeout(() => detallesBebidaModal.style.display = "none", 200);
+}
+
 if (document.querySelector(".modal-detalles-bebida")) {
   detallesBebidaModal = document.querySelector(".modal-detalles-bebida");
   let closeBebidaModalBtn = document.querySelector(".close-bebida-modal-btn");
@@ -579,6 +584,12 @@ if (document.querySelector(".modal-detalles-bebida")) {
     }
   });
 
+}
+
+if (true) {
+  window.miFuncionGlobal = function () {
+    console.log("funcion global");
+  };
 }
 
 function mostrarModalBebida(event) {
@@ -932,6 +943,8 @@ function initSlider() {
   });
 }
 
+
+
 //Cargar smoothies dinámicamente
 
 function cargarSmoothies() {
@@ -978,9 +991,9 @@ function cargarSmoothies() {
           </div>
 
           <div class="botones-bebida">
-            <button class="close-bebida-modal-btn">CANCELAR</button>
+            <button class="close-bebida-modal-btn" onclick="ocultarModalBebida()">Cancelar</button>
             <div class="btn-confirmar-bebida">
-              <a href="#reserv" onclick="reservaClase(this)">AGREGAR</a>
+              <a href="#reserv" onclick="reservaClase(this)">Agregar</a>
             </div>
           </div>
         `;
@@ -997,35 +1010,46 @@ function cargarSmoothies() {
 // Ejecutar cuando cargue la página
 document.addEventListener("DOMContentLoaded", cargarSmoothies);
 
-//Evento para desplegar las opciones del momento 
-
+// Evento para desplegar las opciones del momento
 document.addEventListener('click', function (e) {
   const toggle = e.target.closest('.dropdown-toggle');
   const option = e.target.closest('.menu-bebidas li');
 
-  // Cierra todos los dropdowns si haces clic fuera
-  document.querySelectorAll('.dropdown').forEach(d => {
-    d.classList.remove('open');
-  });
-
-  // Abrir el dropdown si se hace clic en el toggle
   if (toggle) {
     const dropdown = toggle.closest('.dropdown');
+
+    // Primero cerramos todos MENOS el actual
+    document.querySelectorAll('.dropdown').forEach(d => {
+      if (d !== dropdown) d.classList.remove('open');
+    });
+
+    // Luego alternamos el actual (si estaba abierto se cierra, si estaba cerrado se abre)
     dropdown.classList.toggle('open');
-    return; // Salimos para evitar que se cierre inmediatamente
+    return;
   }
 
-  // Seleccionar opción si se hace clic en un <li>
   if (option) {
     const dropdown = option.closest('.dropdown');
     const toggle = dropdown.querySelector('.dropdown-toggle');
     toggle.textContent = option.textContent;
     dropdown.classList.remove('open');
-
-    // (Opcional) Guardar el valor en un input hidden
-    const hiddenInput = dropdown.querySelector('input[type="hidden"]');
-    if (hiddenInput) {
-      hiddenInput.value = option.textContent;
-    }
+    return;
   }
+
+  // Si haces clic fuera de cualquier dropdown, se cierran todos
+  document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('open'));
 });
+
+// Seleccionar opción si se hace clic en un <li>
+if (option) {
+  const dropdown = option.closest('.dropdown');
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  toggle.textContent = option.textContent;
+  dropdown.classList.remove('open');
+
+  // (Opcional) Guardar el valor en un input hidden
+  const hiddenInput = dropdown.querySelector('input[type="hidden"]');
+  if (hiddenInput) {
+    hiddenInput.value = option.textContent;
+  }
+}
