@@ -81,7 +81,7 @@
 												<div class="avatar-lg"><img src="assets/img/unknnow.png" alt="image profile" class="avatar-img rounded"></div>
 												<div class="u-text" >
 													<h4><?php echo $_SESSION['nombre']; ?></h4>
-													<p><?php echo $_SESSION['mail'];?></p>
+					
 												</div>
 											</div>
 										</li>
