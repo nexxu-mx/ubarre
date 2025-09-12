@@ -99,12 +99,6 @@
             
             </a>
           </div>
-          <div class="login-bolsa-navbar">
-            <a href="#" style="display: flex;align-items: baseline;gap: 3px; margin-left: 40px; margin-right:5px;">
-              <img src="assets/images/svg/bolsa.svg" alt="bolsa icon"> 
-            </a>
-            <p style="font-family: sans-serif;"> 0 </p>
-          </div> 
           ';
       } else {
         echo '<div class="login-bolsa-navbar">
@@ -112,13 +106,6 @@
               <img src="assets/images/svg/login.svg" alt="login icon">
               <p id="profile-name">' . $_SESSION['nombre'] . '</p>
             </a>
-          </div>
-          
-          <div class="login-bolsa-navbar">
-            <a href="#" style="display: flex;align-items: baseline;gap: 3px; margin-left: 40px; margin-right:5px;">
-              <img src="assets/images/svg/bolsa.svg" alt="bolsa icon"> 
-            </a>
-            <p style="font-family: sans-serif;> 0 </p>
           </div> ';
       }
 
