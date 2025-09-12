@@ -118,7 +118,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                                         die(json_encode(['error' => 'Paquete no encontrado']));
                                     }
                                     $rowP = $resultP->fetch_assoc();
-                                    if ($rowP['clases'] == "ILIMITADO") {
+                                    if ($rowP['clases'] == "ILIMITADO" || "Ilimitado") {
                                         $nclases = '<p class="numero-clases-card" style="font-size: 44px; margin-block: 10px;">' . $rowP['clases'] . '</p>';
                                     } else {
                                         $nclases = '<p class="numero-clases-card">' . $rowP['clases'] . '</p>';

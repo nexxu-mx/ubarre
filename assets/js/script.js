@@ -471,73 +471,73 @@ if (closeDisciplinaModalBtn != 0) {
   });
 }
 
+function mostrarModal(modal, id, tipo, event) {
+  if (tipo == 1) {
+    fetch("info_detalles_coach.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("coach-info-img").src = data.image;
+        document.getElementById("coach-info-nombre").innerHTML = data.nombre;
+        document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
+      })
+      .catch(error => console.error("Error:", error));
+  } else {
+    fetch("info_detalles_disciplina.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
+        document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
+      })
+      .catch(error => console.error("Error:", error));
+  }
+
+  const boton = event.currentTarget;
+  const rect = boton.getBoundingClientRect();
+
+  modal.style.position = "absolute";
+
+  if (window.innerWidth <= 768) {
+    modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
+    modal.style.left = `${rect.left}px`;
+  } else {
+    modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
+    modal.style.left = `${rect.left + window.scrollX}px`;
+  }
+
+
+  modal.style.display = "block";
+  modal.classList.add("show");
+}
+
+
+function ocultarModal(modal, tipo) {
+  modal.classList.remove("show");
+  setTimeout(() => modal.style.display = "none", 200);
+
+  if (tipo == 1) {
+    document.getElementById("coach-info-img").src = "";
+    document.getElementById("coach-info-nombre").innerHTML = "";
+    document.getElementById("coach-info-descripcion").innerHTML = "";
+  } else {
+    document.getElementById("disciplina-info-nombre").innerHTML = "";
+    document.getElementById("disciplina-info-descripcion").innerHTML = "";
+  }
+}
+
 if (document.querySelector(".modal-detalles-coach")) {
   const modalCoach = document.querySelector(".modal-detalles-coach");
-
-  function mostrarModal(modal, id, tipo, event) {
-    if (tipo == 1) {
-      fetch("info_detalles_coach.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-      })
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById("coach-info-img").src = data.image;
-          document.getElementById("coach-info-nombre").innerHTML = data.nombre;
-          document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
-        })
-        .catch(error => console.error("Error:", error));
-    } else {
-      fetch("info_detalles_disciplina.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-      })
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
-          document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
-        })
-        .catch(error => console.error("Error:", error));
-    }
-
-    const boton = event.currentTarget;
-    const rect = boton.getBoundingClientRect();
-
-    modal.style.position = "absolute";
-
-    if (window.innerWidth <= 768) {
-      modal.style.top = `${rect.bottom + window.scrollY + 10}px`;
-      modal.style.left = `${rect.left}px`;
-    } else {
-      modal.style.top = `${rect.bottom + window.scrollY + 250}px`;
-      modal.style.left = `${rect.left + window.scrollX}px`;
-    }
-
-
-    modal.style.display = "block";
-    modal.classList.add("show");
-  }
-
-
-  function ocultarModal(modal, tipo) {
-    modal.classList.remove("show");
-    setTimeout(() => modal.style.display = "none", 200);
-
-    if (tipo == 1) {
-      document.getElementById("coach-info-img").src = "";
-      document.getElementById("coach-info-nombre").innerHTML = "";
-      document.getElementById("coach-info-descripcion").innerHTML = "";
-    } else {
-      document.getElementById("disciplina-info-nombre").innerHTML = "";
-      document.getElementById("disciplina-info-descripcion").innerHTML = "";
-    }
-  }
 
   document.addEventListener("click", (e) => {
     if (modalCoach.style.display === "block") {

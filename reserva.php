@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sencia Studio | Reserva</title>
-    <meta name="title" content="Sencia Studio">
-    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>übarre | Reserva</title>
+    <meta name="title" content="übarre">
+    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,16 +49,12 @@
             <section class="reserva-main-section">
 
                 <div class="container">
-                    <!--        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia"> 
-            -->
-                    <div class="aboutus-top" id="reserv">
+                    <div class="aboutus-top">
                         <div class="aboutus-elemento-izquierda">
-                            <button>
-                                <ion-icon name="menu-outline" style="color: #1d1d1dff;"></ion-icon>
-                            </button>
+                            <img src="./assets/images/ubarre/svg/dots.svg" alt="">
                         </div>
                         <div class="aboutus-elemento-derecha">
-                            <img src="./assets/images/svg/bolsa.svg" alt="">
+                            <img src="./assets/images/ubarre/svg/icon.svg" alt="">
                         </div>
                     </div>
 
@@ -163,18 +159,20 @@
                                     <p>Aforo</p>
                                 </div>
                                 <div class="icono-texto-reserva">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto"
-                                        viewBox="0 0 512 512">
+                                    <svg class="icono-clase-en-curso" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213.35 311.78">
                                         <defs>
                                             <style>
-                                                .ionicon {
-                                                    fill: #986C5D;
+                                                .cls-1 {
+                                                    fill: #8B976A;
                                                 }
                                             </style>
                                         </defs>
-                                        <title>Ellipse</title>
-                                        <path
-                                            d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z" />
+                                        <g id="Capa_2" data-name="Capa 2">
+                                            <g id="Capa_1-2" data-name="Capa 1">
+                                                <path class="cls-1" d="M95.34,0c20.12,0,35.81,16.09,35.81,34.2S119.08,64.78,103,64.78c-19.72,0-35.41-15.69-35.41-34.6C67.58,12.07,79.65,0,95.34,0" />
+                                                <path class="cls-1" d="M21.88,95C7,99.84-3.27,112.79,1,130.26c2.61,10.79,9.24,20.43,27.62,26.75,6,2.05,8.77,2.77,15.92,5,33.8,10.57,76.18,23.15,101.93,38.31,32.41,19.11,39.27,35.47,34.28,46.83a.07.07,0,0,1,0,0c-5.74,9-15.28,6.47-24.7,2.91-8.26-3.86-78.44-36-101.92-33.35C32.75,219.16,23.82,232.7,26,253.25A50.23,50.23,0,0,0,41,282l.19.18C55.16,296.64,75.45,310,75.45,310a16.4,16.4,0,0,0,21-5.46l.08-.11a17,17,0,0,0,2.73-12.18,16.81,16.81,0,0,0-5.68-10.11L62.89,258.29a3.81,3.81,0,0,1-1.74-2.91l0-.16a3.66,3.66,0,0,1,3-4.05c5.88-1.15,45.56,16,82.21,33.17a97.9,97.9,0,0,0,13.43,5.16c4.71,1.41,16.06,3.59,27.26-.81,13.5-5.3,20-17.58,20.29-18.05,5.37-8.86,7.16-21,5.35-36,0,0-2.32-32.22-26.75-52.64a147.28,147.28,0,0,0-31.49-19.62c-13.58-6.43-59.28-20.23-78.33-25.87-5-1.23-18.74-5.79-19.22-6.1a1.25,1.25,0,0,1-.4-1.85c.22-.26.78-.4,1.75-.35l11.17.74s0,0,0,0l117.11,3.72a2.22,2.22,0,0,0,1.7-.83,2,2,0,0,0,.41-1.66l-7-35.47a2.08,2.08,0,0,0-2.1-1.65c-5.17,0-124.19.08-142.47.09A56.91,56.91,0,0,0,21.88,95" />
+                                            </g>
+                                        </g>
                                     </svg>
                                     <p>Clase en curso</p>
                                 </div>
@@ -388,7 +386,6 @@
                     </div> -->
 
             </div>
-            <<<<<<< HEAD=======>>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
         </div>
     </div>
 
@@ -428,14 +425,20 @@
                 <p>Aforo</p>
             </div>
             <div class="icono-texto-reserva">
-                <svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto"
-                    viewBox="0 0 512 512">
+                <svg class="icono-clase-en-curso" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 213.35 311.78">
                     <defs>
-
+                        <style>
+                            .cls-1 {
+                                fill: #8B976A;
+                            }
+                        </style>
                     </defs>
-                    <title>Ellipse</title>
-                    <path style="fill: #986C5D;"
-                        d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z" />
+                    <g id="Capa_2" data-name="Capa 2">
+                        <g id="Capa_1-2" data-name="Capa 1">
+                            <path class="cls-1" d="M95.34,0c20.12,0,35.81,16.09,35.81,34.2S119.08,64.78,103,64.78c-19.72,0-35.41-15.69-35.41-34.6C67.58,12.07,79.65,0,95.34,0" />
+                            <path class="cls-1" d="M21.88,95C7,99.84-3.27,112.79,1,130.26c2.61,10.79,9.24,20.43,27.62,26.75,6,2.05,8.77,2.77,15.92,5,33.8,10.57,76.18,23.15,101.93,38.31,32.41,19.11,39.27,35.47,34.28,46.83a.07.07,0,0,1,0,0c-5.74,9-15.28,6.47-24.7,2.91-8.26-3.86-78.44-36-101.92-33.35C32.75,219.16,23.82,232.7,26,253.25A50.23,50.23,0,0,0,41,282l.19.18C55.16,296.64,75.45,310,75.45,310a16.4,16.4,0,0,0,21-5.46l.08-.11a17,17,0,0,0,2.73-12.18,16.81,16.81,0,0,0-5.68-10.11L62.89,258.29a3.81,3.81,0,0,1-1.74-2.91l0-.16a3.66,3.66,0,0,1,3-4.05c5.88-1.15,45.56,16,82.21,33.17a97.9,97.9,0,0,0,13.43,5.16c4.71,1.41,16.06,3.59,27.26-.81,13.5-5.3,20-17.58,20.29-18.05,5.37-8.86,7.16-21,5.35-36,0,0-2.32-32.22-26.75-52.64a147.28,147.28,0,0,0-31.49-19.62c-13.58-6.43-59.28-20.23-78.33-25.87-5-1.23-18.74-5.79-19.22-6.1a1.25,1.25,0,0,1-.4-1.85c.22-.26.78-.4,1.75-.35l11.17.74s0,0,0,0l117.11,3.72a2.22,2.22,0,0,0,1.7-.83,2,2,0,0,0,.41-1.66l-7-35.47a2.08,2.08,0,0,0-2.1-1.65c-5.17,0-124.19.08-142.47.09A56.91,56.91,0,0,0,21.88,95" />
+                        </g>
+                    </g>
                 </svg>
                 <p>Clase en curso</p>
             </div>
@@ -469,9 +472,6 @@
 
 
     <?php include 'footer.php'; ?>
-    <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
-    </a>
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -521,45 +521,6 @@
             btnAgregar.dataset.bebida = nombreBebida;
         }
     </script>
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sliders = document.querySelectorAll('.container-slider-bebidas');
-
-            sliders.forEach(slider => {
-                const slides = slider.querySelectorAll('.slide-bebida');
-                const prevBtn = slider.querySelector('.flecha-slider-izquierda button');
-                const nextBtn = slider.querySelector('.flecha-slider-derecha button');
-
-                let currentIndex = 0;
-
-                function showSlide(index) {
-                    slides.forEach((slide, i) => {
-                        slide.style.display = i === index ? 'block' : 'none';
-                    });
-                }
-
-                showSlide(currentIndex);
-
-                prevBtn.addEventListener('click', () => {
-                    currentIndex--;
-                    if (currentIndex < 0) currentIndex = slides.length - 1;
-                    showSlide(currentIndex);
-                });
-
-                nextBtn.addEventListener('click', () => {
-                    currentIndex++;
-                    if (currentIndex >= slides.length) currentIndex = 0;
-                    showSlide(currentIndex);
-                });
-            });
-        });
-<<<<<<< HEAD
-
-    </script> -->
-    =======
-    </script>
-    >>>>>>> 966efaca31d4dea642028f49cde4c28fd4809bbb
 </body>
 
 
