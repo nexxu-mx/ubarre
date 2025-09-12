@@ -1690,6 +1690,10 @@ form textarea:focus {
   background-size: cover;
 }
 
+.icono-clase-en-curso {
+  width: 1rem;
+}
+
 .login-main-section {
   display: flex;
   align-items: center;
