@@ -1,6 +1,6 @@
 <?php
 
-include '../error-log.php';
+
 
 include '../db.php';
 

@@ -85,7 +85,7 @@ while ($row = $result->fetch_assoc()) {
         $asistencia = 1 + $rowA['invitado'];
         $alumnos.= '<li style="display: flex;justify-content: space-between;">
         <p>' . $name . ' (x' . $asistencia . ')</p>
-        <p style="border-left: 1px solid #c5c5c5;">&nbsp; &nbsp;'.$sabor.$momento.'</p>
+        <p style="border-left: 1px solid #c5c5c5; padding-left: 1rem;">'.$sabor.$momento.'</p>
         <div style="display: flex;gap: 10px;">
         <i class="fas fa-trash-alt trash" onclick="' . $onclick . '"></i> 
         <i class="fas fa-user-plus add" onclick="' . $onclick2 . '"></i>

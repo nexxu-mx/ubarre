@@ -95,17 +95,18 @@ $idSmoothieEdit = 0;
 
                             if (isset($_GET['id'])) {
                                 $idSmoothieEdit = $_GET['id'];
-                                
-                                $selectSmoothie = $conn->prepare("SELECT id, sabor FROM smoothies WHERE id = ?");
+
+                                $selectSmoothie = $conn->prepare("SELECT id, sabor, descrip FROM smoothies WHERE id = ?");
                                 $selectSmoothie->bind_param("i", $idSmoothieEdit);
                                 $selectSmoothie->execute();
                                 $resultadoSelectSmoothie = $selectSmoothie->get_result();
-                                
+
                                 if ($resultadoSelectSmoothie->num_rows > 0) {
                                     $filaSelectSmoothie = $resultadoSelectSmoothie->fetch_assoc();
                                     $sabor = $filaSelectSmoothie['sabor'];
+                                    $descrip = $filaSelectSmoothie['descrip'];
                                     $button = "Guardar Edición";
-                                    
+
                                     // Cambiar el título y breadcrumb para edición
                                     echo '<script>
                                         document.querySelector(".page-header h3").textContent = "Editar Smoothie";
@@ -115,19 +116,25 @@ $idSmoothieEdit = 0;
                             } else {
                                 // Valores por defecto para NUEVO smoothie
                                 $sabor = "";
+                                $descrip="";
                                 $button = "Agregar Smoothie";
                                 $idSmoothieEdit = 0;
                             }
                             ?>
-                            <input type="text" id="sabor_smoothie" name="sabor_smoothie" placeholder="Sabor del Smoothie..." class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" value="<?php echo htmlspecialchars($sabor);?>" required>
-                                   <label for="imagen-smoothie" class="my-3">Sube la foto del Smoothie</label>
-                                    <input type="file" id="imagen-smoothie" name="imagen-smoothie" class="form-control mt-0 p-3 bg-body-secondary" accept="image/*" onchange="mostrarVistaPrevia(event)" >
-                                    <div class="d-flex justify-content-center">
-                                        <video id="vistaPrevia" style="max-width: 50%; margin-top: 20px;" autoplay muted></video>
-                                    </div>
-                                    <input type="hidden" value="<?php echo $idSmoothieEdit; ?>" id="id_smoothie_edit" name="id_smoothie_edit"/>
-                            
-                           <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                            <input type="text" id="sabor_smoothie" name="sabor_smoothie" placeholder="Sabor del Smoothie..." class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" value="<?php echo htmlspecialchars($sabor); ?>" required>
+
+                            <label for="descrip_smoothie" class="my-3">Descripción del smoothie</label>
+                            <textarea name="descrip_smoothie" id="descrip_smoothie" placeholder="Ejemplo: Leche entera + Moka + Plátano + Proteína de chocolate + Nibs de cacao" 
+                                rows="4" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary"><?php echo htmlspecialchars($descrip)?></textarea>
+
+                            <label for="imagen-smoothie" class="my-3">Sube la foto del Smoothie</label>
+                            <input type="file" id="imagen-smoothie" name="imagen-smoothie" class="form-control mt-0 p-3 bg-body-secondary" accept="image/*" onchange="mostrarVistaPrevia(event)">
+                            <div class="d-flex justify-content-center">
+                                <video id="vistaPrevia" style="max-width: 50%; margin-top: 20px;" autoplay muted></video>
+                            </div>
+                            <input type="hidden" value="<?php echo $idSmoothieEdit; ?>" id="id_smoothie_edit" name="id_smoothie_edit" />
+
+                            <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
                                 <button type="button" class="btn btn-danger" onclick="deleteSmoothie(<?php echo isset($idSmoothieEdit) ? $idSmoothieEdit : 'null'; ?>)">Eliminar</button>
                                 <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
                             </div>
@@ -182,24 +189,24 @@ $idSmoothieEdit = 0;
     <script>
         function deleteSmoothie(id) {
             fetch('delete-smoothie.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'id=' + encodeURIComponent(id)
-            })
-            .then(response => response.text())
-            .then(data => {
-                if (data.trim() === 'success') {
-                    window.location.href = 'smoothies.php';
-                } else {
-                    alert('Error al eliminar el smoothie: ' + data);
-                }
-            })
-            .catch(error => {
-                console.error('Error en la solicitud:', error);
-                alert('Ocurrió un error al enviar la solicitud.');
-            });
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'id=' + encodeURIComponent(id)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.trim() === 'success') {
+                        window.location.href = 'smoothies.php';
+                    } else {
+                        alert('Error al eliminar el smoothie: ' + data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error en la solicitud:', error);
+                    alert('Ocurrió un error al enviar la solicitud.');
+                });
         }
     </script>
 
