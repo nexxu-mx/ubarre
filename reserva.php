@@ -64,40 +64,6 @@
 
                     <h1 style="color: #56514F; margin-top: 60px">Reserva tu clase</h1>
 
-                    <?php
-
-                    //Verificar si el usuario esta autenticado
-                    if (!isset($_SESSION['idUser'])) {
-                        header("Location: login.php");
-                        exit();
-                    }
-
-                    include 'db.php'; // conexión a tu base de datos
-                    include 'error_log.php'; // manejo de errores
-
-                    //Preparar consulta para obtener total_smoothies de users
-                    $id_usuario = $_SESSION['idUser'];
-                    $sql = "SELECT total_smoothies FROM users WHERE id = ?";
-                    $stmt = $conn->prepare($sql);
-
-                    if (!$stmt) {
-                        die("Error en la preparación de la consulta: " . $conn->error);
-                    }
-
-                    $stmt->bind_param("i", $id_usuario);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-
-                    if ($result->num_rows === 0) {
-                        die("Usuario no encontrado");
-                    }
-
-                    $row = $result->fetch_assoc();
-                    $total_smoothies = (int)$row['total_smoothies'];
-                    $stmt->close();
-                    ?>
-
-
                     <!-- Contenededor para Agregar Smoothie -->
                     <div class="modal-detalles-bebida">
                         <div class="modal-content">

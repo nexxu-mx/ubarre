@@ -26,7 +26,7 @@ $sabor = isset($data['bebida']) ? $data['bebida'] : "";
 $momento = isset($data['momento']) ? $data['momento'] : "";
 
 $restarSmoothie = (!empty($sabor) && $momento !== "Sin smoothie");
-echo $restarSmoothie;
+/* echo $restarSmoothie; */
 
 $invitado = 0;
 $activo = "1";
