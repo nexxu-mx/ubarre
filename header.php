@@ -99,6 +99,8 @@
             
             </a>
           </div>
+          <div class="login-bolsa-navbar">
+          </div> 
           ';
       } else {
         echo '<div class="login-bolsa-navbar">
@@ -106,6 +108,9 @@
               <img src="assets/images/svg/login.svg" alt="login icon">
               <p id="profile-name">' . $_SESSION['nombre'] . '</p>
             </a>
+          </div>
+          
+          <div class="login-bolsa-navbar">
           </div> ';
       }
 
