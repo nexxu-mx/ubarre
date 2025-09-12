@@ -74,14 +74,19 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                         <img src="assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="Logo übarre">
                         <h2>VAMOS A REGISTRARTE</h2>
                         <p class="registro-mensaje">¿Ya tienes cuenta? <span><button type="button" onclick="closeRegistro()">Iniciar Sesión</button></span></p>
+                        
                         <label for="nombreR">Nombre*</label>
                         <input type="text" name="nombreR" id="nombreR" placeholder="Adriana Alba" maxlength="100" minlength="5" required>
+
                         <label for="mailR">Correo Electrónico*</label>
                         <input type="email" name="mailR" id="mailR" placeholder="tuemail@mail.com" maxlength="100" minlength="5" required>
+
                         <label for="numeroR">WhatsApp*</label>
                         <input type="text" name="numeroR" id="numeroR" placeholder="477 123 4567" maxlength="10" minlength="9" required>
+
                         <label for="contra">Contraseña*</label>
                         <input type="password" name="contra" id="contra" placeholder="********" maxlength="30" minlength="5" required>
+
                         <small>La contraseña debe tener mínimo 5 caracteres.</small>
                         <label for="date">Fecha de Nacimiento*</label>
                         <div class="inputs-reserva-container">
