@@ -36,9 +36,9 @@
 
 <body id="top">
     <div class="bg-opacity-modals"></div>
-    <!-- <div class="preloader" data-preloader>
+    <div class="preloader" data-preloader>
         <div class="circle"></div>
-    </div> -->
+    </div>
 
     <?php include 'ofer.php'; ?>
     <?php include 'header.php'; ?>

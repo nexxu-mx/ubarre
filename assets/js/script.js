@@ -1017,10 +1017,14 @@ function cargarSmoothies() {
 // Ejecutar cuando cargue la página
 document.addEventListener("DOMContentLoaded", cargarSmoothies);
 
+let optionGlobal;
+
 // Evento para desplegar las opciones del momento
 document.addEventListener('click', function (e) {
   const toggle = e.target.closest('.dropdown-toggle');
   const option = e.target.closest('.menu-bebidas li');
+
+  optionGlobal = option;
 
   if (toggle) {
     const dropdown = toggle.closest('.dropdown');
@@ -1048,7 +1052,7 @@ document.addEventListener('click', function (e) {
 });
 
 // Seleccionar opción si se hace clic en un <li>
-if (option) {
+if (optionGlobal) {
   const dropdown = option.closest('.dropdown');
   const toggle = dropdown.querySelector('.dropdown-toggle');
   toggle.textContent = option.textContent;
