@@ -242,10 +242,10 @@
             <div class="preguntas-container">
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Puedo hacer ejercicio si tengo alguna lesión?</p>
+                  <p>¿Puedo asistir si tengo una lesión o una condición médica?</p>
                 </button>
                 <div class="panel">
-                  <p>Sí. Es importante que nos informes con anticipación. Nuestras instructoras están capacitadas para adaptar los ejercicios según tus necesidades. Siempre consulta previamente con tu médico antes de iniciar cualquier actividad física.</p>
+                  <p>Sí, siempre que tengas autorización médica. Te pedimos avisarnos antes de tu clase para poder adaptar los ejercicios según tus necesidades y cuidar tu seguridad.</p>
                 </div>
               </div>
 
@@ -260,46 +260,37 @@
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Necesito experiencia previa para empezar?</p>
+                  <p>¿Necesito tener experiencia previa para tomar una clase de Barre?</p>
                 </button>
                 <div class="panel">
-                  <p>No. Nuestras clases están diseñadas para todos los niveles. Las instructoras te guiarán y ajustarán los movimientos según tus capacidades. No necesitas experiencia previa para comenzar.</p>
+                  <p>Todas nuestras clases están diseñadas para que puedas unirte sin importar tu nivel. Nuestros entrenamientos te permitirán avanzar a tu propio ritmo, con guía constante por parte del equipo.</p>
                 </div>
               </div>
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Qué debo llevar a clase?</p>
+                  <p>¿Qué ropa o accesorios debo llevar?</p>
                 </button>
                 <div class="panel">
-                  <p> Ropa cómoda que te permita moverte con libertad. Recomendamos el uso de calcetines antideslizantes para mayor seguridad.</p>
+                  <p>Te recomendamos usar ropa deportiva cómoda que te permita moverte libremente. Los calcetines con antiderrapante son ideales para una mejor estabilidad durante la clase.</p>
                 </div>
               </div>
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Cuántas veces a la semana debería tomar clases?</p>
+                  <p>¿Cuál es la duración de las clases?/p>
                 </button>
                 <div class="panel">
-                  <p>Para obtener resultados visibles y sentir los beneficios físicos y mentales, recomendamos practicar al menos 2 veces por semana.</p>
+                  <p>Cada clase tiene una duración aproximada de 50 a 60 minutos.</p>
                 </div>
               </div>
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Cuánto duran las clases?</p>
+                  <p>¿Es necesario reservar mi clase o puedo llegar directo al estudio?</p>
                 </button>
                 <div class="panel">
-                  <p>La mayoría de nuestras clases tienen una duración de entre 50 y 60 minutos.</p>
-                </div>
-              </div>
-
-              <div class="container-accordion">
-                <button class="accordion">
-                  <p>¿Se requiere reservar o puedo llegar directamente?</p>
-                </button>
-                <div class="panel">
-                  <p>Es necesario reservar tu lugar con anticipación, ya que los espacios son limitados para garantizar una atención personalizada.</p>
+                  <p>Sí, es necesario reservar con anticipación. Nuestras clases tienen cupo limitado para garantizar una experiencia más personalizada.</p>
                 </div>
               </div>
 
@@ -308,7 +299,7 @@
                   <p>¿Puedo cancelar o reprogramar una clase?</p>
                 </button>
                 <div class="panel">
-                  <p>Sí. Aceptamos cancelaciones con al menos 6 horas de anticipación (ajustable según política). De lo contrario, la clase se considerará como tomada.</p>
+                  <p>Sí. Aceptamos cancelaciones con al menos 8 horas de anticipación. De lo contrario, la clase se considerará como tomada.</p>
                 </div>
               </div>
 
@@ -317,7 +308,7 @@
                   <p>¿Cuál es la edad mínima para asistir a clases?</p>
                 </button>
                 <div class="panel">
-                  <p>A partir de los 13 años, con autorización de un adulto o tutor.</p>
+                  <p>Recibimos a personas desde los 12 años, siempre y cuando puedan alcanzar la barra cómodamente. Si tienes dudas, podemos ayudarte a evaluar si es el momento adecuado.</p>
                 </div>
               </div>
 
@@ -326,7 +317,7 @@
                   <p>¿Cómo reservo una clase?</p>
                 </button>
                 <div class="panel">
-                  <p>Puedes reservar a través de nuestra página web, app, o directamente por WhatsApp o teléfono.</p>
+                  <p>Puedes reservar a través de nuestra página web, por WhatsApp o mostrador antes de tu clase contando con tu referencia de pago.</p>
                 </div>
               </div>
 
@@ -341,15 +332,29 @@
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Qué tipo de clases ofrece übarre?</p>
+                  <p>¿Puedo hacer cambios o agregar algo a mi bebida del bar?</p>
                 </button>
                 <div class="panel">
-                  <p>Todas nuestras clases son de bajo impacto y están diseñadas para fortalecer cuerpo y mente. Ofrecemos: <br>
-                    • Pilates Mat <br>
-                    • Barre <br>
-                    • Sculpt <br>
-                    • Yoga <br>
-                    Puedes consultar la descripción de cada clase para saber cuál se adapta mejor a tus objetivos.
+                  <p>Sí, cualquier modificación especial la puedes solicitar directamente en mostrador. También puedes agregar extras a tu bebida con un costo adicional.</p>
+                </div>
+              </div>
+
+              <div class="container-accordion">
+                <button class="accordion">
+                  <p>¿Cuáles son los horarios de atención en el estudio?</p>
+                </button>
+                <div class="panel">
+                  <p> Estamos disponibles en dos horarios: por las mañanas de Lunes a Viernes de 6:30 a.m. a 10:30 a.m., y por las tardes de 5:00 p.m. a 9:00 p.m, Sábados de 7:00 a.m. a 11:00 a.m. y Domingo de 8:00 a.m. a 12:00 p.m.
+                  </p>
+                </div>
+              </div>
+
+              <div class="container-accordion">
+                <button class="accordion">
+                  <p>¿Qué tipo de clases encuentro en Ü Barre?</p>
+                </button>
+                <div class="panel">
+                  <p> Todas nuestras clases están basadas en Barre, una disciplina de bajo impacto que combina lo mejor del ballet, pilates y entrenamiento funcional. Ofrecemos diferentes formatos diseñados para trabajar fuerza, flexibilidad, resistencia y alineación postural, con opciones tanto para principiantes como para avanzado.
                   </p>
                 </div>
               </div>

@@ -38,9 +38,9 @@
 
 <body id="top">
     <div class="bg-opacity-modals"></div>
-    <div class="preloader" data-preloader>
+    <!-- <div class="preloader" data-preloader>
         <div class="circle"></div>
-    </div>
+    </div> -->
 
     <?php include 'ofer.php'; ?>
     <?php include 'header.php'; ?>
@@ -71,6 +71,8 @@
                         header("Location: login.php");
                         exit();
                     }
+
+                    echo "idUser: " . $_SESSION['idUser'];
 
                     include 'db.php'; // conexión a tu base de datos
                     include 'error_log.php'; // manejo de errores
