@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputNumeroClases = document.getElementById("numero_clases");
 
   //Guardar valor Ilimitado
-  const ValorIlimitado = inputNumeroClases.value;
+  let valorActual = inputNumeroClases.value;
 
   //Smoothies
   if (checkSmoothie.checked) {
@@ -343,7 +343,7 @@ smoothieInput.addEventListener("change", function () {
             inputNumeroClases.value = "Ilimitado";
         } else {
             ilimitInput.style.display = "block";
-            inputNumeroClases.value = "Ilimitado";
+            inputNumeroClases.value = valorActual === "Ilimitado" ? "" : valorActual;
         }
     });
 
