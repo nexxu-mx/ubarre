@@ -224,15 +224,18 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 ';
                             }
                             ?>
-                            <div class="d-flex justify-content-center mt-3">
-                                <?php
-                                if (isset($_GET['id'])) {
-                                    echo '<input type="submit" value="Guardar Edición" class="btn btn-primary">';
-                                } else {
-                                    echo '<input type="submit" value="Agregar Paquete" class="btn btn-primary">';
-                                }
-                                ?>
-                            </div>
+                                    <?php if (isset($_GET['id'])) : ?>
+                                        <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                                            <button type="button" class="btn btn-danger" onclick="eliminarPaquete(<?php echo $idPaqueteEdit; ?>)">Eliminar</button>
+                                            </button>
+                                            <input type="submit" value="Guardar Edición" class="btn btn-primary">
+                                        </div>
+                                    <?php else : ?>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <input type="submit" value="Agregar Paquete" class="btn btn-primary">
+                                        </div>
+                                    <?php endif; ?>
+                               
                         </form>
                     </div>
                 </div>
@@ -272,6 +275,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
     <script src="./assets/js/next.min.js"></script>
 
     <script src="./assets/js/disciplinas.js?v=<?php echo time(); ?>"></script>
+    <script src="./assets/js/paquetes.js?v=<?php echo time(); ?>"></script>
 
     <script>
         function mostrarVistaPrevia(event) {
@@ -348,6 +352,29 @@ smoothieInput.addEventListener("change", function () {
     });
 
 });
+
+function eliminarPaquete(id) {
+    fetch('./eliminar-paquete.php', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            paquete: id
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Se eliminó el Paquete");
+                getPaquetes();
+                window.location.href = 'paquetes.php';
+            } else {
+                alert("Hubo un error al eliminar el Paquete");
+            }
+        })
+        .catch(error => console.error(error));
+}
 
 </script>
 

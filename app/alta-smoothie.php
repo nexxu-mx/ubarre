@@ -11,7 +11,7 @@ include '../db.php';
 
 //Declarar variables 
 $sabor = "";
-$button = "Agregar Smoothie";
+/* $button = "Agregar Smoothie"; */
 $idSmoothieEdit = 0;
 
 ?>
@@ -105,7 +105,7 @@ $idSmoothieEdit = 0;
                                     $filaSelectSmoothie = $resultadoSelectSmoothie->fetch_assoc();
                                     $sabor = $filaSelectSmoothie['sabor'];
                                     $descrip = $filaSelectSmoothie['descrip'];
-                                    $button = "Guardar Edición";
+                                    /* $button = "Guardar Edición"; */
 
                                     // Cambiar el título y breadcrumb para edición
                                     echo '<script>
@@ -117,7 +117,7 @@ $idSmoothieEdit = 0;
                                 // Valores por defecto para NUEVO smoothie
                                 $sabor = "";
                                 $descrip="";
-                                $button = "Agregar Smoothie";
+                               /*  $button = "Agregar Smoothie"; */
                                 $idSmoothieEdit = 0;
                             }
                             ?>
@@ -134,10 +134,18 @@ $idSmoothieEdit = 0;
                             </div>
                             <input type="hidden" value="<?php echo $idSmoothieEdit; ?>" id="id_smoothie_edit" name="id_smoothie_edit" />
 
-                            <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
-                                <button type="button" class="btn btn-danger" onclick="deleteSmoothie(<?php echo isset($idSmoothieEdit) ? $idSmoothieEdit : 'null'; ?>)">Eliminar</button>
-                                <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
-                            </div>
+                            
+                                <?php if (isset($_GET['id'])) : ?>
+                                    <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                                        <button type="button" class="btn btn-danger" onclick="deleteSmoothie(<?php echo $idSmoothieEdit; ?>)">Eliminar</button>
+                                        <input type="submit" value="Guardar Edición" class="btn btn-primary">
+                                    </div>
+                                <?php else : ?>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <input type="submit" value="Agregar Smoothie" class="btn btn-primary">
+                                    </div>
+                                <?php endif; ?>
+                                
 
                         </form>
                     </div>
