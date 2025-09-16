@@ -32,9 +32,6 @@ function getPaquetes() {
                                 <p class="card-text text-muted">${paquete.costo}</p>
                                 <div class="d-flex justify-content-between">
                                     <a href="./alta-paquete.php?id=${paquete.id}" class="btn btn-primary btn-rounded btn-sm"><i class="far fa-edit"></i> Editar</a>
-                                    <button class="btn btn-outline-secondary btn-rounded btn-sm" onclick="eliminarPaquete(${paquete.id})"">
-                                        Eliminar
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -54,24 +51,3 @@ $(document).ready(function () {
     getPaquetes();
 });
 
-function eliminarPaquete(id) {
-    fetch('./eliminar-paquete.php', {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify({
-            paquete: id
-        })
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert("Se eliminó el Paquete");
-                getPaquetes();
-            } else {
-                alert("Hubo un error al eliminar el Paquete");
-            }
-        })
-        .catch(error => console.error(error));
-}

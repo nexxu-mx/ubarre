@@ -24,6 +24,7 @@ if (
 
     $smoothieCheck = isset($_POST['smoothie_check']) ? 1 : 0;
     $smoothiesPaquete = trim($_POST['smoothies_paquete']);
+    $ilimitcheck = isset($_POST['ilimit_check']) ? 1: 0;
 
     $descuento = trim($_POST['dsc']);
     $descuento = $descuento === '' ? null : $descuento;
@@ -37,16 +38,16 @@ if (
     if (isset($_POST['id_paquete_edit'])) {
         $idPaqueteEdit = $_POST['id_paquete_edit'];
 
-        $updatePaquete = $conn->prepare("UPDATE paquetes SET clases = ?, costo = ?, nombre = ?, vigencia = ?, invitados = ?, persona = ?, descuento = ?, finalizadsc = ?, smoothies = ?, total_smoothies = ? WHERE id = ?");
-        $updatePaquete->bind_param("sssssssssii", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $descuento, $finalizadsc, $smoothieCheck, $smoothiesPaquete, $idPaqueteEdit); 
+        $updatePaquete = $conn->prepare("UPDATE paquetes SET clases = ?, costo = ?, nombre = ?, vigencia = ?, invitados = ?, persona = ?, descuento = ?, finalizadsc = ?, smoothies = ?, total_smoothies = ?, ilimitado = ? WHERE id = ?");
+        $updatePaquete->bind_param("sssssssssisi", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $descuento, $finalizadsc, $smoothieCheck, $smoothiesPaquete, $ilimitcheck, $idPaqueteEdit); 
 
         $resultadoUpdatePaquete = $updatePaquete->execute();
         
         header('location: paquetes.php');
         exit;
     } else {
-        $insertPaquete = $conn->prepare("INSERT INTO paquetes (clases, costo, nombre, vigencia, invitados, persona, smoothies, total_smoothies) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $insertPaquete->bind_param("ssssssis", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $smoothieCheck, $smoothiesPaquete);
+        $insertPaquete = $conn->prepare("INSERT INTO paquetes (clases, costo, nombre, vigencia, invitados, persona, smoothies, total_smoothies, ilimitado) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $insertPaquete->bind_param("ssssssiss", $numeroClases, $costoPaquete, $nombrePaquete, $vigenciaPaquete, $invitadosPaquete, $personasPaquete, $smoothieCheck, $smoothiesPaquete, $ilimitcheck);
 
         $resultadoInsert = $insertPaquete->execute();
 

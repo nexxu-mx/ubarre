@@ -14,9 +14,9 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SenciaApp</title>
+    <title>übarre</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="./favico.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <script src="./assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
         WebFont.load({
@@ -104,7 +104,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $resultadoSelectCoach = $selectCoach->get_result();
 
                                 $filaSelectCoach = $resultadoSelectCoach->fetch_assoc();
-                                $button = "Guardar Edición";
+                                /* $button = "Guardar Edición"; */
                                 $nombreDisciplina = $filaSelectDisciplina['nombre_disciplina'];
                                 $descDisc = $filaSelectDisciplina['descripcion_disciplina'];
                                 $subdesctext1 = $filaSelectDisciplina['subdescripcion_texto1'];
@@ -114,7 +114,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $activo = $filaSelectDisciplina['activo'];
 
                             } else{
-                                $button = "Agregar Disciplina";
+                                /* $button = "Agregar Disciplina"; */
                                 $nombreDisciplina = "";
                                 $descDisc = "";
                                 $subdesctext1 = "";
@@ -140,10 +140,18 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     </div>
                                     <input type="hidden" value="<?php echo isset($idDisciplinaEdit) ? $idDisciplinaEdit : 0; ?>" id="id_disciplina_edit" name="id_disciplina_edit"/>
                             
-                            <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
-                                <button type="button" class="btn btn-danger" onclick="deleteCurso(<?php echo isset($idDisciplinaEdit) ? $idDisciplinaEdit : 'null'; ?>)">Eliminar</button> 
-                                <button type="submit" class="btn btn-primary"><?php echo $button; ?></button>
-                            </div>
+                            
+                                <?php if (isset($_GET['id'])) : ?>
+                                    <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                                        <button type="button" class="btn btn-danger" onclick="deleteCurso(<?php echo $idDisciplinaEdit?>)">Eliminar</button> 
+                                        <input type="submit" value="Guardar Edición" class="btn btn-primary">
+                                    </div>
+                                <?php else : ?>
+                                    <div class="d-flex justify-content-center mt-3">
+                                        <input type="submit" value="Agregar Disciplina" class="btn btn-primary">
+                                    </div>
+                                <?php endif; ?>
+                            
 
                         </form>
                     </div>

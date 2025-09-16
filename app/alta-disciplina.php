@@ -10,10 +10,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>SenciaApp</title>
-	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="../favicon.svg" type="image/x-icon"/>
-	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+	<title>übarre</title>	
+  <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="shortcut icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">	
+  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
 			google: {"families":["Public Sans:300,400,500,600,700"]},

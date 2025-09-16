@@ -16,9 +16,9 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SenciaApp</title>
+    <title>übarre</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="./favico.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <script src="./assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
         WebFont.load({
@@ -111,33 +111,49 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                             if (isset($_GET['id'])) {
                                 $idPaqueteEdit = $_GET['id'];
 
-                                $selectPaquete = "SELECT id, clases, costo, nombre, vigencia, invitados, persona, descuento, finalizadsc, smoothies, total_smoothies FROM paquetes WHERE id = '$idPaqueteEdit'";
+                                $selectPaquete = "SELECT id, clases, costo, nombre, vigencia, invitados, persona, descuento, finalizadsc, smoothies, total_smoothies, ilimitado FROM paquetes WHERE id = '$idPaqueteEdit'";
 
                                 $resultadoSelectPaquete = $conn->query($selectPaquete);
 
                                 while ($filaPaquete = mysqli_fetch_assoc($resultadoSelectPaquete)) {
                                     echo '
                                     <label for="nombre_paquete">Nombre del Paquete:</label>
-                                    <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['nombre'] .'">
-                                    <label for="numero_clases">Número de Clases:</label>
-                                    <input type="text" style="text-transform: capitalize;" id="numero_clases" name="numero_clases" placeholder="Agrega el número de clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['clases'] .'">
-                                    <label for="costo_paquete">Costo del Paquete:</label>
-                                    <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['costo'] .'">
-                                    <label for="vigencia_paquete">Vigencia del Paquete:</label>
-                                    <input type="text" id="vigencia_paquete" name="vigencia_paquete" placeholder="Agrega la vigencia del Paquete en Días" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['vigencia'] .'">
-                                    <label for="invitados_paquete">Número de Posibles Invitados Paquete:</label>
-                                    <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['invitados'] .'">
-                                    <label for="personas_paquete">Personas en el Paquete:</label>
-                                    <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['persona'] .'">
+                                        <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['nombre'] .'">
                                     
-                                     <label for="smoothie_check" class="form-label">¿El Paquete Incluirá Smoothie?</label>
+                                    <label for="ilimit_check" class="form-label">¿El Paquete es Ilimitado?</label>
+                                    <div class="row align-items-center mb-3"> 
+
+                                        <div class="col-6 d-flex align-items-center gap-3">
+                                            <div class="form-check form-switch m-0">
+                                                <input type="checkbox" class="form-check-input" id="ilimit_check" name="ilimit_check" style="transform: scale(1.5);" ' . ($filaPaquete['ilimitado'] == 1 ? 'checked' : '') .'>
+                                            </div>
+                                                <label class="form-check-label mb-0" for="ilimit_check"></label>
+                                        </div>
+
+                                        <div class="col-12 mt-2" id="ilimitInput">
+                                            <label for="numero_clases">Número de Clases:</label>
+                                                <input type="text" style="text-transform: capitalize;" id="numero_clases" name="numero_clases" placeholder="Agrega el número de clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['clases'] .'">
+                                        </div>
+
+                                    </div>
+                                    
+                                    <label for="costo_paquete">Costo del Paquete:</label>
+                                        <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['costo'] .'">
+                                    <label for="vigencia_paquete">Vigencia del Paquete:</label>
+                                        <input type="text" id="vigencia_paquete" name="vigencia_paquete" placeholder="Agrega la vigencia del Paquete en Días" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['vigencia'] .'">
+                                    <label for="invitados_paquete">Número de Posibles Invitados Paquete:</label>
+                                        <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['invitados'] .'">
+                                    <label for="personas_paquete">Personas en el Paquete:</label>
+                                        <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['persona'] .'">
+                                    
+                                    <label for="smoothie_check" class="form-label">¿El Paquete Incluirá Smoothie?</label>
                                     <div class="row align-items-center mb-3">
                                         
                                         <div class="col-6 d-flex align-items-center gap-3">
                                             <div class="form-check form-switch m-0">
                                                 <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);" '. ($filaPaquete['smoothies'] == 1 ? 'checked' : '') .'>
                                             </div>
-                                            <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                                <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
                                         </div>
 
                                         <div class="col-6" id="smoothieInput" style="display: none;">
@@ -160,17 +176,33 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                             } else {
                                 echo '
                                     <label for="nombre_paquete">Nombre del Paquete:</label>
-                                    <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
-                                    <label for="numero_clases">Número de Clases:</label>
-                                    <input type="text" style="text-transform: capitalize;" id="numero_clases" name="numero_clases" placeholder="Agrega el número de Clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                        <input type="text" id="nombre_paquete" name="nombre_paquete" placeholder="Agrega el Nombre del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                    
+                                    <label for="ilimit_check" class="form-label">¿El Paquete es Ilimitado?</label>
+                                    <div class="row align-items-center mb-3">
+                                        
+                                        <div class="col-6 d-flex align-items-center gap-3">
+                                            <div class="form-check form-switch m-0">
+                                                <input type="checkbox" class="form-check-input" id="ilimit_check" name="ilimit_check" style="transform: scale(1.5);">
+                                            </div>
+                                                <label class="form-check-label mb-0" for="ilimit_check"></label>
+                                        </div>
+
+                                        <div class="col-12 mt-2" id="ilimitInput">
+                                            <label for="numero_clases">Número de Clases:</label>
+                                                <input type="text" style="text-transform: capitalize;" id="numero_clases" name="numero_clases" placeholder="Agrega el número de Clases" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                        </div>
+
+                                    </div>
+                                    
                                     <label for="costo_paquete">Costo del Paquete:</label>
-                                    <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                        <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="vigencia_paquete">Vigencia del Paquete:</label>
-                                    <input type="text" id="vigencia_paquete" name="vigencia_paquete" placeholder="Agrega la vigencia del Paquete en Días" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                        <input type="text" id="vigencia_paquete" name="vigencia_paquete" placeholder="Agrega la vigencia del Paquete en Días" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="invitados_paquete">Número de Posibles Invitados Paquete:</label>
-                                    <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
+                                        <input type="text" id="invitados_paquete" name="invitados_paquete" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required>
                                     <label for="personas_paquete">Personas en el Paquete:</label>
-                                    <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" min="0" max="100" required>
+                                        <input type="text" id="personas_paquete" name="personas_paquete" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" min="0" max="100" required>
                                     
                                     
                                     <label for="smoothie_check" class="form-label">¿El Paquete Incluirá Smoothie?</label>
@@ -180,7 +212,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                             <div class="form-check form-switch m-0">
                                                 <input type="checkbox" class="form-check-input" id="smoothie_check" name="smoothie_check" style="transform: scale(1.5);">
                                             </div>
-                                            <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
+                                                <label class="form-check-label mb-0" for="smoothie_check">Sí Incluirá</label>
                                         </div>
 
                                         <div class="col-6" id="smoothieInput" style="display: none;">
@@ -192,15 +224,18 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 ';
                             }
                             ?>
-                            <div class="d-flex justify-content-center mt-3">
-                                <?php
-                                if (isset($_GET['id'])) {
-                                    echo '<input type="submit" value="Guardar Edición" class="btn btn-primary">';
-                                } else {
-                                    echo '<input type="submit" value="Agregar Paquete" class="btn btn-primary">';
-                                }
-                                ?>
-                            </div>
+                                    <?php if (isset($_GET['id'])) : ?>
+                                        <div class="d-flex justify-content-end g-2 mt-3" style="gap: 10px">
+                                            <button type="button" class="btn btn-danger" onclick="eliminarPaquete(<?php echo $idPaqueteEdit; ?>)">Eliminar</button>
+                                            </button>
+                                            <input type="submit" value="Guardar Edición" class="btn btn-primary">
+                                        </div>
+                                    <?php else : ?>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <input type="submit" value="Agregar Paquete" class="btn btn-primary">
+                                        </div>
+                                    <?php endif; ?>
+                               
                         </form>
                     </div>
                 </div>
@@ -240,6 +275,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
     <script src="./assets/js/next.min.js"></script>
 
     <script src="./assets/js/disciplinas.js?v=<?php echo time(); ?>"></script>
+    <script src="./assets/js/paquetes.js?v=<?php echo time(); ?>"></script>
 
     <script>
         function mostrarVistaPrevia(event) {
@@ -264,11 +300,19 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
+
 document.addEventListener("DOMContentLoaded", function () {
   const checkSmoothie = document.getElementById("smoothie_check");
+  const checkilimit = document.getElementById("ilimit_check");
   const smoothieInput = document.getElementById("smoothieInput");
+  const ilimitInput = document.getElementById("ilimitInput");
   const smoothies_paquete = document.getElementById("smoothies_paquete");
+  const inputNumeroClases = document.getElementById("numero_clases");
 
+  //Guardar valor Ilimitado
+  let valorActual = inputNumeroClases.value;
+
+  //Smoothies
   if (checkSmoothie.checked) {
     smoothieInput.style.display = "block";
   }
@@ -291,7 +335,46 @@ smoothieInput.addEventListener("change", function () {
     }
 })
 
+    //Paquete
+    if (checkilimit.checked) {
+        ilimitInput.style.display = "none";
+        inputNumeroClases.value = "Ilimitado";
+    }
+
+    checkilimit.addEventListener("change", function () {
+        if (this.checked) {
+            ilimitInput.style.display = "none";
+            inputNumeroClases.value = "Ilimitado";
+        } else {
+            ilimitInput.style.display = "block";
+            inputNumeroClases.value = valorActual === "Ilimitado" ? "" : valorActual;
+        }
+    });
+
 });
+
+function eliminarPaquete(id) {
+    fetch('./eliminar-paquete.php', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            paquete: id
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Se eliminó el Paquete");
+                getPaquetes();
+                window.location.href = 'paquetes.php';
+            } else {
+                alert("Hubo un error al eliminar el Paquete");
+            }
+        })
+        .catch(error => console.error(error));
+}
 
 </script>
 

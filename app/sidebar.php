@@ -2,23 +2,62 @@
 	.ionicon {
 		width: 1.3rem;
 		margin-left: .2rem;
-		fill: #8d9498;
+		fill: white;
 	}
 
 	a:hover>.ionicon {
-		fill: #0d6efd;
-		color: #0d6efd;
+		fill: #bbff00ff;
+		color: #bbff00ff;
+	}
+
+	.color-icons-theme i {
+		color: white !important;
+	}
+
+	.color-icons-theme p {
+		color: white;
+	}
+
+	#nav-bar-decoration .nav-item:hover a,
+	#nav-bar-decoration .nav-item:hover a i,
+	#nav-bar-decoration .nav-item:hover a p {
+		fill: #bbff00ff !important;
+		color: #bbff00ff !important;
+	}
+
+
+	@media(min-width:992px) {
+		.logo {
+			background-image: url("../assets/images/ubarre/svg/ubarre-sin-tagline.svg");
+			height: 186px;
+			width: 150px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+
+	@media (max-width: 991px) {
+
+		.logo {
+			background-image: url("../assets/images/ubarre/svg/ubarre-negro.svg");
+			height: 186px;
+			width: 150px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+
 	}
 </style>
 
-<div class="sidebar" data-background-color="">
+<div class="sidebar" id="nav-bar-decoration" data-background-color="" style="background-color: #8B976A;">
 	<div class="sidebar-logo">
 		<!-- Logo Header -->
-		<div class="logo-header" data-background-color="">
+		<div class="logo-header color-icons-theme" data-background-color="">
 
 			<a href="index.php" class="logo">
-				<img src="../assets/images/svg/logo-negro.svg" height="186"
-					alt>
+
 			</a>
 			<div class="nav-toggle">
 				<button class="btn btn-toggle toggle-sidebar">
@@ -37,15 +76,15 @@
 	</div>
 	<div class="sidebar-wrapper scrollbar scrollbar-inner">
 		<div class="sidebar-content">
-			<ul class="nav nav-secondary">
+			<ul class="nav color-icons-theme">
 				<li class="nav-item">
-					<a href="index.php">
+					<a href="index.php" class="decoration-theme">
 						<i class="fas fa-home"></i>
 						<p>Inicio</p>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="registra-class.php">
+					<a href="registra-class.php" class="decoration-theme">
 						<i class="fas fa-qrcode"></i>
 						<p>Asistencia</p>
 					</a>
