@@ -1,4 +1,9 @@
 @font-face {
+  font-family: "Starz";
+  src: url("../fonts/starz_2016_by_629lyric-d9y7ma8.ttf");
+}
+
+@font-face {
   font-family: "HiguenSefir";
   src: url("../fonts/HiguenSerif2.otf");
   font-weight: 400;
@@ -125,6 +130,7 @@
 
   --ff-higuen: "HiguenSefir";
   --ff-neue: "NeueMontreal";
+  --ff-starz: "Starz";
 
   --headline-lg: 5rem;
   --headline-md: 3rem;
@@ -978,7 +984,7 @@ span {
 }
 
 .tipo-card {
-  font-family: var(--ff-higuen);
+  font-family: var(--ff-starz);
   font-size: 35px;
   color: #8B976A;
   line-height: 1;
@@ -1018,7 +1024,7 @@ span {
   color: #fff;
   border-radius: 5px;
   margin-inline: auto;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 20px;
   transition: all 500ms ease;
 }

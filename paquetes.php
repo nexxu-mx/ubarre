@@ -21,7 +21,7 @@
     .card {
       width: 340px;
       height: 420px;
-      padding: 30px 60px;
+      padding: 30px 36px;
       position: relative;
     }
 

@@ -422,7 +422,8 @@
 
 .tipo-card {
     color: #0C0D0F;
-    font-family: 'Jumper', sans-serif;
+    font-family: var(--ff-starz);
+    font-weight: 500;
 }
 
 .numero-clases-card {
@@ -445,7 +446,6 @@
     color: #0C0D0F;
     text-decoration: underline;
     font-weight: 600;
-    margin-top: 40px;
 }
 
 .main-section-paquetes {
