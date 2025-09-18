@@ -166,7 +166,7 @@ function cargarClases(day) {
         }
 let timestamp = Math.floor(Date.now() / 1000);
         btn.innerHTML = `
-                  <div class="clase-container elemento-clase">
+                  <div class="clase-container elemento-clase" style="position: relative;">
                       <div class="first-flex-clase">
                           <div class="img-clase-container">
                               <img src="assets/images/coaches/pro/${clase.id_coach}.png?v=${timestamp}" alt="Foto Coach">
@@ -187,6 +187,7 @@ let timestamp = Math.floor(Date.now() / 1000);
                           </div>
 
                       </div>
+                      <p style="position: absolute;right: 10%;bottom: 5px;color: #8B976A;font-weight: 500;">${clase.close_whats}</p>
                       <div class="second-flex-clase">
 
                           <div class="disciplina-clase-container">

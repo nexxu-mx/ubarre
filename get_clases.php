@@ -87,7 +87,7 @@ if ($day) {
         $aforo = $row['reservados'] . '/' . $row['aforo'];
 
         if ($row['aforo'] <= $row['reservados']) {
-            //estatus clase cerrada para reserva por cupo completo
+            //estatus clase cerrada para reserva por cupo complet 
             $estatus = '<img class="icono-reserva" src="assets/images/svg/full_class.svg" alt="Clase llena ícono"><p>Clase llena</p>';
             $abierta = 0;
         }
@@ -161,6 +161,52 @@ if ($day) {
             $estatus = '<img class="icono-reserva" src="assets/images/svg/waiting_list.svg" alt="Wait List ícono">';
         }
 
+        if($abierta == 1){
+            /// Anticipación para reservar
+            $hoy = new DateTime('today');
+            $manana = new DateTime('tomorrow');
+            $resw = "";
+
+            // 🔹 Nuevo caso: hoy antes de las 3:00 pm -> bloqueado
+            $limiteHoy = (clone $hoy)->setTime(12, 0); // hoy a las 3:00pm
+            if ($start->format('Y-m-d') === $hoy->format('Y-m-d') && $start < $limiteHoy) {
+                if ($row['reservados'] < 2) {
+                        $abierta = 0;
+                        $resw = "*Puedes reservar por WhatsApp.";
+                    } 
+            }
+
+            // 🔹 Caso 1: $start es mañana antes de las 12:00pm
+            $limite1 = (clone $hoy)->setTime(22, 30); // hoy a las 10:30pm
+            if ($start->format('Y-m-d') === $manana->format('Y-m-d') && $start->format('H') < 12) {
+                if ($now <= $limite1) {
+                    
+                } else {
+                    if ($row['reservados'] < 2) {
+                        $abierta = 0;
+                        $resw = "*Puedes reservar por WhatsApp.";
+                    } 
+                }
+            }
+
+          // 🔹 Caso: $start es hoy después de las 12:00pm
+            $limite = (clone $hoy)->setTime(12, 0); // hoy a las 12:00pm
+            $unaHoraAntes = (clone $start)->modify('-1 hour'); // límite 1 hora antes del evento
+
+            if ($start->format('Y-m-d') === $hoy->format('Y-m-d') && $start->format('H') >= 12) {
+                if ($now >= $limite && $now <= $unaHoraAntes) {
+                    // Solo se abre si es después de las 12 y hasta 1h antes del evento
+                   
+                } else {
+                    if ($row['reservados'] < 2) {
+                        $abierta = 0;
+                        $resw = "*Puedes reservar por WhatsApp.";
+                    } 
+                }
+            }
+        }
+
+
         $clases[] = [
             "id" => $row['id'],
             "id_coach" => $row['id_coach'],
@@ -171,7 +217,8 @@ if ($day) {
             "estatus" => $estatus,
             "disciplina" => $nombre_disciplina,
             "id_disciplina" => $row['id_disciplina'],
-            "abierta" => $abierta
+            "abierta" => $abierta,
+            "close_whats" => $resw
         ];
     }
     $stmtC->close();
