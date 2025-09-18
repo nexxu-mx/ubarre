@@ -38,8 +38,8 @@ use MercadoPago\Client\Customer\CustomerCardClient;
 use MercadoPago\Exceptions\MPApiException;
 use MercadoPago\MercadoPagoConfig;
 
-// Configurar SDK // PR:::  TEST::: TEST-5756813474456112-091100-4eb89d95d1eda1cbf82d38fd07883664-1940582280
-MercadoPagoConfig::setAccessToken("TEST-5756813474456112-091100-4eb89d95d1eda1cbf82d38fd07883664-1940582280");
+// Configurar SDK // PR:::APP_USR-6453194524132257-082712-b48b9affe80e811e014994a75519c56c-2502245074  TEST::: TEST-5756813474456112-091100-4eb89d95d1eda1cbf82d38fd07883664-1940582280
+MercadoPagoConfig::setAccessToken("APP_USR-6453194524132257-082712-b48b9affe80e811e014994a75519c56c-2502245074");
 
 // Obtener información del paquete
 $sqlP = "SELECT clases, costo, vigencia, invitados, descuento FROM paquetes WHERE id = ?";
