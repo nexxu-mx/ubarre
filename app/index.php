@@ -2,20 +2,25 @@
 session_start();
 if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 
-    header("Location: ../login.php");
+    header("Location: ../profile.php");
     exit;  
+	
 }
+
+if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
+	header("Location: ../profile.php?s=" . $_SESSION['tipoUser']);
+    exit;
+}
+
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>übarre</title>
-	<meta name="title" content="¨&quot;übarre&quot;">
+	<title>Ü Barre</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<!-- <link rel="icon" href="./favico.png" type="image/x-icon"/> -->
-	<link rel="shortcut icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
+	 <link rel="shortcut icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
 	<script src="./assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
@@ -80,12 +85,12 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 								  <div class="row">
 									<div class="col-5">
 									  <div class="icon-big text-center">
-										<i class="icon-people text-success"></i>
+										<i class="icon-credit-card text-success"></i>
 									  </div>
 									</div>
 									<div class="col-7 col-stats">
 									  <div class="numbers">
-										<p class="card-category">Clientes</p>
+										<p class="card-category">Transacciones</p>
 										<h4 class="card-title ca33" id="Ileads"></h4>
 									  </div>
 									</div>
@@ -99,13 +104,13 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 								  <div class="row">
 									<div class="col-5">
 									  <div class="icon-big text-center">
-										<i class="icon-handbag text-danger"></i>
+										<i class="icon-people text-danger"></i>
 									  </div>
 									</div>
 									<div class="col-7 col-stats">
 									  <div class="numbers">
-										<p class="card-category">Ventas</p>
-										<h4 class="card-title ca33" id="Iclientes"></h4>
+										<p class="card-category">Clientes</p>
+										<h4 class="card-title ca33" id="Iclientes"></h4> 
 									  </div>
 									</div>
 								  </div>
@@ -123,7 +128,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 									</div>
 									<div class="col-7 col-stats">
 									  <div class="numbers">
-										<p class="card-category">% Aforo</p>
+										<p class="card-category">Coaches</p>
 										<h4 class="card-title ca33" id="Icyc"></h4>
 									  </div>
 									</div>

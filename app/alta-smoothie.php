@@ -107,7 +107,7 @@ $idSmoothieEdit = 0;
                                     $descrip = $filaSelectSmoothie['descrip'];
                                     /* $button = "Guardar Edición"; */
 
-                                    // Cambiar el título y breadcrumb para edición
+                                    // Cambiar el título y breadcrumb para edición 
                                     echo '<script>
                                         document.querySelector(".page-header h3").textContent = "Editar Smoothie";
                                         document.querySelector(".breadcrumbs .nav-item:last-child a").textContent = "Editar Smoothie";

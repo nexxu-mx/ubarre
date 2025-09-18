@@ -77,8 +77,15 @@
                     <p>La plataforma permite a los usuarios realizar reservaciones para eventos, sesiones o servicios específicos ofrecidos por übarre. Al momento de confirmar una reservación, el usuario se compromete a cumplir con los términos acordados.</p>
 
                     <ul>
-                        <li>El usuario podrá cancelar una reservación sin penalización siempre y cuando lo haga con al menos <strong>6 horas de anticipación</strong> al inicio del evento.</li>
+                        <li>El usuario podrá cancelar una reservación sin penalización siempre y cuando lo haga con al menos <strong>8 horas de anticipación</strong> al inicio del evento.</li>
                         <li>Las cancelaciones posteriores a ese plazo no serán procesadas ni reembolsadas bajo ninguna circunstancia.</li>
+                        <li>Los paquetes regulares permiten tomar una clase al día.</li>
+                        <li>Los smoothies incluidos en el paquete tienen la misma vigencia que el paquete de clases.</li>
+                        <li>No son acumulables ni transferibles una vez vencido el paquete.</li>
+                        <li>Todos los paquetes tienen una duración determinada desde la fecha de compra. Una vez vencido el periodo, las clases no utilizadas se perderán.</li>
+                        <li>Los paquetes son personales e intransferibles. No se hacen reembolsos por clases no tomadas, salvo causas de fuerza mayor.</li>
+                        <li>El paquete ilimitado permite tomar hasta dos clases por día.</li>
+
                         <li>übarre se reserva el derecho de cancelar cualquier reservación sin previo aviso, ya sea por razones operativas, de fuerza mayor o incumplimiento de políticas internas.</li>
                     </ul>
 
@@ -99,9 +106,7 @@
         </article>
     </main>
     <?php include 'footer.php'; ?>
-    <a href="https://wa.me/524792179429?text=Hola,%Quiero%20más%20información%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
-    </a>
+   
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

@@ -92,7 +92,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 <?php
                                 $idcoach = $idcoach ?? "";
 
-                                $queryUsers = $conn->query("SELECT nombre FROM users WHERE tipoUser = 2");
+                                $queryUsers = $conn->query("SELECT nombre FROM users WHERE tipoUser = 2 OR tipoUser = 3");
                                 if ($queryUsers) {
                                     while ($users = $queryUsers->fetch_assoc()) {
                                         $selected = ($users['id'] == $idcoach) ? 'selected' : '';

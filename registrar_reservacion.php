@@ -37,18 +37,7 @@ $fechaReserva = time();
 $inicio = null;
 $fin = null;
 
-// PRIMERO: Verificar si el usuario ya tiene reserva para esta clase
-$stmtCheck = $conn->prepare("SELECT id FROM reservaciones WHERE alumno = ? AND idClase = ? AND activo = '1'");
-$stmtCheck->bind_param("ii", $alumno, $idClase);
-$stmtCheck->execute();
-$resultCheck = $stmtCheck->get_result();
 
-if ($resultCheck->num_rows > 0) {
-    echo json_encode(["status" => "duplicate", "message" => "Ya tienes una reserva activa para esta clase"]);
-    $stmtCheck->close();
-    exit();
-}
-$stmtCheck->close();
 
 // SEGUNDO: Obtener información de la clase
 $stmtC = $conn->prepare("SELECT hora_inicio, hora_fin FROM clases WHERE id = ?");
@@ -62,11 +51,12 @@ if ($resultC->num_rows === 0) {
 } else {
     $rowC = $resultC->fetch_assoc();
     $inicio = $rowC['hora_inicio'];
+    $fecha_clase = $rowC['hora_inicio'];
     $fin = $rowC['hora_fin'];
 }
 
 // TERCERO: Verificar créditos disponibles
-$stmtCredit = $conn->prepare("SELECT credit FROM users WHERE id = ?");
+$stmtCredit = $conn->prepare("SELECT credit, ilimitado FROM users WHERE id = ?");
 $stmtCredit->bind_param("i", $alumno);
 $stmtCredit->execute();
 $resultCredit = $stmtCredit->get_result();
@@ -77,13 +67,52 @@ if ($resultCredit->num_rows === 0) {
 } else {
     $rowCredit = $resultCredit->fetch_assoc();
     $creditDisponible = $rowCredit['credit'];
+    $ilimitado = $rowCredit['ilimitado'];
     
     if ($creditDisponible <= 0) {
         echo json_encode(["status" => "nocredit"]);
         exit();
     }
 }
+// SEGUNDO: Verificar si el usuario ya tiene reserva para esta clase
+$stmtCheck = $conn->prepare("
+    SELECT id 
+    FROM reservaciones 
+    WHERE alumno = ? 
+      AND DATE(inicio) = ? 
+      AND activo = '1'
+    LIMIT 2
+");
 
+// extraer solo la parte de fecha (YYYY-MM-DD) de $fecha_clase
+$fechaSolo = date("Y-m-d", strtotime($fecha_clase));
+
+$stmtCheck->bind_param("is", $alumno, $fechaSolo);
+$stmtCheck->execute();
+$resultCheck = $stmtCheck->get_result();
+
+if($ilimitado == 1){
+    if ($resultCheck->num_rows > 1) {
+    echo json_encode([
+        "status" => "duplicate", 
+        "message" => "Ya tienes una reserva activa para este día"
+    ]);
+    $stmtCheck->close();
+    exit();
+}
+}else{
+    if ($resultCheck->num_rows > 0) {
+    echo json_encode([
+        "status" => "duplicate", 
+        "message" => "Ya tienes más de una reserva activa para este día"
+    ]);
+    $stmtCheck->close();
+    exit();
+}
+}
+
+
+$stmtCheck->close();
 // CUARTO: Insertar la reserva (si pasó todas las validaciones)
 $stmt = $conn->prepare("INSERT INTO reservaciones (clase, idClase, alumno, dura, instructor, idInstructor, invitado, activo, sabor, momento, inicio, fin, fechaReserva) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssss", $clase, $idClase, $alumno, $dura, $instructor, $idInstructor, $invitado, $activo, $sabor, $momento, $inicio, $fin, $fechaReserva);

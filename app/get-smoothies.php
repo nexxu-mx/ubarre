@@ -51,7 +51,7 @@ try {
         throw new Exception("Error obteniendo el resultado de la consulta.");
     }
 
-    $smoothies = [];
+    $smoothies = []; 
     
     while ($row = $result->fetch_assoc()) {
         $defaultImage = "../assets/images/smoothies/default.png";

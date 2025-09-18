@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validar que el sabor no esté vacío
     if (empty($sabor)) {
-        $_SESSION['error'] = "El sabor del smoothie no puede estar vacío";
+       echo "El sabor del smoothie no puede estar vacío";
         header('location: alta-smoothie.php' . ($idSmoothieEdit ? '?id=' . $idSmoothieEdit : ''));
         exit;
     }
@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($insertSmoothie->execute()) {
             $idSmoothie = $conn->insert_id;
-            $_SESSION['mensaje'] = "Smoothie agregado correctamente";
+            $log = "Smoothie agregado correctamente";
         } else {
-            $_SESSION['error'] = "Error al agregar el smoothie: " . $conn->error;
+           echo "Error al agregar el smoothie: " . $conn->error;
             header('location: alta-smoothie.php');
             exit;
         }
@@ -36,9 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateSmoothie->bind_param("ssi", $sabor, $descrip, $idSmoothie);
 
         if ($updateSmoothie->execute()) {
-            $_SESSION['mensaje'] = "Smoothie actualizado correctamente";
+            $log = "Smoothie actualizado correctamente";
         } else {
-            $_SESSION['error'] = "Error al actualizar el smoothie: " . $conn->error;
+           echo "Error al actualizar el smoothie: " . $conn->error;
             header('location: alta-smoothie.php?id=' . $idSmoothie);
             exit;
         }
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $carpetaSmoothies = "../assets/images/smoothies/";
         if (!is_dir($carpetaSmoothies)) {
             if (!mkdir($carpetaSmoothies, 0777, true)) {
-                $_SESSION['error'] = "Error al crear la carpeta principal para las imágenes";
+               echo "Error al crear la carpeta principal para las imágenes";
                 header('location: smoothies.php');
                 exit;
             }
@@ -74,14 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mimesPermitidos = array('image/jpeg', 'image/png', 'image/gif', 'image/webp');
 
         if (!in_array($extension, $extensionesPermitidas) || !in_array($mimeType, $mimesPermitidos)) {
-            $_SESSION['error'] = ($_SESSION['error'] ?? "") . " Tipo de archivo no permitido. Solo se permiten imágenes JPG, JPEG, PNG, GIF y WEBP";
+           echo " Tipo de archivo no permitido. Solo se permiten imágenes JPG, JPEG, PNG, GIF y WEBP";
             header('location: alta-smoothie.php' . ($idSmoothieEdit ? '?id=' . $idSmoothieEdit : ''));
             exit;
         }
 
         // Verificar tamaño (máximo 5MB)
         if ($tamañoArchivo > 5 * 1024 * 1024) {
-            $_SESSION['error'] = ($_SESSION['error'] ?? "") . " La imagen es demasiado grande. Máximo 5MB permitido";
+           echo " La imagen es demasiado grande. Máximo 5MB permitido";
             header('location: alta-smoothie.php' . ($idSmoothieEdit ? '?id=' . $idSmoothieEdit : ''));
             exit;
         }
@@ -100,16 +100,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Mover archivo
         if (move_uploaded_file($nombreTemporal, $rutaDestino)) {
-            $_SESSION['mensaje'] = ($_SESSION['mensaje'] ?? "") . " Imagen subida correctamente.";
+            echo " Imagen subida correctamente.";
         } else {
-            $_SESSION['error'] = "Error al guardar la imagen";
+           echo "Error al guardar la imagen";
         }
     }
 
-    header('location: smoothies.php');
-    exit;
+    header('location: smoothies.php?log=' . $log );
+     exit;
 } else {
-    $_SESSION['error'] = 'Método no permitido';
+   echo 'Método no permitido';
     header('location: smoothies.php');
     exit;
 }

@@ -49,22 +49,27 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 	 max-width: 900px;
 	 margin: 40px auto;
    }
-   .fc .fc-button-primary:not(:disabled).fc-button-active, .fc .fc-button-primary:not(:disabled):active {
-	   background-color: var(--fc-button-active-bg-color,#A16A5B);
-	   border-color: var(--fc-button-active-border-color,#73534A);
-   }
-   .fc .fc-button-primary {
-	   background-color: var(--fc-button-bg-color,#D7B094);
-	   border-color: var(--fc-button-border-color,#C19C82);
-   }
-   .fc .fc-button-primary:hover, .fc .fc-button-primary:focus {
-	   background-color: var(--fc-button-bg-color,#C49675);
-	   border-color: var(--fc-button-border-color,#C1A794); 
-   }
-   .fc .fc-button-primary:disabled {
-	   background-color: var(--fc-button-bg-color,#A16A5BC2);
-	   border-color: var(--fc-button-border-color,#A16A5B);
-   }
+           .fc .fc-button-primary:not(:disabled).fc-button-active,
+        .fc .fc-button-primary:not(:disabled):active {
+            background-color: var(--fc-button-active-bg-color, #8B976A);
+            border-color: var(--fc-button-active-border-color, #727c56ff);
+        }
+
+        .fc .fc-button-primary {
+            background-color: var(--fc-button-bg-color, #bbc0ae);
+            border-color: var(--fc-button-border-color, #8B976A);
+        }
+
+        .fc .fc-button-primary:hover,
+        .fc .fc-button-primary:focus {
+            background-color: var(--fc-button-bg-color, #8B976A);
+            border-color: var(--fc-button-border-color, #727c56ff);
+        }
+
+        .fc .fc-button-primary:disabled {
+            background-color: var(--fc-button-bg-color, #bbbdb7ff);
+            border-color: var(--fc-button-border-color, #8B976A);
+        }
    .fc .fc-toolbar-title {
 	 font-weight: 300;
    }
@@ -248,7 +253,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
         </div>
     </div>
 	<div id="evento-form" class="card colso">
-	<h3 style="color: #986C5D; text-align: center;">Agendar Clase</h3>
+	<h3 style="color: #8B976A; text-align: center;">Agendar Clase</h3>
 	<p id="fech" style="text-align: center;"></p>
 		<form id="form-evento" style="height: 60vh;overflow: auto;">
 			
@@ -271,7 +276,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 				<label for="hora-fin">Hora fin</label>
 			</div>
 			</div>
-
+			<label for="aforo"><i class="icon-calendar"></i> Días</label>
             <div class="selectgroup selectgroup-pills" style="display: grid;margin-block: 15px;">
               <label class="selectgroup-item">
                 <input type="checkbox" name="dayrepeat" value="1" class="selectgroup-input">
@@ -303,36 +308,8 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
               </label>
             </div>
 
-
-			<div class="form-floating form-floating-custom mb-3">
-				<select class="form-select" id="aforo-select" required="">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
-					<option value="13">13</option>
-					<option value="14" selected>14</option>
-					<option value="15">15</option>
-					<option value="16">16</option>
-					<option value="17">17</option>
-					<option value="18">18</option>
-					<option value="19">19</option>
-					<option value="20">20</option>
-					<option value="21">21</option>
-					
-					
-
-				</select>
-				<label for="aforo"><i class="fas fa-users"></i> Aforo</label>
-			</div>
+			<input type="hidden" name="aforo-select" id="aforo-select" value="8">
+			
 			
 			
 			<div style="display: flex;justify-content: space-between;">

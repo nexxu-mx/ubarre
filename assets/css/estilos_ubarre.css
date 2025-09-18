@@ -83,7 +83,7 @@
 
 .elemento-central-fundadoras {
     position: relative;
-    background-image: url(../images/ubarre/2x/index@2x.png);
+    background-image: url("../images/founders.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
@@ -123,6 +123,7 @@
     font-size: 3.2rem;
     font-weight: 500;
     color: #F2EEEA;
+    text-shadow: 0 0 12px #000;
 }
 
 .button-fundadoras {
@@ -719,7 +720,7 @@
 }
 
 .main-section-contacto {
-    background-image: url(../images/ubarre/2x/fondo_ubarre@2x.png);
+    background-image: url("../images/contact.jpg");
     object-fit: cover;
     background-repeat: no-repeat;
     background-size: cover;
@@ -963,9 +964,9 @@ form .submit-btn {
 
 
 .beneficios-barre {
-    background-image: url(../images/ubarre/2x/befeficios@2x.png);
+    /* background-image: url(../images/ubarre/2x/befeficios@2x.png);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
     width: 100%;
     height: 130rem;
 }

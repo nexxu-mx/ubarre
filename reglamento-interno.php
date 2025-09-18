@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>übarre</title>
-    <meta name="title" content="Sencia Studio">
-    <meta name="description" content="SENCIA es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <title>üBarre</title>
+    <meta name="title" content="üBarre">
+    <meta name="description" content="üBarre un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que escucha, sostiene y acompaña.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,9 +35,7 @@
         <article>
             <section class="banner-about-us-section">
                 <div class="container">
-                    <div class="logo-banner-about-us-container">
-                        <img src="assets/images/svg/logo-blanco.svg" alt="Logo Sencia">
-                    </div>
+                   
                     
                 </div>
             </section>
@@ -52,9 +50,6 @@
         </article>
     </main>
     <?php include 'footer.php'; ?>
-    <a href="https://wa.me/524792179429?text=Hola,%Quiero%20más%20información%20de%20SENCIA." class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
-    </a>
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

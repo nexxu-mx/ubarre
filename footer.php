@@ -1,8 +1,8 @@
 <footer class="footer section">
-  <video id="video-footer" src="./assets/images/sencia_gradient.mp4" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
+  
   <div class="container">
     <div class="logo-container">
-      <img src="assets/images/ubarre/ubarre.svg" alt="Logo Sencia">
+      <img src="assets/images/ubarre/ubarre.svg" alt="Logo  ">
     </div>
     <div class="texto-footer-container">
       <div class="terminos-container">
@@ -10,7 +10,7 @@
         <a href="politica-de-privacidad.php">Política de privacidad</a>
         <a href="contacto.php">Ayuda</a>
       </div>
-      <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20SENCIA." class="back-top-btn" aria-label="back to top"
+      <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20 ." class="back-top-btn" aria-label="back to top"
         data-back-top-btn>
         <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp ">
       </a>
@@ -19,8 +19,11 @@
       </div>-->
       <div class="icons-container">
         <a href="https://www.instagram.com/u.barre/"><img src="assets/images/svg/logo_instagram.svg" alt="Ícono Instagram"></a>
-        <a href="mailto:contacto@studiosencia.com"><img src="assets/images/svg/mail.svg" alt="Ícono Mail"></a>
+        <a href="mailto:contacto@ubarre.com.mx"><img src="assets/images/svg/mail.svg" alt="Ícono Mail"></a>
       </div>
     </div>
   </div>
 </footer>
+ <a href="https://wa.me/524779077707?text=Hola,%Quiero%20más%20información." class="back-top-btn" aria-label="back to top" data-back-top-btn>
+        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp">
+    </a>

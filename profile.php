@@ -32,7 +32,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>übarre | Perfil</title>
     <meta name="title" content="übarre">
-    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <meta name="description" content="üBarre un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que escucha, sostiene y acompaña.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,6 +119,18 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             padding: 5px;
             border-bottom: 1px solid #d6d6d6;
         }
+        
+        @media (max-width: 550px) {
+            .plso{
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                padding-top: 0;
+                padding-bottom: 0;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -133,7 +145,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <!-- MAIN SECTION -->
     <main>
         <article>
-            <section class="secti-on" style="background-color: #DFD5BE; height: 100dvh;">
+            <section class="secti-on plso" style="background-color: #DFD5BE;">
 
                 <!-- INICIO -->
                 <div class="container p1" id="profile-inicio">
@@ -322,7 +334,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
 
 
 
-
+                            <p data-back-top-btn=""></p>
     <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
     <script src="./assets/js/profile.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

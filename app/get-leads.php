@@ -40,6 +40,8 @@ try {
             $tipo = "Coach";
         }elseif($row['tipoUser'] == 3){
             $tipo = "Admin";
+        }elseif($row['tipoUser'] == 4){
+            $tipo = "Recepción";
         }
         $leads[] = [
             'id' => $row['id'],

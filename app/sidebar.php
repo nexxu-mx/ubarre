@@ -92,7 +92,7 @@
 				<li class="nav-item">
 					<a href="clientes.php">
 						<i class="fas fa-users"></i>
-						<p>Clientes</p>
+						<p>Usuarios</p>
 					</a>
 				</li>
 				<li class="nav-item">
@@ -121,12 +121,7 @@
 					</a>
 				</li>
 
-				<li class="nav-item">
-					<a href="users.php">
-						<i class="fas fa-user-cog"></i>
-						<p>Usuarios</p>
-					</a>
-				</li>
+				
 				<li class="nav-item">
 					<a href="paquetes.php">
 						<i class="fas fa-boxes"></i>

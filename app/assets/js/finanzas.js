@@ -164,11 +164,11 @@ $(document).ready(function() {
             });
 
             // Insertar las operaciones en la tabla
-            data.operaciones.forEach(function (op) {
-                var row = `<tr><td>${op.tipo}</td><td>$${op.monto.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
-<td>${op.fecha}</td></tr>`;
-                $('#operaciones').append(row);
-            });
+//             data.operaciones.forEach(function (op) {
+//                 var row = `<tr><td>${op.tipo}</td><td>$${op.monto.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
+// <td>${op.fecha}</td></tr>`;
+//                 $('#operaciones').append(row);
+//             });
         },
         error: function (xhr, status, error) {
             console.error("Error al obtener los datos:", error);

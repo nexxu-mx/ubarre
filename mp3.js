@@ -1,9 +1,9 @@
 console.log('inicia SDK.');
-//PR::: APP_USR-8464223c-ec51-46dd-9711-8b52d9600578 TEST::: TEST-df88f0fd-9bd4-4762-8e08-9814912fc5a2
-const mp = new MercadoPago("TEST-df88f0fd-9bd4-4762-8e08-9814912fc5a2", {
+//PR::: APP_USR-1fe21590-1720-4dfb-bc45-d992b00356f2 TEST::: TEST-7fb6ee5f-0d4a-4112-8754-27989c22c491
+const mp = new MercadoPago("TEST-7fb6ee5f-0d4a-4112-8754-27989c22c491", {
     locale: "es-MX"
 });
-
+//APP_USR-21305876-a37c-4a07-b2f9-b4e9e2cfc186
 const bricksBuilder = mp.bricks();
 
 const renderPaymentBrick = async () => {
@@ -27,7 +27,7 @@ const renderPaymentBrick = async () => {
         },
         body: JSON.stringify({ idusrv })
     });
-
+    
     const userData = await userResponse.json();
     const hasCustomerId = userData.customer_id !== null && userData.customer_id !== '';
 
@@ -43,7 +43,7 @@ const renderPaymentBrick = async () => {
         });
         cardData = await cardResponse.json();
     }
-
+    
     console.log("Card Data:", cardData);
 
     // Configuración del Brick con opción para guardar tarjeta
@@ -76,7 +76,7 @@ const renderPaymentBrick = async () => {
                 formData.idusrv = idusrv;
                 formData.amount = amount;
                 formData.customer_id = userData.customer_id;
-
+                
                 // Determinar si es tarjeta y mostrar confirmación
                 if (['credit_card', 'debit_card'].includes(selectedPaymentMethod)) {
                     formData.save_card = confirm('¿Deseas guardar esta tarjeta para futuras compras?');
@@ -90,15 +90,15 @@ const renderPaymentBrick = async () => {
                         },
                         body: JSON.stringify(formData),
                     });
-
+                    
                     const result = await response.json();
-                    // console.log('Payment Response:', result);
-
+                   // console.log('Payment Response:', result);
+                    
                     if (result.card_id) {
                         // Actualizar la UI para mostrar la nueva tarjeta
                         await updateSavedCardsUI(idusrv, result.card_id, result.customer_id);
                     }
-
+                    
                     mostrarResultadoPago(result);
                     return result;
                 } catch (error) {
@@ -139,9 +139,9 @@ const renderPaymentBrick = async () => {
             "linear-gradient(135deg, #e65c00 40%, #f9d423 60%)",
             "linear-gradient(135deg, #614385 40%, #516395 60%)"
         ];
-
+    
         const cards = document.querySelectorAll(".use-card-btn");
-
+    
         if (cards.length > 0) {
             cards.forEach((card, index) => {
                 if (index < gradients.length) {
@@ -172,7 +172,7 @@ const renderPaymentBrick = async () => {
                 </div>
                 
             `;
-
+            
 
             cardElement.querySelector('.use-card-btn').addEventListener('click', async () => {
                 const cvv = prompt("Ingresa el CVV de la tarjeta:");
@@ -190,12 +190,13 @@ const renderPaymentBrick = async () => {
                         body: JSON.stringify({
                             idusrv: userId,
                             card_id: card.card_id,
+                            payment_method_id: card.payment_method,
                             cvv: cvv,
                             amount: amount,
                             customer_id: card.customer_id
                         }),
                     });
-
+                    
                     const result = await response.json();
                     mostrarResultadoPago(result);
                 } catch (error) {
@@ -226,7 +227,7 @@ const renderPaymentBrick = async () => {
             },
             body: JSON.stringify({ idusrv: userId })
         });
-
+        
         const updatedCards = await response.json();
         if (updatedCards.cards && updatedCards.cards.length > 0) {
             // Volver a renderizar la lista de tarjetas
@@ -237,10 +238,10 @@ const renderPaymentBrick = async () => {
     function mostrarResultadoPago(resultado) {
         // Ocultar formulario de pago
         document.getElementById('data-pago').style.display = 'none';
-
+        
         // Elemento donde mostraremos el resultado
         const resqueElement = document.getElementById("resque");
-
+        
         // Plantillas para cada estado
         const templates = {
             approved: `
@@ -248,9 +249,9 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/checkmark.svg" alt="Checkmark" style="width: 100px;">
                     </div>
-                    <h2 style="color: #8B976A;">¡Compra Aprobada!</h2>
+                    <h2 style="color: var(--light-brown-3);">¡Compra Aprobada!</h2>
                     <p>Tu compra ha sido exitosa.</p>
-                    <h3 style="color: #8B976A;">ID de pago: ${resultado.payment_id}</h3>
+                    <h3 style="color: var(--light-browm-2);">ID de pago: ${resultado.payment_id}</h3>
                     <h4 style="font-weight: 300; font-size: 1.5rem; line-height: 1;">
                         ¡Gracias por tu compra! En breve recibirás un mensaje de confirmación con tu recibo de pago.
                     </h4>
@@ -262,7 +263,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/revoque.svg" alt="Pago rechazado" style="width: 100px;">
                     </div>
-                    <h2 style="color: #8B976A;">¡Compra Rechazada!</h2>
+                    <h2 style="color: var(--light-brown-3);">¡Compra Rechazada!</h2>
                     <p>Vuelve a intentar el pago nuevamente.</p>
                     <a href="checkout.php" style="margin-top: 25px" class="c3">Reintentar</a>
                 </div>
@@ -272,7 +273,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/wait.svg" alt="Pago en proceso" style="width: 100px;">
                     </div>
-                    <h2 style="color: #8B976A;">Procesando el pago...</h2>
+                    <h2 style="color: var(--light-brown-3);">Procesando el pago...</h2>
                     <p>Recibirás una notificación cuando tu compra se haya procesado correctamente.</p>
                     <a href="profile.php" style="margin-top: 25px" class="c3">Ir a Perfil</a>
                 </div>
@@ -282,7 +283,7 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/wait.svg" alt="Pago pendiente" style="width: 100px;">
                     </div>
-                    <h2 style="color: #8B976A;">Pago Pendiente...</h2>
+                    <h2 style="color: var(--light-brown-3);">Pago Pendiente...</h2>
                     <p>Recibirás una notificación cuando tu compra se haya procesado correctamente.</p>
                     <a href="profile.php" style="margin-top: 25px" class="c3">Ir a Perfil</a>
                 </div>
@@ -292,13 +293,23 @@ const renderPaymentBrick = async () => {
                     <div style="display: flex; justify-content: center;">
                         <img src="./assets/images/revoque.svg" alt="Error en pago" style="width: 100px;">
                     </div>
-                    <h2 style="color: #8B976A;">¡Ocurrió un Error!</h2>
+                    <h2 style="color: var(--light-brown-3);">¡Ocurrió un Error!</h2>
                     <p>Vuelve a intentar el pago nuevamente.</p>
                     <a href="checkout.php" style="margin-top: 25px" class="c3">Reintentar</a>
                 </div>
+            `,
+             bienvenida: `
+                <div class="success-message">
+                    <div style="display: flex; justify-content: center;">
+                        <img src="./assets/images/revoque.svg" alt="Error en pago" style="width: 100px;">
+                    </div>
+                    <h2 style="color: var(--light-brown-3);">¡Ocurrió un Error!</h2>
+                    <p>No puedes volver a adquirir una clase de prueba, porque solo se puede comprar una sola vez.</p>
+                    <a href="paquetes.php" style="margin-top: 25px" class="c3">Comprar otro paquete</a>
+                </div>
             `
         };
-
+    
         // Manejar el estado del pago
         if (resultado.payment_status === "approved") {
             resqueElement.innerHTML = templates.approved;
@@ -313,9 +324,21 @@ const renderPaymentBrick = async () => {
             }
             resqueElement.innerHTML = templates.pending;
         } else {
-            resqueElement.innerHTML = templates.error;
+            if (resultado.error === "CLASE BIENVENIDA UTILIZADA") {
+                resqueElement.innerHTML = templates.bienvenida;
+            }else{
+            resqueElement.innerHTML = `<div class="success-message">
+                    <div style="display: flex; justify-content: center;">
+                        <img src="./assets/images/revoque.svg" alt="Error en pago" style="width: 100px;">
+                    </div>
+                    <h2 style="color: var(--light-brown-3);">¡Ocurrió un Error!</h2>
+                    <p>Vuelve a intentar el pago nuevamente.</p><br>
+                        <small>${resultado.payment_status}</small>
+                    <a href="checkout.php" style="margin-top: 25px" class="c3">Reintentar</a>
+                </div>`;
+            }
         }
-
+        
         // Mostrar el contenedor de resultados si estaba oculto
         resqueElement.style.display = 'flex';
     }
@@ -357,8 +380,8 @@ async function fetchUserData(userId) {
     return await response.json();
 }
 
-function payTarjet() {
-
+function payTarjet(){
+    
     renderPaymentBrick();
     document.getElementById('eleccion_pago').style.display = "none";
     document.getElementById('metodo_pago').style.display = "flex";

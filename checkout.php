@@ -149,7 +149,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                                         Pagar en sitio</a>
                                     <button onclick="payTarjet()" class="elect"><img src="./assets/images/card.svg" style="width: 50px" alt="">Tarjeta Crédito/Débito</button>
                                 </div>
-                                <div id="metodo_pago" style="display: none">
+                                <div id="metodo_pago" style="width: 100%; display: none">
                                     <input type="hidden" id="coust" name="coust" value="<?php echo $IDpaquete; ?>" />
                                     <input type="hidden" id="idusrv" name="idusrv" value="3" />
                                     <div id="paymentBrick_container" class="c10"></div>
@@ -171,6 +171,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <script src="./mp3.js?v=<?php echo time(); ?>"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        payTarjet();
+    </script>
 </body>
 
 </html>

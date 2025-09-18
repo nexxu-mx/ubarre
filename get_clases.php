@@ -131,13 +131,13 @@ if ($day) {
         } elseif ($now < $start) {
             if ($abierta == 1) {
                 //estatus clase en abierta para reserva
-                $estatus = '<img src="./assets/images/svg/waiting_list.svg">
-                        <p>Clase disponible</p>';
+                $estatus = '<div style="width: 10px;height: 10px;border-radius: 50%;background: green;"></div>';
             }
         } elseif ($start < $now) {
             $estatus = '<img src="./assets/images/svg/full_class.svg">
                         <p>Clase llena</p>';
             $abierta = 0;
+            continue;
         }
 
         // Formatear horario en formato AM/PM

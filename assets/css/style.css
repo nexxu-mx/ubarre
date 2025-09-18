@@ -1379,7 +1379,7 @@ span {
 \*-----------------------------------*/
 
 .banner-about-us-section {
-  background-image: url("../images/ubarre/2x/fondo_ubarre@2x.png");
+  background-image: url("../images/about_us.jpg");
   background-repeat: no-repeat;
   object-fit: cover;
   width: 100%;
@@ -1507,7 +1507,7 @@ span {
 \*-----------------------------------*/
 
 .main-section-contacto {
-  background-image: url("../images/ubarre/2x/fondo_ubarre@2x.png");
+  background-image: url("../images/contact.jpg");
   width: 100%;
   height: 100vh;
   background-size: 110%;
@@ -1689,7 +1689,7 @@ form textarea:focus {
 \*-----------------------------------*/
 
 .login-main-section {
-  background-image: url("../images/ubarre/2x/espalda_ubarre_1@2x.png");
+  background-image: url("../images/login.jpg");
   width: 100%;
   min-height: 100vh;
   background-repeat: no-repeat;
@@ -2387,6 +2387,9 @@ form textarea:focus {
 
   .header-mobile {
     display: grid;
+  }
+  .reserva-main-section {
+    padding-block: 0;
   }
 }
 

@@ -1,8 +1,9 @@
 <?php
-$subject = "$mail_asunto SenciaStudio";
+require_once __DIR__ . '/config-mail.php';
+$subject = "$mail_asunto  üBarre";
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= 'From: notificaciones@sencia.mx' . "\r\n";
+$headers .= 'From: notificaciones@ubarre.com.mx' . "\r\n";
 
 $message = '
 <html>
@@ -27,7 +28,7 @@ $message = '
             </div>
             <div class="header">
                 <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                    <img src="" style="width: 60%;" alt="Sencia Studio">
+                    <img src="" style="width: 60%;" alt=" üBarre">
                 </div>
                 <h1>' . $mail_motivo . '</h1>
             </div>
@@ -50,7 +51,7 @@ $message = '
 </html>
 ';
 
-if (mail($mail_mailing, $subject, $message, $headers)) {
+if (smail($mail_mailing, $subject, $message, $headers)) {
    $celjk = "ok";
 }
 

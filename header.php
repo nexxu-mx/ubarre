@@ -52,23 +52,13 @@
 
       <ul class="social-list">
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-twitter"></ion-icon>
-          </a>
-        </li>
-
+       
         <li>
           <a href="#" class="social-link">
             <ion-icon name="logo-facebook"></ion-icon>
           </a>
         </li>
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-pinterest"></ion-icon>
-          </a>
-        </li>
 
         <li>
           <a href="#" class="social-link">
@@ -76,11 +66,6 @@
           </a>
         </li>
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-youtube"></ion-icon>
-          </a>
-        </li>
 
       </ul>
 
@@ -145,10 +130,7 @@
 
   <div class="navbar-top">
 
-    <a href="index.php" class="logo">
-      <img src="./assets/images/svg/logo-negro.svg" width="136"
-        height="46" alt>
-    </a>
+    
 
     <button class="nav-close-btn" aria-label="clsoe menu"
       data-nav-toggler>
@@ -158,13 +140,15 @@
   </div>
 
   <ul class="navbar-list">
-
+       <li class="navbar-item">
+      <a href="index.php" class="navbar-link title-md">HOME</a>
+    </li>
     <li class="navbar-item">
       <a href="aboutus.php" class="navbar-link title-md">ABOUT US</a>
     </li>
 
     <li class="navbar-item">
-      <a href="clases.php" class="navbar-link title-md">CLASES</a>
+      <a href="beneficios.php" class="navbar-link title-md">CLASES</a>
     </li>
 
     <li class="navbar-item">

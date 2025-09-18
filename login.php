@@ -16,7 +16,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>übarre | Login</title>
     <meta name="title" content="übarre">
-    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <meta name="description" content="üBarre un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que escucha, sostiene y acompaña.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,8 +55,8 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                         <h2>INICIA SESIÓN</h2>
                         <p class="registro-mensaje">¿Es tu primera vez? <span><button type="button" onclick="openRegistro()">Regístrate</button></span></p>
                         <div class="container-login-form">
-                            <label for="text">Email*</label>
-                            <input type="text" name="text" id="text" placeholder="Email Address" maxlength="10" minlength="9" required>
+                            <label for="text">Número *</label>
+                            <input type="text" name="text" id="text" placeholder="477000..." maxlength="10" minlength="9" required>
                             <br>
                             <label for="contras" id="labelNum">Contraseña</label>
                             <div id="contentNum">
@@ -70,8 +70,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                     </form>
                 </div>
                 <div class="container" id="registro" style="margin-block: 20px; display: none">
-                    <form action="registro.php" method="post" class="login-form">
-                        <img src="assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="Logo übarre">
+                    <form action="registro.php" method="post" class="login-form" style="padding: 20px">
                         <h2>VAMOS A REGISTRARTE</h2>
                         <p class="registro-mensaje">¿Ya tienes cuenta? <span><button type="button" onclick="closeRegistro()">Iniciar Sesión</button></span></p>
                         
@@ -109,7 +108,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                     </form>
                 </div>
                 <div class="container" id="contraseña" style="margin-block: 20px; display: none">
-                    <form action="change-password.php" method="post" class="login-form" style="padding-block: 20px;">
+                    <form action="change-password.php" method="post" class="login-form" style="padding-block: 20px; padding: 20px;">
                         <button type="button" onclick="closeCo()">Regresar</button>
 
                         <label for="numberCon">Número*</label>

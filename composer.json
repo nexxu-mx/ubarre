@@ -12,6 +12,15 @@
         }
     ],
     "require": {
-        "mercadopago/dx-php": "^3.3"
+        "mercadopago/dx-php": "^3.3",
+        "phpmailer/phpmailer": "^6.10",
+        "cloudconvert/cloudconvert-php": "^3.4",
+        "symfony/http-client": "^7.3",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
     }
 }

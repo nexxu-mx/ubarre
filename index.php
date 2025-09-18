@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>übarre</title>
-  <meta name="title" content=¨"übarre">
-  <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+  <title>üBarre</title>
+  <meta name="title" content="üBarre">
+  <meta name="description" content="üBarre un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que escucha, sostiene y acompaña.">
   <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,8 +49,8 @@
       <section class="hero-banner" style="position: relative">
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: flex; justify-content: center; align-items: center;">
           <video autoplay loop muted playsinline style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%);z-index: 2"
-            poster="./assets/images/ubarre/2x/hero@2x.png">
-            <source src="./assets/images/banner-hero3.mp4" type="video/mp4">
+            poster="./assets/images/bg-vid.jpg">
+            <source src="./assets/images/bg-class.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -171,7 +171,7 @@
                     while ($filaCoach = $resultadoSelectCoaches->fetch_assoc()) {
                       echo '
                       <div class="slide" data-disciplina="PILATES">
-                        <div class="sli1"> <img src="assets/images/coaches/pro/' . $filaCoach['id'] . '.png" alt="imagen slider"></div>
+                        <div class="sli1"> <img src="assets/images/coaches/pro/' . $filaCoach['id'] . '.png?v=' . time() . '" alt="imagen slider"></div>
                         <div class="contenido-slider">
                           <div class="texto-slider">
                             <p>' . $filaCoach['nombre_coach'] . '</p>

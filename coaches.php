@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>übarre | Coaches</title>
     <meta name="title" content="übarre">
-    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <meta name="description" content="üBarre un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que escucha, sostiene y acompaña.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,7 @@
             <?php
             include 'db.php';
 
-            ini_set('display_errors', 1);
-            error_reporting(E_ALL);
+       
 
             $idDisciplinas = [];
 
@@ -76,11 +75,11 @@
                 $defaultPath = "./assets/images/coaches/pro/" . $fila['id'] . ".png";
 
                 if (!file_exists($coachPath)) {
-                    $imgC = '<img src="' . $defaultPath . '" alt="Foto Coach" style="width: 100%; height: 100%; object-fit: cover;">';
+                    $imgC = '<img src="' . $defaultPath . '?v=' . time() . '" alt="Foto Coach" style="width: 100%; height: 100%; object-fit: cover;">';
                 } else {
                     $imgC = '<video autoplay loop muted playsinline style="width: 100%; height: 100%; object-fit: cover;"
                                 poster="./assets/images/hero.png">
-                                <source src="' . $coachPath . '" type="video/mp4">
+                                <source src="' . $coachPath . '?v=' . time() . '" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>';
                 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>übarre | Clases</title>
     <meta name="title" content="übarre">
-    <meta name="description" content="ÜBARRE es un espacio dedicado al bienestar y la conexión entre cuerpo y mente, creado por dos hermanas que comparten la pasión por el movimiento y el cuidado integral.">
+    <meta name="description" content="üBarre un punto de encuentro. Cada clase, saludo y conversación construyen una comunidad que escucha, sostiene y acompaña.">
     <link rel="shortcut icon" href="./assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,6 +43,13 @@
 
     <main style="overflow: hidden;">
         <article class="beneficios-barre">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 130rem; z-index: -1; display: flex; justify-content: center; align-items: center;">
+                        <video autoplay loop muted playsinline style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%);z-index: 2"
+                            poster="./assets/images/bg-vid.jpg">
+                            <source src="./assets/images/bg-class.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
             <img src="./assets/images/ubarre/ubarre-blanco.svg" alt="">
             <div class="beneficios-del-barre">
                 <div class="titulo-beneficios">

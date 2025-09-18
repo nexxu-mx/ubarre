@@ -164,12 +164,12 @@ function cargarClases(day) {
              </p>`;
 
         }
-
+let timestamp = Math.floor(Date.now() / 1000);
         btn.innerHTML = `
                   <div class="clase-container elemento-clase">
                       <div class="first-flex-clase">
                           <div class="img-clase-container">
-                              <img src="assets/images/coaches/pro/${clase.id_coach}.png" alt="Foto Coach">
+                              <img src="assets/images/coaches/pro/${clase.id_coach}.png?v=${timestamp}" alt="Foto Coach">
                           </div>
                           <div class="nombrecoach-horarioclase">
                               <div class="nombre-coach">
@@ -180,7 +180,7 @@ function cargarClases(day) {
                                   </div>
                               </div>
                               <div class="horario-clase">
-                                  <h3>POWER ${clase.disciplina}</h3>
+                                  <h3>${clase.disciplina}</h3>
                                   <h3>${clase.horario}</h3>
                                   <h4>${clase.duracion}</h4>
                               </div>
@@ -298,12 +298,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Playback Rate Video Footer
-const videoFooter = document.getElementById("video-footer");
-videoFooter.playbackRate = 2;
+// // Playback Rate Video Footer
+// const videoFooter = document.getElementById("video-footer");
+// videoFooter.playbackRate = 2;
 
-const videoIndexTexto = document.getElementById("video-index-texto");
-/* videoIndexTexto.playbackRate = 2; */
+// const videoIndexTexto = document.getElementById("video-index-texto");
+// /* videoIndexTexto.playbackRate = 2; */
 
 // Establecer colores de las disciplinas en clases.php
 const colores = [
@@ -650,6 +650,10 @@ function handleReserva(event) {
  * CONFIRMATION MESSAGE
  */
 function reservaClase(el) {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // animación suave
+  });
   const confirmationSection = document.querySelector(".confirmation-section");
   const classesContainer = document.querySelector(".contenido-seleccion-clase");
   const modalVisible = document.querySelector(".modal-detalles-bebida");
@@ -742,7 +746,17 @@ function confirmacion(el) {
           <a href="paquetes.php" class="confirmar-reserva-btn">Ver Paquetes</a>
           </div>`;
 
-      } else if (data.status === 'nosession') {
+      } else if (data.status === 'duplicate') {
+        document.getElementById('confirm-class').innerHTML = `
+          
+          <div style="display: flex;flex-direction: column;align-items: center;gap: 30px;">
+          <img src="assets/images/wait.svg" style="width: 100px" alt="">
+          <h2>Ya reservaste este día</h2>
+          <p>${data.message}.</p>
+          <a href="paquetes.php" class="confirmar-reserva-btn">Ver Paquetes</a>
+          </div>`;
+
+      }else if (data.status === 'nosession') {
         window.location.href = 'profile.php';
       }
       else {
@@ -973,7 +987,7 @@ function cargarSmoothies() {
           </div>
           <div>
             <h3>Agregar Smoothie</h3>
-            <p>Proteína ${smoothie.sabor}</p>
+            <p>${smoothie.sabor}</p>
           
           <div class= "Smoothies-descripcion">
 
