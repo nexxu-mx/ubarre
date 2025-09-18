@@ -12,7 +12,7 @@ function reemplazarFavicon($dir) {
             // Solo archivos con extensión .html, .php o similares
             if (preg_match('/\.(php|html|htm)$/', $ruta)) {
                 $contenido = file_get_contents($ruta);
-                $nuevoContenido = str_replace('https://wa.me/524792179429?text=Hola,%20Quiero%20más%20información%20de%20SENCIA.', 'https://wa.me/524792179429?text=Hola,%20Quiero%20más%20información%20de%20SENCIA.', $contenido);
+                $nuevoContenido = str_replace('https://wa.me/524779077707?text=Hola,%20Quiero%20más%20información%20de%20SENCIA.', 'https://wa.me/524779077707?text=Hola,%20Quiero%20más%20información%20de%20SENCIA.', $contenido);
 
                 if ($contenido !== $nuevoContenido) {
                     file_put_contents($ruta, $nuevoContenido);

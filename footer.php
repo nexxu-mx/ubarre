@@ -10,10 +10,7 @@
         <a href="politica-de-privacidad.php">Política de privacidad</a>
         <a href="contacto.php">Ayuda</a>
       </div>
-      <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20m%C3%A1s%20informaci%C3%B3n%20de%20 ." class="back-top-btn" aria-label="back to top"
-        data-back-top-btn>
-        <img src="assets/images/svg/whats.svg" alt="Ícono WhatsApp ">
-      </a>
+      
       <!--<div class="powered-container">
         <a href="https://www.instagram.com/laud.____/"><p>POWERED BY <img src="assets/images/svg/logo-laud.png" alt="Logo LAUD"></p></a>
       </div>-->

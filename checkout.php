@@ -145,7 +145,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
 
                             <div class="c2">
                                 <div id="eleccion_pago">
-                                    <a href="https://wa.me/524792179429?text=Hola,%20Quiero%20comprar%20un%20paquete." class="elect"><img src="./assets/images/shop.svg" style="width: 50px" alt="">
+                                    <a href="https://wa.me/524779077707?text=Hola,%20Quiero%20comprar%20un%20paquete." class="elect"><img src="./assets/images/shop.svg" style="width: 50px" alt="">
                                         Pagar en sitio</a>
                                     <button onclick="payTarjet()" class="elect"><img src="./assets/images/card.svg" style="width: 50px" alt="">Tarjeta Crédito/Débito</button>
                                 </div>
