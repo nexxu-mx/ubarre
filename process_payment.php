@@ -42,7 +42,7 @@ use MercadoPago\MercadoPagoConfig;
 MercadoPagoConfig::setAccessToken("APP_USR-6453194524132257-082712-b48b9affe80e811e014994a75519c56c-2502245074");
 
 // Obtener información del paquete
-$sqlP = "SELECT clases, costo, vigencia, invitados, descuento FROM paquetes WHERE id = ?";
+$sqlP = "SELECT clases, costo, vigencia, invitados, descuento, total_smoothies FROM paquetes WHERE id = ?";
 $stmtP = $conn->prepare($sqlP);
 $stmtP->bind_param("i", $paquete);
 $stmtP->execute();
@@ -59,7 +59,10 @@ $credits = $rowP['clases'];
 $vigencia = $rowP['vigencia'];
 $invitados = $rowP['invitados'];
 $totalSmoothies = $rowP['total_smoothies'];
-       
+
+if(empty($totalSmoothies)){
+    $totalSmoothies = null;
+}
 // Datos del usuario
 $sql = "SELECT nombre, apellido, mail, numero, credit, claseBienvenida, customer_id FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -319,7 +322,7 @@ elseif (isset($data['token'])) {
         $payment_status,
         $payment->id,
         $cargo1,
-        $totalSmoothies,
+        $totalSmoothies, 
         $idusrv
     );
 

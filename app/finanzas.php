@@ -5,15 +5,19 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
     header("Location: ../login.php");
     exit;  
 }
+if((int)$_SESSION['tipoUser'] !== 3){
+	header("Location: ./index.php?s=" . $_SESSION['tipoUser']);
+    exit;
+}
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>übarre</title>
+	<title>Ü Barre</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="shortcut icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/svg+xml">
+	<link rel="icon" href="./favico.png" type="image/x-icon"/>
 	<script src="./assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
@@ -73,6 +77,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                                                 <th>Créditos</th>
                                                                 <th>Metodo</th>
                                                                 <th>Fecha</th>
+                                                                <th>Acciones</th>
                                                             </tr>
                                                         </thead>
                                                         
@@ -309,7 +314,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 	<script src="./assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 	<script src="./assets/js/next.min.js"></script>
 
-	<script src="./assets/js/finanzas.js?v=<?php echo time(); ?>"></script>
+	<script src="./assets/js/finanzas2.js?v=<?php echo time(); ?>"></script>
 	
 </body>
 </html>

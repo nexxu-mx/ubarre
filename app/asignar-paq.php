@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $method = $_POST['metod'];
     
     // Obtener información del paquete
-    $sqlP = "SELECT clases, costo, vigencia, invitados FROM paquetes WHERE id = ?";
+    $sqlP = "SELECT clases, costo, vigencia, invitados, total_smoothies FROM paquetes WHERE id = ?";
     $stmtP = $conn->prepare($sqlP);
     $stmtP->bind_param("i", $paquete);
     $stmtP->execute();
@@ -24,8 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $credits = $rowP['clases'];
     $vigencia = $rowP['vigencia'];
     $invitados = $rowP['invitados'];
+    $totalSmoothies = $rowP['total_smoothies'];
     $cargo1 = (float) $rowP['costo'];
-
+    if(empty($totalSmoothies)){
+        $totalSmoothies = null;
+    }
     // Datos del usuario
     $sql = "SELECT nombre, apellido, mail, numero, credit, claseBienvenida, customer_id FROM users WHERE id = ?";
     $stmt = $conn->prepare($sql);
@@ -71,9 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $bienvenida = ($paquete == 1 || $row['claseBienvenida'] == 1) ? 1 : null;
         
         // Actualizar usuario
-        $sql_update = "UPDATE users SET credit = ?, venceCredit = ?, fechaCredit = ?, maxInvitados = ?, claseBienvenida = ?, statu = ?, idpago = ?, montoPagado = ? WHERE id = ?";
+        $sql_update = "UPDATE users SET total_smoothies = ?, credit = ?, venceCredit = ?, fechaCredit = ?, maxInvitados = ?, claseBienvenida = ?, statu = ?, idpago = ?, montoPagado = ? WHERE id = ?";
         $stmt_update = $conn->prepare($sql_update);
-        $stmt_update->bind_param("ssssssssi", $credits, $vigencia, $fvencimiento, $invitados, $bienvenida, $status, $idpago, $cargo1, $idusrv);
+        $stmt_update->bind_param("sssssssssi", $totalSmoothies, $credits, $vigencia, $fvencimiento, $invitados, $bienvenida, $status, $idpago, $cargo1, $idusrv);
         $stmt_update->execute();
         
         // Registrar transacción

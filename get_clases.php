@@ -189,21 +189,19 @@ if ($day) {
                 }
             }
 
-          // 🔹 Caso: $start es hoy después de las 12:00pm
+         // 🔹 Caso: $start es hoy después de las 12:00pm
             $limite = (clone $hoy)->setTime(12, 0); // hoy a las 12:00pm
             $unaHoraAntes = (clone $start)->modify('-1 hour'); // límite 1 hora antes del evento
 
-            if ($start->format('Y-m-d') === $hoy->format('Y-m-d') && $start->format('H') >= 12) {
-                if ($now >= $limite && $now <= $unaHoraAntes) {
-                    // Solo se abre si es después de las 12 y hasta 1h antes del evento
-                   
-                } else {
-                    if ($row['reservados'] < 2) {
-                        $abierta = 0;
-                        $resw = "*Puedes reservar por WhatsApp.";
-                    } 
-                }
+            if ($start->format('Y-m-d') === $hoy->format('Y-m-d') && $start >= $limite) {
+                
+                // Si falta menos de una hora, se cierra
+                if ($now >= $unaHoraAntes) {
+                    $abierta = 0;
+                    $resw = "*Puedes reservar por WhatsApp. 0";
+                } 
             }
+
         }
 
 
