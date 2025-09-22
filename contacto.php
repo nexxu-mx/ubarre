@@ -33,7 +33,7 @@
                 <div class="container">
                     <div class="general-form-container" style="box-shadow: 0 15px 12px 1px #0000004d;">
                         <div class="logo-form-container">
-                            <img src="assets/images/ubarre/SVG/ubarre-sin-tagline.svg" alt="übarre">
+                            <img src="assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="übarre">
                         </div>
                         <div class="form-container">
                             <form action="">
