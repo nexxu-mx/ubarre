@@ -71,22 +71,12 @@
                     <div class="aboutus-middle">
                         <div class="elemento-central-fundadoras">
                             <div class="fundadoras-nombre">
-                                <p>Nuestra misión
-                                    <br>y visión
-                                </p>
-                                <img src="./assets/images/ubarre/svg/ubarre-sin-tagline.svg" alt="">
+                               
                             </div>
                         </div>
                         <div class="texto-aboutus-middle">
                             <h3>Nuestras Fundadoras</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis
-                                nostrud exercitation ullamco laboris nisi
-                                ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu</p>
+                            <p>Ü BARRE nace del deseo de construir una comunidad donde el ejercicio sea un espacio de conexión y bienestar. Nuestro objetivo es ofrecer clases dinámicas, seguras y accesibles que combinan intensidad y control para fortalecer el cuerpo, mejorar la postura y reconectar con una misma, sin importar la experiencia previa. Visualizamos un estudio que inspire a más personas a encontrar placer en moverse, donde cada clase se viva como un ritual de autocuidado que prioriza el movimiento consciente y la energía.</p>
                         </div>
                     </div>
                     <div class="aboutus-bottom">

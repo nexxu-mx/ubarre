@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mail = $row['mail'];
     $customer_id = $row['customer_id'];
 
-    if($credits == "ILIMITADO"){
+    if($credits == "ILIMITADO" || "Ilimitado"){  
         $credits = 9999;
     }
     $new_credit = $credits;

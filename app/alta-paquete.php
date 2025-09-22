@@ -152,10 +152,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                     
                                     <label for="costo_paquete">Costo del Paquete:</label>
                                         <input type="text" id="costo_paquete" name="costo_paquete" placeholder="Agrega el costo del Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['costo'] .'">
-                                    <label for="vigencia_paquete">Vigencia del Paquete:</label>
+                                    <label for="vigencia_paquete">Vigencia del Paquete (Días):</label>
                                         <input type="text" id="vigencia_paquete" name="vigencia_paquete" placeholder="Agrega la vigencia del Paquete en Días" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['vigencia'] .'">
                                     
-                                        <input type="text" id="invitados_paquete" name="invitados_paquete" value="0" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['invitados'] .'">
+                                        <input type="hidden" id="invitados_paquete" name="invitados_paquete" value="0" placeholder="Agrega el Número de Invitados que puede tener el Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['invitados'] .'">
                               
                                         <input type="hidden" id="personas_paquete" name="personas_paquete" value="1" placeholder="Personas que están Invitadas al Paquete" class="form-control mb-3 input-group input-group-lg p-3 bg-body-secondary" maxlength="20" required value="'. $filaPaquete['persona'] .'">
                                     

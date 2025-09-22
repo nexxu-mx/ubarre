@@ -16,9 +16,12 @@
     <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="./assets/css/estilos_ubarre.css?v=<?php echo time(); ?>">
     <?php include 'head.php'; ?>
-    <style>
-        .tyc p {
-            font-size: 14px;
+      <style>
+        p {
+            font-size: 16px;
+        } 
+        li {
+            font-size: 16px;
         }
     </style>
 </head>
