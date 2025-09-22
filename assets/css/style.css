@@ -729,7 +729,7 @@ body.nav-active {
 
 
 .hero-banner img {
-  width: 200px;
+  width: 150px;
   margin: 0 auto;
 }
 
@@ -2566,6 +2566,9 @@ form textarea:focus {
     background-position: 60%;
     background-size: cover;
     height: 100vh;
+  }
+  .img-banner-container{
+    margin-bottom: 10px;
   }
 
   .hero-banner h1 {

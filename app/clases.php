@@ -308,7 +308,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
               </label>
             </div>
 
-			<input type="hidden" name="aforo-select" id="aforo-select" value="8">
+			<input type="hidden" name="aforo-select" id="aforo-select" value="13">
 			
 			
 			
