@@ -17,7 +17,7 @@ if((int)$_SESSION['tipoUser'] !== 3){
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Ü Barre</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="./favico.png" type="image/x-icon"/>
+	<link rel="icon" href="../assets/images/ubarre/favicon_ubarre.png" type="image/x-icon"/> 
 	<script src="./assets/js/plugin/webfont/webfont.min.js"></script>
 	<script>
 		WebFont.load({
