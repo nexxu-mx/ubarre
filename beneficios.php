@@ -60,26 +60,69 @@
                         <div class="punto"></div>
                         <div class="punto"></div>
                         <div class="punto"></div>
+                        <div class="punto"></div>
+                        <div class="punto"></div>
+                        <div class="punto"></div>
+                        <div class="punto"></div>
+                        <div class="punto"></div>
+                        <div class="punto"></div>
                     </div>
                     <div>
                         <div class="texto-beneficios">
                             <div class="beneficio-container">
+                                <h4>Fuerza</h4>
+                            </div>
+                            <p>Fortalece músculos de: piernas, abdomen y brazos.</p>
+                        </div>
+                        <div class="texto-beneficios">
+                            <div class="beneficio-container">
+                                <h4>Resistencia</h4>
+                            </div>
+                            <p>Aumenta la capacidad de mantener posturas y movimientos.</p>
+                        </div>
+                        <div class="texto-beneficios">
+                            <div class="beneficio-container">
                                 <h4>Tonificación</h4>
                             </div>
-                            <p>Fortalece músculos y esculpe el cuerpo.</p>
+                            <p>Mejora el aspecto y firmeza de tus músculos.</p>
+                        </div>
+                        <div class="texto-beneficios">
+                            <div class="beneficio-container">
+                                <h4>Estabilidad</h4>
+                            </div>
+                            <p>Mejora tu equilibrio y control corporal al trabajar con movimientos precisos y conscientes.</p>
+                        </div>
+                        <div class="texto-beneficios">
+                            <div class="beneficio-container">
+                                <h4>Movilidad</h4>
+                            </div>
+                            <p>Incrementa el rango de movimiento en las articulaciones.</p>
                         </div>
                         <div class="texto-beneficios">
                             <div class="beneficio-container">
                                 <h4>Postura</h4>
                             </div>
-                            <p>Mejora el equilibrio y la alineación corporal.</p>
+                            <p>Mejora la forma en que te mueves día a día.</p>
                         </div>
                         <div class="texto-beneficios">
                             <div class="beneficio-container">
                                 <h4>Flexibilidad</h4>
                             </div>
-                            <p>Aumenta la movilidad y rango de movimiento</p>
+                            <p>Aumenta la elasticidad de tejidos musculares de forma progresiva.</p>
                         </div>
+                        <div class="texto-beneficios">
+                            <div class="beneficio-container" style="width: 300px;">
+                                <h4>Conexión mente-cuerpo</h4>
+                            </div>
+                            <p>Te ayuda a estar presente, celebrando cada avance de tu cuerpo.</p>
+                        </div>
+                        <div class="texto-beneficios">
+                            <div class="beneficio-container">
+                                <h4>Bajo impacto</h4>
+                            </div>
+                            <p>Cuida tus articulaciones mientras te desafía físicamente.</p>
+                        </div>
+
                     </div>
                 </div>
             </div>
