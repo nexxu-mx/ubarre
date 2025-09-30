@@ -167,7 +167,7 @@
                                   ${(p.clases == 'Ilimitado' || p.clases == 'Anualidad') ? 'font-size: 4rem; margin-block: 10px' : ''}
                                 ">${p.clases}</p>
                                 <p class="clases-card">CLASES</p>
-                                ${(p.total_smoothies > 0) ?  `<p class"numero-smoothies">Incluye ${p.total_smoothies} Smoothies</p>` : "No inluye Smoothies"}
+                                ${(p.total_smoothies > 0) ?  `<p class"numero-smoothies">Incluye ${p.total_smoothies} Smoothies</p>` : "No incluye Smoothies"}
                                 ${descuento}
                                 ${precio}
                                 

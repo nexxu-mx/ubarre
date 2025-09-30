@@ -80,7 +80,7 @@
               <h4>Fundadoras</h4>
             </div>
           </div>
-          <div class="elemento-central-fundadoras" style="background-image: url('./assets/images/founders.jpg');">
+          <div class="elemento-central-fundadoras" >
             <div class="fundadoras-nombre">
               <p>Nuestra misión
                 <br>y visión
@@ -200,30 +200,33 @@
         <div class="container">
           <h2>Conoce nuestras membresías</h2>
           <div class="cards-container">
-            <div class="card">
-              <p class="tipo-card">FLOW</p>
-              <p class="numero-clases-card">4</p>
-              <p class="clases-card">CLASES</p>
-              <p class="precio-card">MX $650</p>
-              <p class="vigencia-card">Vigencia 15 días</p>
-              <a href="paquetes.php">COMPRAR</a>
-            </div>
-            <div class="card">
-              <p class="tipo-card">ELEVATE</p>
-              <p class="numero-clases-card">12</p>
-              <p class="clases-card">CLASES</p>
-              <p class="precio-card">MX $1,699</p>
-              <p class="vigencia-card">Vigencia 30 días</p>
-              <a href="paquetes.php">COMPRAR</a>
-            </div>
-            <div class="card">
-              <p class="tipo-card">DÚO</p>
-              <p class="numero-clases-card">22</p>
-              <p class="clases-card">CLASES</p>
-              <p class="precio-card">MX $2,860</p>
-              <p class="vigencia-card">Vigencia 30 días</p>
-              <a href="paquetes.php">COMPRAR</a>
-            </div>
+             <?php
+                    
+                    $sqlp = $conn->prepare("SELECT id, clases, nombre, costo, vigencia, smoothies, total_smoothies FROM paquetes ORDER BY RAND() LIMIT 3");
+                    $sqlp->execute();
+                    $resp = $sqlp->get_result();
+
+                    while ($filaPaq = $resp->fetch_assoc()) {
+                      
+                      if($filaPaq['smoothies'] == 0){
+                        $smot = 'No incluye Smoothies';
+                      }else{
+                        $smot = '<p class"numero-smoothies">Incluye ' . $filaPaq['total_smoothies'] . ' Smoothies</p>';
+                      }
+                      echo '
+                      <div class="card">
+                        <p class="tipo-card">' . $filaPaq['nombre'] . '</p>
+                        <p class="numero-clases-card">' . $filaPaq['clases'] . '</p>
+                        <p class="clases-card">CLASES</p>
+                        ' . $smot . '
+                        <p class="precio-card">MX $' . $filaPaq['costo'] . '</p>
+                        <p class="vigencia-card">Vigencia ' . $filaPaq['vigencia'] . ' días</p>
+                        <a href="checkout.php?tkn=ECvRPgke49NltqX85XH1C3zZ5kp4Z9wlaG4yPAQ3lY0Dw0G7Y3fhBZelmEN571HwJPJ6yY5G9rbPsgDIn6FTCWK5xSJ9Jp5GC8T4RTvNWfWVVIfj49srNoJsDR0ok1WQrY9T&id=' . $filaPaq['id'] . '">COMPRAR</a>
+                      </div>
+                      ';
+                    }
+              ?>
+            
           </div>
           <a href="paquetes.php" class="ver-mas-paquetes-btn">VER MÁS PAQUETES</a>
         </div>
@@ -254,7 +257,7 @@
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Puedo practicar estas disciplinas si estoy embarazada o en etapa de posparto?</p>
+                  <p>¿Puedo practicar estas disciplinas si estoy embarazada o en etapa de postparto?</p>
                 </button>
                 <div class="panel">
                   <p>Sí, ofrecemos clases adaptadas para mujeres embarazadas o en proceso de recuperación postparto, siempre con autorización médica. Es importante contar con autorización médica antes de comenzar.</p>
@@ -281,7 +284,7 @@
 
               <div class="container-accordion">
                 <button class="accordion">
-                  <p>¿Cuál es la duración de las clases?/p>
+                  <p>¿Cuál es la duración de las clases?</p>
                 </button>
                 <div class="panel">
                   <p>Cada clase tiene una duración aproximada de 50 a 60 minutos.</p>
