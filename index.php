@@ -80,7 +80,7 @@
               <h4>Fundadoras</h4>
             </div>
           </div>
-          <div class="elemento-central-fundadoras">
+          <div class="elemento-central-fundadoras" style="background-image: url('./assets/images/founders.jpg');">
             <div class="fundadoras-nombre">
               <p>Nuestra misión
                 <br>y visión
