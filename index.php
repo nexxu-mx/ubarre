@@ -213,11 +213,17 @@
                       }else{
                         $smot = '<p class"numero-smoothies">Incluye ' . $filaPaq['total_smoothies'] . ' Smoothies</p>';
                       }
-                      if($filaPaq['nombre'] == "Ilimitado"){
+                      
+                      if($filaPaq['clases'] == "Ilimitado"){
                         $clasp = ' <p class="numero-clases-card" style="font-size: 5rem;margin-bottom: 0;margin-top: 0;">' . $filaPaq['clases'] . '</p>';
                       }else{
+                        if($filaPaq['clases'] == 1){
+                          $texC = "CLASE";
+                        }else{
+                          $texC = "CLASES";
+                        }
                         $clasp = ' <p class="numero-clases-card">' . $filaPaq['clases'] . '</p>
-                        <p class="clases-card">CLASES</p>';
+                        <p class="clases-card">' . $texC . '</p>';
                       }
                       echo '
                       <div class="card">
