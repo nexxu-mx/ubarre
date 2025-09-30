@@ -328,20 +328,25 @@ function cargarEgresos(filtroFecha = '') {
    
     
 }
+// ocupacion detalles 
 function cargarOcupacion(periodo) {
     $.ajax({
-        url: 'ocupaciones.php',
-    type: 'GET',
-    data: { periodo: periodo },
-    dataType: 'json', // 👈 importante
-    success: function(ocupacion) {
-        const lisemp = $('#liocup');
-        lisemp.empty();
+        url: 'ocupaciones.php', 
+        type: 'GET',
+        data: { periodo: periodo },
+        dataType: 'json',
+        success: function(ocupacion) {
+            const lisemp = $('#liocup');
+            lisemp.empty();
 
-            ocupacion.forEach(function (ocupa) {
+            ocupacion.forEach(function (ocupa, index) {
                 const ocupaHTML = `
                     <tr class="imsnhd">
-                        <td>${ocupa.coach}</td>
+                        <td>
+                            <a href="#" class="ver-detalle" data-index="${index}">
+                                ${ocupa.coach}
+                            </a>
+                        </td>
                         <td>${ocupa.clases}</td>
                         <td>${ocupa.reservas}</td>
                         <td class="text-success">${ocupa.asistencias}</td>
@@ -350,12 +355,92 @@ function cargarOcupacion(periodo) {
                 `;
                 lisemp.append(ocupaHTML);
             });
+
+            // 🟢 Delegamos el evento click para ver detalle
+            $('.ver-detalle').off().on('click', function(e) {
+                e.preventDefault();
+                const index = $(this).data('index');
+                mostrarDetalle(ocupacion[index]);
+            });
         },
         error: function(xhr, status, error) {
             console.error("Error al cargar ocupaciones: ", error);
         }
     });
 }
+
+function mostrarDetalle(ocupa) {
+    $('#popupTitulo').text(`Detalle de ${ocupa.coach}`);
+    const cont = $('#popupContenido');
+    cont.empty();
+
+    if (ocupa.detalle_clases.length === 0) {
+        cont.html("<p>No hay clases en este periodo.</p>");
+    } else {
+        ocupa.detalle_clases.forEach(clase => {
+            let alumnosHTML = "";
+            if (clase.alumnos.length > 0) {
+                alumnosHTML = `
+                    <div class="toggle-container">
+                        <div class="toggle-btn" style="cursor:pointer; color:#007bff;">
+                            <i class="icon-arrow-down"></i> Detalles de asistentes
+                        </div>
+                        <div class="toggle-content" style="display:none; margin-left:15px; margin-top:8px;">
+                            <ul>
+                                ${clase.alumnos.map(a => `
+                                    <li>
+                                        <b>${a.nombre}</b> (ID: ${a.id}) - 
+                                        Asistencia: <span style="color:${a.asistencia ? 'green' : 'red'}">
+                                            ${a.asistencia ? '✔' : '✘'}
+                                        </span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            } else {
+                alumnosHTML = "<p>No hubo reservaciones.</p>";
+            }
+
+
+            cont.append(`
+                <div style="margin-bottom:20px; border-bottom:1px solid #ddd; padding-bottom:10px;">
+                    <h4>${clase.disciplina}</h4>
+                    <p><b>Inicio:</b> ${clase.hora_inicio} - <b>Fin:</b> ${clase.hora_fin}</p>
+                    <p><b>Reservados:</b> ${clase.reservados} - <b>Asistencias:</b> ${clase.asistencias}</p>
+               
+                    ${alumnosHTML}
+                </div>
+            `);
+        });
+    }
+
+    document.getElementById('popupDetalle').style.display = 'flex';
+    document.getElementById('overl').style.display = 'block';
+
+    // Activar toggles
+$('.toggle-btn').off().on('click', function() {
+    $(this).next('.toggle-content').slideToggle();
+    $(this).find('i').toggleClass('rotated'); // opcional: girar icono
+});
+
+}
+
+// 🟢 Cerrar popup
+$('#cerrarPopup').on('click', function() {
+    $('#popupDetalle').fadeOut();
+    closeF();
+});
+
+// 🟢 Cerrar si se hace click fuera del contenido
+$(window).on('click', function(e) {
+    if ($(e.target).is('#popupDetalle')) {
+        $('#popupDetalle').fadeOut();
+        closeF();
+    }
+});
+
 
 // Función para cargar la lista de egresos con el filtro de fecha
 function cargarIngresos(filtroFecha = '') {
@@ -677,6 +762,7 @@ function closeF() {
     document.getElementById('overl').style.display = 'none';
     document.getElementById('newegr').style.display = 'none';
     document.getElementById('newing').style.display = 'none';
+     $('#popupDetalle').fadeOut();
 }
 document.addEventListener("DOMContentLoaded", function () {
     // Calcular último rango de 7 días
