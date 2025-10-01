@@ -1,3 +1,14 @@
+<!--                                                                                                
+                    🚀 Desarrollado por 🚀
+
+███╗   ██╗███████╗██╗  ██╗██╗  ██╗██╗  ██╗    ███╗   ███╗██╗  ██╗
+████╗  ██║██╔════╝╚██╗██╔╝╚██╗██╔╝██║  ██║    ████╗ ████║╚██╗██╔╝
+██╔██╗ ██║█████╗   ╚███╔╝  ╚███╔╝ ██║  ██║    ██╔████╔██║ ╚███╔╝ 
+██║╚██╗██║██╔══╝   ██╔██╗  ██╔██╗ ██║  ██║    ██║╚██╔╝██║ ██╔██╗ 
+██║ ╚████║███████╗██╔╝ ██╗██╔╝ ██╗███████║    ██║ ╚═╝ ██║██╔╝ ██╗
+╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝ ██ ╚═╝     ╚═╝╚═╝  ╚═╝                                                                                             
+-->
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -213,7 +224,7 @@
                       }else{
                         $smot = '<p class"numero-smoothies">Incluye ' . $filaPaq['total_smoothies'] . ' Smoothies</p>';
                       }
-                      
+
                       if($filaPaq['clases'] == "Ilimitado"){
                         $clasp = ' <p class="numero-clases-card" style="font-size: 5rem;margin-bottom: 0;margin-top: 0;">' . $filaPaq['clases'] . '</p>';
                       }else{
