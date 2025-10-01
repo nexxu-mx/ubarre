@@ -325,7 +325,15 @@ if((int)$_SESSION['tipoUser'] !== 3){
 						</div>
 
 
-               
+             <!-- popup detalle de ocupacion -->
+            <div id="popupDetalle" class="modal" style="display:none;">
+            <div class="modal-content" style="padding:20px; background:white; border-radius:8px; max-width:700px; margin:auto;">
+                <span id="cerrarPopup" style="cursor:pointer; float:right; font-size:20px;">&times;</span>
+                <h3 id="popupTitulo" style="text-align: center;"></h3>
+                <div id="popupContenido"></div>
+            </div>
+            </div>
+
                
             
 

@@ -73,8 +73,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 													<th>Nombre</th>
 													<th>Teléfono</th>
 													<th>Email</th>
-													<th>Creditos</th>
+													<th>Créditos</th>
+													<th>Status</th>
 													<th>Tipo</th>
+													
 												</tr>
 											</thead>
 											
@@ -141,6 +143,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                     lead.telefono,
                     lead.email,
                     lead.interes,
+					lead.satatus,
 					lead.tipo
                 ];
             });
@@ -152,6 +155,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                     { title: "Teléfono" },
                     { title: "Email" },
                     { title: "Créditos" },
+					{ title: "Suscripción" },
 					{ title: "Tipo" }
                 ]
             });
