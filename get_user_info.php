@@ -19,6 +19,8 @@ $credit = (int)$row['credit'];
 var_dump($credit);
 if($credit > 32){
     $row["credit"] = "Ilimitados";
+}else{
+    $row['credit'] = "0";
 }
 
 $row = $result->fetch_assoc();
