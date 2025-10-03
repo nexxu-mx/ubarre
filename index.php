@@ -132,38 +132,6 @@
         </div>
       </section>
 
-      <!--<section class="desciplinas-section">
-        <div class="nombres-disciplinas">
-          <div class="nombres-disciplinas-container">
-            <h2>NUESTRAS DISCIPLINAS</h2>
-            <ul style="height: 50vh;">
-              <li id="barre" onclick="cambiarTextoVideo(barreTab)">BARRE</li>
-              <li id="sculpt"
-                onclick="cambiarTextoVideo(sculptTab)">SCULPT</li>
-              <li id="pilates" class="active-video"
-                onclick="cambiarTextoVideo(pilatesTab)">PILATES</li>
-              <li id="yoga" onclick="cambiarTextoVideo(yogaTab)">YOGA</li>
-              <li id="ballet"
-                onclick="cambiarTextoVideo(balletTab)">BALLET</li>
-            </ul>
-            <a href="clases.php">CONOCE NUESTRAS CLASES</a>
-          </div>
-        </div>
-        <div class="video">
-        <video autoplay loop muted playsinline class="vosj" id="videodisciplina">
-              <source src="./assets/images/disciplinas/1.mp4?v=<?php echo time(); ?>" type="video/mp4">
-              Your browser does not support the video tag.
-          </video>
-          <div class="text-video-container">
-            <p id="texto-camb-1" class="texto-uppercase">FUERZA</p>
-            <p>|</p>
-            <p id="texto-camb-2" class="texto-uppercase">FLEXIBILIDAD</p>
-            <p>|</p>
-            <p id="texto-camb-3" class="texto-uppercase">FLUIDEZ</p>
-          </div>
-        </div>
-      </section>
-    -->
       <section class="coaches-section">
         <div class="">
           <div class="slider-container-global">
