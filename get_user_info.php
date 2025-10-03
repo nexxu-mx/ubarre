@@ -14,6 +14,9 @@ if ($result->num_rows === 0) {
     echo json_encode(["error" => "Usuario no encontrado"]);
     exit;
 }
+if($row["credit"] > 32){
+    $row["credit"] = "Ilimitados";
+}
 
 $row = $result->fetch_assoc();
 echo json_encode([

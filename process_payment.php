@@ -42,7 +42,7 @@ use MercadoPago\MercadoPagoConfig;
 MercadoPagoConfig::setAccessToken("APP_USR-6453194524132257-082712-b48b9affe80e811e014994a75519c56c-2502245074");
 
 // Obtener información del paquete
-$sqlP = "SELECT clases, costo, vigencia, invitados, descuento, total_smoothies FROM paquetes WHERE id = ?";
+$sqlP = "SELECT clases, costo, vigencia, invitados, descuento, total_smoothies, ilimitado FROM paquetes WHERE id = ?";
 $stmtP = $conn->prepare($sqlP);
 $stmtP->bind_param("i", $paquete);
 $stmtP->execute();
@@ -58,6 +58,7 @@ $rowP = $resultP->fetch_assoc();
 $credits = $rowP['clases'];
 $vigencia = $rowP['vigencia'];
 $invitados = $rowP['invitados'];
+$paq_ilimitado = $rowP['ilimitado'];
 $totalSmoothies = $rowP['total_smoothies'];
 
 if(empty($totalSmoothies)){
@@ -273,13 +274,15 @@ elseif (isset($data['token'])) {
     file_put_contents('./log.txt', date("Y-m-d H:i:s") . " - " . json_encode($payment) . PHP_EOL, FILE_APPEND);
 
     $payment_status = $payment->status;
+
+
     $ilimitado = null;
-    if($credits == "ILIMITADO" || "Ilimitado"){  
+
+    if($paq_ilimitado == 1){  
             $ilimitado = 1;
             $credits = 999;
-    }elseif($credits == "ANUALIDAD"){
-            $credits = 365;
     }
+       
     $new_credit = $credits;
     
     // 3. Si el pago fue aprobado

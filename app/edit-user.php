@@ -69,7 +69,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 if (!file_exists($profilePath)) {
                                     $profilePath = $defaultPath;
                                 }
-                                $smt = $conn->prepare("SELECT iduser, tipoUser, nombre, apellido, mail, numero, pass, fecha_nacimiento, credit, venceCredit, fechaCredit, maxInvitados, claseBienvenida, activo FROM users WHERE id = ?");
+                                $smt = $conn->prepare("SELECT iduser, tipoUser, nombre, apellido, mail, numero, pass, fecha_nacimiento, total_smoothies, credit, venceCredit, fechaCredit, maxInvitados, claseBienvenida, activo FROM users WHERE id = ?");
                                 $smt->bind_param("i", $idUsr);
                                 $smt->execute();
                                 $resultadosmt = $smt->get_result();
@@ -81,6 +81,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $apellido = $fsmt['apellido'];
                                 $mail = $fsmt['mail'];
                                 $numero = $fsmt['numero'];
+                                $total_smoothies = $fsmt['total_smoothies'];
+                                if(isset($total_smoothies)){
+                                    $total_smoothies = 0;
+                                }
                                 $pass = $fsmt['pass'];
                                 $fechanacimiento = $fsmt['fecha_nacimiento'];
                                 $formatoOriginal = DateTime::createFromFormat('d-m-Y', $fechanacimiento);
@@ -308,6 +312,12 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                             <div class="form-floating form-floating-custom mb-3">
                                                 <input type="text" class="form-control" id="creditos" name="creditos" value="<?php echo $credit;?>" placeholder="name@example.com">
                                                 <label for="creditos">Créditos</label>
+                                            </div>
+                                       </div>
+                                       <div class="col-md-1">
+                                            <div class="form-floating form-floating-custom mb-3">
+                                                <input type="text" class="form-control" id="smoothies" name="smoothies" value="<?php echo $total_smoothies;?>" placeholder="name@example.com">
+                                                <label for="smoothies">Smoothies</label>
                                             </div>
                                        </div>
                                        <div class="col-md-2">
