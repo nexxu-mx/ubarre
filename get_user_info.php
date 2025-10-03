@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 include 'db.php';
+include 'error_log.php';
 session_start();
 $id = $_SESSION['idUser'];
 
@@ -18,15 +19,15 @@ if ($result->num_rows === 0) {
 $credit = (int)$row['credit'];
 
 if($credit > 32){
-    $row["credit"] = "Ilimitados";
+    $credit = "Ilimitados";
 }else{
-    $row['credit'] = "0";
+    $credit = "0";
 }
 
 $row = $result->fetch_assoc();
 echo json_encode([
     "nombre" => $row["nombre"],
-    "credit" => $row["credit"],
+    "credit" => $credit,
     "fechaCredit" => $row["fechaCredit"],
     "total_smoothies" => $row["total_smoothies"]
 ]);
