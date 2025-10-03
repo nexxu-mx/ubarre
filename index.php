@@ -113,7 +113,7 @@
       </section>
 
       <section class="descripcion-section">
-        <video id="video-index-texto" src="" autoplay loop muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback"></video>
+        
         <div class="container section">
           <img src="assets/images/ubarre/svg/icon.svg" alt="logo übarre">
           <p>
