@@ -234,9 +234,15 @@ function NameCredit() {
                 console.error(data.error);
                 return;
             }
+        
+         if(data.credit == "Ilimitados"){
+            var credx = "Créditos " + data.credit;
+        }else{
+            var credx = data.credit + " Créditos";
+        }
 
             document.getElementById("name").textContent = data.nombre;
-            document.getElementById("credits").textContent = `${data.credit} Créditos`;
+            document.getElementById("credits").textContent = credx;
         if (data.credit > 0 && data.fechaCredit) {
                 // Formatear fecha a dd/mm (puedes hacer con JS)
                 const fecha = new Date(data.fechaCredit);

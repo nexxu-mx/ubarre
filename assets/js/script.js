@@ -796,7 +796,12 @@ function usrInf() {
 
       //Actualizar la variables global con total_smoothies
       userTotalSmoothies = data.total_smoothies || 0;
-      var datosUsuario = data.nombre + " | " + data.credit + " Créditos"
+      if(data.credit == "Ilimitados"){
+        var credx = "Créditos " + data.credit;
+      }else{
+        var credx = data.credit + " Créditos";
+      }
+      var datosUsuario = data.nombre + " | " + credx
 
       if (document.getElementById("my-account")) {
         document.getElementById("my-account").innerHTML = datosUsuario;
