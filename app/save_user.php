@@ -11,6 +11,9 @@ $numero = $_POST['numero'] ?? null;
 $pass = $_POST['pass'] ?? null;
 $fecha = $_POST['fecha'] ?? null;
 $credit = $_POST['creditos'] ?? null;
+if(empty($credit)){
+    $credit = 0;
+}
 $vencecreditos = $_POST['vencecreditos'] ?? null;
 $tipouser = $_POST['tipouser'] ?? null;
 $smoothies = $_POST['smoothies'] ?? null;
