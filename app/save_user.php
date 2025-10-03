@@ -14,15 +14,18 @@ $credit = $_POST['creditos'] ?? null;
 $vencecreditos = $_POST['vencecreditos'] ?? null;
 $tipouser = $_POST['tipouser'] ?? null;
 $smoothies = $_POST['smoothies'] ?? null;
+if($smoothies == 0){
+    $smoothies = null;
+}
 
 // Si ID está vacío => INSERTAR
 if (empty($id)) {
     $stmt = $conn->prepare("INSERT INTO users (tipoUser, nombre, apellido, mail, numero, pass, fecha_nacimiento, total_smoothies, credit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssssss", $tipouser, $nombre, $apellido, $mail, $numero, $pass, $fecha, $credit);
+    $stmt->bind_param("sssssssss", $tipouser, $nombre, $apellido, $mail, $numero, $pass, $fecha, $smoothies, $credit);
 } else {
     // Si ID tiene valor => ACTUALIZAR
     $stmt = $conn->prepare("UPDATE users SET tipoUser = ?, nombre = ?, apellido = ?, mail = ?, numero = ?, pass = ?, fecha_nacimiento = ?, total_smoothies = ?, credit = ?, fechaCredit = ? WHERE id = ?");
-    $stmt->bind_param("ssssssssssi", $tipouser, $nombre, $apellido, $mail, $numero, $pass, $fecha, $credit, $vencecreditos, $id);
+    $stmt->bind_param("ssssssssssi", $tipouser, $nombre, $apellido, $mail, $numero, $pass, $fecha, $smoothies, $credit, $vencecreditos, $id);
 }
 /* if (!$stmt->execute()) {
     die("Error al ejecutar la consulta: " . $stmt->error);
