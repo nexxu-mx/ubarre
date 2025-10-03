@@ -157,7 +157,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                 if (result.exists) {
                     this.style.border = "1px solid green";
                     document.getElementById("labelNum").style.display = "block";
-                    document.getElementById("contentNum").style.display = "flex";
+                    document.getElementById("contentNum").style.display = "block";
                 } else {
                     this.style.border = "2px solid red";
                     document.getElementById("labelNum").style.display = "none";

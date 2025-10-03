@@ -15,7 +15,7 @@ if ($result->num_rows === 0) {
     echo json_encode(["error" => "Usuario no encontrado"]);
     exit;
 }
-
+$row = $result->fetch_assoc();
 $credit = $row["credit"];
 
 if((int)$credit < 32){
@@ -24,7 +24,7 @@ if((int)$credit < 32){
     $credit = "0";
 }
 
-$row = $result->fetch_assoc();
+
 echo json_encode([
     "nombre" => $row["nombre"],
     "credit" => $credit,
