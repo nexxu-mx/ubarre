@@ -18,10 +18,8 @@ if ($result->num_rows === 0) {
 $row = $result->fetch_assoc();
 $credit = $row["credit"];
 
-if((int)$credit < 32){
+if((int)$credit > 32){
     $credit = "Ilimitados";
-}else{
-    $credit = "0";
 }
 
 
