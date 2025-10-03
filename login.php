@@ -58,8 +58,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                             <label for="text">Número *</label>
                             <input type="text" name="text" id="text" placeholder="477000..." maxlength="10" minlength="9" required>
                             <br>
+                           
+                            <div id="contentNum" style="display: none">
                             <label for="contras" id="labelNum">Contraseña</label>
-                            <div id="contentNum">
                                 <input type="password" name="contras" id="contras" placeholder="********" maxlength="30" minlength="5" required>
                             </div>
 
