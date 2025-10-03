@@ -16,9 +16,9 @@ if ($result->num_rows === 0) {
     exit;
 }
 
-$credit = (int)$row['credit'];
+$credit = $row["credit"];
 
-if($credit > 32){
+if((int)$credit < 32){
     $credit = "Ilimitados";
 }else{
     $credit = "0";
