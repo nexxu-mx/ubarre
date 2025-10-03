@@ -14,7 +14,10 @@ if ($result->num_rows === 0) {
     echo json_encode(["error" => "Usuario no encontrado"]);
     exit;
 }
-if((int)$row["credit"] > 32){
+
+$credit = (int)$row['credit'];
+var_dump($credit);
+if($credit > 32){
     $row["credit"] = "Ilimitados";
 }
 
