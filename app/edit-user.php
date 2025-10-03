@@ -82,7 +82,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $mail = $fsmt['mail'];
                                 $numero = $fsmt['numero'];
                                 $total_smoothies = $fsmt['total_smoothies'];
-                                if(isset($total_smoothies)){
+                                if(empty($total_smoothies)){
                                     $total_smoothies = 0;
                                 }
                                 $pass = $fsmt['pass'];
