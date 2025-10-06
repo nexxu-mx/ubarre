@@ -197,8 +197,10 @@ if ($day) {
                 
                 // Si falta menos de una hora, se cierra
                 if ($now >= $unaHoraAntes) {
-                    $abierta = 0;
-                    $resw = "*Puedes reservar por WhatsApp. 0";
+                    if($row['reservados'] < 2){
+                            $abierta = 0;
+                            $resw = "*Puedes reservar por WhatsApp.";
+                        }
                 } 
             }
 
