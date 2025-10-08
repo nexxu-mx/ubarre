@@ -14,24 +14,22 @@ $message = '
         <style>
             body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f6f6f6; }
             .email-container { width: 100%; padding: 20px; background-color: #fff; margin: 20px auto; border-radius: 8px; max-width: 600px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-            .header { background-color: #986C5D; color: white; padding: 10px; text-align: center; }
+            .header { background-color: #8B976A; color: white; padding: 10px; text-align: center; }
             .content { padding: 20px; }
             h2 { color: #333; }
             .payment-details { margin-bottom: 20px; }
             .payment-details th, .payment-details td { text-align: left; padding: 8px; }
             .payment-details th { background-color: #f2f2f2; }
-            .total { font-size: 18px; font-weight: bold; color: #986C5D; }
+            .total { font-size: 18px; font-weight: bold; color: #8B976A; }
             .footer { text-align: center; font-size: 12px; color: #777; padding: 10px; margin-top: 20px; border-top: 1px solid #ddd; }
         </style>
     </head>
     <body>
         <div class="email-container">
-            <div class="header">
-                <img src="" alt="">
-            </div>
+           
             <div class="header">
                 <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                    <img src="" style="width: 60%;" alt=" üBarre">
+                    <img src="https://ubarre.com.mx/assets/images/ubarre/ubarre-blanco.svg" style="width: 60%;" alt=" üBarre">
                 </div>
                 <h1>' . $mail_motivo . '</h1>
             </div>

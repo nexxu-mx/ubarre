@@ -130,6 +130,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             padding: 5px;
             border-bottom: 1px solid #d6d6d6;
         }
+        .qr-code img{
+            width: 100%;
+        }
         
         @media (max-width: 550px) {
             .plso{

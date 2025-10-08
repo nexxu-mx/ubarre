@@ -54,21 +54,21 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                         </div>
                         <h2>INICIA SESIÓN</h2>
                         <p class="registro-mensaje">¿Es tu primera vez? <span><button type="button" onclick="openRegistro()">Regístrate</button></span></p>
-                        <div class="container-login-form">
-                            <label for="text">Número *</label>
-                            <input type="text" name="text" id="text" placeholder="477000..." maxlength="10" minlength="9" required>
-                            <br>
-                           
-                            <div id="contentNum" style="display: none">
-                            <label for="contras" id="labelNum">Contraseña</label>
-                                <input type="password" name="contras" id="contras" placeholder="********" maxlength="30" minlength="5" required>
-                            </div>
-
-                            <button type="button" class="olv-contra" onclick="openCo()">¿Olvidaste la contraseña?</button>
-
-                            <input class="login-submit-btn" type="submit" id="log" value="INICIAR SESIÓN">
+        
+                        <label for="number">Número*</label>
+                        <input type="text" name="number" id="number" placeholder="477 123 4567" maxlength="10" minlength="9" required>
+                        <label for="contras" id="labelNum" style="display: none">Contraseña</label>
+                        <div style="display: none" id="contentNum">
+                            <input type="password" name="contras" id="contras" placeholder="********" maxlength="30" minlength="5" required>
+                            
                         </div>
-                    </form>
+        
+                        <button type="button" class="olv-contra" onclick="openCo()">Olvide mi contraseña.</button>
+                        <div style="position: absolute;bottom: 0;left: 0;width: 100%;height: 100px;background: var(--c3);display: flex;justify-content: center;align-items: center;">
+                                <input class="login-submit-btn" type="submit" id="log" value="INICIAR SESIÓN">
+                        </div>
+                       
+                    </form> 
                 </div>
                 <div class="container" id="registro" style="margin-block: 20px; display: none">
                     <form action="registro.php" method="post" class="login-form" style="padding: 20px">
@@ -133,7 +133,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     </main>
 
     <?php include 'footer.php'; ?>
-    <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script>
+    <script src="./assets/js/script.js?v=<?php echo time(); ?>"></script> 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

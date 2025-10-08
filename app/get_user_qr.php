@@ -24,32 +24,41 @@ $result = $stmt->get_result();
 
 if ($row = $result->fetch_assoc()) {
     $name = $row['nombre'] . " " . $row['apellido'];
-    $stmtC = $conn->prepare("SELECT clase, dura, instructor, invitado, activo, inicio FROM reservaciones WHERE id = ?");
+    $stmtC = $conn->prepare("SELECT clase, dura, instructor, invitado, activo, asiste, inicio FROM reservaciones WHERE id = ?");
     $stmtC->bind_param("i", $id_event);
     $stmtC->execute();
     $resultC = $stmtC->get_result();
-    if ($rowC = $resultC->fetch_assoc()) {
-        $stmtR = $conn->prepare("UPDATE reservaciones SET asiste = 1 WHERE id = ?");
-        $stmtR->bind_param("i", $id_event);
-    
-        if ($stmtR->execute()) {
-            if($rowC['activo'] == 1){
-                $asisten = [
-                    "id" => $id_event,
-                    "name" => $name,
-                    "clase" => $rowC["clase"],
-                    "duracion" => $rowC["dura"],
-                    "instructor" => $rowC["instructor"],
-                    "invitados" => $rowC["invitado"],
-                    "inicia" => $rowC["inicio"]
-                  ];
-            }
+  if ($rowC = $resultC->fetch_assoc()) {
+        //invitados mas 1, en esta ocacion no se manejan invitados por lo que debe ser uno
+        $lugares = (int)$rowC['invitado'] + 1;
+        $asistencias = (int)$rowC['asiste'];
+        if($asistencias < $lugares){
+          $stmtR = $conn->prepare("UPDATE reservaciones SET asiste = 1 WHERE id = ?");
+          $stmtR->bind_param("i", $id_event);
+      
+          if ($stmtR->execute()) {
+              if($rowC['activo'] == 1){
+                  $asisten = [
+                      "id" => $id_event,
+                      "name" => $name,
+                      "clase" => $rowC["clase"],
+                      "duracion" => $rowC["dura"],
+                      "instructor" => $rowC["instructor"],
+                      "invitados" => $invitados,
+                      "inicia" => $rowC["inicio"]
+                    ];
+              }
+              echo json_encode($asisten);
+          }
+        }else{
+          echo json_encode(["error" => "Código invalido o asistencia registrada"]);
         }
         
+        
 
         
 
-        echo json_encode($asisten);
+        
     } else {
         echo json_encode(["error" => "Reserva no registrada"]);
     }

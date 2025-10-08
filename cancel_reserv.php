@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["evento"])) {
                 $mail_mailing = $_SESSION['email'];
                 $mail_asunto = "Reservación Cancelada";
                 $mail_motivo = "Reservación de $clase";
-                $mail_motivo2 = "Tu reservación de tu clase fue cancelada con éxito, y tus créditos serán devueltos.";
+                $mail_motivo2 = "Tu reservación de la clase fue cancelada con éxito, y tus créditos serán devueltos.";
                 $mail_descripcion = "Si no reconoces esta operación, favor de reportarla al area de administración";
                 $mail_tabla = " ";
                 include 'success_mail.php';

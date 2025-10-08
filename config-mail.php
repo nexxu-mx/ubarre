@@ -64,6 +64,8 @@ function smail($to, $subject, $message, $headers = '')
         $mail->addAddress($to);
 
         // Contenido
+        $mail->CharSet  = 'UTF-8';       // Asegura codificación correcta
+        $mail->Encoding = 'base64'; 
         $mail->isHTML(true);
         $mail->Subject = $subject;
         $mail->Body    = $message;
