@@ -257,6 +257,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                 $btnPaq = "";
                                 $comprasHTML = "";
                                 $elmusr = "";
+                                $total_smoothies = "";
                                 $movimientos_html = "";
                                 $valemail = 'onblur="validarCorreo()"';
                                 $valnum = 'onblur="validarNumero()"';

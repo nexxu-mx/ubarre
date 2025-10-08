@@ -5,7 +5,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
     header("Location: ../login.php");
     exit;  
 }
-if((int)$_SESSION['tipoUser'] !== 3){
+if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
 	header("Location: ./index.php?s=" . $_SESSION['tipoUser']);
     exit;
 }
@@ -82,25 +82,36 @@ if((int)$_SESSION['tipoUser'] !== 3){
 								</div>
 								<div class="card-body" id="reporte">
 									<ul class="nav nav-tabs nav-line nav-color-secondary" id="line-tab" role="tablist">
-										<li class="nav-item submenu" role="presentation">
-											<a class="nav-link active" id="line-home-tab" data-bs-toggle="pill" href="#line-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-										</li>
+                                        <?php
+                                        if ((int)$_SESSION['tipoUser'] == 4) {
+                                            echo '
+                                                <li class="nav-item submenu" role="presentation">
+                                                    <a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-contact" aria-selected="true" tabindex="-1">Ingresos</a>
+                                                </li>';
+                                        }else{
+                                            echo '
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link active" id="line-home-tab" data-bs-toggle="pill" href="#line-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                                                    </li>
+                                                    
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link" id="line-transacciones-tab" data-bs-toggle="pill" href="#line-transacciones" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Transacciones</a>
+                                                    </li>
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link" id="line-profile-tab" data-bs-toggle="pill" href="#line-profile" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Ventas</a>
+                                                    </li>
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Ingresos</a>
+                                                    </li>
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link" id="line-egresos-tab" data-bs-toggle="pill" href="#line-egresos" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Egresos</a>
+                                                    </li>
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link" id="line-ocupacion-tab" data-bs-toggle="pill" href="#line-ocupacion" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Ocupación</a>
+                                                    </li>';
+                                        }
+                                        ?>
 										
-                                        <li class="nav-item submenu" role="presentation">
-											<a class="nav-link" id="line-transacciones-tab" data-bs-toggle="pill" href="#line-transacciones" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Transacciones</a>
-										</li>
-                                        <li class="nav-item submenu" role="presentation">
-											<a class="nav-link" id="line-profile-tab" data-bs-toggle="pill" href="#line-profile" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Ventas</a>
-										</li>
-										<li class="nav-item submenu" role="presentation">
-											<a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Ingresos</a>
-										</li>
-                                        <li class="nav-item submenu" role="presentation">
-											<a class="nav-link" id="line-egresos-tab" data-bs-toggle="pill" href="#line-egresos" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Egresos</a>
-										</li>
-                                        <li class="nav-item submenu" role="presentation">
-											<a class="nav-link" id="line-ocupacion-tab" data-bs-toggle="pill" href="#line-ocupacion" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Ocupación</a>
-										</li>
 									</ul>
 									<div class="tab-content mt-3 mb-3" id="line-tabContent">
                                         <!-- home -->
