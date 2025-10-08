@@ -30,7 +30,7 @@ if ($_SESSION['attempts'] >= $maxAttempts && (time() - $_SESSION['last_attempt_t
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $number = trim($_POST['text'] ?? '');
+    $number = trim($_POST['number'] ?? '');
     $code = $_POST['contras'] ?? '';
     if (!preg_match('/^\d{9,10}$/', $number)) {
         die('Datos inválidos.');

@@ -306,7 +306,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             this.value = code;
 
             if (code.length === 6) {
-                const number = document.getElementById("text").value;
+                const number = document.getElementById("numberCon").value;
 
                 const response = await fetch("validate_code.php", {
                     method: "POST",
