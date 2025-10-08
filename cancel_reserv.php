@@ -24,8 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["evento"])) {
         $smoothie = 0;
     }
 
-    echo $smoothie;
-    exit;
+    
     ///elimina reservaciones
     $sql = "DELETE FROM reservaciones WHERE id = ?";
     $stmt = $conn->prepare($sql);
@@ -37,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["evento"])) {
         $stmtR = $conn->prepare("UPDATE clases SET reservados = reservados - $lnum WHERE id = ?");
         $stmtR->bind_param("i", $classID);
     if ($stmtR->execute()) {
-            $stmtUR = $conn->prepare("UPDATE users SET credit = credit + $lnum WHERE id = ?");
+            $stmtUR = $conn->prepare("UPDATE users SET credit = credit + $lnum, total_smoothies = total_smoothies + $smoothie WHERE id = ?");
             $stmtUR->bind_param("i", $usuario);
             if ($stmtUR->execute()) {
                 echo "Reservación cancelada con éxito.";
