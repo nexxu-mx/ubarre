@@ -6,6 +6,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["evento"])) {
         $invitado = intval($_POST['invitado']);
         $clase = $_POST['title'];
     include("db.php"); 
+    ///info de smoothies
+    $sqs = ("SELECT sabor FROM reservaciones WHERE id = ?");
+    $sms = $conn->prepare($sqs);
+    $sms->bind_param("i", $id);
+    $sms->execute();
+    $res = $sms->get_result();
+    if($res->num_rows > 0){
+        $ros = $res->fetch_assoc();
+        $smoothie = 1;
+    }else{
+        $smoothie = 0;
+    }
+
+    echo $smoothie;
+    exit;
+    ///elimina reservaciones
     $sql = "DELETE FROM reservaciones WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id);
