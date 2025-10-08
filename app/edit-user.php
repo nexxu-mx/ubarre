@@ -5,7 +5,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
     header("Location: ../login.php");
     exit;  
 }
-
+if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
+	header("Location: ./index.php?s=" . $_SESSION['tipoUser']);
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,14 +99,27 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $iniciales = strtoupper(($nombre[0] ?? '').($apellido[0] ?? ''));
                                 if (empty($iniciales)) $iniciales = 'NA';
 
-                                if($fsmt['tipoUser'] == 1){
-                                    $tipus = '<option value="' . $fsmt['tipoUser'] . ' " checked>Cliente</option>';
-                                }elseif($fsmt['tipoUser'] == 2){
-                                    $tipus = '<option value="' . $fsmt['tipoUser'] . ' " checked>Coach</option>';
-                                }if($fsmt['tipoUser'] == 3){
-                                    $tipus = '<option value="' . $fsmt['tipoUser'] . ' " checked>Administrador</option>';
+                                if((int)$fsmt['tipoUser'] == 1){
+                                    $tipus = '<option value="1" selected="">Cliente</option>
+                                                    <option value="2">Coach</option>
+                                                    <option value="3">Administrador</option>
+                                                    <option value="4">Recepción</option>';
+                                }elseif((int)$fsmt['tipoUser'] == 2){
+                                    $tipus = '
+                                    <option value="1">Cliente</option>
+                                                    <option value="2" selected="">Coach</option>
+                                                    <option value="3">Administrador</option>
+                                                    <option value="4">Recepción</option>';
+                                }elseif((int)$fsmt['tipoUser'] == 3){
+                                    $tipus = '<option value="1">Cliente</option>
+                                                    <option value="2">Coach</option>
+                                                    <option value="3" selected="">Administrador</option>
+                                                    <option value="4">Recepción</option>';
                                 }else{
-                                    $tipus = "";
+                                    $tipus = '<option value="1">Cliente</option>
+                                                    <option value="2">Coach</option>
+                                                    <option value="3">Administrador</option>
+                                                    <option value="4" selected="">Recepción</option>';
                                 }
                                 $btnPaq = '<button class="btn btn-black" type="button" onclick="openAp()">
                                                 <span class="btn-label">
@@ -228,7 +244,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $idUsr = "";
                                 $nombre = "";
                                 $apellido = "";
-                                $tipus = '<option value="1" checked">Cliente</option>';
+                                 $tipus = '<option value="1" selected="">Cliente</option>
+                                                    <option value="2">Coach</option>
+                                                    <option value="3">Administrador</option>
+                                                    <option value="4">Recepción</option>';
                                 $mail = "";
                                 $numero = "";
                                 $pass = "";
@@ -243,7 +262,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 $valnum = 'onblur="validarNumero()"';
                                 $profilePath = "../assets/images/profiles/unknow.png";
                             }
-                          
+
+                          if((int)$_SESSION['tipoUser'] == 4){
+                                $tipus = '<option value="1" selected="">-</option>';
+                            }
                             ?>
 								<div class="card-body">
                                     <form action="save_user.php" method="post"  onsubmit="trimTrailingSpaces()">
@@ -272,11 +294,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                         <div class="form-group form-group-default">
                                                 <label for="tipouser">Tipo de Usuario</label>
                                                 <select class="form-select" id="tipouser" name="tipouser">
-                                                    <?php echo $tipus; ?>
-                                                    <option value="1">Cliente</option>
-                                                    <option value="2">Coach</option>
-                                                    <option value="3">Administrador</option>
-                                                    <option value="4">Recepción</option>
+                                                   <?php echo $tipus;  ?>
                                                 </select>
                                             </div>
                                        </div>
@@ -294,11 +312,19 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                                 <label for="numero">Número</label>
                                             </div>
                                        </div>
-                                       <div class="col-md-3">
+                                        <div class="col-md-3">
                                             <div class="form-floating form-floating-custom mb-3">
-                                                <input type="text" class="form-control" id="pass" name="pass" value="<?php echo $pass;?>" placeholder="name@example.com" maxlength="10" minlength="9" required="">
-                                                <label for="pass">Contraseña</label>
+                                                
+                                                <input type="<?php 
+                                                                if ((int)$_SESSION['tipoUser'] == 4) {
+                                                                echo "hidden";
+                                                                } else {
+                                                                echo "text"; // o lo que quieras en caso contrario
+                                                                }
+                                                                ?>" class="form-control" id="pass" name="pass" value="<?php echo $pass;?>" placeholder="name@example.com"  minlength="5" required="">
+                                                <label for="pass" <?php if((int)$_SESSION['tipoUser'] == 4){echo "style='display: none'";};?>>Contraseña</label>
                                             </div>
+                                            
                                        </div>
                                     </div>
                                     <div class="row">
