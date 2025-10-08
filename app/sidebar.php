@@ -77,69 +77,102 @@
 	<div class="sidebar-wrapper scrollbar scrollbar-inner">
 		<div class="sidebar-content">
 			<ul class="nav color-icons-theme">
-				<li class="nav-item">
-					<a href="index.php" class="decoration-theme">
-						<i class="fas fa-home"></i>
-						<p>Inicio</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="registra-class.php" class="decoration-theme">
-						<i class="fas fa-qrcode"></i>
-						<p>Asistencia</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="clientes.php">
-						<i class="fas fa-users"></i>
-						<p>Usuarios</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="clases.php">
-						<i class="fas fa-award"></i>
-						<p>Clases</p>
-					</a>
-				</li>
+				<?php
+							if((int)$_SESSION['tipoUser'] == 3){
+								echo '<li class="nav-item">
+										<a href="index.php" class="decoration-theme">
+											<i class="fas fa-home"></i>
+											<p>Inicio</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="registra-class.php" class="decoration-theme">
+											<i class="fas fa-qrcode"></i>
+											<p>Asistencia</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="clientes.php">
+											<i class="fas fa-users"></i>
+											<p>Usuarios</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="clases.php">
+											<i class="fas fa-award"></i>
+											<p>Clases</p>
+										</a>
+									</li>
 
-				<li class="nav-item">
-					<a href="finanzas.php">
-						<i class="fas fa-chart-bar"></i>
-						<p>Finanzas</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="coach.php">
-						<i class="fas fa-user-circle"></i>
-						<p>Coaches</p>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="disciplinas.php">
-						<i class="fas fa-graduation-cap"></i>
-						<p>Disciplinas</p>
-					</a>
-				</li>
+									<li class="nav-item">
+										<a href="finanzas.php">
+											<i class="fas fa-chart-bar"></i>
+											<p>Finanzas</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="coach.php">
+											<i class="fas fa-user-circle"></i>
+											<p>Coaches</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="disciplinas.php">
+											<i class="fas fa-graduation-cap"></i>
+											<p>Disciplinas</p>
+										</a>
+									</li>
 
+									
+									<li class="nav-item">
+										<a href="paquetes.php">
+											<i class="fas fa-boxes"></i>
+											<p>Paquetes</p>
+										</a>
+									</li>
+
+									<li class="nav-item">
+										<a href="smoothies.php" style="gap: 1.3rem;">
+											<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+												<title>Pint</title>
+												<path d="M399 99.29L394 16H118.45L113 99.26c-1.29 19.24-2.23 33.14 3.73 65.66 1.67 9.11 5.22 
+													22.66 9.73 39.82 12.61 48 33.71 128.36 33.71 195.63V496h191.68v-95.62c0-77.09 21.31-153.29 34-198.81 4.38-15.63 7.83-28 
+													9.41-36.62 6.01-32.51 5.07-46.42 3.74-65.66zM146.23 80l2-32h215.52l2 32z" />
+											</svg>
+											<p>Smoothies</p>
+										</a>
+									</li>';
+							}elseif((int)$_SESSION['tipoUser'] == 4){
+								echo '<li class="nav-item">
+										<a href="index.php" class="decoration-theme">
+											<i class="fas fa-home"></i>
+											<p>Inicio</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="registra-class.php" class="decoration-theme">
+											<i class="fas fa-qrcode"></i>
+											<p>Asistencia</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="clientes.php">
+											<i class="fas fa-users"></i>
+											<p>Usuarios</p>
+										</a>
+									</li>
+									
+
+									<li class="nav-item">
+										<a href="finanzas.php">
+											<i class="fas fa-chart-bar"></i>
+											<p>Finanzas</p>
+										</a>
+									</li>
+									';
+							}
+							?>
 				
-				<li class="nav-item">
-					<a href="paquetes.php">
-						<i class="fas fa-boxes"></i>
-						<p>Paquetes</p>
-					</a>
-				</li>
-
-				<li class="nav-item">
-					<a href="smoothies.php" style="gap: 1.3rem;">
-						<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-							<title>Pint</title>
-							<path d="M399 99.29L394 16H118.45L113 99.26c-1.29 19.24-2.23 33.14 3.73 65.66 1.67 9.11 5.22 
-								22.66 9.73 39.82 12.61 48 33.71 128.36 33.71 195.63V496h191.68v-95.62c0-77.09 21.31-153.29 34-198.81 4.38-15.63 7.83-28 
-								9.41-36.62 6.01-32.51 5.07-46.42 3.74-65.66zM146.23 80l2-32h215.52l2 32z" />
-						</svg>
-						<p>Smoothies</p>
-					</a>
-				</li>
 
 				<li class="nav-item">
 					<a href="../profile.php">

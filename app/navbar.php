@@ -40,7 +40,7 @@
 									<li>
 										<div class="dropdown-title">Notificaciones</div>
 									</li>
-									<li>
+									<!-- <li>
 										<div class="notif-scroll scrollbar-outer">
 											<div class="notif-center">
 												<a href="#">
@@ -55,7 +55,7 @@
 												
 											</div>
 										</div>
-									</li>
+									</li> -->
 									
 								</ul>
 							</li>
@@ -86,7 +86,7 @@
 											</div>
 										</li>
 										<li>
-											<a class="dropdown-item" href="logout.php">Cerrar Sesión</a>
+											<a class="dropdown-item" href="../logout.php">Cerrar Sesión</a>
 										</li>
 									</div>
 								</ul>
