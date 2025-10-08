@@ -113,7 +113,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                         <button type="button" onclick="closeCo()">Regresar</button>
 
                         <label for="numberCon">Número*</label>
-                        <input type="text" name="numberCon" id="numberCon" placeholder="477 123 4567" maxlength="10" minlength="9" required>
+                        <input type="text" name="numberCon" id="numberCon" placeholder="555 555 5555" maxlength="10" minlength="9" required>
                         <small>Ingresa tu número, y espera el código de validación para cambiar tu contraseña.</small>
                         <input type="hidden" name="recuperar" id="recuperar" value="1" required>
                         <label for="code" id="labelCon" style="display: none">Código de Validación</label>
@@ -138,9 +138,9 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
-        document.getElementById("text").addEventListener("input", async function() {
-            let input = this.value.replace(/\D/g, '');
-            input = input.substring(0, 10);
+          document.getElementById("number").addEventListener("input", async function() {
+            let input = this.value.replace(/\D/g, ''); 
+            input = input.substring(0, 10); 
             this.value = input;
 
             if (input.length === 10) {
@@ -157,7 +157,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                 if (result.exists) {
                     this.style.border = "1px solid green";
                     document.getElementById("labelNum").style.display = "block";
-                    document.getElementById("contentNum").style.display = "block";
+                    document.getElementById("contentNum").style.display = "flex";
                 } else {
                     this.style.border = "2px solid red";
                     document.getElementById("labelNum").style.display = "none";
@@ -170,55 +170,55 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             }
         });
         //olvide mi contraseña
-        document.getElementById("text").addEventListener("input", async function() {
-            let input = this.value.replace(/\D/g, '');
-            input = input.substring(0, 10);
-            this.value = input;
+        document.getElementById("numberCon").addEventListener("input", async function() {
+    let input = this.value.replace(/\D/g, ''); 
+    input = input.substring(0, 10); 
+    this.value = input;
 
-            if (input.length === 10) {
-                var recuperar = document.getElementById('recuperar').value;
-                const response = await fetch("validate_number.php?", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    },
-                    body: "numero=" + encodeURIComponent(input) + "&recuperar=" + encodeURIComponent(recuperar)
-                });
-
-                const result = await response.json();
-
-                if (result.exists) {
-                    this.style.border = "1px solid green";
-                    document.getElementById("labelCon").style.display = "block";
-                    document.getElementById("contentCon").style.display = "flex";
-
-                    const btnCode = document.getElementById("btn-code");
-                    let seconds = 60;
-
-                    btnCode.disabled = true;
-                    btnCode.innerText = `${seconds}s`;
-
-                    const interval = setInterval(() => {
-                        seconds--;
-                        btnCode.innerText = `${seconds}s`;
-
-                        if (seconds <= 0) {
-                            clearInterval(interval);
-                            btnCode.disabled = false;
-                            btnCode.innerHTML = `<ion-icon name="reload-outline" style="font-size: 18px;" aria-hidden="true"></ion-icon>`;
-                        }
-                    }, 1000);
-                } else {
-                    this.style.border = "2px solid red";
-                    document.getElementById("labelCon").style.display = "none";
-                    document.getElementById("contentCon").style.display = "none";
-                }
-            } else {
-                this.style.border = ""; // Reset
-                document.getElementById("labelCon").style.display = "none";
-                document.getElementById("contentCon").style.display = "none";
-            }
+    if (input.length === 10) {
+        var recuperar = document.getElementById('recuperar').value;
+        const response = await fetch("validate_number.php?", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "numero=" + encodeURIComponent(input) + "&recuperar=" + encodeURIComponent(recuperar)
         });
+
+        const result = await response.json();
+
+        if (result.exists) {
+            this.style.border = "1px solid green";
+            document.getElementById("labelCon").style.display = "block";
+            document.getElementById("contentCon").style.display = "flex";
+
+            const btnCode = document.getElementById("btn-code");
+            let seconds = 60;
+
+            btnCode.disabled = true;
+            btnCode.innerText = `${seconds}s`;
+
+            const interval = setInterval(() => {
+                seconds--;
+                btnCode.innerText = `${seconds}s`;
+
+                if (seconds <= 0) {
+                    clearInterval(interval);
+                    btnCode.disabled = false;
+                    btnCode.innerHTML = `<ion-icon name="reload-outline" style="font-size: 18px;" aria-hidden="true"></ion-icon>`;
+                }
+            }, 1000);
+        } else {
+            this.style.border = "2px solid red";
+            document.getElementById("labelCon").style.display = "none";
+            document.getElementById("contentCon").style.display = "none";
+        }
+    } else {
+        this.style.border = ""; // Reset
+        document.getElementById("labelCon").style.display = "none";
+        document.getElementById("contentCon").style.display = "none";
+    }
+});
 
         //omc fin
         function cargarOpcionesFecha() {
