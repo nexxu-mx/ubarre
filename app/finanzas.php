@@ -86,7 +86,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                         if ((int)$_SESSION['tipoUser'] == 4) {
                                             echo '
                                                 <li class="nav-item submenu" role="presentation">
-                                                    <a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-contact" aria-selected="true" tabindex="-1">Ingresos</a>
+                                                    <a class="nav-link active" id="line-home-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-home" aria-selected="true">Ingresos</a>
                                                 </li>';
                                         }else{
                                             echo '
@@ -115,7 +115,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
 									</ul>
 									<div class="tab-content mt-3 mb-3" id="line-tabContent">
                                         <!-- home -->
-										<div class="tab-pane fade  <?php if ((int)$_SESSION['tipoUser'] == 3) { echo 'active'; } ?> show" id="line-home" role="tabpanel" aria-labelledby="line-home-tab">
+										<div class="tab-pane fade active show" id="line-home" role="tabpanel" aria-labelledby="line-home-tab">
 											<div class="card-header" style="display: flex; justify-content: space-between; ">
                                                 <div class="card-title" id="tituloMeshome" style="text-transform: capitalize;"></div>
                                                 <div class="btn-group">
@@ -189,7 +189,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                             </div>
 										</div>
                                         <!-- transacciones -->
-                                         <div class="tab-pane <?php if ((int)$_SESSION['tipoUser'] == 4) { echo 'active'; } ?> fade" id="line-transacciones" role="tabpanel" aria-labelledby="line-contact-tab">
+                                         <div class="tab-pane fade" id="line-transacciones" role="tabpanel" aria-labelledby="line-contact-tab">
                                                 <div class="card-body">
                                                 <div class="table-responsive">
                                                     <table class="display table table-striped table-hover" >
