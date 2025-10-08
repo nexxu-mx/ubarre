@@ -21,6 +21,16 @@ while ($row = mysqli_fetch_assoc($resultEgresos)) {
     $egresos[] = $row;
 }
 
+// === 1.2 Consultar ingresos del mes seleccionado ===
+$queryIngresos = "SELECT fecha, monto 
+                 FROM ing 
+                 WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mesConsulta'";
+$resultINgresos = mysqli_query($conn, $queryingresos);
+
+$ing = [];
+while ($row = mysqli_fetch_assoc($resultIngresos)) {
+    $ing[] = $row;
+}
 // === 2. Consultar transacciones del mes seleccionado ===
 $queryTransacciones = "SELECT fecha, monto, metodo 
                        FROM transacciones 
@@ -52,8 +62,15 @@ foreach ($egresos as $egreso) {
     $egresosTotales += $egreso['monto'];
 }
 
+// === 4.5 Calcular ingresos ===
+$ingresosTotales = 0;
+foreach ($ing as $ings) {
+    $ingresosMan += $ings['monto'];
+}
+
+
 // === 5. Calcular utilidad ===
-$totalUtilidad = ($ingresosTienda + $ingresosEcommerce) - $egresosTotales;
+$totalUtilidad = ($ingresosTienda + $ingresosEcommerce + $ingresosMan) - $egresosTotales;
 
 // === 6. Consultar ocupación de clases hasta el momento actual ===
 $queryClases = "SELECT aforo, reservados, fecha 
@@ -173,7 +190,7 @@ foreach ($operaciones as $op) {
 // === 8. Respuesta JSON ===
 header('Content-Type: application/json');
 echo json_encode([
-    'ingresos' => $ingresosTienda + $ingresosEcommerce,
+    'ingresos' => $ingresosTienda + $ingresosEcommerce + $ingresosMan,
     'egresos' => $egresosTotales,
     'utilidades' => $totalUtilidad,
     'ocupacion' => $porcentajeOcupacion,

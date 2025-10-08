@@ -1,6 +1,6 @@
 let periodo
 $(document).ready(function() {
-    // Inicializar DataTable con la opción de orden descendente en la primera columna
+    // Inicializar DataTable con la opción  de orden descendente en la primera columna
     let tabla = $('#basic-datatables').DataTable({
         "order": [],  // Ordenar por la primera columna (índice 0) en orden descendente
         "columns": [
