@@ -333,7 +333,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
             const code = this.value;
 
             if (code) {
-                const number = document.getElementById("text").value;
+                const number = document.getElementById("number").value;
 
                 const response = await fetch("validate_contra.php", {
                     method: "POST",
