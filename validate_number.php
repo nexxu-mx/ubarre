@@ -53,7 +53,7 @@ try {
                 $mail_motivo = "Código";
                 $mail_motivo2 = "Aquí está tu código de verificación de acceso:";
                 $mail_descripcion = "Por favor, asegúrate de no compartir nunca este código con nadie. Tu código expirará en 15 minutos.";
-                $mail_tabla = "<span style='font-size: 22px; font-weight: 600; color: #986C5D'>$token</span>";
+                $mail_tabla = "<span style='font-size: 32px; text-align: center; font-weight: 600; color: #8B976A'>$token</span>";
               
                 include 'success_mail.php';
            }
