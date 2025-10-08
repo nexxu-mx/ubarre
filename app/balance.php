@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_assoc($resultEgresos)) {
 $queryIngresos = "SELECT fecha, monto 
                  FROM ing 
                  WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mesConsulta'";
-$resultINgresos = mysqli_query($conn, $queryingresos);
+$resultIngresos = mysqli_query($conn, $queryIngresos);
 
 $ing = [];
 while ($row = mysqli_fetch_assoc($resultIngresos)) {
