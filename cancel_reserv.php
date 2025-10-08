@@ -14,7 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["evento"])) {
     $res = $sms->get_result();
     if($res->num_rows > 0){
         $ros = $res->fetch_assoc();
-        $smoothie = 1;
+        if(empty($ros['sabor'])){
+            $smoothie = 0;
+        }else{
+            $smoothie = 1;
+        }
+        
     }else{
         $smoothie = 0;
     }
