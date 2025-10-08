@@ -28,9 +28,10 @@ $message = '
         <div class="email-container">
            
             <div class="header">
-                <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                    <img src="https://ubarre.com.mx/ubarre.png" style="width: 60%;" alt=" üBarre">
-                    
+                <div style="width:100%; text-align:center;">
+                    <img src="https://ubarre.com.mx/ubarre.png" 
+                        style="width:60%; display:inline-block;" 
+                        alt="üBarre">
                 </div>
                 <h1>' . $mail_motivo . '</h1>
             </div>
