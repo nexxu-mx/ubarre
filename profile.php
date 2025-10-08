@@ -207,7 +207,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                                 <p class="p4">Cerrar Sesión</p>
                             </button>
                             <?php
-                            if ($_SESSION['tipoUser'] == 3) {
+                             if($_SESSION['tipoUser'] == 3 || $_SESSION['tipoUser'] == 4){
                                 echo '<button class="p3" onclick="openAdmin()"><ion-icon name="newspaper-outline" aria-hidden="true" class="p2"></ion-icon> <p class="p4">Administración</p></button>';
                             }
                             ?>

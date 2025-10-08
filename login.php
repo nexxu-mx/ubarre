@@ -56,7 +56,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                         <p class="registro-mensaje">¿Es tu primera vez? <span><button type="button" onclick="openRegistro()">Regístrate</button></span></p>
                         <div class="container-login-form">
                             <label for="number">Número *</label>
-                            <input type="text" name="number" id="number" placeholder="555 555 55555" maxlength="10" minlength="9" required>
+                            <input type="text" name="number" id="number" placeholder="555 555 5555" maxlength="10" minlength="9" required>
                             <br>
                            
                             <div id="contentNum" style="display: none">
