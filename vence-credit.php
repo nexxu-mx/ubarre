@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('America/Mexico_City'); 
 
-$mysqli = new mysqli("127.0.0.1", "u379047759_ubarrelem", "Ubarre25?", "u379047759_ubarrelem");
+$mysqli = new mysqli("127.0.0.1", "u379047759_ubarretea", "Ubarre25?", "u379047759_ubarrelem");
 
 if ($mysqli->connect_error) {
     die("Error de conexión: " . $mysqli->connect_error);
