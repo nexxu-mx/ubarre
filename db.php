@@ -2,7 +2,7 @@
 $devON = false;
 if ($devON == false) {
     $servername = "127.0.0.1";
-    $username = "u379047759_ubarrelem";
+    $username = "u379047759_ubarrelem"; 
     $password = "Ubarre25?";
     $database = "u379047759_ubarretea";
 } else {
