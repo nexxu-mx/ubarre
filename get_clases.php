@@ -160,12 +160,12 @@ if ($day) {
             //estatus clase en lista de espera
             $estatus = '<img class="icono-reserva" src="assets/images/svg/waiting_list.svg" alt="Wait List ícono">';
         }
-
+$resw = "";
         if($abierta == 1){
             /// Anticipación para reservar
             $hoy = new DateTime('today');
             $manana = new DateTime('tomorrow');
-            $resw = "";
+            
 
             // 🔹 Nuevo caso: hoy antes de las 3:00 pm -> bloqueado
             $limiteHoy = (clone $hoy)->setTime(12, 0); // hoy a las 3:00pm
