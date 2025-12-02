@@ -186,7 +186,7 @@ if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
                                 <p class="p4">Mis Reservas</p>
                             </button>
                             <?php
-                            if ($_SESSION['tipoUser'] == 2) {
+                            if ($_SESSION['isCoach'] == 1 ) {
                                 echo '<button class="p3" onclick="coachCalendar()"><ion-icon name="calendar-outline" aria-hidden="true" class="p2"></ion-icon> <p class="p4">Mis Clases</p></button>';
                             }
                             ?>

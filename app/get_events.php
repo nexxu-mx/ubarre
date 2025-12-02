@@ -70,7 +70,7 @@ while ($row = $result->fetch_assoc()) {
         $name = htmlspecialchars($rowA['nombre']);
         
         $sabor = htmlspecialchars($rowA['sabor']);
-        $sabor = $sabor==""?"No se incluyo un smoothie":$sabor;
+        $sabor = $sabor==""?" ":$sabor;
         $momento = htmlspecialchars($rowA['momento']);
         $momento = $momento== "" || $momento=="Sin smoothie" ? "" : "(".$momento.")";
 

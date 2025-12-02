@@ -150,6 +150,12 @@
 										</a>
 									</li>
 									<li class="nav-item">
+										<a href="clases.php">
+											<i class="fas fa-award"></i>
+											<p>Clases</p>
+										</a>
+									</li>
+									<li class="nav-item">
 										<a href="registra-class.php" class="decoration-theme">
 											<i class="fas fa-qrcode"></i>
 											<p>Asistencia</p>

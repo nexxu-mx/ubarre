@@ -6,7 +6,7 @@ if ($conn->connect_error) {
 }
 
 session_start();
-$id = $_SESSION['idUser'];
+$id = $_SESSION['idCoach'];
 date_default_timezone_set('America/Mexico_City');
 
 // Obtener y formatear los parámetros de la URL

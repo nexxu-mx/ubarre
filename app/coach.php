@@ -8,7 +8,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>übarre</title>

@@ -35,14 +35,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!preg_match('/^\d{9,10}$/', $number)) {
         die('Datos inválidos.');
     }
-    $stmt = $conn->prepare("SELECT id, nombre, mail, numero, tipoUser FROM users WHERE numero = ? AND pass = ?");
+    $stmt = $conn->prepare("SELECT id, iduser, nombre, mail, numero, tipoUser FROM users WHERE numero = ? AND pass = ?");
     $stmt->bind_param("ss", $number, $code);
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
         session_regenerate_id(true);
-        $_SESSION['tipoUser'] = $user['tipoUser'];
+        $_SESSION['tipoUser'] = $user['tipoUser']; 
+        
+        if(!empty($user['iduser'])){
+            $_SESSION['isCoach'] = 1;
+            $_SESSION['idCoach'] = $user['iduser'];
+        }
+        
         $_SESSION['idUser'] = (int)$user['id'];
         $_SESSION['email'] = $user['mail'];
         $_SESSION['number'] = $user['numero'];
