@@ -163,7 +163,7 @@ if (empty($customer_id)) {
     // 2. Procesar el pago
     $paymentData = [
         "transaction_amount" => $cargo1,
-        "description" => $data['description'] ?? "SATYA Studio",
+        "description" => $data['description'] ?? "UBarre Studio",
         "payment_method_id" => $data['payment_method_id'],
         "payer" => [
             "email" => $mail,
