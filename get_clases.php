@@ -68,6 +68,7 @@ if ($day) {
 
 
         $abierta = 1;
+        $waitListDisponible = 0;
 
         //estatus clase en abierta para reserva
         $estatus = '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto"
@@ -87,9 +88,10 @@ if ($day) {
         $aforo = $row['reservados'] . '/' . $row['aforo'];
 
         if ($row['aforo'] <= $row['reservados']) {
-            //estatus clase cerrada para reserva por cupo complet 
-            $estatus = '<img class="icono-reserva" src="assets/images/svg/full_class.svg" alt="Clase llena ícono"><p>Clase llena</p>';
+            //estatus clase cerrada para reserva por cupo completo - pero disponible para wait list
+            $estatus = '<img class="icono-reserva" src="assets/images/svg/full_class.svg" alt="Clase llena ícono"><p>Clase llena - Lista de Espera</p>';
             $abierta = 0;
+            $waitListDisponible = 1;
         }
         // Crear objetos DateTime
         $start = new DateTime($row['hora_inicio']);
@@ -145,20 +147,24 @@ if ($day) {
         $duracion = $duracionTexto;
 
         if (isset($idUser)) {
-            //validara la reserva del usuario
+            //validara la reserva del usuario y si está en wait list
             $idClase = $row['id'];
+            $stmtU = $conn->prepare("SELECT activo, en_espera FROM reservaciones WHERE alumno = ? AND idClase = ?");
             $stmtU->bind_param("ii", $idUser, $idClase);
             $stmtU->execute();
             $resultU = $stmtU->get_result();
 
             if ($Alumno = $resultU->fetch_assoc()) {
-                $estatus = '<img class="icono-reserva" src="assets/images/svg/reservado.svg" alt="Clase reservada ícono"><p>Clase reservada</p>';
-                $abierta = 0;
+                if ($Alumno['en_espera'] == 1) {
+                    $estatus = '<img class="icono-reserva" src="assets/images/svg/waiting_list.svg" alt="En lista de espera ícono"><p>En Lista de Espera</p>';
+                    $abierta = 0;
+                    $waitListDisponible = 0;
+                } else {
+                    $estatus = '<img class="icono-reserva" src="assets/images/svg/reservado.svg" alt="Clase reservada ícono"><p>Clase reservada</p>';
+                    $abierta = 0;
+                    $waitListDisponible = 0;
+                }
             }
-        }
-        if ($row['estatus'] == 2) {
-            //estatus clase en lista de espera
-            $estatus = '<img class="icono-reserva" src="assets/images/svg/waiting_list.svg" alt="Wait List ícono">';
         }
 $resw = "";
         if($abierta == 1){
@@ -218,7 +224,8 @@ $resw = "";
             "disciplina" => $nombre_disciplina,
             "id_disciplina" => $row['id_disciplina'],
             "abierta" => $abierta,
-            "close_whats" => $resw
+            "close_whats" => $resw,
+            "waitlist_disponible" => $waitListDisponible
         ];
     }
     $stmtC->close();

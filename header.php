@@ -88,13 +88,18 @@
           </div> 
           ';
       } else {
-        echo '<div class="login-bolsa-navbar">
+        $tipoUser = isset($_SESSION['tipoUser']) ? (int)$_SESSION['tipoUser'] : 0;
+
+       
+
+        echo '<div class="login-bolsa-navbar" style="display: flex; align-items: center;">
+            
             <a href="profile.php" style="display: flex;align-items: baseline;gap: 3px;font-weight: 400;">
               <img src="assets/images/svg/login.svg" alt="login icon">
               <p id="profile-name">' . $_SESSION['nombre'] . '</p>
             </a>
           </div>
-          
+
           <div class="login-bolsa-navbar">
           </div> ';
       }
@@ -166,6 +171,8 @@
     <li class="navbar-item">
       <a href="contacto.php" class="navbar-link title-md">CONTACTO</a>
     </li>
+
+   
 
   </ul>
 

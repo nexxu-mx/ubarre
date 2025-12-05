@@ -5,7 +5,9 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
     header("Location: ../login.php");
     exit;  
 }
-if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
+// CAMBIO: Ahora solo admin (tipoUser=3) puede acceder a finanzas completas
+// Recepción (tipoUser=4) usa caja.php
+if((int)$_SESSION['tipoUser'] !== 3){
 	header("Location: ./index.php?s=" . $_SESSION['tipoUser']);
     exit;
 }
@@ -38,7 +40,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
 	<link rel="stylesheet" href="./assets/css/demo.css">
 	<style>
 		.icon{
-			fill: #fff; 
+			fill: #fff;
 			width: 60px;
 		}
         .egrd{
@@ -60,6 +62,47 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
             left: 0;
             z-index: 1003;
             background: #000000a1;
+        }
+
+        /* Estilos para productos */
+        .producto-card {
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: white;
+        }
+        .producto-card:hover {
+            border-color: #986C5D;
+            box-shadow: 0 4px 12px rgba(152, 108, 93, 0.2);
+            transform: translateY(-3px);
+        }
+        .producto-card.selected {
+            border-color: #986C5D;
+            background-color: #fef5f1;
+        }
+        .producto-nombre {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 10px 0 5px 0;
+            color: #333;
+        }
+        .producto-precio {
+            color: #986C5D;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .producto-tipo {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 5px;
+            background-color: #986C5D;
+            color: white;
         }
 	</style>
 </head>
@@ -86,19 +129,25 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                         if ((int)$_SESSION['tipoUser'] == 4) {
                                             echo '
                                                 <li class="nav-item submenu" role="presentation">
-                                                    <a class="nav-link active" id="line-home-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-home" aria-selected="true">Ingresos</a>
+                                                    <a class="nav-link active" id="line-productos-tab" data-bs-toggle="pill" href="#line-productos" role="tab" aria-controls="pills-productos" aria-selected="true">Productos</a>
+                                                </li>
+                                                <li class="nav-item submenu" role="presentation">
+                                                    <a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-home" aria-selected="false">Ingresos</a>
                                                 </li>';
                                         }else{
                                             echo '
                                                     <li class="nav-item submenu" role="presentation">
                                                         <a class="nav-link active" id="line-home-tab" data-bs-toggle="pill" href="#line-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
                                                     </li>
-                                                    
+
                                                     <li class="nav-item submenu" role="presentation">
                                                         <a class="nav-link" id="line-transacciones-tab" data-bs-toggle="pill" href="#line-transacciones" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Transacciones</a>
                                                     </li>
                                                     <li class="nav-item submenu" role="presentation">
                                                         <a class="nav-link" id="line-profile-tab" data-bs-toggle="pill" href="#line-profile" role="tab" aria-controls="pills-profile" aria-selected="false" tabindex="-1">Ventas</a>
+                                                    </li>
+                                                    <li class="nav-item submenu" role="presentation">
+                                                        <a class="nav-link" id="line-productos-tab" data-bs-toggle="pill" href="#line-productos" role="tab" aria-controls="pills-productos" aria-selected="false" tabindex="-1">Productos</a>
                                                     </li>
                                                     <li class="nav-item submenu" role="presentation">
                                                         <a class="nav-link" id="line-contact-tab" data-bs-toggle="pill" href="#line-contact" role="tab" aria-controls="pills-contact" aria-selected="false" tabindex="-1">Ingresos</a>
@@ -308,7 +357,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                                 <div class="btn-group">
                                                     <div class="dropdown">
                                                         <button type="button" id="btnPeriodo" class="btn btn-outline-secondary">Periodo</button>
-                                                    </div>                        
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="card-body">
@@ -324,6 +373,38 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                                         </tr>
                                                     </thead>
                                                     <tbody id="liocup"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+										</div>
+
+                                        <!-- Productos - ADMINISTRACIÓN (solo admin) -->
+                                        <div class="tab-pane fade" id="line-productos" role="tabpanel" aria-labelledby="line-productos-tab">
+											<div class="card-header" style="display: flex; justify-content: space-between; ">
+                                                <div class="card-title">Administración de Productos</div>
+                                                <button class="btn btn-primary" onclick="nuevoProducto()">
+                                                    <i class="fa fa-plus"></i> Nuevo Producto
+                                                </button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ID</th>
+                                                                <th>Nombre</th>
+                                                                <th>Descripción</th>
+                                                                <th>Tipo</th>
+                                                                <th>Precio</th>
+                                                                <th>Estado</th>
+                                                                <th>Acciones</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="productos-admin-tabla">
+                                                            <tr>
+                                                                <td colspan="7" class="text-center">Cargando...</td>
+                                                            </tr>
+                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -563,10 +644,210 @@ document.getElementById("exportPDF").addEventListener("click", function() {
         });
     });
 });
+
+// ============================================
+// Administración de Productos (solo admin)
+// ============================================
+$(document).ready(function() {
+    cargarProductosAdmin();
+});
+
+function cargarProductosAdmin() {
+    $.ajax({
+        url: 'get-todos-productos.php',
+        method: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            if (response.success) {
+                mostrarProductosAdmin(response.productos);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+}
+
+function mostrarProductosAdmin(productos) {
+    const tbody = $('#productos-admin-tabla');
+    tbody.empty();
+
+    if (productos.length === 0) {
+        tbody.html('<tr><td colspan="7" class="text-center">No hay productos registrados</td></tr>');
+        return;
+    }
+
+    productos.forEach(p => {
+        const estadoBadge = p.activo == 1
+            ? '<span class="badge bg-success">Activo</span>'
+            : '<span class="badge bg-secondary">Inactivo</span>';
+
+        const row = `
+            <tr>
+                <td>${p.id}</td>
+                <td>${p.nombre}</td>
+                <td>${p.descripcion || '-'}</td>
+                <td>${p.tipo}</td>
+                <td>$${parseFloat(p.costo).toFixed(2)}</td>
+                <td>${estadoBadge}</td>
+                <td>
+                    <button class="btn btn-sm btn-warning" onclick="editarProducto(${p.id})">
+                        <i class="fa fa-edit"></i>
+                    </button>
+                    <button class="btn btn-sm ${p.activo == 1 ? 'btn-danger' : 'btn-success'}"
+                            onclick="toggleProducto(${p.id}, ${p.activo})">
+                        <i class="fa fa-${p.activo == 1 ? 'times' : 'check'}"></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        tbody.append(row);
+    });
+}
+
+function nuevoProducto() {
+    swal({
+        title: "Nuevo Producto",
+        content: {
+            element: "div",
+            attributes: {
+                innerHTML: `
+                    <input id="prod-nombre" class="swal2-input" placeholder="Nombre del producto" style="display:block; width:80%; margin:10px auto;">
+                    <input id="prod-descrip" class="swal2-input" placeholder="Descripción" style="display:block; width:80%; margin:10px auto;">
+                    <select id="prod-tipo" class="swal2-input" style="display:block; width:80%; margin:10px auto;">
+                        <option value="">Seleccionar tipo...</option>
+                        <option value="smoothie">Smoothie</option>
+                        <option value="producto">Producto</option>
+                        <option value="bebida">Bebida</option>
+                        <option value="snack">Snack</option>
+                    </select>
+                    <input id="prod-costo" class="swal2-input" type="number" step="0.01" placeholder="Precio" style="display:block; width:80%; margin:10px auto;">
+                `
+            }
+        },
+        buttons: {
+            cancel: "Cancelar",
+            confirm: "Guardar"
+        }
+    }).then((willSave) => {
+        if (willSave) {
+            const nombre = document.getElementById('prod-nombre').value;
+            const descrip = document.getElementById('prod-descrip').value;
+            const tipo = document.getElementById('prod-tipo').value;
+            const costo = document.getElementById('prod-costo').value;
+
+            if (!nombre || !tipo || !costo) {
+                swal("Error", "Completa todos los campos obligatorios", "error");
+                return;
+            }
+
+            $.ajax({
+                url: 'guardar-producto.php',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    nombre: nombre,
+                    descripcion: descrip,
+                    tipo: tipo,
+                    costo: costo
+                }),
+                success: function(response) {
+                    if (response.success) {
+                        swal("Éxito", "Producto creado correctamente", "success");
+                        cargarProductosAdmin();
+                    } else {
+                        swal("Error", response.message, "error");
+                    }
+                }
+            });
+        }
+    });
+}
+
+function editarProducto(id) {
+    // Obtener datos del producto
+    $.ajax({
+        url: 'get-producto.php?id=' + id,
+        method: 'GET',
+        success: function(response) {
+            if (response.success) {
+                const p = response.producto;
+                swal({
+                    title: "Editar Producto",
+                    content: {
+                        element: "div",
+                        attributes: {
+                            innerHTML: `
+                                <input id="edit-nombre" class="swal2-input" value="${p.sabor}" placeholder="Nombre" style="display:block; width:80%; margin:10px auto;">
+                                <input id="edit-descrip" class="swal2-input" value="${p.descrip || ''}" placeholder="Descripción" style="display:block; width:80%; margin:10px auto;">
+                                <select id="edit-tipo" class="swal2-input" style="display:block; width:80%; margin:10px auto;">
+                                    <option value="smoothie" ${p.tipo === 'smoothie' ? 'selected' : ''}>Smoothie</option>
+                                    <option value="producto" ${p.tipo === 'producto' ? 'selected' : ''}>Producto</option>
+                                    <option value="bebida" ${p.tipo === 'bebida' ? 'selected' : ''}>Bebida</option>
+                                    <option value="snack" ${p.tipo === 'snack' ? 'selected' : ''}>Snack</option>
+                                </select>
+                                <input id="edit-costo" class="swal2-input" type="number" step="0.01" value="${p.costo}" placeholder="Precio" style="display:block; width:80%; margin:10px auto;">
+                            `
+                        }
+                    },
+                    buttons: {
+                        cancel: "Cancelar",
+                        confirm: "Actualizar"
+                    }
+                }).then((willUpdate) => {
+                    if (willUpdate) {
+                        $.ajax({
+                            url: 'actualizar-producto.php',
+                            method: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify({
+                                id: id,
+                                nombre: document.getElementById('edit-nombre').value,
+                                descripcion: document.getElementById('edit-descrip').value,
+                                tipo: document.getElementById('edit-tipo').value,
+                                costo: document.getElementById('edit-costo').value
+                            }),
+                            success: function(response) {
+                                if (response.success) {
+                                    swal("Éxito", "Producto actualizado", "success");
+                                    cargarProductosAdmin();
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        }
+    });
+}
+
+function toggleProducto(id, estadoActual) {
+    const accion = estadoActual == 1 ? 'desactivar' : 'activar';
+    swal({
+        title: `¿${accion.charAt(0).toUpperCase() + accion.slice(1)} producto?`,
+        text: `Esto ${accion === 'desactivar' ? 'ocultará' : 'mostrará'} el producto en la caja`,
+        icon: "warning",
+        buttons: ["Cancelar", "Confirmar"]
+    }).then((willToggle) => {
+        if (willToggle) {
+            $.ajax({
+                url: 'toggle-producto.php',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({id: id}),
+                success: function(response) {
+                    if (response.success) {
+                        cargarProductosAdmin();
+                    }
+                }
+            });
+        }
+    });
+}
 </script>
 
 
 
-	
+
 </body>
 </html>

@@ -13,6 +13,10 @@ session_set_cookie_params([
 session_start();
 include 'db.php';
 
+// TICKET 4: Ejecutar limpieza automática de descuentos expirados
+define('AUTO_CLEAN_ALLOWED', true);
+include_once 'auto-clean-discounts.php';
+
 //Cabeceras HTTP de seguridad Activar en producción
 //header('X-Frame-Options: DENY'); 
 //header('X-Content-Type-Options: nosniff'); 

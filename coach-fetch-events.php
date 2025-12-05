@@ -45,25 +45,53 @@ while ($row = $result->fetch_assoc()) {
 
   $cancelable = (time() - $row["fechaReserva"]) > 7200 ? false : true;
 
-  $aforo = "9/14";
+  // TICKET 3: Obtener aforo real desde la tabla clases
+  $idClaseEvento = $row["idClase"];
+  $stmtAforo = $conn->prepare("SELECT aforo, reservados FROM clases WHERE id = ?");
+  $stmtAforo->bind_param("i", $idClaseEvento);
+  $stmtAforo->execute();
+  $resultAforo = $stmtAforo->get_result();
+
+  $aforo = "0/0";
+  if ($rowAforo = $resultAforo->fetch_assoc()) {
+      $aforo = $rowAforo['reservados'] . '/' . $rowAforo['aforo'];
+  }
+  $stmtAforo->close();
+
   $estatus = '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon clase-en-curso-punto" viewBox="0 0 512 512">
                 <defs><style>.ionicon { fill: #986C5D; }</style></defs>
                 <title>Ellipse</title>
                 <path d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z"></path>
-              </svg>'; 
+              </svg>';
 
-    $alumnos = '
-                <ul class="al1">
-                <p class="al">Asistentes</p>
-                    <li class="al2">Andrea</li>
-                    <li class="al2">Jimena</li>
-                    <li class="al2">Marcela</li>
-                    <li class="al2">Andrea</li>
-                    <li class="al2">Jimena</li>
-                    <li class="al2">Marcela</li>
-                    <li class="al2">Andrea</li>
-                </ul>';
-                
+    // TICKET 3: Obtener lista real de alumnos desde la tabla reservaciones
+    $stmtAlumnos = $conn->prepare("SELECT r.alumno, r.en_espera, u.nombre, u.apellido
+                                    FROM reservaciones r
+                                    LEFT JOIN users u ON r.alumno = u.id
+                                    WHERE r.idClase = ? AND r.activo = '1'
+                                    ORDER BY r.en_espera ASC, r.fechaReserva ASC");
+    $stmtAlumnos->bind_param("i", $idClaseEvento);
+    $stmtAlumnos->execute();
+    $resultAlumnos = $stmtAlumnos->get_result();
+
+    $alumnos = '<ul class="al1"><p class="al">Asistentes</p>';
+    $hayAlumnos = false;
+
+    while ($alumno = $resultAlumnos->fetch_assoc()) {
+        $hayAlumnos = true;
+        $nombreCompleto = $alumno['nombre'] . ' ' . $alumno['apellido'];
+        $iconoEspera = ($alumno['en_espera'] == 1) ? ' 🕐' : '';
+        $alumnos .= '<li class="al2">' . htmlspecialchars($nombreCompleto) . $iconoEspera . '</li>';
+    }
+
+    if (!$hayAlumnos) {
+        $alumnos .= '<li class="al2">No hay asistentes registrados</li>';
+    }
+
+    $alumnos .= '</ul>';
+    $stmtAlumnos->close();
+    // FIN TICKET 3
+
   $eventos[] = [
     "id" => $row["id"],
     "title" => $row["clase"],

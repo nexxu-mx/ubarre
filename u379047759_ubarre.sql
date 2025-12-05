@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 18-09-2025 a las 04:09:44
--- Versión del servidor: 10.11.10-MariaDB
+-- Tiempo de generación: 05-12-2025 a las 18:34:50
+-- Versión del servidor: 11.8.3-MariaDB-log
 -- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -38,6 +38,14 @@ CREATE TABLE `clases` (
   `estatus` varchar(2) DEFAULT '1',
   `fecha` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `clases`
+--
+
+INSERT INTO `clases` (`id`, `id_coach`, `hora_inicio`, `hora_fin`, `aforo`, `reservados`, `id_disciplina`, `estatus`, `fecha`) VALUES
+(1, 1, '2025-09-18 13:28:00', '2025-09-18 14:28:00', 8, 0, 1, '1', '2025-09-18 18:26:22'),
+(2, 1, '2025-09-22 15:00:00', '2025-09-22 16:00:00', 8, 0, 1, '1', '2025-09-22 15:58:23');
 
 -- --------------------------------------------------------
 
@@ -217,6 +225,16 @@ CREATE TABLE `transacciones` (
   `fecha` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `transacciones`
+--
+
+INSERT INTO `transacciones` (`id`, `user`, `monto`, `creditos`, `numero`, `metodo`, `idpago`, `mrecibido`, `fecha`) VALUES
+(2, '4', '1840', '8', '5623192276', '1', '81404199', '1840', '2025-09-22 10:14:13'),
+(3, '4', '2700', '12', '5623192276', '1', '17168035', '2700', '2025-09-22 10:18:15'),
+(4, '4', '2700', '12', '5623192276', '1', '41807999', '2700', '2025-09-22 10:18:42'),
+(5, '4', '960', '4', '5623192276', '1', '40143915', '960', '2025-09-22 10:20:24');
+
 -- --------------------------------------------------------
 
 --
@@ -256,7 +274,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `iduser`, `tipoUser`, `nombre`, `apellido`, `mail`, `numero`, `pass`, `fecha_nacimiento`, `total_smoothies`, `credit`, `ilimitado`, `venceCredit`, `fechaCredit`, `maxInvitados`, `claseBienvenida`, `tlogin`, `dlogin`, `statu`, `idpago`, `montoPagado`, `customer_id`, `activo`, `fecha`) VALUES
 (1, NULL, '3', 'Karyna', 'ubarre', 'karyna@ubarre.com.mx', '123456789', 'ubarre101', '', '', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-09-18 03:25:24'),
-(2, NULL, '3', 'Viry', 'ubarre', 'viry@ubarre.com.mx', '1234567891', 'ubarre101', '', '', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-09-18 03:26:01');
+(2, NULL, '3', 'Viry', 'ubarre', 'viry@ubarre.com.mx', '1234567891', 'ubarre101', '', '', '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-09-18 03:26:01'),
+(3, NULL, '1', 'Carlos', 'Torres', 'sayit@thisislaud.com', '4777300770', 'PRUEBA123', '28-05-1999', '', '0', NULL, NULL, NULL, NULL, NULL, '345851', '1758211161', NULL, NULL, NULL, NULL, '1', '2025-09-18 15:57:54'),
+(4, NULL, '3', 'Juan', 'Pablo', 'p7171709@gmail.com', '5623192276', 'admin1', '01-01-2025', '4', '4', NULL, '30', '2025-10-22', '0', NULL, '549012', '1763672108', 'approved', '40143915', '960', NULL, '1', '2025-09-18 15:59:25');
 
 -- --------------------------------------------------------
 
@@ -353,7 +373,7 @@ ALTER TABLE `user_cards`
 -- AUTO_INCREMENT de la tabla `clases`
 --
 ALTER TABLE `clases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `coaches`
@@ -401,13 +421,13 @@ ALTER TABLE `smoothies`
 -- AUTO_INCREMENT de la tabla `transacciones`
 --
 ALTER TABLE `transacciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `user_cards`

@@ -3,8 +3,8 @@ session_start();
 if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
 
     header("Location: ../profile.php");
-    exit;  
-	
+    exit;
+
 }
 
 if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
@@ -12,6 +12,9 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
     exit;
 }
 
+// TICKET 4: Ejecutar limpieza automática de descuentos expirados
+define('AUTO_CLEAN_ALLOWED', true);
+include_once '../auto-clean-discounts.php';
 
 ?>
 <!DOCTYPE html>

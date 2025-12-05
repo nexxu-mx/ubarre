@@ -99,7 +99,7 @@
 									</li>
 									<li class="nav-item">
 										<a href="clases.php">
-											<i class="fas fa-award"></i>
+											<i class="fas fa-calendar-alt"></i>
 											<p>Clases</p>
 										</a>
 									</li>
@@ -130,6 +130,12 @@
 											<p>Paquetes</p>
 										</a>
 									</li>
+									<li class="nav-item">
+										<a href="caja.php">
+											<i class="fas fa-cart-plus"></i>
+											<p>Caja</p>
+										</a>
+									</li>
 
 									<li class="nav-item">
 										<a href="smoothies.php" style="gap: 1.3rem;">
@@ -151,8 +157,14 @@
 									</li>
 									<li class="nav-item">
 										<a href="clases.php">
-											<i class="fas fa-award"></i>
+											<i class="fas fa-calendar-alt></i>
 											<p>Clases</p>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="caja.php">
+											<i class="fas fa-cart-plus"></i>
+											<p>Caja</p>
 										</a>
 									</li>
 									<li class="nav-item">
