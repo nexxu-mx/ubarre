@@ -10,7 +10,16 @@
         <a href="politica-de-privacidad.php">Política de privacidad</a>
         <a href="contacto.php">Ayuda</a>
       </div>
-      
+      <?php
+        $paginaActual = basename($_SERVER['PHP_SELF']);
+
+        if ($paginaActual === 'contacto.php') {
+            echo '<div class="powered-container">
+        <a href="https://www.instagram.com/laud.____/"><p>POWERED BY <img src="assets/images/svg/logo-laud.png" alt="Logo LAUD"></p></a>
+      </div>';
+        }
+        ?>
+
       <!--<div class="powered-container">
         <a href="https://www.instagram.com/laud.____/"><p>POWERED BY <img src="assets/images/svg/logo-laud.png" alt="Logo LAUD"></p></a>
       </div>-->

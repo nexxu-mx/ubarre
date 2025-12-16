@@ -157,7 +157,7 @@
 									</li>
 									<li class="nav-item">
 										<a href="clases.php">
-											<i class="fas fa-calendar-alt></i>
+											<i class="fas fa-calendar-alt"></i>
 											<p>Clases</p>
 										</a>
 									</li>

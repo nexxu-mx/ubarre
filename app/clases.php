@@ -134,7 +134,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
    }
    @media (min-width: 880px) {
 		.colso{
-			width: 30%;
+			width: 50%;
 		}
 	}
    </style>

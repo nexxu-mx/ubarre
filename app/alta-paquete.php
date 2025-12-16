@@ -1,6 +1,6 @@
 <?php
 
-include 'procesar_coach.php';
+// include 'procesar_coach.php';
 
 session_start();
 if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {

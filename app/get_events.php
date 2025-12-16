@@ -7,7 +7,8 @@ $result = $conn->query($sql);
 $stmtD = $conn->prepare("SELECT nombre_disciplina FROM disciplinas WHERE id = ?");
 $stmtC = $conn->prepare("SELECT nombre_coach FROM coaches WHERE id = ?");
 $sqlA = "SELECT 
-            users.nombre, 
+            users.nombre,
+            users.apellido, 
             reservaciones.id AS reservacion_id, 
             reservaciones.alumno, 
             reservaciones.invitado,
@@ -67,7 +68,9 @@ while ($row = $result->fetch_assoc()) {
     $alumnos = "<ul>";
    
     while ($rowA = $resultA->fetch_assoc()) {
-        $name = htmlspecialchars($rowA['nombre']);
+        $name1 = htmlspecialchars($rowA['nombre']);
+        $name2 = htmlspecialchars($rowA['apellido']);
+        $name = $name1 . ' ' . $name2;
         
         $sabor = htmlspecialchars($rowA['sabor']);
         $sabor = $sabor==""?" ":$sabor;

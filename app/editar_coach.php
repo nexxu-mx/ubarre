@@ -8,8 +8,7 @@ if (
     isset($_POST['nombre_coach']) &&
     isset($_POST['desc_coach']) &&
     isset($_POST['nombre_disc']) &&
-    isset($_POST['activo']) &&
-    isset($_FILES['imagen'])
+    isset($_POST['activo'])
 ) {
     echo 'Entra al if principal';
     // Variables
@@ -18,7 +17,6 @@ if (
     $descCoach = $_POST['desc_coach'];
     $nombreDisc = trim(strtoupper($_POST['nombre_disc']));
     $activo = $_POST['activo'];
-    $imagen = $_FILES['imagen'];
     $idDisciplina = $_POST['nombre_disc'];
     $idCoachImage;
 
@@ -59,7 +57,7 @@ if (
         $nuevoNombre = $idCoachImage . '.png';
 
         // Carpeta donde se guardarán las imágenes
-        $carpetaDestino = '../assets/images/coaches/pro';
+        $carpetaDestino = '../assets/images/coaches/pro/';
 
         $rutaDestino = $carpetaDestino . $nuevoNombre;
 
