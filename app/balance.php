@@ -1,7 +1,15 @@
 <?php
-include 'error_log.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include('../db.php');
 date_default_timezone_set('America/Mexico_City');
+
+// Verificar conexión
+if ($conn->connect_error) {
+    http_response_code(500);
+    die(json_encode(['error' => 'Error de conexión: ' . $conn->connect_error]));
+}
+
 // === Recibir mes de consulta desde JS (si no llega, usar mes actual) ===
 $mesConsulta = isset($_GET['mes']) ? $_GET['mes'] : date('Y-m'); // formato YYYY-MM
 if(empty($_GET['mes'])){
@@ -11,10 +19,15 @@ if(empty($_GET['mes'])){
 $fechaHoy = date('Y-m-d H:i:s');
 
 // === 1. Consultar egresos del mes seleccionado ===
-$queryEgresos = "SELECT fecha, monto 
-                 FROM egr 
+$queryEgresos = "SELECT fecha, monto
+                 FROM egr
                  WHERE DATE_FORMAT(fecha, '%Y-%m') = '$mesConsulta'";
 $resultEgresos = mysqli_query($conn, $queryEgresos);
+
+if (!$resultEgresos) {
+    http_response_code(500);
+    die(json_encode(['error' => 'Error en query egresos: ' . mysqli_error($conn)]));
+}
 
 $egresos = [];
 while ($row = mysqli_fetch_assoc($resultEgresos)) {
