@@ -63,7 +63,7 @@ foreach ($egresos as $egreso) {
 }
 
 // === 4.5 Calcular ingresos ===
-$ingresosTotales = 0;
+$ingresosMan = 0;
 foreach ($ing as $ings) {
     $ingresosMan += $ings['monto'];
 }
