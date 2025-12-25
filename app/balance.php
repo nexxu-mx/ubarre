@@ -59,7 +59,7 @@ while ($row = mysqli_fetch_assoc($resultTransacciones)) {
 $ingresosTienda = 0;
 $ingresosEcommerce = 0;
 foreach ($transacciones as $transaccion) {
-    $monto = $transaccion['monto'];
+    $monto = (float)$transaccion['monto'];
     $metodo = $transaccion['metodo'];
 
     if ($metodo != 3) {
@@ -72,13 +72,13 @@ foreach ($transacciones as $transaccion) {
 // === 4. Calcular egresos ===
 $egresosTotales = 0;
 foreach ($egresos as $egreso) {
-    $egresosTotales += $egreso['monto'];
+    $egresosTotales += (float)$egreso['monto'];
 }
 
 // === 4.5 Calcular ingresos ===
 $ingresosMan = 0;
 foreach ($ing as $ings) {
-    $ingresosMan += $ings['monto'];
+    $ingresosMan += (float)$ings['monto'];
 }
 
 
