@@ -28,11 +28,17 @@ if ($day) {
         "noviembre" => "11",
         "diciembre" => "12"
     ];
+   $mesNumeroV = (int) ($meses[$mesTexto] ?? 0);
+    $mesNumero = $meses[$mesTexto] ?? 0;
+    $mesActual = (int) date('m');
+    $anio = (int) date('Y');
+    
+    if ($mesActual === 12 && $mesNumeroV === 1) {
+        $anio++;
+    }
 
-    // Obtener el número del mes
-    $mesNumero = $meses[$mesTexto] ?? "00"; // por si no coincide
     // Armar la fecha completa
-    $fecha = "2025-$mesNumero-" . str_pad($d, 2, "0", STR_PAD_LEFT);
+    $fecha = "$anio-$mesNumero-" . str_pad($d, 2, "0", STR_PAD_LEFT);
     $dia = "$fecha%";
     $stmt = $conn->prepare("SELECT id, id_coach, hora_inicio, hora_fin, aforo, reservados, id_disciplina, estatus FROM clases WHERE hora_inicio LIKE ? ORDER BY hora_inicio ASC");
     $stmt->bind_param("s", $dia);
