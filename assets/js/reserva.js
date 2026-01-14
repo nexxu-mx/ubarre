@@ -168,25 +168,25 @@ for (i = 0; i < accordion.length; i++) {
 }
 /** FUNCION LLAMADO DE CLASES */
 function cargarClases(day) {
-    fetch(`get_clases.php?day=${encodeURIComponent(day)}`)
-        .then(response => response.json())
-        .then(data => {
-            const msn2 = document.getElementById("clazx");
-            msn2.innerHTML = ''; // Limpia contenido anterior
+  fetch(`get_clases.php?day=${encodeURIComponent(day)}`)
+    .then(response => response.json())
+    .then(data => {
+      const msn2 = document.getElementById("clazx");
+      msn2.innerHTML = ''; // Limpia contenido anterior
 
-            if (data.length === 0) {
-                msn2.innerHTML = '<p>No hay clases para este día.</p>';
-                return;
-            }
+      if (data.length === 0) {
+        msn2.innerHTML = '<p>No hay clases para este día.</p>';
+        return;
+      }
 
-            data.forEach(clase => {
-                const btn = document.createElement('div');
-                var reservable = '<a class="btn-reservar" style="background: #b5b5b5;">RESERVAR</a>';;
-                if(clase.abierta == "1"){
-                    reservable = `<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`;
-                }
-                
-                btn.innerHTML =  `
+      data.forEach(clase => {
+        const btn = document.createElement('div');
+        var reservable = '<a class="btn-reservar" style="background: #b5b5b5;">RESERVAR</a>';;
+        if (clase.abierta == "1") {
+          reservable = `<a class="btn-reservar" href="#reserv" onclick="reservaClase(this)" data-nombre="${clase.nombre_coach}" data-horario="${clase.horario}" data-duracion="${clase.duracion}" data-disciplina="${clase.disciplina}" data-id="${clase.id}" data-idcoach="${clase.id_coach}">RESERVAR</a>`;
+        }
+
+        btn.innerHTML = `
                     <div class="clase-container elemento-clase">
                         <div class="first-flex-clase">
                             <div class="img-clase-container">
@@ -234,12 +234,12 @@ function cargarClases(day) {
                         </div>
                     </div>
                 `;
-                msn2.appendChild(btn);
-            });
-        })
-        .catch(error => {
-            console.error("Error al obtener las clases:", error);
-        });
+        msn2.appendChild(btn);
+      });
+    })
+    .catch(error => {
+      console.error("Error al obtener las clases:", error);
+    });
 }
 
 /**
@@ -261,7 +261,7 @@ window.addEventListener('DOMContentLoaded', () => {
         numeroDiaDinConf.innerHTML = day.innerHTML;
         diaDinConf.innerHTML = textDiaSlider[index].innerHTML;
         mesDinConf.innerHTML = diasMes[day.innerHTML].mes;
-        
+
         const dayconsulta = day.innerHTML + '-' + diasMes[day.innerHTML].mes;
         cargarClases(dayconsulta);
       })
@@ -356,55 +356,55 @@ closeModalBtn.addEventListener("click", () => {
 closeDisciplinaModalBtn.addEventListener("click", () => {
   ocultarModal(detallesDisciplinaModal, 2);
 });
-function mostrarModal(modal, id, tipo){
-    if(tipo == 1){
-        fetch("info_detalles_coach.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("coach-info-img").src = data.image;
-            document.getElementById("coach-info-nombre").innerHTML = data.nombre;
-            document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
-    }else {
-            fetch("info_detalles_disciplina.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
-                document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-    }
-    if (window.screen.width >= 768) {
-        
-        modal.style.display = "block"
-        modal.style.transition = "all 300ms ease-in";
-        bgModals.style.display = "block";
-        bgModals.style.transition = "all 500ms ease-in";
-      }
-      if ((screen.width >= 300 && screen.width <= 399) || (screen.width >= 400 && screen.width <= 767)) {
-        modal.style.bottom = "0%";
-        modal.style.display = "block"
-        modal.style.transition = "all 300ms ease-in";
-        bgModals.style.display = "block";
-        bgModals.style.transition = "all 500ms ease-in";
-      }
+function mostrarModal(modal, id, tipo) {
+  if (tipo == 1) {
+    fetch("info_detalles_coach.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("coach-info-img").src = data.image;
+        document.getElementById("coach-info-nombre").innerHTML = data.nombre;
+        document.getElementById("coach-info-descripcion").innerHTML = data.descripcion;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+  } else {
+    fetch("info_detalles_disciplina.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `id=${encodeURIComponent(id)}&tipo=${encodeURIComponent(tipo)}`
+    })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("disciplina-info-nombre").innerHTML = data.nombre;
+        document.getElementById("disciplina-info-descripcion").innerHTML = data.descripcion;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+  }
+  if (window.screen.width >= 768) {
+
+    modal.style.display = "block"
+    modal.style.transition = "all 300ms ease-in";
+    bgModals.style.display = "block";
+    bgModals.style.transition = "all 500ms ease-in";
+  }
+  if ((screen.width >= 300 && screen.width <= 399) || (screen.width >= 400 && screen.width <= 767)) {
+    modal.style.bottom = "0%";
+    modal.style.display = "block"
+    modal.style.transition = "all 300ms ease-in";
+    bgModals.style.display = "block";
+    bgModals.style.transition = "all 500ms ease-in";
+  }
 }
 
 
@@ -418,11 +418,11 @@ const ocultarModal = (modal, tipo) => {
     modal.style.transition = "all 300ms ease-in";
     bgModals.style.display = "none";
   }
-  if(tipo == 1){
+  if (tipo == 1) {
     document.getElementById("coach-info-img").src = "assets/images/coaches/";
     document.getElementById("coach-info-nombre").innerHTML = " ";
     document.getElementById("coach-info-descripcion").innerHTML = " ";
-  }else{
+  } else {
     document.getElementById("disciplina-info-nombre").innerHTML = " ";
     document.getElementById("disciplina-info-descripcion").innerHTML = " ";
   }
@@ -433,49 +433,49 @@ const ocultarModal = (modal, tipo) => {
  * CONFIRMATION MESSAGE
  */
 function reservaClase(el) {
-    const confirmationSection = document.querySelector(".confirmation-section");
-    const classesContainer = document.querySelector(".white-container");
-    const nombre = el.dataset.nombre;
-    const horario = el.dataset.horario;
-    const duracion = el.dataset.duracion;
-    const disciplina = el.dataset.disciplina;
-    const iden = el.dataset.id;
-    const idCoach = el.dataset.idcoach;
-    const imag = "assets/images/coaches/" + idCoach + ".png";
-    document.getElementById("confirm-coach").innerHTML = nombre;
-    document.getElementById("confirm-horario").innerHTML = horario;
-    document.getElementById("confirm-duracion").innerHTML = duracion;
-    document.getElementById("confirm-disciplina").innerHTML = disciplina;
-    document.getElementById("confirm-coach-img").src = imag;
-    document.getElementById("confirm-agendar").dataset.id = iden;
-    confirmationSection.style.display = 'block';
-    classesContainer.style.display = 'none';
+  const confirmationSection = document.querySelector(".confirmation-section");
+  const classesContainer = document.querySelector(".white-container");
+  const nombre = el.dataset.nombre;
+  const horario = el.dataset.horario;
+  const duracion = el.dataset.duracion;
+  const disciplina = el.dataset.disciplina;
+  const iden = el.dataset.id;
+  const idCoach = el.dataset.idcoach;
+  const imag = "assets/images/coaches/" + idCoach + ".png";
+  document.getElementById("confirm-coach").innerHTML = nombre;
+  document.getElementById("confirm-horario").innerHTML = horario;
+  document.getElementById("confirm-duracion").innerHTML = duracion;
+  document.getElementById("confirm-disciplina").innerHTML = disciplina;
+  document.getElementById("confirm-coach-img").src = imag;
+  document.getElementById("confirm-agendar").dataset.id = iden;
+  confirmationSection.style.display = 'block';
+  classesContainer.style.display = 'none';
 }
 function cancelConfirmacion() {
-   document.querySelector(".confirmation-section").style.display = 'none';
-   document.querySelector(".white-container").style.display = 'block';
-   document.getElementById("confirm-coach").innerHTML = " ";
-   document.getElementById("confirm-horario").innerHTML = " ";
-   document.getElementById("confirm-duracion").innerHTML = " ";
-   document.getElementById("confirm-disciplina").innerHTML = " ";
-   document.getElementById("confirm-coach-img").src = "assets/images/coaches/unknnow.png";
-   document.getElementById("confirm-agendar").dataset.id = " ";
+  document.querySelector(".confirmation-section").style.display = 'none';
+  document.querySelector(".white-container").style.display = 'block';
+  document.getElementById("confirm-coach").innerHTML = " ";
+  document.getElementById("confirm-horario").innerHTML = " ";
+  document.getElementById("confirm-duracion").innerHTML = " ";
+  document.getElementById("confirm-disciplina").innerHTML = " ";
+  document.getElementById("confirm-coach-img").src = "assets/images/coaches/unknnow.png";
+  document.getElementById("confirm-agendar").dataset.id = " ";
 }
 function usrInf() {
-    fetch("get_user_info.php")
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                console.error(data.error);
-                return;
-            }
-            var datosUsuario = data.nombre + " | " + data.credit + " Créditos"
-            document.getElementById("my-account").innerHTML = datosUsuario;
-        })
-        .catch(error => console.error("Error al obtener los datos:", error));
+  fetch("get_user_info.php")
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        console.error(data.error);
+        return;
+      }
+      var datosUsuario = data.nombre + " | " + data.credit + " Créditos"
+      document.getElementById("my-account").innerHTML = datosUsuario;
+    })
+    .catch(error => console.error("Error al obtener los datos:", error));
 }
 if (document.getElementById("my-account")) {
-    usrInf();
+  usrInf();
 }
 /**
  * LOGIN

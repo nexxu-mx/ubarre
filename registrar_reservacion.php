@@ -70,7 +70,7 @@ if ($resultCredit->num_rows === 0) {
     $rowCredit = $resultCredit->fetch_assoc();
     $creditDisponible = $rowCredit['credit'];
     $ilimitado = $rowCredit['ilimitado'];
-    
+
     if ($creditDisponible <= 0) {
         echo json_encode(["status" => "nocredit"]);
         exit();
@@ -93,24 +93,24 @@ $stmtCheck->bind_param("is", $alumno, $fechaSolo);
 $stmtCheck->execute();
 $resultCheck = $stmtCheck->get_result();
 
-if($ilimitado == 1){
+if ($ilimitado == 1) {
     if ($resultCheck->num_rows > 1) {
-    echo json_encode([
-        "status" => "duplicate", 
-        "message" => "Ya tienes una reserva activa para este día"
-    ]);
-    $stmtCheck->close();
-    exit();
-}
-}else{
+        echo json_encode([
+            "status" => "duplicate",
+            "message" => "Con tu paquete ilimitado solo puedes reservar 2 clases por día"
+        ]);
+        $stmtCheck->close();
+        exit();
+    }
+} else {
     if ($resultCheck->num_rows > 0) {
-    echo json_encode([
-        "status" => "duplicate", 
-        "message" => "Ya tienes más de una reserva activa para este día"
-    ]);
-    $stmtCheck->close();
-    exit();
-}
+        echo json_encode([
+            "status" => "duplicate",
+            "message" => "Solo puedes reservar 1 clase por día con tu paquete actual"
+        ]);
+        $stmtCheck->close();
+        exit();
+    }
 }
 
 
@@ -145,29 +145,29 @@ if ($stmt->execute()) {
         $stmtUR->bind_param("i", $alumno);
 
         if ($stmtUR->execute()) {
-                //Descontar Smoothie si correponse
-                if ($restarSmoothie) {
-                    $stmtSmoothie = $conn->prepare("UPDATE users SET total_smoothies = total_smoothies - 1 WHERE id = ?");
-                    $stmtSmoothie->bind_param("i", $alumno);
+            //Descontar Smoothie si correponse
+            if ($restarSmoothie) {
+                $stmtSmoothie = $conn->prepare("UPDATE users SET total_smoothies = total_smoothies - 1 WHERE id = ?");
+                $stmtSmoothie->bind_param("i", $alumno);
 
-                    if (!$stmtSmoothie->execute()) {
-                        error_log("Error al restar Smoothie: " . $stmtSmoothie->error);
-                    }
-                    $stmtSmoothie->close();
+                if (!$stmtSmoothie->execute()) {
+                    error_log("Error al restar Smoothie: " . $stmtSmoothie->error);
                 }
-                $mail_mailing = $_SESSION['email'];
-                $mail_asunto = "Reservaste $clase";
-                $mail_motivo = "$clase";
-                $mail_motivo2 = "Te esperamos en $clase el $inicio";
-                $mail_descripcion = "Tu reservación de $clase con $instructor el $inicio, se agendó de manera exitosa! Puedes revistar los detalles de tu reserva en tu perfil.";
-                $mail_tabla = "Recuerda que puedes cancelar tu reservación hasta con 6 horas de anticipación.";
-                include 'success_mail.php';
-
-                echo json_encode(["status" => "success"]);
-            } else {
-                echo json_encode(["status" => false, "error" => $stmtUR->error]);
+                $stmtSmoothie->close();
             }
-            $stmtUR->close();
+            $mail_mailing = $_SESSION['email'];
+            $mail_asunto = "Reservaste $clase";
+            $mail_motivo = "$clase";
+            $mail_motivo2 = "Te esperamos en $clase el $inicio";
+            $mail_descripcion = "Tu reservación de $clase con $instructor el $inicio, se agendó de manera exitosa! Puedes revistar los detalles de tu reserva en tu perfil.";
+            $mail_tabla = "Recuerda que puedes cancelar tu reservación hasta con 6 horas de anticipación.";
+            include 'success_mail.php';
+
+            echo json_encode(["status" => "success"]);
+        } else {
+            echo json_encode(["status" => false, "error" => $stmtUR->error]);
+        }
+        $stmtUR->close();
     } else {
         // Usuario agregado a wait list
         $mail_mailing = $_SESSION['email'];
@@ -189,4 +189,3 @@ $stmtCredit->close();
 $stmtC->close();
 $stmt->close();
 $conn->close();
-?>
