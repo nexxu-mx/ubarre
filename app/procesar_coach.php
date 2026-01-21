@@ -1,5 +1,5 @@
 <?php
-// TICKET 5: Mejorado el manejo de fotos de coaches
+
 
 include '../db.php';
 
@@ -29,7 +29,7 @@ if (
     if ($stmt->execute()) {
         $idCoachImage = $conn->insert_id; // Obtener el ID insertado
 
-        // TICKET 5: Procesar imagen SOLO si se subió
+        //  Procesar imagen SOLO si se subió
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
             $archivoTemporal = $_FILES['imagen']['tmp_name'];
             $tipoArchivo = $_FILES['imagen']['type'];
@@ -38,7 +38,7 @@ if (
             $tiposPermitidos = ['image/png', 'image/jpeg', 'image/jpg'];
             if (!in_array($tipoArchivo, $tiposPermitidos)) {
                 // Imagen no válida, pero continuar con el registro del coach
-                error_log("TICKET 5: Tipo de archivo no permitido: $tipoArchivo");
+                error_log(" Tipo de archivo no permitido: $tipoArchivo");
                 header('location: alta-coach.php?warning=imagen_no_valida');
                 exit;
             }
@@ -63,7 +63,7 @@ if (
                 }
                 header('location: alta-coach.php?success=coach_creado_con_imagen');
             } else {
-                error_log("TICKET 5: Error al mover archivo de imagen");
+                error_log(" Error al mover archivo de imagen");
                 header('location: alta-coach.php?warning=imagen_no_guardada');
             }
         } else {
@@ -71,7 +71,7 @@ if (
             if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] !== UPLOAD_ERR_NO_FILE) {
                 // Hubo error al subir
                 $errorCode = $_FILES['imagen']['error'];
-                error_log("TICKET 5: Error al subir imagen. Código: $errorCode");
+                error_log(" Error al subir imagen. Código: $errorCode");
                 header('location: alta-coach.php?warning=error_subida_imagen');
             } else {
                 // No se seleccionó imagen (válido)
@@ -79,13 +79,10 @@ if (
             }
         }
     } else {
-        error_log("TICKET 5: Error al insertar coach: " . $stmt->error);
+        error_log(" Error al insertar coach: " . $stmt->error);
         header('location: alta-coach.php?error=db_error');
     }
 
     $stmt->close();
     exit;
-} else {
-    header('location: alta-coach.php?error=datos_incompletos');
-    exit;
-}
+} 
