@@ -20,16 +20,17 @@ if (!$start || !$end) {
   exit;
 }
 
-function generarToken16Digitos() {
+function generarToken16Digitos()
+{
   $token = '';
   for ($i = 0; $i < 32; $i++) {
-      $token .= random_int(0, 9);
+    $token .= random_int(0, 9);
   }
   return $token;
 }
 
 // CONSULTA CON FILTRO DE FECHAS 
-$sql = "SELECT id, alumno, clase, instructor, invitado, activo, dura, inicio, fin, fechaReserva 
+$sql = "SELECT id, alumno, clase, idClase, instructor, invitado, activo, dura, inicio, fin, fechaReserva 
         FROM reservaciones 
         WHERE idInstructor = ? AND inicio BETWEEN ? AND ?";
 $stmt = $conn->prepare($sql);
@@ -54,7 +55,7 @@ while ($row = $result->fetch_assoc()) {
 
   $aforo = "0/0";
   if ($rowAforo = $resultAforo->fetch_assoc()) {
-      $aforo = $rowAforo['reservados'] . '/' . $rowAforo['aforo'];
+    $aforo = $rowAforo['reservados'] . '/' . $rowAforo['aforo'];
   }
   $stmtAforo->close();
 
@@ -64,33 +65,33 @@ while ($row = $result->fetch_assoc()) {
                 <path d="M256 464c-114.69 0-208-93.31-208-208S141.31 48 256 48s208 93.31 208 208-93.31 208-208 208z"></path>
               </svg>';
 
-    // TICKET 3: Obtener lista real de alumnos desde la tabla reservaciones
-    $stmtAlumnos = $conn->prepare("SELECT r.alumno, r.en_espera, u.nombre, u.apellido
+  // TICKET 3: Obtener lista real de alumnos desde la tabla reservaciones
+  $stmtAlumnos = $conn->prepare("SELECT r.alumno, r.en_espera, u.nombre, u.apellido
                                     FROM reservaciones r
                                     LEFT JOIN users u ON r.alumno = u.id
                                     WHERE r.idClase = ? AND r.activo = '1'
                                     ORDER BY r.en_espera ASC, r.fechaReserva ASC");
-    $stmtAlumnos->bind_param("i", $idClaseEvento);
-    $stmtAlumnos->execute();
-    $resultAlumnos = $stmtAlumnos->get_result();
+  $stmtAlumnos->bind_param("i", $idClaseEvento);
+  $stmtAlumnos->execute();
+  $resultAlumnos = $stmtAlumnos->get_result();
 
-    $alumnos = '<ul class="al1"><p class="al">Asistentes</p>';
-    $hayAlumnos = false;
+  $alumnos = '<ul class="al1"><p class="al">Asistentes</p>';
+  $hayAlumnos = false;
 
-    while ($alumno = $resultAlumnos->fetch_assoc()) {
-        $hayAlumnos = true;
-        $nombreCompleto = $alumno['nombre'] . ' ' . $alumno['apellido'];
-        $iconoEspera = ($alumno['en_espera'] == 1) ? ' 🕐' : '';
-        $alumnos .= '<li class="al2">' . htmlspecialchars($nombreCompleto) . $iconoEspera . '</li>';
-    }
+  while ($alumno = $resultAlumnos->fetch_assoc()) {
+    $hayAlumnos = true;
+    $nombreCompleto = $alumno['nombre'] . ' ' . $alumno['apellido'];
+    $iconoEspera = ($alumno['en_espera'] == 1) ? ' 🕐' : '';
+    $alumnos .= '<li class="al2">' . htmlspecialchars($nombreCompleto) . $iconoEspera . '</li>';
+  }
 
-    if (!$hayAlumnos) {
-        $alumnos .= '<li class="al2">No hay asistentes registrados</li>';
-    }
+  if (!$hayAlumnos) {
+    $alumnos .= '<li class="al2">No hay asistentes registrados</li>';
+  }
 
-    $alumnos .= '</ul>';
-    $stmtAlumnos->close();
-    // FIN TICKET 3
+  $alumnos .= '</ul>';
+  $stmtAlumnos->close();
+  // FIN TICKET 3
 
   $eventos[] = [
     "id" => $row["id"],
@@ -108,5 +109,4 @@ while ($row = $result->fetch_assoc()) {
 }
 
 header('Content-Type: application/json');
-echo json_encode($eventos);
-?>
+  echo json_encode($eventos);

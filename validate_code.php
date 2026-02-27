@@ -4,7 +4,7 @@ include 'db.php';
 $numero = $_POST['numero'] ?? '';
 $code = $_POST['code'] ?? '';
 
-$stmt = $conn->prepare("SELECT COUNT(*), dlogin FROM users WHERE numero = ? AND tlogin = ?");
+$stmt = $conn->prepare("SELECT COUNT(*), dlogin FROM users WHERE numero = ? AND tlogin = ? GROUP BY dlogin");
 $stmt->bind_param("ss", $numero, $code);
 $stmt->execute();
 $stmt->bind_result($count, $dlogin);

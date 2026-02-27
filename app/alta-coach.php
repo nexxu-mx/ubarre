@@ -92,11 +92,10 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                 <?php
                                 $idcoach = $idcoach ?? "";
 
-                                $queryUsers = $conn->query("SELECT nombre FROM users WHERE tipoUser = 2 OR tipoUser = 3");
+                                $queryUsers = $conn->query("SELECT id, nombre FROM users WHERE tipoUser = 2 OR tipoUser = 3");
                                 if ($queryUsers) {
                                     while ($users = $queryUsers->fetch_assoc()) {
-                                        $selected = ($users['id'] == $idcoach) ? 'selected' : '';
-                                        echo "<option value='{$users['nombre']}' >{$users['nombre']}</option>";
+                                        echo "<option value='{$users['id']}' >{$users['nombre']}</option>";
                                     }
                                 } else {
                                     echo "<option value=''>Error al cargar Coaches</option>";
@@ -109,7 +108,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                              <select name="nombre_disc" id="nombre_disc" class="form-control mt-3 bg-body-secondary p-3" required>
                                 <option value="" Selected>Seleccione la Disciplina...</option>
                                 <?php
-                                $queryD = "SELECT id, nombre_disciplina FROM disciplinas GROUP BY nombre_disciplina";
+                                $queryD = "SELECT id, nombre_disciplina FROM disciplinas ORDER BY nombre_disciplina ASC";
                                 $resultD = $conn->query($queryD);
                                 
                                 if ($resultD->num_rows > 0) {

@@ -4,7 +4,7 @@ function openInicio() {
     document.getElementById('profile-perfil').style.display = 'none';
     document.getElementById('profile-inicio').style.display = 'block';
     NameCredit();
-    
+
 }
 function openClases() {
     window.location.href = 'reserva.php';
@@ -22,13 +22,13 @@ function closeSession() {
 function openPerfil() {
     document.getElementById('profile-inicio').style.display = 'none';
     document.getElementById('profile-perfil').style.display = 'block';
- 
+
 }
 function openPayment() {
     document.getElementById('profile-inicio').style.display = 'none';
     actualizarCards();
     document.getElementById('profile-medios').style.display = 'block';
- 
+
 }
 
 function openCalendar() {
@@ -37,91 +37,91 @@ function openCalendar() {
 
 
 
-var calendarEl = document.getElementById('calendar');
-var calendar = new FullCalendar.Calendar(calendarEl, {
-initialView: window.innerWidth < 768 ? 'listWeek' : 'listWeek',
-headerToolbar: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'dayGridMonth,timeGridWeek,listWeek'
-},
-locale: 'es',
-events: 'fetch-events.php',
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: window.innerWidth < 768 ? 'listWeek' : 'listWeek',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,listWeek'
+        },
+        locale: 'es',
+        events: 'fetch-events.php',
 
-eventClick: function(info) {
-    info.jsEvent.preventDefault();
-    document.getElementById('modalTitulo').textContent = info.event.title;
-    document.getElementById('aforo').textContent = info.event.extendedProps.aforo;
-    document.getElementById('modalInicio').textContent = info.event.start.toLocaleString();
-    document.getElementById('modalInstructor').textContent = info.event.extendedProps.instructor || "No especificado";
-    document.getElementById('modalDuracion').textContent = info.event.extendedProps.dura || "No especificado";
-    document.getElementById("clastatus").innerHTML = info.event.extendedProps.estatus;
-    document.getElementById("qrcode").innerHTML = "";
-    document.getElementById("modalSmoothie").textContent = info.event.extendedProps.sabor || "";
-    if(info.event.extendedProps.momento == "" || info.event.extendedProps.momento == "Sin smoothie"){
-        document.getElementById("modalSmoothie").textContent = "No se selecciono ninguno Smoothie";
-    }else{
-        document.getElementById("modalSmoothie").textContent += "("+info.event.extendedProps.momento+")";
-    }
-    var data = info.event.extendedProps.qr;
-    new QRCode(document.getElementById("qrcode"), {
-        text: data,
-        width: 300,
-        height: 300
-    });
-    var invit = parseInt(info.event.extendedProps.invitado) + 1;
+        eventClick: function (info) {
+            info.jsEvent.preventDefault();
+            document.getElementById('modalTitulo').textContent = info.event.title;
+            document.getElementById('aforo').textContent = info.event.extendedProps.aforo;
+            document.getElementById('modalInicio').textContent = info.event.start.toLocaleString();
+            document.getElementById('modalInstructor').textContent = info.event.extendedProps.instructor || "No especificado";
+            document.getElementById('modalDuracion').textContent = info.event.extendedProps.dura || "No especificado";
+            document.getElementById("clastatus").innerHTML = info.event.extendedProps.estatus;
+            document.getElementById("qrcode").innerHTML = "";
+            document.getElementById("modalSmoothie").textContent = info.event.extendedProps.sabor || "";
+            if (info.event.extendedProps.momento == "" || info.event.extendedProps.momento == "Sin smoothie") {
+                document.getElementById("modalSmoothie").textContent = "No se selecciono ninguno Smoothie";
+            } else {
+                document.getElementById("modalSmoothie").textContent += "(" + info.event.extendedProps.momento + ")";
+            }
+            var data = info.event.extendedProps.qr;
+            new QRCode(document.getElementById("qrcode"), {
+                text: data,
+                width: 300,
+                height: 300
+            });
+            var invit = parseInt(info.event.extendedProps.invitado) + 1;
 
-        document.getElementById('modalInvitado').innerHTML = `<ion-icon name="person" aria-hidden="true"></ion-icon> x${invit}`;
-    
-    if(info.event.extendedProps.cancelable === true){
-        document.getElementById("buttonModal").innerHTML = `
+            document.getElementById('modalInvitado').innerHTML = `<ion-icon name="person" aria-hidden="true"></ion-icon> x${invit}`;
+
+            if (info.event.extendedProps.cancelable === true) {
+                document.getElementById("buttonModal").innerHTML = `
             <button class="m11" onclick="cancelReserv(${info.event.id}, ${info.event.extendedProps.alumno}, ${info.event.extendedProps.classID}, ${info.event.extendedProps.invitado}, '${info.event.title}')">
                 <ion-icon name="close-circle-outline" aria-hidden="true"></ion-icon>
                 Cancelar
             </button>
-            `; 
-    }
-    
-    if(info.event.extendedProps.invitable === true){
-        document.getElementById("invitarModal").innerHTML = `
+            `;
+            }
+
+            if (info.event.extendedProps.invitable === true) {
+                document.getElementById("invitarModal").innerHTML = `
             <button class="m10" onclick="addInvitado(${info.event.id}, ${info.event.extendedProps.alumno}, ${info.event.extendedProps.classID})">
                 <ion-icon name="person-add-outline" aria-hidden="true"></ion-icon> 
                 Agregar Persona
             </button>
-            `;  
-    }
-    
+            `;
+            }
 
-    // Mostrar el modal 
-        document.getElementById('eventoModal').style.display = "flex";
-        setTimeout(function() {
-            document.getElementById('modal-content').classList.add("Act");
-        }, 50);
+
+            // Mostrar el modal 
+            document.getElementById('eventoModal').style.display = "flex";
+            setTimeout(function () {
+                document.getElementById('modal-content').classList.add("Act");
+            }, 50);
         }
-        });
+    });
 
-        calendar.render();
+    calendar.render();
 
-        // Cerrar el modal
-        document.getElementById('cerrarModal').onclick = function () {
-        setTimeout(function() {
+    // Cerrar el modal
+    document.getElementById('cerrarModal').onclick = function () {
+        setTimeout(function () {
             document.getElementById('eventoModal').style.display = "none";
         }, 500);
         document.getElementById('modal-content').classList.remove("Act");
-        };
+    };
 
-        // Cerrar al hacer clic fuera del modal
-        window.onclick = function(event) {
+    // Cerrar al hacer clic fuera del modal
+    window.onclick = function (event) {
         const modal = document.getElementById('eventoModal');
         const emodal = document.getElementById('modal-content');
         if (event.target == modal) {
-            setTimeout(function() {
-            modal.style.display = "none";
+            setTimeout(function () {
+                modal.style.display = "none";
             }, 500);
             emodal.classList.remove("Act");
 
         }
-        };
+    };
 }
 
 function coachCalendar() {
@@ -129,60 +129,60 @@ function coachCalendar() {
     document.getElementById('profile-calendario').style.display = 'block';
 
 
+    
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: window.innerWidth < 768 ? 'listWeek' : 'listWeek',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,listWeek'
+        },
+        locale: 'es',
+        events: 'coach-fetch-events.php',
 
-var calendarEl = document.getElementById('calendar');
-var calendar = new FullCalendar.Calendar(calendarEl, {
-initialView: window.innerWidth < 768 ? 'listWeek' : 'listWeek',
-headerToolbar: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'dayGridMonth,timeGridWeek,listWeek'
-},
-locale: 'es',
-events: 'coach-fetch-events.php',
+        eventClick: function (info) {
+            info.jsEvent.preventDefault();
+            document.getElementById('modalTitulo').textContent = info.event.title;
+            document.getElementById('aforo').textContent = info.event.extendedProps.aforo;
+            document.getElementById('modalInicio').textContent = info.event.start.toLocaleString();
+            document.getElementById('modalInstructor').textContent = info.event.extendedProps.instructor || "No especificado";
+            document.getElementById('modalDuracion').textContent = info.event.extendedProps.dura || "No especificado";
+            document.getElementById("clastatus").innerHTML = info.event.extendedProps.estatus;
+            document.getElementById("qrcode").innerHTML = "";
+            document.getElementById("qrcode").innerHTML = info.event.extendedProps.alm;
 
-eventClick: function(info) {
-    info.jsEvent.preventDefault();
-    document.getElementById('modalTitulo').textContent = info.event.title;
-    document.getElementById('aforo').textContent = info.event.extendedProps.aforo;
-    document.getElementById('modalInicio').textContent = info.event.start.toLocaleString();
-    document.getElementById('modalInstructor').textContent = info.event.extendedProps.instructor || "No especificado";
-    document.getElementById('modalDuracion').textContent = info.event.extendedProps.dura || "No especificado";
-    document.getElementById("clastatus").innerHTML = info.event.extendedProps.estatus;
-    document.getElementById("qrcode").innerHTML = "";
-    document.getElementById("qrcode").innerHTML = info.event.extendedProps.alm;
-  
-   
-    // Mostrar el modal
-        document.getElementById('eventoModal').style.display = "flex";
-        setTimeout(function() {
-            document.getElementById('modal-content').classList.add("Act");
-        }, 50);
+
+            // Mostrar el modal
+            document.getElementById('eventoModal').style.display = "flex";
+            setTimeout(function () {
+                document.getElementById('modal-content').classList.add("Act");
+            }, 50);
         }
-        });
+    });
 
-        calendar.render();
+    calendar.render();
 
-        // Cerrar el modal
-        document.getElementById('cerrarModal').onclick = function () {
-        setTimeout(function() {
+    // Cerrar el modal
+    document.getElementById('cerrarModal').onclick = function () {
+        setTimeout(function () {
             document.getElementById('eventoModal').style.display = "none";
         }, 500);
         document.getElementById('modal-content').classList.remove("Act");
-        };
+    };
 
-        // Cerrar al hacer clic fuera del modal
-        window.onclick = function(event) {
+    // Cerrar al hacer clic fuera del modal
+    window.onclick = function (event) {
         const modal = document.getElementById('eventoModal');
         const emodal = document.getElementById('modal-content');
         if (event.target == modal) {
-            setTimeout(function() {
-            modal.style.display = "none";
+            setTimeout(function () {
+                modal.style.display = "none";
             }, 500);
             emodal.classList.remove("Act");
 
         }
-        };
+    };
 }
 function cargarOpcionesFecha() {
     const selectDia = document.getElementById("dia");
@@ -234,16 +234,16 @@ function NameCredit() {
                 console.error(data.error);
                 return;
             }
-        
-         if(data.credit == "Ilimitados"){
-            var credx = "Créditos " + data.credit;
-        }else{
-            var credx = data.credit + " Créditos";
-        }
+
+            if (data.credit == "Ilimitados") {
+                var credx = "Créditos " + data.credit;
+            } else {
+                var credx = data.credit + " Créditos";
+            }
 
             document.getElementById("name").textContent = data.nombre;
             document.getElementById("credits").textContent = credx;
-        if (data.credit > 0 && data.fechaCredit) {
+            if (data.credit > 0 && data.fechaCredit) {
                 // Formatear fecha a dd/mm (puedes hacer con JS)
                 const fecha = new Date(data.fechaCredit);
                 const dia = fecha.getDate().toString().padStart(2, '0');
@@ -277,15 +277,15 @@ function eliminarCard(id) {
         },
         body: JSON.stringify({ card_id: id })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            actualizarCards(); // si se eliminó, recargamos la lista
-        } else {
-            alert('Error al eliminar la tarjeta');
-        }
-    })
-    .catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                actualizarCards(); // si se eliminó, recargamos la lista
+            } else {
+                alert('Error al eliminar la tarjeta');
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }
 function cancelarEvent(id) {
     fetch('cancel_event.php', {
@@ -295,16 +295,16 @@ function cancelarEvent(id) {
         },
         body: JSON.stringify({ card_id: id })
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            openCalendar(); // si se eliminó, recargamos la lista
-            NameCredit();
-        } else {
-            alert('Error al eliminar la tarjeta');
-        }
-    })
-    .catch(error => console.error('Error:', error));
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                openCalendar(); // si se eliminó, recargamos la lista
+                NameCredit();
+            } else {
+                alert('Error al eliminar la tarjeta');
+            }
+        })
+        .catch(error => console.error('Error:', error));
 }
 
 function actualizarCards() {
@@ -320,9 +320,9 @@ function actualizarCards() {
                 "linear-gradient(135deg, #e65c00 40%, #f9d423 60%)",
                 "linear-gradient(135deg, #614385 40%, #516395 60%)"
             ];
-        
+
             const cards = document.querySelectorAll(".use-card-btn");
-        
+
             if (cards.length > 0) {
                 cards.forEach((card, index) => {
                     if (index < gradients.length) {
@@ -332,41 +332,41 @@ function actualizarCards() {
             }
         });
 }
- 
 
-    //Datos de Perfil
-    document.addEventListener("DOMContentLoaded", () => {
-        cargarOpcionesFecha(); // <- primero cargar los selects
-    
-        fetch("get_data.php")
-            .then(res => res.json())
-            .then(data => {
-                if (data.error) return alert(data.error);
-    
-                document.getElementById("nombre").value = data.nombre;
-                document.getElementById("mail").value = data.mail;
-                document.getElementById("numero").value = data.numero;
-    
-                document.getElementById("dia").value = data.dia;
-                document.getElementById("mes").value = data.mes;
-                document.getElementById("anio").value = data.anio;
-            });
-    
-        document.getElementById("guardarBtn").addEventListener("click", () => {
-            const payload = {
-                nombre: document.getElementById("nombre").value,
-                mail: document.getElementById("mail").value,
-                numero: document.getElementById("numero").value,
-                dia: document.getElementById("dia").value,
-                mes: document.getElementById("mes").value,
-                anio: document.getElementById("anio").value
-            };
-    
-            fetch("update_user_data.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            })
+
+//Datos de Perfil
+document.addEventListener("DOMContentLoaded", () => {
+    cargarOpcionesFecha(); // <- primero cargar los selects
+
+    fetch("get_data.php")
+        .then(res => res.json())
+        .then(data => {
+            if (data.error) return alert(data.error);
+
+            document.getElementById("nombre").value = data.nombre;
+            document.getElementById("mail").value = data.mail;
+            document.getElementById("numero").value = data.numero;
+
+            document.getElementById("dia").value = data.dia;
+            document.getElementById("mes").value = data.mes;
+            document.getElementById("anio").value = data.anio;
+        });
+
+    document.getElementById("guardarBtn").addEventListener("click", () => {
+        const payload = {
+            nombre: document.getElementById("nombre").value,
+            mail: document.getElementById("mail").value,
+            numero: document.getElementById("numero").value,
+            dia: document.getElementById("dia").value,
+            mes: document.getElementById("mes").value,
+            anio: document.getElementById("anio").value
+        };
+
+        fetch("update_user_data.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        })
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -376,63 +376,63 @@ function actualizarCards() {
                     alert("Error al actualizar: " + data.error);
                 }
             });
-        });
     });
-    function cancelReserv(eventId, userId, clasId, tieneInvitado, title) {
-        if (confirm("¿Cancelar esta reservación?")) {
-          const datos = new URLSearchParams();
-          datos.append("evento", eventId);
-          datos.append("usuario", userId);
-          datos.append("classID", clasId);
-          datos.append("title", title);
-          datos.append("invitado", tieneInvitado);
-      
-          fetch("cancel_reserv.php", {
+});
+function cancelReserv(eventId, userId, clasId, tieneInvitado, title) {
+    if (confirm("¿Cancelar esta reservación?")) {
+        const datos = new URLSearchParams();
+        datos.append("evento", eventId);
+        datos.append("usuario", userId);
+        datos.append("classID", clasId);
+        datos.append("title", title);
+        datos.append("invitado", tieneInvitado);
+
+        fetch("cancel_reserv.php", {
             method: "POST",
             headers: {
-              "Content-Type": "application/x-www-form-urlencoded"
+                "Content-Type": "application/x-www-form-urlencoded"
             },
             body: datos.toString()
-          })
-          .then(response => response.text())
-          .then(data => {
-           
-            
-                setTimeout(function() {
+        })
+            .then(response => response.text())
+            .then(data => {
+
+
+                setTimeout(function () {
                     document.getElementById('eventoModal').style.display = "none";
                 }, 500);
                 document.getElementById('modal-content').classList.remove("Act");
-               
-            openCalendar();
-          })
-          .catch(error => {
-            console.error("Error:", error);
-            alert("Hubo un error al cancelar.");
-          });
-        }
-      }
-      function addInvitado(eventId, userId, clasId) {
-        if (confirm("¿Deseas agregar una persona?")) {
-            const datos = new URLSearchParams();
-            datos.append("evento", eventId);
-            datos.append("usuario", userId);
-            datos.append("classID", clasId);
-    
-            fetch("add_invitado.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: datos.toString()
+
+                openCalendar();
             })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Hubo un error al cancelar.");
+            });
+    }
+}
+function addInvitado(eventId, userId, clasId) {
+    if (confirm("¿Deseas agregar una persona?")) {
+        const datos = new URLSearchParams();
+        datos.append("evento", eventId);
+        datos.append("usuario", userId);
+        datos.append("classID", clasId);
+
+        fetch("add_invitado.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: datos.toString()
+        })
             .then(response => response.json()) // <-- aquí cambiamos a .json()
             .then(data => {
                 if (data.status === "nocredit") {
                     alert("Ya no cuentas con Créditos disponibles.");
                     return; // No seguimos ejecutando el resto
                 }
-    
-                setTimeout(function() {
+
+                setTimeout(function () {
                     document.getElementById('eventoModal').style.display = "none";
                 }, 500);
                 document.getElementById('modal-content').classList.remove("Act");
@@ -442,32 +442,31 @@ function actualizarCards() {
                 console.error("Error:", error);
                 alert("Hubo un error al cancelar.");
             });
-        }
     }
-    
-    function selectImage() {
-        document.getElementById('imageInput').click();
-      }
-      
-      document.getElementById('imageInput').addEventListener('change', async function() {
-        if (this.files.length > 0) {
-          const formData = new FormData();
-          formData.append('image', this.files[0]);
-      
-          try {
+}
+
+function selectImage() {
+    document.getElementById('imageInput').click();
+}
+
+document.getElementById('imageInput').addEventListener('change', async function () {
+    if (this.files.length > 0) {
+        const formData = new FormData();
+        formData.append('image', this.files[0]);
+
+        try {
             const response = await fetch('upload_image.php', {
-              method: 'POST',
-              body: formData
+                method: 'POST',
+                body: formData
             });
-            const result = await response.json(); 
+            const result = await response.json();
             if (result.status === 'success') {
-              location.reload(); 
+                location.reload();
             }
-          } catch (error) {
+        } catch (error) {
             console.error('Error:', error);
             document.getElementById('result').innerText = 'Error al subir la imagen';
-          }
         }
-      });      
-      
-      
+    }
+});
+

@@ -11,16 +11,39 @@ if (
     isset($_POST['activo'])
 ) {
     // Variables
-    $nombreCoach = trim($_POST['nombre_coach']);
+    $idCoachUser = trim($_POST['nombre_coach']);
     $descCoach = $_POST['desc_coach'];
     $idDisciplina = $_POST['nombre_disc'];
     $activo = $_POST['activo'];
 
     // Validación de entrada
-    if (empty($nombreCoach)) {
+    if (empty($idCoachUser)) {
         header('location: alta-coach.php?error=nombre_vacio');
         exit;
     }
+
+    $queryUser = "SELECT nombre FROM users WHERE id = ? AND (tipoUser = 2 OR tipoUser = 3);";
+    $stmtUser = $conn->prepare($queryUser);
+    $stmtUser->bind_param("i", $idCoachUser);
+
+    if (!$stmtUser->execute()) {
+        error_log(" Error al insertar coach: " . $stmt->error);
+        header('location: alta-coach.php?error=db_error');
+        exit;
+    }
+
+    $resUser = $stmtUser->get_result();
+    $rowUser = $resUser->fetch_assoc();
+    if (empty($rowUser) || empty($rowUser['nombre'])) {
+        $nombreSelect = $rowUser['nombre'];
+        // Imagen no válida, pero continuar con el registro del coach
+        error_log("No se encontro ningun nombre:".$rowUser['nombre'] );
+        header("location: alta-coach.php?warning=nombre_vacio_$nombreSelect");
+        return;
+    }
+    $nombreCoach = $rowUser['nombre'];
+
+
 
     // USAR PREPARED STATEMENTS para prevenir SQL injection
     $stmt = $conn->prepare("INSERT INTO coaches (nombre_coach, descripcion_coach, id_disciplina, activo) VALUES (?, ?, ?, ?)");
@@ -28,6 +51,16 @@ if (
 
     if ($stmt->execute()) {
         $idCoachImage = $conn->insert_id; // Obtener el ID insertado
+
+        // actualizamos el usario asignanode uus idUser que corresponde solo para los coaches
+        $queryUpdate = "UPDATE users SET iduser = ? WHERE id = ?";
+        $stmt = $conn->prepare($queryUpdate);
+        $stmt->bind_param("ii", $idCoachImage, $idCoachUser);
+        if (!$stmt->execute()) {
+            error_log(" Error al insertar coach de forma correcta, porfavor elimine y intentelo de nuevo \n Error: " . $stmt->error);
+            header('location: alta-coach.php?error=db_error');
+            exit;
+        }
 
         //  Procesar imagen SOLO si se subió
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
@@ -85,4 +118,4 @@ if (
 
     $stmt->close();
     exit;
-} 
+}

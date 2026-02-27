@@ -149,7 +149,7 @@ function cargarClases(day) {
       data.forEach(clase => {
         const btn = document.createElement('div');
         var reservable = '<a class="btn-rcoloresCoaches[index]eservar" style="color: #747373;">RESERVAR</a>';;
-        if (clase.abierta == "1") {
+        if (clase.abierta == "1" || clase.waitlist_disponible == "1") {
 
           reservable = `<p class="btn-bebida" href=""
                 onclick="handleReserva(event)"
