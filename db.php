@@ -10,10 +10,10 @@ if ($devON == false) {
     $username = "u379047759_ubarreN";
     $password = "Ubarre2025*";
     $database = "u379047759_ubarre"; */
-    $servername = "db";
+    $servername = "localhost";
     $username = "root";
-    $password = "root";
-    $database = "ubarre";
+    $password = "";
+    $database = "u379047759_ubarretea";
 }
 
 $conn = new mysqli($servername, $username, $password, $database);

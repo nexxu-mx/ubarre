@@ -36,8 +36,7 @@ try {
         $nombreCompleto = $row['nombre'] . ' ' . $row['apellido'];
         $nombre = $row['nombre'];
         $apellido = $row['apellido'];
-        
-        
+
         if($row['tipoUser'] == 1){
             $tipo = "Cliente";
         }elseif($row['tipoUser'] == 2){
@@ -46,7 +45,7 @@ try {
             $tipo = "Admin";
         }elseif($row['tipoUser'] == 4){
             $tipo = "Recepción";
-        }
+        } else ($tipo = "desconocido");
 
         ///maneja vencimiento 
 
