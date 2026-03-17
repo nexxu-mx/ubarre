@@ -1,5 +1,5 @@
 <?php
-$devON = true;
+$devON = false;// Cambia a true para desarrollo local, false para producción
 if ($devON == false) {
     $servername = "127.0.0.1";
     $username = "u379047759_ubarrelem";
