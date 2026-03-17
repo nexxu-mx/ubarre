@@ -747,7 +747,16 @@ function confirmacion(el) {
           <a href="paquetes.php" class="confirmar-reserva-btn">Ver Paquetes</a>
           </div>`;
 
-      } else if (data.status === 'duplicate') {
+      }else if (data.status === 'waitlist') {
+        document.getElementById('confirm-class').innerHTML = `
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; padding: 20px;">
+            <img src="assets/images/wait.svg" style="width: 80px" alt="Waitlist">
+            <h2>¡Estás en Lista de Espera!</h2>
+            <p>La clase está llena, pero te hemos anotado. Te avisaremos por correo si se libera un lugar.</p>
+            <a href="profile.php?set=reservaciones" class="confirmar-reserva-btn">Ver mis reservas</a>
+          </div>`;
+      }
+       else if (data.status === 'duplicate') {
         document.getElementById('confirm-class').innerHTML = `
           
           <div style="display: flex;flex-direction: column;align-items: center;gap: 30px;">
@@ -766,7 +775,7 @@ function confirmacion(el) {
     })
     .catch(error => {
       console.error('Error:', error);
-      /* alert('Hubo un problema al registrar.'); */
+      alert('Hubo un problema al registrar.');
       window.location.href = 'profile.php';
     });
 }

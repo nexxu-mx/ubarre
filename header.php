@@ -1,3 +1,10 @@
+
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <header class="header header-desktop" data-header>
   <div class="adorno-navbar"></div>
   <div class="container">
@@ -75,7 +82,7 @@
     <div class="container-profile-menu">
       <?php
 
-      session_start();
+      
       if (empty($_SESSION['idUser']) || empty($_SESSION['nombre'])) {
 
         echo '<div class="login-bolsa-navbar">

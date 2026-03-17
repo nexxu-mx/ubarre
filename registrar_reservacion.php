@@ -33,13 +33,10 @@ $activo = "1";
 date_default_timezone_set('America/Mexico_City');
 $fechaReserva = time();
 
-//----
 $inicio = null;
 $fin = null;
 
-
-
-// SEGUNDO: Obtener información de la clase (TICKET 2: incluye verificación de aforo para wait list)
+// Obtener información de la clase y verificar aforo
 $stmtC = $conn->prepare("SELECT hora_inicio, hora_fin, aforo, reservados FROM clases WHERE id = ?");
 $stmtC->bind_param("i", $idClase);
 $stmtC->execute();
@@ -56,8 +53,9 @@ if ($resultC->num_rows === 0) {
     $aforo = $rowC['aforo'];
     $reservados = $rowC['reservados'];
 }
+$stmtC->close();
 
-// TERCERO: Verificar créditos disponibles
+// Verificar créditos disponibles
 $stmtCredit = $conn->prepare("SELECT credit, ilimitado FROM users WHERE id = ?");
 $stmtCredit->bind_param("i", $alumno);
 $stmtCredit->execute();
@@ -76,7 +74,9 @@ if ($resultCredit->num_rows === 0) {
         exit();
     }
 }
-// SEGUNDO: Verificar si el usuario ya tiene reserva para esta clase
+$stmtCredit->close();
+
+// Verificar si el usuario ya tiene reserva para esta fecha (evitar duplicados)
 $stmtCheck = $conn->prepare("
     SELECT id 
     FROM reservaciones 
@@ -97,17 +97,17 @@ if ($ilimitado == 1) {
     if ($resultCheck->num_rows > 1) {
         echo json_encode([
             "status" => "duplicate",
-            "message" => "Con tu paquete ilimitado solo puedes reservar 2 clases por día"
-        ]);
+             "message" => "Con tu paquete ilimitado solo puedes reservar 2 clases por día"
+             ]);
         $stmtCheck->close();
         exit();
     }
 } else {
     if ($resultCheck->num_rows > 0) {
         echo json_encode([
-            "status" => "duplicate",
+            "status" => "duplicate", 
             "message" => "Solo puedes reservar 1 clase por día con tu paquete actual"
-        ]);
+            ]);
         $stmtCheck->close();
         exit();
     }
@@ -115,73 +115,78 @@ if ($ilimitado == 1) {
 
 
 $stmtCheck->close();
-
-// CUARTO: Verificar si la clase está llena (TICKET 2: Wait List)
+// Verificar si la clase está llena (TICKET 2: Wait List) Lógica de Lista de Espera
 $enEspera = 0;
 $fechaIngresoEspera = null;
 
+// Si reservados ya alcanzó o superó el aforo se va a espera
 if ($reservados >= $aforo) {
     // Clase llena - agregar a wait list
     $enEspera = 1;
     $fechaIngresoEspera = date('Y-m-d H:i:s');
 }
 
-// QUINTO: Insertar la reserva (si pasó todas las validaciones)
+// Insertar la reserva (si pasó todas las validaciones)
 $stmt = $conn->prepare("INSERT INTO reservaciones (clase, idClase, alumno, dura, instructor, idInstructor, invitado, activo, sabor, momento, inicio, fin, fechaReserva, en_espera, fecha_ingreso_espera) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("sssssssssssssss", $clase, $idClase, $alumno, $dura, $instructor, $idInstructor, $invitado, $activo, $sabor, $momento, $inicio, $fin, $fechaReserva, $enEspera, $fechaIngresoEspera);
 
 if ($stmt->execute()) {
-    // Solo incrementar reservados si NO está en wait list
+    $stmt->close();
+        // Solo incrementar reservados si NO está en wait list
     if ($enEspera == 0) {
+        // --- FLUJO CON CUPO DISPONIBLE ---
+        
+        // Aumentar reservados en tabla clases
         $stmtR = $conn->prepare("UPDATE clases SET reservados = reservados + 1 WHERE id = ?");
         $stmtR->bind_param("i", $idClase);
         $stmtR->execute();
         $stmtR->close();
-    }
 
-    // Solo descontar crédito si NO está en wait list
-    if ($enEspera == 0) {
+        //Descontar crédito al usuario
         $stmtUR = $conn->prepare("UPDATE users SET credit = credit - 1 WHERE id = ?");
         $stmtUR->bind_param("i", $alumno);
-
-        if ($stmtUR->execute()) {
-            //Descontar Smoothie si correponse
-            if ($restarSmoothie) {
-                $stmtSmoothie = $conn->prepare("UPDATE users SET total_smoothies = total_smoothies - 1 WHERE id = ?");
-                $stmtSmoothie->bind_param("i", $alumno);
-
-                if (!$stmtSmoothie->execute()) {
-                    error_log("Error al restar Smoothie: " . $stmtSmoothie->error);
-                }
-                $stmtSmoothie->close();
-            }
-            $mail_mailing = $_SESSION['email'];
-            $mail_asunto = "Reservaste $clase";
-            $mail_motivo = "$clase";
-            $mail_motivo2 = "Te esperamos en $clase el $inicio";
-            $mail_descripcion = "Tu reservación de $clase con $instructor el $inicio, se agendó de manera exitosa! Puedes revistar los detalles de tu reserva en tu perfil.";
-            $mail_tabla = "Recuerda que puedes cancelar tu reservación hasta con 6 horas de anticipación.";
-            include 'success_mail.php';
-
-            echo json_encode(["status" => "success"]);
-        } else {
-            echo json_encode(["status" => false, "error" => $stmtUR->error]);
-        }
+        $stmtUR->execute();
         $stmtUR->close();
+
+        //Descontar Smoothie si corresponde
+        if ($restarSmoothie) {
+            $stmtSmoothie = $conn->prepare("UPDATE users SET total_smoothies = total_smoothies - 1 WHERE id = ?");
+            $stmtSmoothie->bind_param("i", $alumno);
+            $stmtSmoothie->execute();
+            $stmtSmoothie->close();
+        }
+
+        // Enviar Mail Éxito
+        $mail_mailing = $_SESSION['email'];
+        $mail_asunto = "Reservaste $clase";
+        $mail_motivo = "$clase";
+        $mail_motivo2 = "Te esperamos en $clase el $inicio";
+        $mail_descripcion = "Tu reservación de $clase con $instructor el $inicio, se agendó de manera exitosa! Puedes revistar los detalles de tu reserva en tu perfil.";
+        $mail_tabla = "Recuerda que puedes cancelar tu reservación hasta con 6 horas de anticipación.";
+        include 'success_mail.php';
+
+        echo json_encode(["status" => "success"]);
+        exit();
+
     } else {
-        // Usuario agregado a wait list
+        // --- FLUJO LISTA DE ESPERA (Aforo lleno) ---
+        // NO aumentamos 'reservados' en 'clases' ni descontamos créditos del usuario
+
+        // Enviar Mail Lista de Espera
         $mail_mailing = $_SESSION['email'];
         $mail_asunto = "En Lista de Espera - $clase";
         $mail_motivo = "Lista de Espera - $clase";
-        $mail_motivo2 = "Estás en lista de espera para $clase el $inicio";
+        $mail_motivo2 = "Estás en lista de espera para $clase";
         $mail_descripcion = "Has sido agregado a la lista de espera para $clase con $instructor el $inicio. Te notificaremos si se libera un lugar.";
-        $mail_tabla = "Si alguien cancela su reservación, serás promovido automáticamente.";
+        $mail_tabla = "Si alguien cancela, serás promovido automáticamente.";
         include 'success_mail.php';
 
         echo json_encode(["status" => "waitlist", "message" => "Agregado a lista de espera"]);
+        exit();
     }
 } else {
     echo json_encode(['status' => 'error', 'message' => 'No se pudo registrar']);
+    exit();
 }
 
 // Cerrar todas las conexiones
@@ -189,3 +194,5 @@ $stmtCredit->close();
 $stmtC->close();
 $stmt->close();
 $conn->close();
+
+?>
