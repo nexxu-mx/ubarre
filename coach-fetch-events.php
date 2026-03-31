@@ -39,15 +39,24 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 $eventos = [];
+$clasesProcesadas = []; 
 
 while ($row = $result->fetch_assoc()) {
+  $idClaseEvento = $row["idClase"];
+  
+  if (in_array($idClaseEvento, $clasesProcesadas)) {
+      continue;
+  }
+
+  $clasesProcesadas[] = $idClaseEvento;
+
   $token = generarToken16Digitos();
   $invitado = $row["invitado"] ?? "0";
 
   $cancelable = (time() - $row["fechaReserva"]) > 7200 ? false : true;
 
   // TICKET 3: Obtener aforo real desde la tabla clases
-  $idClaseEvento = $row["idClase"];
+  //$idClaseEvento = $row["idClase"];
   $stmtAforo = $conn->prepare("SELECT aforo, reservados FROM clases WHERE id = ?");
   $stmtAforo->bind_param("i", $idClaseEvento);
   $stmtAforo->execute();
@@ -81,7 +90,7 @@ while ($row = $result->fetch_assoc()) {
   while ($alumno = $resultAlumnos->fetch_assoc()) {
     $hayAlumnos = true;
     $nombreCompleto = $alumno['nombre'] . ' ' . $alumno['apellido'];
-    $iconoEspera = ($alumno['en_espera'] == 1) ? ' 🕐' : '';
+    $iconoEspera = ($alumno['en_espera'] == 1) ? ' <span title="En lista de espera" style="cursor:help;">🕐</span>' : '';
     $alumnos .= '<li class="al2">' . htmlspecialchars($nombreCompleto) . $iconoEspera . '</li>';
   }
 
@@ -94,7 +103,7 @@ while ($row = $result->fetch_assoc()) {
   // FIN TICKET 3
 
   $eventos[] = [
-    "id" => $row["id"],
+    "id" => $idClaseEvento, 
     "title" => $row["clase"],
     "instructor" => $row["instructor"],
     "invitado" => $invitado,
@@ -109,4 +118,4 @@ while ($row = $result->fetch_assoc()) {
 }
 
 header('Content-Type: application/json');
-  echo json_encode($eventos);
+echo json_encode($eventos);

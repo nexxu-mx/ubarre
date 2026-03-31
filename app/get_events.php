@@ -13,7 +13,8 @@ $sqlA = "SELECT
             reservaciones.alumno, 
             reservaciones.invitado,
             reservaciones.sabor,
-            reservaciones.momento
+            reservaciones.momento,
+            reservaciones.en_espera 
          FROM reservaciones 
          INNER JOIN users ON reservaciones.alumno = users.id 
          WHERE reservaciones.idClase = ?";
@@ -30,6 +31,7 @@ while ($row = $result->fetch_assoc()) {
     } else {
         $disciplina = "Sin Disciplina";
     }
+
     $stmtC->bind_param("i", $row['id_coach']);
     $stmtC->execute();
     $resultC = $stmtC->get_result();
@@ -38,10 +40,11 @@ while ($row = $result->fetch_assoc()) {
     } else {
         $coach = "Sin Coach";
     }
+
     $aforo = $row['reservados'] . "/" . $row['aforo'];
-         $start = new DateTime($row['hora_inicio']);
-        $end = new DateTime($row['hora_fin']);
-        $diff = $start->diff($end);
+    $start = new DateTime($row['hora_inicio']);
+    $end = new DateTime($row['hora_fin']);
+    $diff = $start->diff($end);
 
     if($row['reservados'] > $row['aforo']){
         $open = false;
@@ -59,7 +62,7 @@ while ($row = $result->fetch_assoc()) {
         $minutos = $minutosTotales % 60;
         $dura = $horas . ":" . str_pad($minutos, 2, "0", STR_PAD_LEFT) . " h";
     }   
-// lista de alumnos
+    // lista de alumnos
     $stmtA = $conn->prepare($sqlA);
     $stmtA->bind_param("i", $row['id']);
     $stmtA->execute();
@@ -71,6 +74,7 @@ while ($row = $result->fetch_assoc()) {
         $name1 = htmlspecialchars($rowA['nombre']);
         $name2 = htmlspecialchars($rowA['apellido']);
         $name = $name1 . ' ' . $name2;
+        $iconoEspera = ($rowA['en_espera'] == 1) ? ' <span title="En lista de espera" style="cursor:help;">🕐</span>' : '';
         
         $sabor = htmlspecialchars($rowA['sabor']);
         $sabor = $sabor==""?" ":$sabor;
@@ -87,7 +91,7 @@ while ($row = $result->fetch_assoc()) {
         $onclick2 = "addInvitado($a1,$a2,$idEvent)";
         $asistencia = 1 + $rowA['invitado'];
         $alumnos.= '<li style="display: flex;justify-content: space-between;">
-        <p>' . $name . ' (x' . $asistencia . ')</p>
+        <p>' . $name . ' (x' . $asistencia . ')' . $iconoEspera . '</p>
         <p style="border-left: 1px solid #c5c5c5; padding-left: 1rem;">'.$sabor.$momento.'</p>
         <div style="display: flex;gap: 10px;">
         <i class="fas fa-trash-alt trash" onclick="' . $onclick . '"></i> 
@@ -108,7 +112,7 @@ while ($row = $result->fetch_assoc()) {
     'end' => $row['hora_fin'],
     'idcoach' => $row['id_coach'],
     'open' => $open
-    
+
   ];
 }
 
