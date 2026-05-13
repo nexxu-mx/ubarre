@@ -318,7 +318,7 @@ if((int)$_SESSION['tipoUser'] !== 3 && (int)$_SESSION['tipoUser'] !== 4){
                                                 
                                                 <input type="<?php 
                                                                 if ((int)$_SESSION['tipoUser'] == 4) {
-                                                                echo "hidden";
+                                                                echo "text";
                                                                 } else {
                                                                 echo "text"; // o lo que quieras en caso contrario
                                                                 }
