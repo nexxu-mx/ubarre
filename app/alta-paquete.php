@@ -140,7 +140,7 @@ if (!isset($_SESSION['idUser']) || !isset($_SESSION['tipoUser'])) {
                                         </div>
 
                                         <div class="col-6" id="smoothieInput" style="display: none;">
-                                            <input type="number" id="smoothies_paquete" name="smoothies_paquete" placeholder="Número de Smoothies" class="form-control input-group input-group-lg p-3 bg-body-secondary" min="1" max="12"  value="'. $filaPaquete['total_smoothies'] .'">
+                                            <input type="number" id="smoothies_paquete" name="smoothies_paquete" placeholder="Número de Smoothies" class="form-control input-group input-group-lg p-3 bg-body-secondary" min="0" max="12"  value="'. $filaPaquete['total_smoothies'] .'">
                                         </div>
                                     </div>
                                         <div class="col-12 mt-2" id="ilimitInput">
